@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" type="image/png" href="images/Icon.png">
+    <title>Eddie Clicker</title>
+</head>
+
+<body>
+    <div class="center">
+        <p id="count" class="counter">0</p>
+        <p class="cps-label">CPS:
+        <p id="cps" class="cps">0</p>
+        <p class="cpc-label"><br>CPC:
+        <p id="cpc" class="cpc">1</p>
+        </p>
+        <img id="eddie" src="images/EddieSphere.gif" class="eddie" onclick="eddieclick()">
+    </div>
+
+    <section class="section-buildings">
+        <div class="buildings">
+            <div>
+                <img id="cursorimg" src="images/buildings/cursor.png" class="building" onclick="buycursor()">
+            </div>
+            <div>
+                <img id="boneimg" src="images/buildings/bone.png" class="building" onclick="buybone()">
+            </div>
+        </div>
+
+        <div class="buildings-prices">
+            <p id="cursorprice" class="building-price">10</p>
+            <p id="boneprice" class="building-price">100</p>
+        </div>
+
+    </section>
+
+    <section class="section-upgrades">
+        <div class="upgrades">
+            <!--<img src="buildings/goldenfingers.png" class="upgrade" onclick="upgrade_goldenfingers()">-->
+        </div>
+    </section>
+
+    <footer class="version">
+        BETA 0.00
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="upgrades.js"></script>
+</body>
+
+
+
+</html>

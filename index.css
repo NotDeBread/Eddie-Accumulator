@@ -1,0 +1,119 @@
+:root {
+  --bg: rgb(32, 28, 45);
+  --darkbg: rgb(24, 22, 36);
+  --darkerbg: rgb(18, 17, 27);
+}
+
+@font-face {
+  font-family: renogare;
+  src: url("fonts/renogare.otf");
+}
+
+html {
+  font-size: 62.5%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background-color: var(--bg);
+  font-family: renogare;
+}
+
+p {
+  color: white;
+}
+
+.counter {
+  font-size: 3em;
+  margin-bottom: 0;
+}
+
+.cps-label {
+  display: inline;
+  color: gray;
+}
+
+.cps {
+  display: inline;
+  color: gray;
+}
+
+.cpc-label {
+  display: inline;
+  color: gray;
+}
+
+.cpc {
+  display: inline;
+  color: gray;
+}
+
+.eddie {
+  width: 150px;
+  margin: 50px;
+  cursor: pointer;
+}
+
+.eddie:hover {
+  transform: scale(105%);
+}
+
+.eddie:active {
+  transform: scale(100%);
+}
+
+.center {
+  text-align: center;
+}
+
+.section-buildings {
+  background-color: var(--darkbg);
+}
+
+.section-upgrades {
+  background-color: var(--darkbg);
+}
+
+.buildings {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.buildings-prices {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.building-price {
+  font-size: 1.5em;
+  color: red;
+  margin: 0;
+}
+
+.building {
+  width: 75px;
+  cursor: pointer;
+  filter: brightness(75%);
+  padding: 10px;
+}
+
+.building:active {
+  transform: scale(95%);
+}
+
+.buildings {
+  text-align: center;
+}
+
+.upgrade {
+  width: 75px;
+  padding: 10px;
+}
+
+.upgrade:active {
+  transform: scale(95%);
+}
+
+.version {
+  color: white;
+  opacity: 50%;
+}
