@@ -1,55 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+    TODO:
+    -Achievements
+    -More Upgrades
+    -More Items
+    -Better UI
+    -Saving
+-->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" type="image/png" href="images/Icon.png">
-    <title>Eddie Clicker</title>
+    <link rel="shortcut icon" type="image/png" href="images/icon.png">
+    <title>Eddie Accumulator</title>
 </head>
 
 <body>
+
+    <div class="topper">
+        <p style="display: inline;">Eddie Accumulator</p>
+        <div class="topper-divider">|</div>
+        <a class="debread" href="https://notdebread.github.io/Website-V3/" target="_blank">DeBread</a>
+        <a style="float: right;" href="changelog.html">Changelog</a>
+    </div>
+
     <div class="center">
-        <p id="count" class="counter">0</p>
-        <p class="cps-label">CPS:
-        <p id="cps" class="cps">0</p>
-        <p class="cpc-label"><br>CPC:
-        <p id="cpc" class="cpc">1</p>
-        </p>
+        <div class="counter-all">
+            <p id="count" class="counter">0</p>
+            <p class="cps-label" title="Clicks Per Second">CPS:
+            <p id="cps" class="cps">0</p>
+            <p class="cpc-label" title="Clicks Per Click"><br>CPC:
+            <p id="cpc" class="cpc">1</p>
+            </p>
+        </div>
         <img id="eddie" src="images/EddieSphere.gif" class="eddie" onclick="eddieclick()">
     </div>
+
+    <section class="section-info">
+        <p id="info_title" class="info-title">-</p>
+        <p class="info-label" id="info_label">CPS:</p>
+        <p id="info_cps" class="info-cps">-</p>
+        <p class="info-label" style="color: grey;" id="owned_label"><br>Owned:</p>
+        <p id="info_owned" class="info-owned">-</p>
+    </section>
+
 
     <section class="section-buildings">
         <div class="buildings">
             <div>
-                <img id="cursorimg" src="images/buildings/cursor.png" class="building" onclick="buycursor()">
+                <img id="cursorimg" src="images/buildings/cursor.png" class="building" onclick="buycursor()"
+                    onmouseenter="cursor_hover()">
             </div>
             <div>
-                <img id="boneimg" src="images/buildings/bone.png" class="building" onclick="buybone()">
+                <img id="boneimg" src="images/buildings/bone.png" class="building" onclick="buybone()"
+                    onmouseenter="bone_hover()">
+            </div>
+            <div>
+                <img id="ballimg" src="images/buildings/ball.png" class="building" onclick="buyball()"
+                    onmouseenter="ball_hover()">
             </div>
         </div>
 
         <div class="buildings-prices">
             <p id="cursorprice" class="building-price">10</p>
             <p id="boneprice" class="building-price">100</p>
+            <p id="ballprice" class="building-price">500</p>
         </div>
 
     </section>
 
     <section class="section-upgrades">
         <div class="upgrades">
-            <!--<img src="buildings/goldenfingers.png" class="upgrade" onclick="upgrade_goldenfingers()">-->
+            <div id="upgrade_goldenfingers" hidden>
+                <img src="images/upgrades/goldenfingers.png" class="upgrade" onclick="upgrade_goldenfingers()"
+                    onmouseenter="upgrade_goldenfingers_hover()" id="upgrade_goldenfingers_img">
+                <p class="upgrade-price" id="upgrade_goldenfingers_price">1000</p>
+            </div>
         </div>
     </section>
 
-    <footer class="version">
-        BETA 0.00
+    <div class="savebutton">
+        <p class="savebutton-text" onclick="autosave()">Save</p>
+    </div>
+
+    <footer>
+        <a class="version" href="changelog.html">BETA 0.01</a>
     </footer>
 
     <script src="script.js"></script>
-    <script src="upgrades.js"></script>
 </body>
 
 

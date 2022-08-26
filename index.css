@@ -17,12 +17,64 @@ html {
   font-family: renogare;
 }
 
-p {
+p,
+a {
   color: white;
+  margin: 0;
+  text-decoration: none;
+}
+
+a:hover {
+  transform: scale(105%);
+}
+
+a:active {
+  transform: scale(100%);
+}
+
+body {
+  margin: 0;
+}
+
+.debread {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 1920px;
+  background-image: url(images/gradient.png);
+  animation: gradient 5s linear infinite;
+  display: inline;
+}
+
+@keyframes gradient {
+  0% {
+  }
+  100% {
+    background-position: 1920px;
+  }
+}
+
+.topper {
+  background-color: var(--darkbg);
+  padding: 5px;
+}
+
+.topper-divider {
+  display: inline;
+  color: var(--darkerbg);
+}
+
+.center {
+  text-align: center;
+}
+
+.counter-all {
+  text-align: center;
+  cursor: default;
 }
 
 .counter {
-  font-size: 3em;
+  font-size: 4em;
   margin-bottom: 0;
 }
 
@@ -50,6 +102,7 @@ p {
   width: 150px;
   margin: 50px;
   cursor: pointer;
+  transition: transform ease-in-out 50ms;
 }
 
 .eddie:hover {
@@ -60,27 +113,52 @@ p {
   transform: scale(100%);
 }
 
-.center {
+.section-info {
+  background-color: var(--darkbg);
   text-align: center;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .section-buildings {
   background-color: var(--darkbg);
+  padding: 10px;
 }
 
 .section-upgrades {
+  margin-top: 10px;
   background-color: var(--darkbg);
+  height: 120px;
+}
+
+.info-title {
+  font-size: 2em;
+  margin: 0;
+}
+
+.info-cps {
+  margin: 0;
+  display: inline;
+}
+
+.info-owned {
+  margin: 0;
+  display: inline;
+}
+
+.info-label {
+  display: inline;
 }
 
 .buildings {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .buildings-prices {
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .building-price {
@@ -93,27 +171,72 @@ p {
   width: 75px;
   cursor: pointer;
   filter: brightness(75%);
-  padding: 10px;
+  padding: 0px;
+}
+
+.building:hover {
+  transform: scale(105%);
 }
 
 .building:active {
-  transform: scale(95%);
+  transform: scale(100%);
 }
 
 .buildings {
   text-align: center;
 }
 
+.upgrades {
+  display: grid;
+  text-align: center;
+}
+
 .upgrade {
   width: 75px;
-  padding: 10px;
+  padding-top: 10px;
+  filter: brightness(75%);
+}
+
+.upgrade:hover {
+  transform: scale(105%);
 }
 
 .upgrade:active {
-  transform: scale(95%);
+  transform: scale(100%);
+}
+
+.upgrade-price {
+  color: red;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.savebutton {
+  text-align: center;
+  background-color: var(--darkbg);
+  width: 100px;
+  padding: 5px;
+  margin: 0 auto;
+  margin-top: 10px;
+  cursor: pointer;
+  border: 1px solid var(--darkerbg);
+}
+
+.savebutton:hover {
+  transform: scale(105%);
+}
+
+.savebutton:active {
+  transform: scale(100%);
+}
+
+.savebutton-text {
+  font-size: 1.5em;
 }
 
 .version {
-  color: white;
+  color: black;
   opacity: 50%;
+  position: absolute;
+  bottom: 0;
 }

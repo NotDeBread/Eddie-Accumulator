@@ -1,0 +1,90 @@
+:root {
+  --bg: rgb(32, 28, 45);
+  --darkbg: rgb(24, 22, 36);
+  --darkerbg: rgb(18, 17, 27);
+  --darkestbg: rgb(11, 11, 17);
+}
+
+@font-face {
+  font-family: renogare;
+  src: url("fonts/renogare.otf");
+}
+
+html {
+  font-size: 62.5%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background-color: var(--bg);
+}
+
+p,
+a {
+  color: white;
+  margin: 0;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  font-family: renogare;
+}
+
+.backbutton {
+  text-align: center;
+  position: absolute;
+  padding: 5px;
+  background-color: var(--darkerbg);
+  width: 50px;
+  left: 5px;
+  top: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.backbutton:hover {
+  transform: scale(105%);
+}
+
+.backbutton:active {
+  transform: scale(95%);
+}
+
+.section-title {
+  text-align: center;
+  background-color: var(--darkbg);
+  height: 100px;
+}
+
+.title {
+  font-size: 3em;
+  margin: 0;
+  padding: 30px;
+}
+
+.changelog {
+  margin: 50px;
+}
+
+.changelog-title {
+  text-align: center;
+  font-size: 2em;
+  background-color: var(--darkerbg);
+  width: 200px;
+  position: relative;
+}
+
+.changelog-title:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top: 10px solid var(--bg);
+  border-left: 10px solid var(--darkerbg);
+  width: 0;
+}
+
+.changelog-body {
+  font-size: 1.5em;
+  background-color: var(--darkbg);
+  padding: 10px;
+}
