@@ -2,6 +2,7 @@
   --bg: rgb(32, 28, 45);
   --darkbg: rgb(24, 22, 36);
   --darkerbg: rgb(18, 17, 27);
+  --upgrades: 1;
 }
 
 @font-face {
@@ -64,6 +65,85 @@ body {
   color: var(--darkerbg);
 }
 
+.settings {
+  position: absolute;
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  transition: background-color 0.25s ease-in-out, width 0.25s ease-in-out,
+    height 0.25s ease-in-out;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.settings-text {
+  width: 100%;
+  text-align: center;
+  padding-right: 40px;
+  transition: color 0.1s ease-in-out;
+}
+
+.settings-img {
+  cursor: pointer;
+  filter: invert();
+  width: 30px;
+  margin: 5px;
+}
+
+.settings-title {
+  text-align: center;
+  font-size: 1.25em;
+  position: absolute;
+}
+
+.settings-content .settings-deletebutton {
+  transition: opacity, 0.5s ease-in-out;
+  text-align: center;
+  opacity: 0;
+}
+
+.settings-text {
+  font-size: 1.25em;
+}
+
+.settings-deletebutton {
+  background-color: var(--darkbg);
+  width: 100px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid red;
+  cursor: pointer;
+}
+
+.settings-deletebutton:hover {
+  transform: scale(105%);
+}
+
+.settings-deletebutton:active {
+  transform: scale(100%);
+}
+
+.setting-1 {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+}
+
+.setting-checkbox-1-text {
+  font-size: 1.25em;
+}
+
+.settings-checkbox-1 {
+  width: 25px;
+  filter: invert();
+}
+
 .center {
   text-align: center;
 }
@@ -103,6 +183,22 @@ body {
   margin: 50px;
   cursor: pointer;
   transition: transform ease-in-out 50ms;
+}
+
+.noti {
+  text-align: center;
+  margin-bottom: 50px;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.noti-text {
+  background-color: rgba(0, 0, 0, 50%);
+  margin: 0 auto;
+  width: 100px;
+  font-size: 1.5em;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .eddie:hover {
@@ -189,6 +285,7 @@ body {
 .upgrades {
   display: grid;
   text-align: center;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .upgrade {

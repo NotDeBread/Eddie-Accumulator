@@ -28,6 +28,23 @@
         <a style="float: right;" href="changelog.html">Changelog</a>
     </div>
 
+    <div class="settings" id="settings">
+        <div class="settings-header">
+            <img src="images/icons/settings.png" class="settings-img" id="settings_img" onclick="settings()">
+            <p class="settings-text" id="settings_header">Settings</p>
+        </div>
+        <div id="settings_content">
+            <div class="settings-deletebutton" onclick="deletesave()">
+                <p class="settings-deletebutton-text">Delete Save</p>
+            </div>
+        </div>
+        <div class="setting-1">
+            <img src="images/icons/checkbox2.png" class="settings-checkbox-1" onclick="setting1()" id="setting1-img">
+            <p class="setting-checkbox1-text">Autosaves</p>
+        </div>
+    </div>
+
+
     <div class="center">
         <div class="counter-all">
             <p id="count" class="counter">0</p>
@@ -40,6 +57,10 @@
         <img id="eddie" src="images/EddieSphere.gif" class="eddie" onclick="eddieclick()">
     </div>
 
+    <div class="noti" id="savenoti">
+        <p class="noti-text">Saved!</p>
+    </div>
+
     <section class="section-info">
         <p id="info_title" class="info-title">-</p>
         <p class="info-label" id="info_label">CPS:</p>
@@ -47,7 +68,6 @@
         <p class="info-label" style="color: grey;" id="owned_label"><br>Owned:</p>
         <p id="info_owned" class="info-owned">-</p>
     </section>
-
 
     <section class="section-buildings">
         <div class="buildings">
@@ -80,11 +100,16 @@
                     onmouseenter="upgrade_goldenfingers_hover()" id="upgrade_goldenfingers_img">
                 <p class="upgrade-price" id="upgrade_goldenfingers_price">1000</p>
             </div>
+            <div id="upgrade_platinumfingers" hidden>
+                <img src="images/upgrades/platinumfingers.png" class="upgrade" onclick="upgrade_platinumfingers()"
+                    onmouseenter="upgrade_platinumfingers_hover()" id="upgrade_platinumfingers_img">
+                <p class="upgrade-price" id="upgrade_platinumfingers_price">10000</p>
+            </div>
         </div>
     </section>
 
     <div class="savebutton">
-        <p class="savebutton-text" onclick="autosave()">Save</p>
+        <p class="savebutton-text" onclick="save()">Save</p>
     </div>
 
     <footer>

@@ -88,3 +88,10 @@ body {
   background-color: var(--darkbg);
   padding: 10px;
 }
+.changelog-extention {
+  padding-left: 10px;
+}
+
+.changelog-extention-2 {
+  padding-left: 25px;
+}
