@@ -2,12 +2,17 @@
   --bg: rgb(32, 28, 45);
   --darkbg: rgb(24, 22, 36);
   --darkerbg: rgb(18, 17, 27);
-  --upgrades: 1;
+  --upgrades: 0;
 }
 
 @font-face {
   font-family: renogare;
   src: url("fonts/renogare.otf");
+}
+
+@font-face {
+  font-family: inconsolata;
+  src: url("fonts/inconsolata.ttf");
 }
 
 html {
@@ -74,6 +79,7 @@ body {
     height 0.25s ease-in-out;
   overflow: hidden;
   border-radius: 5px;
+  z-index: 1;
 }
 
 .settings-header {
@@ -94,6 +100,15 @@ body {
   filter: invert();
   width: 30px;
   margin: 5px;
+  z-index: 2;
+}
+
+.settings-img:hover {
+  transform: scale(110%);
+}
+
+.settings-img:active {
+  transform: scale(100%);
 }
 
 .settings-title {
@@ -102,8 +117,8 @@ body {
   position: absolute;
 }
 
-.settings-content .settings-deletebutton {
-  transition: opacity, 0.5s ease-in-out;
+.settings-content {
+  transition: opacity, 0.25s ease-in-out;
   text-align: center;
   opacity: 0;
 }
@@ -119,6 +134,7 @@ body {
   text-align: center;
   border: 1px solid red;
   cursor: pointer;
+  margin-top: 30px;
 }
 
 .settings-deletebutton:hover {
@@ -139,9 +155,83 @@ body {
   font-size: 1.25em;
 }
 
-.settings-checkbox-1 {
+.settings-checkbox {
   width: 25px;
   filter: invert();
+  cursor: pointer;
+}
+
+.settings-checkbox:hover {
+  transform: scale(110%);
+}
+
+.settings-checkbox:active {
+  transform: scale(100%);
+}
+
+.setting-2 {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+}
+
+.setting-checkbox-2-text {
+  font-size: 1.25em;
+}
+
+.credits {
+  position: absolute;
+  top: 60px;
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: width ease-in-out 0.25s, height ease-in-out 0.25s,
+    background-color ease-in-out 0.25s;
+}
+
+.credits-img {
+  filter: invert();
+  width: 30px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.credits-img:hover {
+  transform: scale(110%);
+}
+
+.credits-img:active {
+  transform: scale(100%);
+}
+
+.credits-header {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.credits-text {
+  width: 100%;
+  text-align: center;
+  padding-right: 40px;
+  transition: color 0.1s ease-in-out;
+}
+
+.credits-content {
+  transition: opacity, 0.25s ease-in-out;
+  text-align: center;
+  opacity: 0;
+}
+
+.credits-link {
+  cursor: pointer;
+  font-size: 1.25em;
+}
+
+.credits-link:hover {
+  font-size: 1.35em;
 }
 
 .center {
@@ -156,6 +246,7 @@ body {
 .counter {
   font-size: 4em;
   margin-bottom: 0;
+  font-family: renogare;
 }
 
 .cps-label {
@@ -189,7 +280,8 @@ body {
   text-align: center;
   margin-bottom: 50px;
   opacity: 0;
-  transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+  transform: scale(75%);
 }
 
 .noti-text {
@@ -285,7 +377,7 @@ body {
 .upgrades {
   display: grid;
   text-align: center;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(var(--upgrades), 1fr);
 }
 
 .upgrade {

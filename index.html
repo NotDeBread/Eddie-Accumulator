@@ -19,7 +19,7 @@
     <title>Eddie Accumulator</title>
 </head>
 
-<body>
+<body onload="load()">
 
     <div class="topper">
         <p style="display: inline;">Eddie Accumulator</p>
@@ -33,14 +33,34 @@
             <img src="images/icons/settings.png" class="settings-img" id="settings_img" onclick="settings()">
             <p class="settings-text" id="settings_header">Settings</p>
         </div>
-        <div id="settings_content">
-            <div class="settings-deletebutton" onclick="deletesave()">
-                <p class="settings-deletebutton-text">Delete Save</p>
+        <div class="setting-1">
+            <img src="images/icons/checkbox2.png" class="settings-checkbox" onclick="setting1(); save()"
+                id="setting1-img">
+            <p class="setting-checkbox1-text">Autosaves</p>
+        </div>
+        <div class="setting-2">
+            <img src="images/icons/checkbox1.png" class="settings-checkbox" onclick="setting2(); save()"
+                id="setting2-img">
+            <p class="setting-checkbox2-text">Monospace Font</p>
+        </div>
+        <div id="settings_content" class="settings-content">
+            <div class="settings-deletebutton" onclick="deletebutton()">
+                <p class="settings-deletebutton-text" id="deletebutton_text">Delete Save</p>
             </div>
         </div>
-        <div class="setting-1">
-            <img src="images/icons/checkbox2.png" class="settings-checkbox-1" onclick="setting1()" id="setting1-img">
-            <p class="setting-checkbox1-text">Autosaves</p>
+    </div>
+
+    <div class="credits" id="credits">
+        <div class="credits-header">
+            <img src="images/icons/users.png" class="credits-img" id="credits_img" onclick="credits()">
+            <p class="credits-text" id="credits_header">Credits</p>
+        </div>
+        <div id="credits_content" class="credits-content">
+            <div>
+                <a class="credits-link" style="color: rgb(182, 240, 255);"
+                    href="https://github.com/ZekoTheFox">Zeko</a><br>
+                <a class="credits-link" style="color: rgb(164, 255, 177); cursor: default;">ZeanZarzin</a>
+            </div>
         </div>
     </div>
 
@@ -95,6 +115,11 @@
 
     <section class="section-upgrades">
         <div class="upgrades">
+            <div id="upgrade_silvercursors" hidden>
+                <img src="images/upgrades/silvercursors.png" class="upgrade" onclick="upgrade_silvercursors()"
+                    onmouseenter="upgrade_silvercursors_hover()" id="upgrade_silvercursors_img">
+                <p class="upgrade-price" id="upgrade_silvercursors_price">500</p>
+            </div>
             <div id="upgrade_goldenfingers" hidden>
                 <img src="images/upgrades/goldenfingers.png" class="upgrade" onclick="upgrade_goldenfingers()"
                     onmouseenter="upgrade_goldenfingers_hover()" id="upgrade_goldenfingers_img">
@@ -105,11 +130,16 @@
                     onmouseenter="upgrade_platinumfingers_hover()" id="upgrade_platinumfingers_img">
                 <p class="upgrade-price" id="upgrade_platinumfingers_price">10000</p>
             </div>
+            <div id="upgrade_baconbones" hidden>
+                <img src="images/upgrades/baconbones.png" class="upgrade" onclick="upgrade_baconbones()"
+                    onmouseenter="upgrade_baconbones_hover()" id="upgrade_baconbones_img">
+                <p class="upgrade-price" id="upgrade_baconbones_price">20000</p>
+            </div>
         </div>
     </section>
 
-    <div class="savebutton">
-        <p class="savebutton-text" onclick="save()">Save</p>
+    <div class="savebutton" onclick="save()">
+        <p class="savebutton-text">Save</p>
     </div>
 
     <footer>
