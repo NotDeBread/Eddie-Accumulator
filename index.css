@@ -1,4 +1,5 @@
 :root {
+  --lightbg: rgb(44, 36, 59);
   --bg: rgb(32, 28, 45);
   --darkbg: rgb(24, 22, 36);
   --darkerbg: rgb(18, 17, 27);
@@ -120,7 +121,7 @@ body {
 .settings-content {
   transition: opacity, 0.25s ease-in-out;
   text-align: center;
-  opacity: 0;
+  opacity: 1;
 }
 
 .settings-text {
@@ -142,6 +143,24 @@ body {
 }
 
 .settings-deletebutton:active {
+  transform: scale(100%);
+}
+
+.settings-defaultbutton {
+  background-color: var(--darkbg);
+  width: 100px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid grey;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.settings-defaultbutton:hover {
+  transform: scale(105%);
+}
+
+.settings-defaultbutton:active {
   transform: scale(100%);
 }
 
@@ -167,12 +186,6 @@ body {
 
 .settings-checkbox:active {
   transform: scale(100%);
-}
-
-.setting-2 {
-  display: flex;
-  align-items: center;
-  margin-left: 25px;
 }
 
 .setting-checkbox-2-text {
@@ -232,6 +245,63 @@ body {
 
 .credits-link:hover {
   font-size: 1.35em;
+}
+
+.label-left {
+  width: 100px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 50%);
+  border-radius: 5px;
+  position: fixed;
+  top: 3em;
+  left: 60px;
+  padding: 5px;
+  color: #313333;
+  text-align: center;
+  font-size: 1.25em;
+  transform: translateX(10px);
+  transition: transform ease-in-out 0.25s, opacity ease-in-out 0.25s,
+    top ease-in-out 0.25s;
+  opacity: 0;
+  color: white;
+  cursor: default;
+}
+
+.label-left:after {
+  content: " ";
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid rgba(0, 0, 0, 50%);
+  position: absolute;
+  left: -10px;
+  top: 5px;
+  margin-left: -10px;
+}
+
+.achievement {
+  position: absolute;
+  background-color: var(--darkbg);
+  width: 200px;
+  cursor: pointer;
+  border-radius: 5px;
+  top: 50px;
+  left: -250px;
+  z-index: 5;
+  padding: 5px;
+  box-shadow: 0px 0px 10px black;
+  transition: left 0.75s cubic-bezier(0.75, -0.5, 0.25, 1.5);
+}
+
+.achievement-title {
+  font-size: 1.25em;
+}
+
+.achievement-desc {
+  font-size: 1.1em;
+  color: grey;
 }
 
 .center {
@@ -340,13 +410,13 @@ body {
 
 .buildings {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .buildings-prices {
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .building-price {
@@ -426,6 +496,5 @@ body {
 .version {
   color: black;
   opacity: 50%;
-  position: absolute;
   bottom: 0;
 }

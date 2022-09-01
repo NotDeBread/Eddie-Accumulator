@@ -49,16 +49,34 @@ body {
   transform: scale(95%);
 }
 
-.section-title {
+.title-text {
+  margin: 0 auto;
+  margin-top: 50px;
   text-align: center;
-  background-color: var(--darkbg);
-  height: 100px;
+  font-size: 3em;
+  width: 550px;
+  color: white;
+  background-color: rgba(0, 0, 0, 50%);
 }
 
-.title {
-  font-size: 3em;
-  margin: 0;
-  padding: 30px;
+.title-bg {
+  background-repeat: repeat-x;
+  position: absolute;
+  background-image: url(images/banner.png);
+  height: 200px;
+  width: 100%;
+  top: 0;
+  z-index: -1;
+  top: -50px;
+  filter: brightness(50%);
+}
+
+.title-line {
+  width: 100%;
+  height: 5px;
+  background-color: var(--darkbg);
+  position: absolute;
+  top: 150px;
 }
 
 .changelog {

@@ -2,18 +2,20 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     buildingtotal: 0,
     cursortotal: 0,
     bonetotal: 0,
-    balltotal: 0,
+    frisbetotal: 0,
+    treattotal: 0,
     
     
     count: 0,
     countraw: 0,
     cpsdisplay: 0,
     cpc: 1,
-    
+    timesclicked: 0,
     
     cursorcps: 0,
     bonecps: 0,
-    ballcps: 0,
+    frisbecps: 0,
+    treatcps: 0,
     
     clickmultiplier: 1,
     cursormultiplier: 1,
@@ -21,7 +23,8 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
 
     cursorprice: 10,
     boneprice: 100,
-    ballprice: 500,
+    frisbeprice: 500,
+    treatprice: 1000,
 
     
     totalupgrade: 0,
@@ -34,9 +37,11 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
 
     setting1var: true,
     setting2var: false,
+    setting3var: true,
 
     autosave: true,
     monospace: false,
+    shortnumbers: true,
 }
 
 var settingsopen = false
@@ -44,10 +49,11 @@ var creditsopen = false
 
 var cps = 0
 
-var noti_countdown = 0
-
 var deletevar = 0
 
+var ach_countdown = 0
+
+setInterval(achievementcountdown, 1000)
 setInterval(clickspersecond, 10)
 setInterval(update, 1)
 setInterval(upgrade_update, 1)
@@ -55,8 +61,9 @@ setInterval(autosave, 60000)
 
 function eddieclick() {
     config.countraw += config.cpc
+    config.timesclicked += 1
 
-    document.getElementById('count').innerHTML = config.count;
+    counterformat()
 
     if (config.countraw >= config.cursorprice) {
         document.getElementById('cursorimg').style.setProperty('filter', 'brightness(100%)')
@@ -72,6 +79,12 @@ function eddieclick() {
     } else {
         document.getElementById('boneimg').style.setProperty('filter', 'brightness(75%)')
         document.getElementById('boneprice').style.setProperty('color', 'red')
+    }
+
+    if(config.timesclicked === 1) {
+        document.getElementById('ach_title').innerHTML = 'Click'
+        document.getElementById('ach_desc').innerHTML = 'Click Eddie 1 Time.'
+        achievement1()
     }
 }
 
@@ -92,10 +105,11 @@ function credits() {
         if(!creditsopen) {
             document.getElementById('credits_img').src = "images/icons/back.png"
             document.getElementById('credits').style.setProperty('width', '150px')
-            document.getElementById('credits').style.setProperty('height', '100px')
+            document.getElementById('credits').style.setProperty('height', '150px')
             document.getElementById('credits').style.setProperty('background-color', 'var(--darkerbg)')
             document.getElementById('credits_content').style.setProperty('opacity', '1')
             document.getElementById('credits_header').style.setProperty('color', 'rgba(255, 255, 255, 255)')
+            document.getElementById('label_left').style.setProperty('opacity','0')
         }
     
     //Close
@@ -109,7 +123,7 @@ function credits() {
             document.getElementById('credits_header').style.setProperty('color', 'rgba(255, 255, 255, 0)')
         }
         creditsopen = !creditsopen
-    }
+}
 
 //Settings
 
@@ -120,10 +134,11 @@ function settings() {
     if(!settingsopen) {
         document.getElementById('settings_img').src = "images/icons/back.png"
         document.getElementById('settings').style.setProperty('width', '250px')
-        document.getElementById('settings').style.setProperty('height', '150px')
+        document.getElementById('settings').style.setProperty('height', '200px')
         document.getElementById('settings').style.setProperty('background-color', 'var(--darkerbg)')
         document.getElementById('settings_content').style.setProperty('opacity', '1')
         document.getElementById('settings_header').style.setProperty('color', 'rgba(255, 255, 255, 255)')
+        document.getElementById('label_left').style.setProperty('opacity','0')
     }
 
 //Close
@@ -170,6 +185,20 @@ function setting2() {
     config.setting2var = !config.setting2var
 }
 
+function setting3() {
+    if(!config.setting3var) {
+        document.getElementById('setting3-img').src = "images/icons/checkbox2.png"
+        config.shortnumbers = true
+    } 
+    
+    if(config.setting3var) {
+        document.getElementById('setting3-img').src = "images/icons/checkbox1.png"
+        config.shortnumbers = false
+    }
+
+    config.setting3var = !config.setting3var
+}
+
 function autosave() {
     if(config.autosave === true) {
         localStorage.setItem('save', JSON.stringify(config))
@@ -202,9 +231,44 @@ function deletebutton() {
     }
 }
 
+function defaultbutton() {
+    config.autosave = true
+    config.setting1var = true
+    config.monospace = false
+    config.setting2var = false
+    config.shortnumbers = true
+    config.setting3var = true
+    document.getElementById('setting1-img').src = "images/icons/checkbox2.png"
+    document.getElementById('setting2-img').src = "images/icons/checkbox2.png"
+    document.getElementById('setting3-img').src = "images/icons/checkbox1.png"
+}
+
 function deletesave() {
     localStorage.removeItem('save', JSON.stringify(config))
     window.location.reload();
+}
+
+function labelenter() {
+    if(settingsopen === false && creditsopen === false) {
+        document.getElementById('label_left').style.setProperty('opacity','1')
+        document.getElementById('label_left').style.setProperty('transform', 'translateX(0px)')
+    }
+}
+
+function labelleave() {
+    document.getElementById('label_left').style.setProperty('opacity','0')
+    document.getElementById('label_left').style.setProperty('transform', 'translateX(20px)')
+}
+
+function labelsettings() {
+    document.getElementById('label_left').style.setProperty('transform', 'translateY(0px)')
+    document.getElementById('label_left').style.setProperty('top', '40px')
+    document.getElementById('label_left').innerHTML = 'Settings'
+}
+
+function labelcredits() {
+    document.getElementById('label_left').style.setProperty('top', '80px')
+    document.getElementById('label_left').innerHTML = 'Credits'
 }
 
 //----------BUILDINGS----------//
@@ -216,7 +280,7 @@ function buycursor() {
         config.cursorcps += 1
         config.cursortotal += 1
         config.countraw -= config.cursorprice
-        config.cursorprice = Math.round(config.cursorprice * 1.2)
+        config.cursorprice = Math.round(config.cursorprice * 1.1)
 
         counterupdate()
 
@@ -240,8 +304,15 @@ function buycursor() {
         if (config.cursortotal === 25) {
             config.upgrades += 1
         }
+
+        if(config.cursortotal === 1)
+            achievement2()
+        }
+
+        if(config.cursortotal === 10) {
+            achievement3()
+        }
     }
-}
 
 //Buy Bone
 
@@ -251,7 +322,7 @@ function buybone() {
         config.cpsdisplay += 10
         config.bonetotal += 1
         config.countraw -= config.boneprice
-        config.boneprice = Math.round(config.boneprice * 1.2)
+        config.boneprice = Math.round(config.boneprice * 1.1)
 
         counterupdate()
 
@@ -272,25 +343,49 @@ function buybone() {
     }
 }
 
-function buyball() {
-    if (config.countraw >= config.ballprice) {
-        config.ballcps += 50
+function buyfrisbe() {
+    if (config.countraw >= config.frisbeprice) {
+        config.frisbecps += 50
         config.cpsdisplay += 50
-        config.balltotal += 1
-        config.countraw -= config.ballprice
-        config.ballprice = Math.round(config.ballprice * 1.2)
+        config.frisbetotal += 1
+        config.countraw -= config.frisbeprice
+        config.frisbeprice = Math.round(config.frisbeprice * 1.1)
 
         counterupdate()
 
-        document.getElementById('info_cps').innerHTML = config.ballcps
-        document.getElementById('info_owned').innerHTML = config.balltotal
+        document.getElementById('info_cps').innerHTML = config.frisbecps
+        document.getElementById('info_owned').innerHTML = config.frisbetotal
 
-        if (config.count >= config.ballprice) {
-            document.getElementById('ballimg').style.setProperty('filter', 'brightness(100%)')
-            document.getElementById('ballprice').style.setProperty('color', 'lime')
+        if (config.count >= config.frisbeprice) {
+            document.getElementById('frisbeimg').style.setProperty('filter', 'brightness(100%)')
+            document.getElementById('frisbeprice').style.setProperty('color', 'lime')
         } else {
-            document.getElementById('ballimg').style.setProperty('filter', 'brightness(75%)')
-            document.getElementById('ballprice').style.setProperty('color', 'red')
+            document.getElementById('frisbeimg').style.setProperty('filter', 'brightness(75%)')
+            document.getElementById('frisbeprice').style.setProperty('color', 'red')
+        }
+    }
+}
+
+function buytreat() {
+    if (config.countraw >= config.treatprice) {
+        config.treatcps += 100
+        config.cpsdisplay += 50
+        config.treattotal += 1
+        config.countraw -= config.treatprice
+        config.treatprice = Math.round(config.treatprice * 1.1)
+
+
+        counterupdate()
+
+        document.getElementById('info_cps').innerHTML = config.treatcps
+        document.getElementById('info_owned').innerHTML = config.treattotal
+
+        if (config.count >= config.treatprice) {
+            document.getElementById('treatimg').style.setProperty('filter', 'brightness(100%)')
+            document.getElementById('treatprice').style.setProperty('color', 'lime')
+        } else {
+            document.getElementById('treatimg').style.setProperty('filter', 'brightness(75%)')
+            document.getElementById('treatprice').style.setProperty('color', 'red')
         }
     }
 }
@@ -300,9 +395,11 @@ function buyball() {
 function clickspersecond() {
     config.countraw += (config.cursorcps * config.cursormultiplier ) / 100
     config.countraw += (config.bonecps * config.bonemultiplier) / 100
-    config.countraw += config.ballcps / 100
+    config.countraw += config.frisbecps / 100
+    config.countraw += config.treatcps / 100
     config.count = Math.round(config.countraw)
 
+    counterformat()
     counterupdate()
 
     if (config.countraw >= config.cursorprice) {
@@ -329,12 +426,20 @@ function clickspersecond() {
         document.getElementById('boneprice').style.setProperty('color', 'red')
     }
 
-    if (config.count >= config.ballprice) {
-        document.getElementById('ballimg').style.setProperty('filter', 'brightness(100%)')
-        document.getElementById('ballprice').style.setProperty('color', 'lime')
+    if (config.count >= config.frisbeprice) {
+        document.getElementById('frisbeimg').style.setProperty('filter', 'brightness(100%)')
+        document.getElementById('frisbeprice').style.setProperty('color', 'lime')
     } else {
-        document.getElementById('ballimg').style.setProperty('filter', 'brightness(75%)')
-        document.getElementById('ballprice').style.setProperty('color', 'red')
+        document.getElementById('frisbeimg').style.setProperty('filter', 'brightness(75%)')
+        document.getElementById('frisbeprice').style.setProperty('color', 'red')
+    }
+
+    if (config.count >= config.treatprice) {
+        document.getElementById('treatimg').style.setProperty('filter', 'brightness(100%)')
+        document.getElementById('treatprice').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('treatimg').style.setProperty('filter', 'brightness(75%)')
+        document.getElementById('treatprice').style.setProperty('color', 'red')
     }
 
     if(config.count >= 500){
@@ -390,10 +495,19 @@ function bone_hover() {
     document.getElementById('info_label').innerHTML = "CPS: ";
 }
 
-function ball_hover() {
-    document.getElementById('info_title').innerHTML = "Ball";
-    document.getElementById('info_cps').innerHTML = config.ballcps;
-    document.getElementById('info_owned').innerHTML = config.balltotal;
+function frisbe_hover() {
+    document.getElementById('info_title').innerHTML = "Frisbe";
+    document.getElementById('info_cps').innerHTML = config.frisbecps;
+    document.getElementById('info_owned').innerHTML = config.frisbetotal;
+    document.getElementById('info_owned').style.setProperty('color', 'grey');
+    document.getElementById('owned_label').style.setProperty('opacity', '1')
+    document.getElementById('info_label').innerHTML = "CPS: ";
+}
+
+function treat_hover() {
+    document.getElementById('info_title').innerHTML = "Treat";
+    document.getElementById('info_cps').innerHTML = config.treatcps;
+    document.getElementById('info_owned').innerHTML = config.treattotal;
     document.getElementById('info_owned').style.setProperty('color', 'grey');
     document.getElementById('owned_label').style.setProperty('opacity', '1')
     document.getElementById('info_label').innerHTML = "CPS: ";
@@ -474,7 +588,6 @@ function upgrade_baconbones() {
         config.bonemultiplier *= 2
         config.upgrades -= 1
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
-        console.log('hi')
     }
 }
 
@@ -494,7 +607,7 @@ function upgrade_update() {
 
 function update() {
 
-    cps = ((config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + config.ballcps)
+    cps = ((config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + config.frisbecps + config.treatcps)
     document.getElementById('cps').innerHTML = cps
 
     config.count = Math.round(config.countraw)
@@ -506,6 +619,13 @@ function update() {
     if(config.monospace === false) {
         document.getElementById('count').style.setProperty('font-family', 'renogare')
         document.getElementById('setting2-img').src = "images/icons/checkbox1.png"
+    }
+
+    if(config.shortnumbers === true) {
+        document.getElementById('setting3-img').src = "images/icons/checkbox2.png"
+    }
+    if(config.shortnumbers === false) {
+        document.getElementById('setting3-img').src = "images/icons/checkbox1.png"
     }
 
     if(config.cursortotal >= 5 && config.upgrade_silvercursors_bought === false){
@@ -526,10 +646,55 @@ function update() {
     }
 }
 
+function achievement1() {
+    document.getElementById('achievement1').style.setProperty('left', '10px')
+    config.ach_countdown = 5
+}
+
+function achievement2() {
+    document.getElementById('achievement2').style.setProperty('left', '10px')
+    config.ach_countdown = 5
+}
+
+function achievement3() {
+    document.getElementById('achievement3').style.setProperty('left', '10px')
+    config.ach_countdown = 5
+}
+
+function achievementcountdown() {
+    if(config.ach_countdown >= 0 && config.ach_countdown >= 1)
+    config.ach_countdown -= 1
+
+    if(config.ach_countdown === 1) {
+        achievementclose()
+        console.log('hi')
+    }
+}
+
+function achievementclose() {
+    document.getElementById('achievement1').style.setProperty('left', '-250px')
+    document.getElementById('achievement2').style.setProperty('left', '-250px')
+    document.getElementById('achievement3').style.setProperty('left', '-250px')
+
+}
+
 function counterupdate() {
-    document.getElementById('count').innerHTML = config.count;
+    counterformat()
     document.getElementById('cpc').innerHTML = config.cpc;
     document.getElementById('cursorprice').innerHTML = config.cursorprice;
     document.getElementById('boneprice').innerHTML = config.boneprice;
-    document.getElementById('ballprice').innerHTML = config.ballprice;
+    document.getElementById('frisbeprice').innerHTML = config.frisbeprice;
+    document.getElementById('treatprice').innerHTML = config.treatprice;
+}
+
+function counterformat() {
+    if(config.shortnumbers === true) {
+        if(config.count >= 1000000) {
+            document.getElementById('count').innerHTML = numeral(config.count).format('0.00a');
+        } else {
+            document.getElementById('count').innerHTML = numeral(config.count).format('0,00')
+        }
+    } else {
+        document.getElementById('count').innerHTML = numeral(config.count).format('0,00')
+    }
 }
