@@ -10,6 +10,7 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     countraw: 0,
     cpsdisplay: 0,
     cpc: 1,
+    cpcmultiplier: 1,
     timesclicked: 0,
     
     cursorcps: 0,
@@ -20,11 +21,12 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     clickmultiplier: 1,
     cursormultiplier: 1,
     bonemultiplier: 1,
+    frisbemultiplier: 1,
 
     cursorprice: 10,
     boneprice: 100,
     frisbeprice: 500,
-    treatprice: 1000,
+    treatprice: 2500,
 
     
     totalupgrade: 0,
@@ -32,6 +34,8 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     upgrade_platinumfingers_bought: false,
     upgrade_silvercursors_bought: false,
     upgrade_baconbones_bought: false,
+    upgrade_superfrisbe_bought: false,
+    upgrade_diamondfingers_bought: false,
 
     upgrades: 0,
 
@@ -42,10 +46,13 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     autosave: true,
     monospace: false,
     shortnumbers: true,
+
+    devtoolsunlocked: false,
 }
 
 var settingsopen = false
 var creditsopen = false
+var devtoolsopen = false
 
 var cps = 0
 
@@ -53,14 +60,54 @@ var deletevar = 0
 
 var ach_countdown = 0
 
+var goldeneddie_random = 0
+
 setInterval(achievementcountdown, 1000)
 setInterval(clickspersecond, 10)
 setInterval(update, 1)
 setInterval(upgrade_update, 1)
 setInterval(autosave, 60000)
+setInterval(goldeneddie_randomize, 10000)
+
+function goldeneddie_randomize() {
+    goldeneddie_random = Math.round(Math.random() * 7)
+    goldeneddierandom()
+    if(goldeneddie_random === !7) {
+        document.getElementById('goldeneddie').style.setProperty('transform', 'scale(0%)')
+    }
+}
+
+function goldeneddierandom() {
+    if(goldeneddie_random === 7) {
+        console.log('Golden Eddie Spawned!')
+        goldeneddie()
+    }
+}
+
+function goldeneddie() {
+    document.getElementById('goldeneddie').style.setProperty('left', `calc(100vw * ${Math.random()} - 150px`)
+    document.getElementById('goldeneddie').style.setProperty('top', `calc(100vh * ${Math.random()} - 150px)`)
+    document.getElementById('goldeneddie').style.setProperty('transform', 'scale(100%)')
+
+    setTimeout(() => {
+        document.getElementById('goldeneddie').style.setProperty('transform', 'scale(0%)')
+
+        setTimeout(() => {
+            document.getElementById('goldeneddie').hidden = false
+        }, 2000);
+    }, 5000);
+}
+
+function goldeneddie_click() {
+    config.countraw *= 7
+    document.getElementById('noti_text').style.setProperty('width', '150px')
+    document.getElementById('noti_text').innerHTML = 'Eddie Orbs x7!'
+    savenoti()
+    document.getElementById('goldeneddie').hidden = true
+}
 
 function eddieclick() {
-    config.countraw += config.cpc
+    config.countraw += (config.cpc * config.cpcmultiplier)
     config.timesclicked += 1
 
     counterformat()
@@ -86,6 +133,10 @@ function eddieclick() {
         document.getElementById('ach_desc').innerHTML = 'Click Eddie 1 Time.'
         achievement1()
     }
+
+    if (config.timesclicked === 100) {
+        config.upgrades += 1
+    }
 }
 
 function load() {
@@ -93,6 +144,73 @@ function load() {
         document.getElementById('setting1-img').src = "images/icons/checkbox2.png"
     } else if(config.autosave === false) {
         document.getElementById('setting1-img').src = "images/icons/checkbox1.png"
+    }
+}
+
+//Devtools
+
+function devtools() {
+
+    //Open
+    
+        if(!devtoolsopen) {
+            document.getElementById('devtools_img').src = "images/icons/back.png"
+            document.getElementById('devtools').style.setProperty('width', '200px')
+            document.getElementById('devtools').style.setProperty('height', '175px')
+            document.getElementById('devtools').style.setProperty('background-color', 'var(--darkerbg)')
+            document.getElementById('devtools_content').style.setProperty('opacity', '1')
+            document.getElementById('devtools_header').style.setProperty('color', 'rgba(255, 255, 255, 255)')
+            document.getElementById('label_left').style.setProperty('opacity','0')
+        }
+    
+    //Close
+    
+        if(devtoolsopen) {
+            document.getElementById('devtools_img').src = "images/icons/tool.png"
+            document.getElementById('devtools').style.setProperty('width', '40px')
+            document.getElementById('devtools').style.setProperty('height', '40px')
+            document.getElementById('devtools').style.setProperty('background-color', 'transparent')
+            document.getElementById('devtools_content').style.setProperty('opacity', '0')
+            document.getElementById('devtools_header').style.setProperty('color', 'rgba(255, 255, 255, 0)')
+        }
+        devtoolsopen = !devtoolsopen
+}
+
+function dev_x10() {
+    config.countraw *= 10
+}
+
+function dev_golden() {
+    goldeneddie_random = 7
+    goldeneddie()
+}
+
+function dev_x10cpc() {
+    config.cpcmultiplier *= 10
+    document.getElementById('cpc').innerHTML = config.cpc * config.cpcmultiplier
+}
+
+function dev_10xCursors() {
+    for (let index = 0; index < 10; index++) {
+        buycursor()
+    }
+}
+
+function dev_10xBones() {
+    for (let index = 0; index < 10; index++) {
+        buybone()
+    }
+}
+
+function dev_10xFrisbes() {
+    for (let index = 0; index < 10; index++) {
+        buyfrisbe()
+    }
+}
+
+function dev_10xTreats() {
+    for (let index = 0; index < 10; index++) {
+        buytreat()
     }
 }
 
@@ -203,6 +321,8 @@ function autosave() {
     if(config.autosave === true) {
         localStorage.setItem('save', JSON.stringify(config))
         console.log('AutoSaved', config.count, 'Eddie Orbs!')
+        document.getElementById('noti_text').style.setProperty('width', '100px')
+        document.getElementById('noti_text').innerHTML = 'Saved!'
         savenoti()
     } //There alex
 }
@@ -210,6 +330,8 @@ function autosave() {
 function save() {
     localStorage.setItem('save', JSON.stringify(config))
     console.log('Saved', config.count, 'Eddie Orbs!')
+    document.getElementById('noti_text').style.setProperty('width', '100px')
+    document.getElementById('noti_text').innerHTML = 'Saved!'
     savenoti()
 }
 
@@ -249,7 +371,7 @@ function deletesave() {
 }
 
 function labelenter() {
-    if(settingsopen === false && creditsopen === false) {
+    if(settingsopen === false && creditsopen === false && devtoolsopen === false) {
         document.getElementById('label_left').style.setProperty('opacity','1')
         document.getElementById('label_left').style.setProperty('transform', 'translateX(0px)')
     }
@@ -267,8 +389,13 @@ function labelsettings() {
 }
 
 function labelcredits() {
-    document.getElementById('label_left').style.setProperty('top', '80px')
+    document.getElementById('label_left').style.setProperty('top', '75px')
     document.getElementById('label_left').innerHTML = 'Credits'
+}
+
+function labeldevtools() {
+    document.getElementById('label_left').style.setProperty('top', '115px')
+    document.getElementById('label_left').innerHTML = 'Dev Tools'
 }
 
 //----------BUILDINGS----------//
@@ -276,7 +403,7 @@ function labelcredits() {
 //Buy Cursor
 
 function buycursor() {
-    if (config.countraw >= config.cursorprice) {
+    if (config.countraw >= config.cursorprice || devtoolsopen === true) {
         config.cursorcps += 1
         config.cursortotal += 1
         config.countraw -= config.cursorprice
@@ -295,13 +422,13 @@ function buycursor() {
             document.getElementById('cursorprice').style.setProperty('color', 'red')
         }
 
-        if (config.cursortotal === 5) {
-            config.upgrades += 1
-        }
         if (config.cursortotal === 10) {
             config.upgrades += 1
         }
         if (config.cursortotal === 25) {
+            config.upgrades += 1
+        }
+        if (config.cursortotal === 50) {
             config.upgrades += 1
         }
 
@@ -317,7 +444,7 @@ function buycursor() {
 //Buy Bone
 
 function buybone() {
-    if (config.countraw >= config.boneprice) {
+    if (config.countraw >= config.boneprice || devtoolsopen === true) {
         config.bonecps += 10
         config.cpsdisplay += 10
         config.bonetotal += 1
@@ -344,7 +471,7 @@ function buybone() {
 }
 
 function buyfrisbe() {
-    if (config.countraw >= config.frisbeprice) {
+    if (config.countraw >= config.frisbeprice || devtoolsopen === true) {
         config.frisbecps += 50
         config.cpsdisplay += 50
         config.frisbetotal += 1
@@ -363,11 +490,15 @@ function buyfrisbe() {
             document.getElementById('frisbeimg').style.setProperty('filter', 'brightness(75%)')
             document.getElementById('frisbeprice').style.setProperty('color', 'red')
         }
+                
+        if(config.frisbetotal === 10) {
+            config.upgrades += 1
+        }
     }
 }
 
 function buytreat() {
-    if (config.countraw >= config.treatprice) {
+    if (config.countraw >= config.treatprice || devtoolsopen === true) {
         config.treatcps += 100
         config.cpsdisplay += 50
         config.treattotal += 1
@@ -395,7 +526,7 @@ function buytreat() {
 function clickspersecond() {
     config.countraw += (config.cursorcps * config.cursormultiplier ) / 100
     config.countraw += (config.bonecps * config.bonemultiplier) / 100
-    config.countraw += config.frisbecps / 100
+    config.countraw += (config.frisbecps * config.frisbemultiplier) / 100
     config.countraw += config.treatcps / 100
     config.count = Math.round(config.countraw)
 
@@ -465,13 +596,33 @@ function clickspersecond() {
         document.getElementById('upgrade_platinumfingers_price').style.setProperty('color', 'red')
         document.getElementById('upgrade_platinumfingers_img').style.setProperty('filter', 'brightness(75%)')
     }
-
+    
     if(config.count >= 20000){
         document.getElementById('upgrade_baconbones_price').style.setProperty('color', 'lime')
         document.getElementById('upgrade_baconbones_img').style.setProperty('filter', 'brightness(100%)')
     } else {
         document.getElementById('upgrade_baconbones_price').style.setProperty('color', 'red')
         document.getElementById('upgrade_baconbones_img').style.setProperty('filter', 'brightness(75%)')
+    }
+    
+    if(config.count >= 25000){
+            document.getElementById('upgrade_diamondfingers_price').style.setProperty('color', 'lime')
+            document.getElementById('upgrade_diamondfingers_img').style.setProperty('filter', 'brightness(100%)')
+    } else {
+            document.getElementById('upgrade_diamondfingers_price').style.setProperty('color', 'red')
+            document.getElementById('upgrade_diamondfingers_img').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.countraw < 0) {
+        config.countraw = 0
+    }
+    
+    if(config.count >= 50000){
+        document.getElementById('upgrade_superfrisbe_price').style.setProperty('color', 'lime')
+        document.getElementById('upgrade_superfrisbe_img').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_superfrisbe_price').style.setProperty('color', 'red')
+        document.getElementById('upgrade_superfrisbe_img').style.setProperty('filter', 'brightness(75%)')
     }
 }
 
@@ -525,7 +676,7 @@ function upgrade_silvercursors_hover() {
 
 function upgrade_goldenfingers_hover() {
     document.getElementById('info_title').innerHTML = "Golden Fingers";
-    document.getElementById('info_cps').innerHTML = "Changes the CPC based on how many cursors are owned.";
+    document.getElementById('info_cps').innerHTML = "Changes the CPC based on how many cursors are owned";
     document.getElementById('info_owned').style.setProperty('color', 'transparent');
     document.getElementById('owned_label').style.setProperty('opacity', '0');
     document.getElementById('info_label').innerHTML = "";
@@ -533,7 +684,7 @@ function upgrade_goldenfingers_hover() {
 
 function upgrade_platinumfingers_hover() {
     document.getElementById('info_title').innerHTML = "Platinum Fingers";
-    document.getElementById('info_cps').innerHTML = "Changes the CPC based on how many cursors are owned.";
+    document.getElementById('info_cps').innerHTML = "Changes the CPC based on how many cursors are owned";
     document.getElementById('info_owned').style.setProperty('color', 'transparent');
     document.getElementById('owned_label').style.setProperty('opacity', '0');
     document.getElementById('info_label').innerHTML = "";
@@ -542,6 +693,22 @@ function upgrade_platinumfingers_hover() {
 function upgrade_baconbones_hover() {
     document.getElementById('info_title').innerHTML = "Bacon Flavored Bones";
     document.getElementById('info_cps').innerHTML = "Doubles Bone Speed";
+    document.getElementById('info_owned').style.setProperty('color', 'transparent');
+    document.getElementById('owned_label').style.setProperty('opacity', '0');
+    document.getElementById('info_label').innerHTML = "";
+}
+
+function upgrade_superfrisbe_hover() {
+    document.getElementById('info_title').innerHTML = "The Super Ultra Mega Deluxe Epic Frisbe Pro (XTREME Premium Edition) MAX PRO 2023™ 🔥💯😱👌😂😈";
+    document.getElementById('info_cps').innerHTML = "Doubles Frisbe Speed";
+    document.getElementById('info_owned').style.setProperty('color', 'transparent');
+    document.getElementById('owned_label').style.setProperty('opacity', '0');
+    document.getElementById('info_label').innerHTML = "";
+}
+
+function upgrade_superfrisbe_hover() {
+    document.getElementById('info_title').innerHTML = "Diamond Fingers";
+    document.getElementById('info_cps').innerHTML = "Changes the CPC based on how many cursors are owned";
     document.getElementById('info_owned').style.setProperty('color', 'transparent');
     document.getElementById('owned_label').style.setProperty('opacity', '0');
     document.getElementById('info_label').innerHTML = "";
@@ -591,14 +758,36 @@ function upgrade_baconbones() {
     }
 }
 
+function upgrade_diamondfingers() {
+    if(config.upgrade_diamondfingers_bought === false && config.count >= 25000) {
+        document.getElementById('upgrade_diamondfingers').style.setProperty('display', 'none')
+        config.upgrade_diamondfingers_bought = true
+        config.countraw -= 25000
+        config.cpc *= 2
+        config.upgrades -= 1
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_superfrisbe() {
+    if(config.upgrade_superfrisbe_bought === false && config.count >= 50000) {
+        document.getElementById('upgrade_superfrisbe').style.setProperty('display', 'none')
+        config.upgrade_superfrisbe_bought = true
+        config.countraw -= 20000
+        config.frisbemultiplier *= 2
+        config.upgrades -= 1
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
 function upgrade_update() {
     if(config.upgrade_platinumfingers_bought === true && config.cursortotal >=1) {
-        config.cpc = config.cursortotal * config.clickmultiplier;
+        config.cpc = config.cursortotal * config.clickmultiplier * config.cpcmultiplier;
         document.getElementById('upgrade_platinumfingers').style.setProperty('display', 'none')
     }
         
     if(config.upgrade_goldenfingers_bought === true && config.cursortotal >= 1) {
-        config.cpc = config.cursortotal * config.clickmultiplier
+        config.cpc = config.cursortotal * config.clickmultiplier * config.cpcmultiplier;
         document.getElementById('upgrade_goldenfingers').style.setProperty('display', 'none')
     }
 }
@@ -607,7 +796,7 @@ function upgrade_update() {
 
 function update() {
 
-    cps = ((config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + config.frisbecps + config.treatcps)
+    cps = ((config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + (config.frisbecps * config.frisbemultiplier) + config.treatcps)
     document.getElementById('cps').innerHTML = cps
 
     config.count = Math.round(config.countraw)
@@ -628,7 +817,7 @@ function update() {
         document.getElementById('setting3-img').src = "images/icons/checkbox1.png"
     }
 
-    if(config.cursortotal >= 5 && config.upgrade_silvercursors_bought === false){
+    if(config.timesclicked >= 100 && config.upgrade_silvercursors_bought === false){
         document.getElementById('upgrade_silvercursors').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
         }
@@ -640,9 +829,21 @@ function update() {
         document.getElementById('upgrade_platinumfingers').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
+    if(config.cursortotal >= 50 && config.upgrade_diamondfingers_bought === false){
+        document.getElementById('upgrade_diamondfingers').hidden = false;
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
     if(config.bonetotal >= 10 && config.upgrade_baconbones_bought === false){
         document.getElementById('upgrade_baconbones').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+    if(config.frisbetotal >= 10 && config.upgrade_superfrisbe_bought === false){
+        document.getElementById('upgrade_superfrisbe').hidden = false;
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+
+    if(config.devtoolsunlocked === true) {
+        document.getElementById('devtools').hidden = false
     }
 }
 
@@ -667,7 +868,6 @@ function achievementcountdown() {
 
     if(config.ach_countdown === 1) {
         achievementclose()
-        console.log('hi')
     }
 }
 
@@ -680,7 +880,7 @@ function achievementclose() {
 
 function counterupdate() {
     counterformat()
-    document.getElementById('cpc').innerHTML = config.cpc;
+    document.getElementById('cpc').innerHTML = config.cpc * config.cpcmultiplier;
     document.getElementById('cursorprice').innerHTML = config.cursorprice;
     document.getElementById('boneprice').innerHTML = config.boneprice;
     document.getElementById('frisbeprice').innerHTML = config.frisbeprice;
@@ -690,7 +890,7 @@ function counterupdate() {
 function counterformat() {
     if(config.shortnumbers === true) {
         if(config.count >= 1000000) {
-            document.getElementById('count').innerHTML = numeral(config.count).format('0.00a');
+            document.getElementById('count').innerHTML = numeral(config.count).format('0.000a');
         } else {
             document.getElementById('count').innerHTML = numeral(config.count).format('0,00')
         }
@@ -698,3 +898,39 @@ function counterformat() {
         document.getElementById('count').innerHTML = numeral(config.count).format('0,00')
     }
 }
+
+//---------OTHER----------//
+
+function footerlabelenter() {
+    document.getElementById('label_footer').style.setProperty('opacity', '1')
+    document.getElementById('footer_text').style.setProperty('opacity', '0')
+    document.getElementById('label_footer').style.setProperty('margin-top', '7px')
+}
+
+function footerlabelleave() {
+    document.getElementById('label_footer').style.setProperty('opacity', '0')
+    document.getElementById('footer_text').style.setProperty('opacity', '1')
+    document.getElementById('label_footer').style.setProperty('margin-top', '0px')
+}
+
+function htmlhover() {
+    document.getElementById('label_footer').innerHTML = 'HTML'
+    document.getElementById('label_footer').style.setProperty('transform', 'translateX(-25px)')
+}
+
+function csshover() {
+    document.getElementById('label_footer').innerHTML = 'CSS'
+    document.getElementById('label_footer').style.setProperty('transform', 'translateX(0px)')
+}
+
+function jshover() {
+    document.getElementById('label_footer').innerHTML = 'JS'
+    document.getElementById('label_footer').style.setProperty('transform', 'translateX(25px)')
+}
+
+window.addEventListener('keydown', (event) => {
+    if(event.key === 'q' && event.ctrlKey) {
+        document.getElementById('devtools').hidden = false
+        config.devtoolsunlocked = true
+    }
+});

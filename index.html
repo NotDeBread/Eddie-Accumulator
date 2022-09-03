@@ -28,7 +28,12 @@
         <a class="debread" href="https://notdebread.github.io/Website-V3/" target="_blank">DeBread</a>
 
         <a style="float: right;" href="changelog.html">Changelog</a>
+        <p class="version" style="float: right; padding-right: 10px;">BETA v0.05</p>
     </div>
+
+    <img class="goldeneddie" id="goldeneddie" src="images/goldeneddie.png" onclick="goldeneddie_click()">
+
+    <!--Settings-->
 
     <div class="settings" id="settings">
         <div class="settings-header">
@@ -67,6 +72,8 @@
         <p>Settings</p>
     </div>
 
+    <!--Credits-->
+
     <div class="credits" id="credits">
         <div class="credits-header">
             <img src="images/icons/users.png" class="credits-img" id="credits_img" onclick="credits()"
@@ -85,6 +92,43 @@
             </div>
         </div>
     </div>
+
+    <!--Devtools-->
+
+    <div class="devtools" id="devtools" hidden>
+        <div class="devtools-header">
+            <img src="images/icons/tool.png" id="devtools_img" class="devtools-img" onclick="devtools()"
+                onmouseenter="labelenter(); labeldevtools()" onmouseleave="labelleave()">
+            <p class="devtools-text" id="devtools_header">DevTools</p>
+        </div>
+        <div id="devtools_content">
+            <div>
+                <div class="devbutton" onclick="dev_golden()" style="width: 150px;">
+                    <p>Spawn Golden Eddie</p>
+                </div>
+                <div class="devbutton" onclick="dev_x10()">
+                    <p>x10 Eddie Orbs</p>
+                </div>
+                <div class="devbutton" onclick="dev_x10cpc()">
+                    <p>x10 CPC</p>
+                </div>
+                <div class="devbutton" onclick="dev_10xCursors()"">
+                    <p>10x Cursors</p>
+                </div>
+                <div class=" devbutton" onclick="dev_10xBones()">
+                    <p>10x Bones</p>
+                </div>
+                <div class="devbutton" onclick="dev_10xFrisbes()">
+                    <p>10x Frisbes</p>
+                </div>
+                <div class="devbutton" onclick="dev_10xTreats()">
+                    <p>10x Treats</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Achievements-->
 
     <div class="achievement" id="achievement1" onclick="achievementclose()">
         <p class="achievement-title" id="ach_title">Click</p>
@@ -112,7 +156,7 @@
     </div>
 
     <div class="noti" id="savenoti">
-        <p class="noti-text">Saved!</p>
+        <p class="noti-text" id="noti_text">Saved!</p>
     </div>
 
     <section class="section-info">
@@ -147,7 +191,7 @@
             <p id="cursorprice" class="building-price">10</p>
             <p id="boneprice" class="building-price">100</p>
             <p id="frisbeprice" class="building-price">500</p>
-            <p id="treatprice" class="building-price">1,000</p>
+            <p id="treatprice" class="building-price">2,500</p>
         </div>
 
     </section>
@@ -174,6 +218,16 @@
                     onmouseenter="upgrade_baconbones_hover()" id="upgrade_baconbones_img">
                 <p class="upgrade-price" id="upgrade_baconbones_price">20,000</p>
             </div>
+            <div id="upgrade_diamondfingers" hidden>
+                <img src="images/upgrades/diamondfingers.png" class="upgrade" onclick="upgrade_diamondfingers()"
+                    onmouseenter="upgrade_superfrisbe_hover()" id="upgrade_diamondfingers_img">
+                <p class="upgrade-price" id="upgrade_diamondfingers_price">50,000</p>
+            </div>
+            <div id="upgrade_superfrisbe" hidden>
+                <img src="images/upgrades/superfrisbe.png" class="upgrade" onclick="upgrade_superfrisbe()"
+                    onmouseenter="upgrade_superfrisbe_hover()" id="upgrade_superfrisbe_img">
+                <p class="upgrade-price" id="upgrade_superfrisbe_price">50,000</p>
+            </div>
         </div>
     </section>
 
@@ -181,8 +235,24 @@
         <p class="savebutton-text">Save</p>
     </div>
 
-    <footer>
-        <a class="version" href="changelog.html">BETA 0.04</a>
+    <div class="label-footer" id="label_footer">
+        <p>HTML</p>
+    </div>
+
+    <footer class="footer">
+        <div>
+            <p class="footer-text" id="footer_text">Made With</p>
+        </div>
+        <div class="footer-center">
+            <div class="footer-imgs">
+                <img src="images/icons/html.png" class="footer-img" onmouseenter="htmlhover(); footerlabelenter()"
+                    onmouseleave="footerlabelleave()">
+                <img src="images/icons/css.png" class="footer-img" onmouseenter="csshover(); footerlabelenter()"
+                    onmouseleave="footerlabelleave()">
+                <img src="images/icons/js.png" class="footer-img" onmouseenter="jshover(); footerlabelenter()"
+                    onmouseleave="footerlabelleave()">
+            </div>
+        </div>
     </footer>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
