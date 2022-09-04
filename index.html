@@ -14,8 +14,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" type="image/png" href="images/icon.png">
-    <title>Eddie Accumulator</title>
+    <link rel="shortcut icon" id="favicon" type="image/png" href="images/icon.png">
+    <title id="webtitle">Eddie Accumulator</title>
 </head>
 
 <body onload="load()">
@@ -28,7 +28,7 @@
         <a class="debread" href="https://notdebread.github.io/Website-V3/" target="_blank">DeBread</a>
 
         <a style="float: right;" href="changelog.html">Changelog</a>
-        <p class="version" style="float: right; padding-right: 10px;">BETA v0.05</p>
+        <p class="version" style="float: right; padding-right: 10px;">BETA v0.06</p>
     </div>
 
     <img class="goldeneddie" id="goldeneddie" src="images/goldeneddie.png" onclick="goldeneddie_click()">
@@ -56,6 +56,11 @@
                 id="setting3-img">
             <p class="setting-checkbox1-text">Short Numbers</p>
         </div>
+        <div class="setting-1">
+            <img src="images/icons/checkbox2.png" class="settings-checkbox" onclick="setting4(); save()"
+                id="setting4-img">
+            <p class="setting-checkbox1-text">Walter Mode</p>
+        </div>
         <div id="settings_content" class="settings-content">
             <div class="settings-defaultbutton" onclick="defaultbutton()">
                 <p>Reset To Default</p>
@@ -68,9 +73,7 @@
         </div>
     </div>
 
-    <div class="label-left" id="label_left">
-        <p>Settings</p>
-    </div>
+    <div class="label-left" id="label_left"></div>
 
     <!--Credits-->
 
@@ -91,6 +94,15 @@
                     target="_blank">Tabler</a>
             </div>
         </div>
+    </div>
+
+    <!--Achievements-->
+
+    <div class="achievements">
+        <a>
+            <img src="images/icons/award.png" class="achievements-img" onmouseenter="labelenter(); labelachievements()"
+                onmouseleave="labelleave()">
+        </a>
     </div>
 
     <!--Devtools-->
@@ -142,6 +154,8 @@
         <p class="achievement-title" id="ach_title">Eddie Invasion</p>
         <p class="achievement-desc" id="ach_desc">Buy 10 Cursors</p>
     </div>
+
+    <!--Counters-->
 
     <div class="center">
         <div class="counter-all">
@@ -256,6 +270,11 @@
     </footer>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="achievements.js"></script>
+    <script src="buildings.js"></script>
+    <script src="settings.js"></script>
+    <script src="upgrades.js"></script>
+    <script src="goldeneddie.js"></script>
     <script src="script.js"></script>
 </body>
 

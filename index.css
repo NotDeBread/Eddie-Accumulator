@@ -257,9 +257,32 @@ body {
   font-size: 1.35em;
 }
 
-.devtools {
+.achievements {
   position: absolute;
   top: 100px;
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.achievements-img {
+  filter: invert(50%);
+  width: 30px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.achievements-img:hover {
+  transform: scale(110%);
+}
+
+.achievements-img:active {
+  transform: scale(100%);
+}
+
+.devtools {
+  position: absolute;
+  top: 140px;
   margin: 10px;
   width: 40px;
   height: 40px;
@@ -320,7 +343,7 @@ body {
   font-size: 1.25em;
   transform: translateX(10px);
   transition: transform ease-in-out 0.25s, opacity ease-in-out 0.25s,
-    top ease-in-out 0.25s;
+    width ease-in-out 0.25s, top ease-in-out 0.25s, height ease-in-out 0.25s;
   opacity: 0;
   color: white;
   cursor: default;
