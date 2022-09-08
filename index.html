@@ -21,14 +21,14 @@
 <body onload="load()">
 
     <div class="topper">
-        <p style="display: inline;">Eddie Accumulator</p>
+        <p style="display: inline;" id="topper_title">Eddie Accumulator</p>
         <div class="topper-divider">|</div>
         <a href="https://github.com/NotDeBread/Eddie-Accumulator">Github</a>
         <div class="topper-divider">|</div>
         <a class="debread" href="https://notdebread.github.io/Website-V3/" target="_blank">DeBread</a>
 
         <a style="float: right;" href="changelog.html">Changelog</a>
-        <p class="version" style="float: right; padding-right: 10px;">BETA v0.06</p>
+        <p class="version" style="float: right; padding-right: 10px;">BETA v0.07</p>
     </div>
 
     <img class="goldeneddie" id="goldeneddie" src="images/goldeneddie.png" onclick="goldeneddie_click()">
@@ -96,12 +96,12 @@
         </div>
     </div>
 
-    <!--Achievements-->
+    <!--Stats-->
 
-    <div class="achievements">
-        <a>
-            <img src="images/icons/award.png" class="achievements-img" onmouseenter="labelenter(); labelachievements()"
-                onmouseleave="labelleave()">
+    <div class="stats">
+        <a href="stats.html">
+            <img src="images/icons/stats.png" class="stats-img" onmouseenter="labelenter(); labelstats()"
+                onmouseleave="labelleave()" onclick="save()">
         </a>
     </div>
 
@@ -124,7 +124,7 @@
                 <div class="devbutton" onclick="dev_x10cpc()">
                     <p>x10 CPC</p>
                 </div>
-                <div class="devbutton" onclick="dev_10xCursors()"">
+                <div class="devbutton" onclick="dev_10xCursors()">
                     <p>10x Cursors</p>
                 </div>
                 <div class=" devbutton" onclick="dev_10xBones()">
@@ -136,6 +136,9 @@
                 <div class="devbutton" onclick="dev_10xTreats()">
                     <p>10x Treats</p>
                 </div>
+                <p style="text-align: center;">Golden Eddie Randomizer</p>
+                <p id="goldeneddie_chance" style="text-align: center;">-</p>
+                <p id="goldeneddie_chance_count" style="text-align: center;">-</p>
             </div>
         </div>
     </div>
@@ -159,7 +162,7 @@
 
     <div class="center">
         <div class="counter-all">
-            <p id="count" class="counter">0</p>
+            <p id="count" class="counter">-</p>
             <p class="cps-label" title="Clicks Per Second">CPS:
             <p id="cps" class="cps">0</p>
             <p class="cpc-label" title="Clicks Per Click"><br>CPC:
@@ -212,35 +215,61 @@
 
     <section class="section-upgrades">
         <div class="upgrades">
+
+            <!--Silver Cursors-->
+
             <div id="upgrade_silvercursors" hidden>
                 <img src="images/upgrades/silvercursors.png" class="upgrade" onclick="upgrade_silvercursors()"
                     onmouseenter="upgrade_silvercursors_hover()" id="upgrade_silvercursors_img">
                 <p class="upgrade-price" id="upgrade_silvercursors_price">500</p>
             </div>
+
+            <!--Golden Fingers-->
+
             <div id="upgrade_goldenfingers" hidden>
                 <img src="images/upgrades/goldenfingers.png" class="upgrade" onclick="upgrade_goldenfingers()"
                     onmouseenter="upgrade_goldenfingers_hover()" id="upgrade_goldenfingers_img">
                 <p class="upgrade-price" id="upgrade_goldenfingers_price">1,000</p>
             </div>
+
+            <!--Platinum Fingers-->
+
             <div id="upgrade_platinumfingers" hidden>
                 <img src="images/upgrades/platinumfingers.png" class="upgrade" onclick="upgrade_platinumfingers()"
                     onmouseenter="upgrade_platinumfingers_hover()" id="upgrade_platinumfingers_img">
                 <p class="upgrade-price" id="upgrade_platinumfingers_price">10,000</p>
             </div>
+
+            <!--Bacon Bones-->
+
             <div id="upgrade_baconbones" hidden>
                 <img src="images/upgrades/baconbones.png" class="upgrade" onclick="upgrade_baconbones()"
                     onmouseenter="upgrade_baconbones_hover()" id="upgrade_baconbones_img">
                 <p class="upgrade-price" id="upgrade_baconbones_price">20,000</p>
             </div>
+
+            <!--Diamond Fingers-->
+
             <div id="upgrade_diamondfingers" hidden>
                 <img src="images/upgrades/diamondfingers.png" class="upgrade" onclick="upgrade_diamondfingers()"
-                    onmouseenter="upgrade_superfrisbe_hover()" id="upgrade_diamondfingers_img">
+                    onmouseenter="upgrade_diamondfingers_hover()" id="upgrade_diamondfingers_img">
                 <p class="upgrade-price" id="upgrade_diamondfingers_price">50,000</p>
             </div>
+
+            <!--Super Frisbe-->
+
             <div id="upgrade_superfrisbe" hidden>
                 <img src="images/upgrades/superfrisbe.png" class="upgrade" onclick="upgrade_superfrisbe()"
                     onmouseenter="upgrade_superfrisbe_hover()" id="upgrade_superfrisbe_img">
                 <p class="upgrade-price" id="upgrade_superfrisbe_price">50,000</p>
+            </div>
+
+            <!--Shimmering Eddies-->
+
+            <div id="upgrade_shimmeringeddies" hidden>
+                <img src="images/upgrades/shimmeringeddies.png" class="upgrade" onclick="upgrade_shimmeringeddies()"
+                    onmouseenter="upgrade_shimmeringeddies_hover()" id="upgrade_shimmeringeddies_img">
+                <p class="upgrade-price" id="upgrade_shimmeringeddies_price">100,000</p>
             </div>
         </div>
     </section>
@@ -270,12 +299,13 @@
     </footer>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
-    <script src="achievements.js"></script>
-    <script src="buildings.js"></script>
-    <script src="settings.js"></script>
+    <script src="save.js"></script>
+    <script src="script.js"></script>
     <script src="upgrades.js"></script>
     <script src="goldeneddie.js"></script>
-    <script src="script.js"></script>
+    <script src="achievements.js"></script>
+    <script src="items.js"></script>
+    <script src="settings.js"></script>
 </body>
 
 

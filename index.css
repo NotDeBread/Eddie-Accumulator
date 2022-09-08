@@ -257,7 +257,7 @@ body {
   font-size: 1.35em;
 }
 
-.achievements {
+.stats {
   position: absolute;
   top: 100px;
   margin: 10px;
@@ -265,18 +265,18 @@ body {
   height: 40px;
 }
 
-.achievements-img {
-  filter: invert(50%);
+.stats-img {
+  filter: invert();
   width: 30px;
   margin: 5px;
   cursor: pointer;
 }
 
-.achievements-img:hover {
+.stats-img:hover {
   transform: scale(110%);
 }
 
-.achievements-img:active {
+.stats-img:active {
   transform: scale(100%);
 }
 

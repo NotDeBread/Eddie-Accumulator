@@ -1,3 +1,5 @@
+setInterval(upgrade_update, 1)
+
 function upgrade_silvercursors_hover() {
     document.getElementById('info_title').innerHTML = "Silver Cursors";
     document.getElementById('info_cps').innerHTML = "Doubles cursor speed";
@@ -38,9 +40,17 @@ function upgrade_superfrisbe_hover() {
     document.getElementById('info_label').innerHTML = "";
 }
 
-function upgrade_superfrisbe_hover() {
+function upgrade_diamondfingers_hover() {
     document.getElementById('info_title').innerHTML = "Diamond Fingers";
     document.getElementById('info_cps').innerHTML = "Changes the CPC based on how many cursors are owned";
+    document.getElementById('info_owned').style.setProperty('color', 'transparent');
+    document.getElementById('owned_label').style.setProperty('opacity', '0');
+    document.getElementById('info_label').innerHTML = "";
+}
+
+function upgrade_shimmeringeddies_hover() {
+    document.getElementById('info_title').innerHTML = "Shimmering Eddies";
+    document.getElementById('info_cps').innerHTML = "Raises the chance of Golden Eddies spawn";
     document.getElementById('info_owned').style.setProperty('color', 'transparent');
     document.getElementById('owned_label').style.setProperty('opacity', '0');
     document.getElementById('info_label').innerHTML = "";
@@ -53,6 +63,8 @@ function upgrade_silvercursors() {
         config.countraw -= 500
         config.cursormultiplier *= 2
         config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 500
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -64,6 +76,8 @@ function upgrade_goldenfingers() {
         config.countraw -= 1000
         config.clickmultiplier += 1
         config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 1000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -75,6 +89,8 @@ function upgrade_platinumfingers() {
         config.countraw -= 10000
         config.clickmultiplier *= 2
         config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 10000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -86,6 +102,8 @@ function upgrade_baconbones() {
         config.countraw -= 20000
         config.bonemultiplier *= 2
         config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 20000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -95,8 +113,10 @@ function upgrade_diamondfingers() {
         document.getElementById('upgrade_diamondfingers').style.setProperty('display', 'none')
         config.upgrade_diamondfingers_bought = true
         config.countraw -= 50000
-        config.cpc *= 2
+        config.clickmultiplier += 2
         config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 50000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -108,7 +128,25 @@ function upgrade_superfrisbe() {
         config.countraw -= 20000
         config.frisbemultiplier *= 2
         config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 50000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_shimmeringeddies() {
+    if(config.upgrade_shimmeringeddies_bought === false && config.count >= 100000) {
+        document.getElementById('upgrade_shimmeringeddies').style.setProperty('display', 'none')
+        config.upgrade_shimmeringeddies_bought = true
+        config.countraw -= 100000
+        config.goldeneddiecount -= 1000
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 100000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+        
+        save()
+        window.location.reload();
     }
 }
 

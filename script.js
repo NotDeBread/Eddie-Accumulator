@@ -1,56 +1,3 @@
-const config = JSON.parse(localStorage.getItem('save')) ?? {
-    buildingtotal: 0,
-    cursortotal: 0,
-    bonetotal: 0,
-    frisbetotal: 0,
-    treattotal: 0,
-    
-    
-    count: 0,
-    countraw: 0,
-    cpsdisplay: 0,
-    cpc: 1,
-    cpcmultiplier: 1,
-    timesclicked: 0,
-    
-    cursorcps: 0,
-    bonecps: 0,
-    frisbecps: 0,
-    treatcps: 0,
-    
-    clickmultiplier: 1,
-    cursormultiplier: 1,
-    bonemultiplier: 1,
-    frisbemultiplier: 1,
-
-    cursorprice: 10,
-    boneprice: 100,
-    frisbeprice: 500,
-    treatprice: 2500,
-
-    
-    totalupgrade: 0,
-    upgrade_goldenfingers_bought: false,
-    upgrade_platinumfingers_bought: false,
-    upgrade_silvercursors_bought: false,
-    upgrade_baconbones_bought: false,
-    upgrade_superfrisbe_bought: false,
-    upgrade_diamondfingers_bought: false,
-
-    upgrades: 0,
-
-    setting1var: true,
-    setting2var: false,
-    setting3var: true,
-
-    autosave: true,
-    monospace: false,
-    shortnumbers: true,
-    walter: false,
-
-    devtoolsunlocked: false,
-}
-
 const favicon = document.getElementById("favicon");
 
 var settingsopen = false
@@ -63,13 +10,12 @@ var deletevar = 0
 
 var goldeneddie_random = 0
 
-setInterval(clickspersecond, 10)
+setInterval(clickspersecond, 25)
 setInterval(update, 1)
-setInterval(upgrade_update, 1)
-setInterval(autosave, 60000)
 
 function eddieclick() {
     config.countraw += (config.cpc * config.cpcmultiplier)
+    config.totaleddieorbsraw += (config.cpc * config.cpcmultiplier)
     config.timesclicked += 1
 
     counterformat()
@@ -110,7 +56,7 @@ function devtools() {
         if(!devtoolsopen) {
             document.getElementById('devtools_img').src = "images/icons/back.png"
             document.getElementById('devtools').style.setProperty('width', '200px')
-            document.getElementById('devtools').style.setProperty('height', '175px')
+            document.getElementById('devtools').style.setProperty('height', '210px')
             document.getElementById('devtools').style.setProperty('background-color', 'var(--darkerbg)')
             document.getElementById('devtools_content').style.setProperty('opacity', '1')
             document.getElementById('devtools_header').style.setProperty('color', 'rgba(255, 255, 255, 255)')
@@ -132,10 +78,13 @@ function devtools() {
 
 function dev_x10() {
     config.countraw *= 10
+    config.totaleddieorbsraw *= 10
 }
 
 function dev_golden() {
     goldeneddie_random = 7
+    document.getElementById('goldeneddie_chance').innerHTML = goldeneddie_random
+    document.getElementById('goldeneddie_chance').style.setProperty('color', 'lime')
     goldeneddie()
 }
 
@@ -213,7 +162,6 @@ function labelsettings() {
     document.getElementById('label_left').style.setProperty('top', '39px')
     document.getElementById('label_left').innerHTML = 'Settings'
     document.getElementById('label_left').style.setProperty('width', '90px')
-    document.getElementById('label_left').style.setProperty('height', '20px')
 
 }
 
@@ -221,30 +169,31 @@ function labelcredits() {
     document.getElementById('label_left').style.setProperty('top', '75px')
     document.getElementById('label_left').innerHTML = 'Credits'
     document.getElementById('label_left').style.setProperty('width', '90px')
-    document.getElementById('label_left').style.setProperty('height', '20px')
 }
 
-function labelachievements() {
+function labelstats() {
     document.getElementById('label_left').style.setProperty('top', '115px')
-    document.getElementById('label_left').innerHTML = 'Achievements<br>Coming Soon'
-    document.getElementById('label_left').style.setProperty('width', '120px')
-    document.getElementById('label_left').style.setProperty('height', '40px')
+    document.getElementById('label_left').innerHTML = 'Statistics'
+    document.getElementById('label_left').style.setProperty('width', '110px')
 }
 
 function labeldevtools() {
     document.getElementById('label_left').style.setProperty('top', '155px')
     document.getElementById('label_left').innerHTML = 'Developer Tools'
     document.getElementById('label_left').style.setProperty('width', '140px')
-    document.getElementById('label_left').style.setProperty('height', '20px')
 }
 
 
 
 function clickspersecond() {
-    config.countraw += (config.cursorcps * config.cursormultiplier ) / 100
-    config.countraw += (config.bonecps * config.bonemultiplier) / 100
-    config.countraw += (config.frisbecps * config.frisbemultiplier) / 100
-    config.countraw += config.treatcps / 100
+    config.countraw += (config.cursorcps * config.cursormultiplier ) / 40
+    config.countraw += (config.bonecps * config.bonemultiplier) / 40
+    config.countraw += (config.frisbecps * config.frisbemultiplier) / 40
+    config.countraw += (config.treatcps * config.treatmultiplier) / 40
+    config.totaleddieorbsraw += (config.cursorcps * config.cursormultiplier ) / 40
+    config.totaleddieorbsraw += (config.bonecps * config.bonemultiplier) / 40
+    config.totaleddieorbsraw += (config.frisbecps * config.frisbemultiplier) / 40
+    config.totaleddieorbsraw += (config.treatcps * config.treatmultiplier) / 40
     config.count = Math.round(config.countraw)
 
     counterformat()
@@ -322,16 +271,12 @@ function clickspersecond() {
         document.getElementById('upgrade_baconbones_img').style.setProperty('filter', 'brightness(75%)')
     }
     
-    if(config.count >= 25000){
+    if(config.count >= 50000){
             document.getElementById('upgrade_diamondfingers_price').style.setProperty('color', 'lime')
             document.getElementById('upgrade_diamondfingers_img').style.setProperty('filter', 'brightness(100%)')
     } else {
             document.getElementById('upgrade_diamondfingers_price').style.setProperty('color', 'red')
             document.getElementById('upgrade_diamondfingers_img').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.countraw < 0) {
-        config.countraw = 0
     }
     
     if(config.count >= 50000){
@@ -340,6 +285,18 @@ function clickspersecond() {
     } else {
         document.getElementById('upgrade_superfrisbe_price').style.setProperty('color', 'red')
         document.getElementById('upgrade_superfrisbe_img').style.setProperty('filter', 'brightness(75%)')
+    }
+    
+    if(config.count >= 100000){
+        document.getElementById('upgrade_shimmeringeddies_price').style.setProperty('color', 'lime')
+        document.getElementById('upgrade_shimmeringeddies_img').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_shimmeringeddies_price').style.setProperty('color', 'red')
+        document.getElementById('upgrade_shimmeringeddies_img').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.countraw < 0) {
+        config.countraw = 0
     }
 }
 
@@ -351,6 +308,7 @@ function update() {
     document.getElementById('cps').innerHTML = cps
 
     config.count = Math.round(config.countraw)
+    config.totaleddieorbs = Math.round(config.totaleddieorbs)
 
     if(config.timesclicked >= 100 && config.upgrade_silvercursors_bought === false){
         document.getElementById('upgrade_silvercursors').hidden = false;
@@ -376,6 +334,10 @@ function update() {
         document.getElementById('upgrade_superfrisbe').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
+    if(config.goldeneddiesclicked === 1 && config.upgrade_shimmeringeddies_bought === false){
+        document.getElementById('upgrade_shimmeringeddies').hidden = false;
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
 
     if(config.devtoolsunlocked === true) {
         document.getElementById('devtools').hidden = false
@@ -389,6 +351,8 @@ function update() {
         document.getElementById('count').style.setProperty('font-family', 'renogare')
         document.getElementById('setting2-img').src = "images/icons/checkbox1.png"
     }
+
+    config.totaleddieorbs = Math.round(config.totaleddieorbsraw)
 }
 
 window.onload = function() {

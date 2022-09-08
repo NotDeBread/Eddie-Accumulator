@@ -47,47 +47,33 @@ a {
 }
 
 .title {
+  font-size: 3em;
+  text-align: center;
+}
+
+.stats-title {
   text-align: center;
   font-size: 2.5em;
-}
-
-.collected-label {
-  text-align: center;
-}
-
-.collected {
-  margin: 0 auto;
-  display: inline;
-}
-
-.label-center {
-  margin: 0 auto;
-  width: 100%;
-  text-align: center;
-}
-
-.label {
-  background-color: rgba(0, 0, 0, 50%);
-  width: 100px;
-  text-align: center;
-  opacity: 1;
-  border-radius: 5px;
-  margin: 0 auto;
-}
-
-.achievements {
-  background-color: var(--darkbg);
-  width: 315px;
-  height: 500px;
-  margin: 0 auto;
-  margin-top: 100px;
   padding: 10px;
 }
 
-.achievement {
-  width: 60px;
+.stats-body {
+  background-color: var(--darkbg);
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
-.achievement:hover {
-  transform: scale(105%);
+.stats-title {
+  text-align: center;
+  font-size: 1.75em;
+}
+
+.stats-text-body {
+  padding: 10px;
+}
+
+.stats-text {
+  display: inline;
+  font-size: 1.25em;
 }

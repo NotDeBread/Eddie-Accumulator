@@ -1,3 +1,5 @@
+setInterval(autosave, 60000)
+
 function settings() {
 
 //Open
@@ -76,7 +78,8 @@ function setting4() {
         config.walter = true
         document.getElementById('eddie').src = 'images/walter.gif'
         document.getElementById('webtitle').innerHTML = 'Walter Accumulator'
-        favicon.setAttribute("href", "icon2.png"); 
+        document.getElementById('topper_title').innerHTML = 'Walter Accumulator'
+        document.getElementById('favicon').href = 'images/icon2.png'
     } 
     
     if(config.setting4var) {
@@ -84,7 +87,8 @@ function setting4() {
         config.walter = false
         document.getElementById('eddie').src = 'images/EddieSphere.gif'
         document.getElementById('webtitle').innerHTML = 'Eddie Accumulator'
-        favicon.setAttribute("href", "icon.png"); 
+        document.getElementById('topper_title').innerHTML = 'Eddie Accumulator'
+        document.getElementById('favicon').href = 'images/icon.png'
     }
 
     config.setting4var = !config.setting4var

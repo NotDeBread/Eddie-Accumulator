@@ -5,16 +5,21 @@ var ach_countdown = 0
 function achievement1() {
     document.getElementById('achievement1').style.setProperty('left', '10px')
     config.ach_countdown = 5
+    config.totalachievements += 1
 }
 
 function achievement2() {
     document.getElementById('achievement2').style.setProperty('left', '10px')
     config.ach_countdown = 5
+    config.totalachievements += 1
+
 }
 
 function achievement3() {
     document.getElementById('achievement3').style.setProperty('left', '10px')
     config.ach_countdown = 5
+    config.totalachievements += 1
+
 }
 
 function achievementcountdown() {

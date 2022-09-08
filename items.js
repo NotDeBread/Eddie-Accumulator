@@ -3,7 +3,9 @@ function buycursor() {
         config.cursorcps += 1
         config.cursortotal += 1
         config.countraw -= config.cursorprice
+        config.eddieorbsspent += config.cursorprice
         config.cursorprice = Math.round(config.cursorprice * 1.1)
+
 
         counterupdate()
 
@@ -43,7 +45,9 @@ function buybone() {
         config.cpsdisplay += 10
         config.bonetotal += 1
         config.countraw -= config.boneprice
+        config.eddieorbsspent += config.boneprice
         config.boneprice = Math.round(config.boneprice * 1.1)
+
 
         counterupdate()
 
@@ -70,7 +74,9 @@ function buyfrisbe() {
         config.cpsdisplay += 50
         config.frisbetotal += 1
         config.countraw -= config.frisbeprice
+        config.eddieorbsspent += config.frisbeprice
         config.frisbeprice = Math.round(config.frisbeprice * 1.1)
+
 
         counterupdate()
 
@@ -98,6 +104,7 @@ function buytreat() {
         config.cpsdisplay += 50
         config.treattotal += 1
         config.countraw -= config.treatprice
+        config.eddieorbsspent += config.treatprice
         config.treatprice = Math.round(config.treatprice * 1.1)
 
 
