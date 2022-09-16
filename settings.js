@@ -7,7 +7,7 @@ function settings() {
     if(!settingsopen) {
         document.getElementById('settings_img').src = "images/icons/back.png"
         document.getElementById('settings').style.setProperty('width', '250px')
-        document.getElementById('settings').style.setProperty('height', '225px')
+        document.getElementById('settings').style.setProperty('height', '250px')
         document.getElementById('settings').style.setProperty('background-color', 'var(--darkerbg)')
         document.getElementById('settings_content').style.setProperty('opacity', '1')
         document.getElementById('settings_header').style.setProperty('color', 'rgba(255, 255, 255, 255)')
@@ -98,26 +98,28 @@ function autosave() {
     if(config.autosave === true) {
         localStorage.setItem('save', JSON.stringify(config))
         console.log('AutoSaved', numeral(config.count).format('0,00'), 'Eddie Orbs!')
-        document.getElementById('noti_text').style.setProperty('width', '100px')
-        document.getElementById('noti_text').innerHTML = 'Saved!'
-        savenoti()
+        document.getElementById('alert_text').style.setProperty('width', '100px')
+        document.getElementById('alert_text').style.setProperty('background-color', 'rgba(0, 0, 0, 50%)')
+        document.getElementById('alert_text').innerHTML = 'Saved!'
+        savealert()
     } //There alex
 }
 
 function save() {
     localStorage.setItem('save', JSON.stringify(config))
     console.log('Saved', numeral(config.count).format('0,00'), 'Eddie Orbs!')
-    document.getElementById('noti_text').style.setProperty('width', '100px')
-    document.getElementById('noti_text').innerHTML = 'Saved!'
-    savenoti()
+    document.getElementById('alert_text').style.setProperty('width', '100px')
+    document.getElementById('alert_text').style.setProperty('background-color', 'rgba(0, 0, 0, 50%)')
+    document.getElementById('alert_text').innerHTML = 'Saved!'
+    savealert()
 }
 
-function savenoti() {
-    document.getElementById('savenoti').style.setProperty('opacity','1')
-    document.getElementById('savenoti').style.setProperty('transform', 'scale(100%)')
+function savealert() {
+    document.getElementById('savealert').style.setProperty('opacity','1')
+    document.getElementById('savealert').style.setProperty('transform', 'scale(100%)')
     setTimeout(() => {
-        document.getElementById('savenoti').style.setProperty('opacity','0')
-        document.getElementById('savenoti').style.setProperty('transform', 'scale(75%)')
+        document.getElementById('savealert').style.setProperty('opacity','0')
+        document.getElementById('savealert').style.setProperty('transform', 'scale(75%)')
     }, 3000);
 }
 

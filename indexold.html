@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    TODO:
+    -More Upgrades
+    -More Items
+    -Better UI
+    -Statistics
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexold.css">
+    <link rel="shortcut icon" id="favicon" type="image/png" href="images/icon.png">
+    <title id="webtitle">Eddie Accumulator</title>
+</head>
+
+<body onload="load()">
+
+    <div class="topper">
+        <p style="display: inline;" id="topper_title">Eddie Accumulator</p>
+        <div class="topper-divider">|</div>
+        <a href="https://github.com/NotDeBread/Eddie-Accumulator">Github</a>
+        <div class="topper-divider">|</div>
+        <a class="debread" href="https://debread.space" target="_blank">DeBread</a>
+
+        <a style="float: right;" href="changelog.html">Changelog</a>
+        <p class="version" style="float: right; padding-right: 10px;">BETA v0.07</p>
+    </div>
+
+    <img class="goldeneddie" id="goldeneddie" src="images/goldeneddie.png" onclick="goldeneddie_click()">
+
+    <!--Settings-->
+
+    <div class="settings" id="settings">
+        <div class="settings-header">
+            <img src="images/icons/settings.png" class="settings-img" id="settings_img" onclick="settings()"
+                onmouseenter="labelenter(); labelsettings()" onmouseleave="labelleave()">
+            <p class="settings-text" id="settings_header">Settings</p>
+        </div>
+        <div class="setting-1">
+            <img src="images/icons/checkbox2.png" class="settings-checkbox" onclick="setting1(); save()"
+                id="setting1-img">
+            <p class="setting-checkbox1-text">Autosaves</p>
+        </div>
+        <div class="setting-1">
+            <img src="images/icons/checkbox1.png" class="settings-checkbox" onclick="setting2(); save()"
+                id="setting2-img">
+            <p class="setting-checkbox2-text">Monospace Font</p>
+        </div>
+        <div class="setting-1">
+            <img src="images/icons/checkbox2.png" class="settings-checkbox" onclick="setting3(); save()"
+                id="setting3-img">
+            <p class="setting-checkbox1-text">Short Numbers</p>
+        </div>
+        <div class="setting-1">
+            <img src="images/icons/checkbox2.png" class="settings-checkbox" onclick="setting4(); save()"
+                id="setting4-img">
+            <p class="setting-checkbox1-text">Walter Mode</p>
+        </div>
+        <div class="setting-1">
+            <a href="index.html">
+                <img src="images/icons/checkbox2.png" class="settings-checkbox">
+            </a>
+            <p class="setting-checkbox1-text">Old UI (Broken)</p>
+        </div>
+        <div id="settings_content" class="settings-content">
+            <div class="settings-defaultbutton" onclick="defaultbutton()">
+                <p>Reset To Default</p>
+            </div>
+        </div>
+        <div id="settings_content" class="settings-content">
+            <div class="settings-deletebutton" onclick="deletebutton()">
+                <p class="settings-deletebutton-text" id="deletebutton_text">Delete Save</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="label-left" id="label_left"></div>
+
+    <!--Credits-->
+
+    <div class="credits" id="credits">
+        <div class="credits-header">
+            <img src="images/icons/users.png" class="credits-img" id="credits_img" onclick="credits()"
+                onmouseenter="labelenter(); labelcredits()" onmouseleave="labelleave()">
+            <p class="credits-text" id="credits_header">Credits</p>
+        </div>
+        <div id="credits_content" class="credits-content">
+            <div>
+                <p>Helpers:</p>
+                <a class="credits-link" style="color: rgb(182, 240, 255);" href="https://github.com/ZekoTheFox"
+                    target="_blank">Zeko</a><br>
+                <a class="credits-link" style="color: rgb(164, 255, 177); cursor: default;">ZeanZarzin</a><br>
+                <p style="padding-top: 10px;">Icons:</p>
+                <a class="credits-link" href="https://tabler-icons.io/" style="color: rgb(115, 176, 255)"
+                    target="_blank">Tabler</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Stats-->
+
+    <div class="stats">
+        <a href="stats.html">
+            <img src="images/icons/stats.png" class="stats-img" onmouseenter="labelenter(); labelstats()"
+                onmouseleave="labelleave()" onclick="save()">
+        </a>
+    </div>
+
+    <!--Devtools-->
+
+    <div class="devtools" id="devtools" hidden>
+        <div class="devtools-header">
+            <img src="images/icons/tool.png" id="devtools_img" class="devtools-img" onclick="devtools()"
+                onmouseenter="labelenter(); labeldevtools()" onmouseleave="labelleave()">
+            <p class="devtools-text" id="devtools_header">DevTools</p>
+        </div>
+        <div id="devtools_content">
+            <div>
+                <div class="devbutton" onclick="dev_golden()" style="width: 150px;">
+                    <p>Spawn Golden Eddie</p>
+                </div>
+                <div class="devbutton" onclick="dev_x10()">
+                    <p>x10 Eddie Orbs</p>
+                </div>
+                <div class="devbutton" onclick="dev_x10cpc()">
+                    <p>x10 CPC</p>
+                </div>
+                <div class="devbutton" onclick="dev_10xCursors()">
+                    <p>10x Cursors</p>
+                </div>
+                <div class=" devbutton" onclick="dev_10xBones()">
+                    <p>10x Bones</p>
+                </div>
+                <div class="devbutton" onclick="dev_10xFrisbes()">
+                    <p>10x Frisbes</p>
+                </div>
+                <div class="devbutton" onclick="dev_10xTreats()">
+                    <p>10x Treats</p>
+                </div>
+                <p style="text-align: center;">Golden Eddie Randomizer</p>
+                <p id="goldeneddie_chance" style="text-align: center;">-</p>
+                <p id="goldeneddie_chance_count" style="text-align: center;">-</p>
+            </div>
+        </div>
+    </div>
+
+    <!--Achievements-->
+
+    <div class="achievement" id="achievement1" onclick="achievementclose()">
+        <p class="achievement-title" id="ach_title">Click</p>
+        <p class="achievement-desc" id="ach_desc">Click Eddie 1 Time</p>
+    </div>
+    <div class="achievement" id="achievement2" onclick="achievementclose()">
+        <p class="achievement-title" id="ach_title">Eddie Incursion</p>
+        <p class="achievement-desc" id="ach_desc">Buy 1 Cursor</p>
+    </div>
+    <div class="achievement" id="achievement3" onclick="achievementclose()">
+        <p class="achievement-title" id="ach_title">Eddie Invasion</p>
+        <p class="achievement-desc" id="ach_desc">Buy 10 Cursors</p>
+    </div>
+
+    <!--Counters-->
+
+    <div class="center">
+        <div class="counter-all">
+            <p id="count" class="counter">-</p>
+            <p class="cps-label" title="Clicks Per Second">CPS:
+            <p id="cps" class="cps">0</p>
+            <p class="cpc-label" title="Clicks Per Click"><br>CPC:
+            <p id="cpc" class="cpc">1</p>
+            </p>
+        </div>
+        <img id="eddie" src="images/EddieSphere.gif" class="eddie" onclick="eddieclick()">
+    </div>
+
+    <div class="noti" id="savenoti">
+        <p class="noti-text" id="noti_text">Saved!</p>
+    </div>
+
+    <section class="section-info">
+        <p id="info_title" class="info-title">-</p>
+        <p class="info-label" id="info_label">CPS:</p>
+        <p id="info_cps" class="info-cps">-</p>
+        <p class="info-label" style="color: grey;" id="owned_label"><br>Owned:</p>
+        <p id="info_owned" class="info-owned">-</p>
+    </section>
+
+    <section class="section-buildings">
+        <div class="buildings">
+            <div>
+                <img id="cursorimg" src="images/buildings/cursor.png" class="building" onclick="buycursor()"
+                    onmouseenter="cursor_hover()">
+            </div>
+            <div>
+                <img id="boneimg" src="images/buildings/bone.png" class="building" onclick="buybone()"
+                    onmouseenter="bone_hover()">
+            </div>
+            <div>
+                <img id="frisbeimg" src="images/buildings/frisbe.png" class="building" onclick="buyfrisbe()"
+                    onmouseenter="frisbe_hover()">
+            </div>
+            <div>
+                <img id="treatimg" src="images/buildings/treat.png" class="building" onclick="buytreat()"
+                    onmouseenter="treat_hover()">
+            </div>
+        </div>
+
+        <div class="buildings-prices">
+            <p id="cursorprice" class="building-price">10</p>
+            <p id="boneprice" class="building-price">100</p>
+            <p id="frisbeprice" class="building-price">500</p>
+            <p id="treatprice" class="building-price">2,500</p>
+        </div>
+
+    </section>
+
+    <section class="section-upgrades">
+        <div class="upgrades">
+
+            <!--Silver Cursors-->
+
+            <div id="upgrade_silvercursors" hidden>
+                <img src="images/upgrades/silvercursors.png" class="upgrade" onclick="upgrade_silvercursors()"
+                    onmouseenter="upgrade_silvercursors_hover()" id="upgrade_silvercursors_img">
+                <p class="upgrade-price" id="upgrade_silvercursors_price">500</p>
+            </div>
+
+            <!--Golden Fingers-->
+
+            <div id="upgrade_goldenfingers" hidden>
+                <img src="images/upgrades/goldenfingers.png" class="upgrade" onclick="upgrade_goldenfingers()"
+                    onmouseenter="upgrade_goldenfingers_hover()" id="upgrade_goldenfingers_img">
+                <p class="upgrade-price" id="upgrade_goldenfingers_price">1,000</p>
+            </div>
+
+            <!--Platinum Fingers-->
+
+            <div id="upgrade_platinumfingers" hidden>
+                <img src="images/upgrades/platinumfingers.png" class="upgrade" onclick="upgrade_platinumfingers()"
+                    onmouseenter="upgrade_platinumfingers_hover()" id="upgrade_platinumfingers_img">
+                <p class="upgrade-price" id="upgrade_platinumfingers_price">10,000</p>
+            </div>
+
+            <!--Bacon Bones-->
+
+            <div id="upgrade_baconbones" hidden>
+                <img src="images/upgrades/baconbones.png" class="upgrade" onclick="upgrade_baconbones()"
+                    onmouseenter="upgrade_baconbones_hover()" id="upgrade_baconbones_img">
+                <p class="upgrade-price" id="upgrade_baconbones_price">20,000</p>
+            </div>
+
+            <!--Diamond Fingers-->
+
+            <div id="upgrade_diamondfingers" hidden>
+                <img src="images/upgrades/diamondfingers.png" class="upgrade" onclick="upgrade_diamondfingers()"
+                    onmouseenter="upgrade_diamondfingers_hover()" id="upgrade_diamondfingers_img">
+                <p class="upgrade-price" id="upgrade_diamondfingers_price">50,000</p>
+            </div>
+
+            <!--Super Frisbe-->
+
+            <div id="upgrade_superfrisbe" hidden>
+                <img src="images/upgrades/superfrisbe.png" class="upgrade" onclick="upgrade_superfrisbe()"
+                    onmouseenter="upgrade_superfrisbe_hover()" id="upgrade_superfrisbe_img">
+                <p class="upgrade-price" id="upgrade_superfrisbe_price">50,000</p>
+            </div>
+
+            <!--Shimmering Eddies-->
+
+            <div id="upgrade_shimmeringeddies" hidden>
+                <img src="images/upgrades/shimmeringeddies.png" class="upgrade" onclick="upgrade_shimmeringeddies()"
+                    onmouseenter="upgrade_shimmeringeddies_hover()" id="upgrade_shimmeringeddies_img">
+                <p class="upgrade-price" id="upgrade_shimmeringeddies_price">100,000</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="savebutton" onclick="save()">
+        <p class="savebutton-text">Save</p>
+    </div>
+
+    <div class="label-footer" id="label_footer">
+        <p>HTML</p>
+    </div>
+
+    <footer class="footer">
+        <div>
+            <p class="footer-text" id="footer_text">Made With</p>
+        </div>
+        <div class="footer-center">
+            <div class="footer-imgs">
+                <img src="images/icons/html.png" class="footer-img" onmouseenter="htmlhover(); footerlabelenter()"
+                    onmouseleave="footerlabelleave()">
+                <img src="images/icons/css.png" class="footer-img" onmouseenter="csshover(); footerlabelenter()"
+                    onmouseleave="footerlabelleave()">
+                <img src="images/icons/js.png" class="footer-img" onmouseenter="jshover(); footerlabelenter()"
+                    onmouseleave="footerlabelleave()">
+            </div>
+        </div>
+    </footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="save.js"></script>
+    <script src="script.js"></script>
+    <script src="upgrades.js"></script>
+    <script src="goldeneddie.js"></script>
+    <script src="achievements.js"></script>
+    <script src="items.js"></script>
+    <script src="settings.js"></script>
+</body>
+
+
+
+</html>

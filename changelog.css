@@ -122,7 +122,7 @@ body {
 .bug {
   background-color: var(--darkbg);
   text-align: center;
-  width: 500px;
+  width: fit-content;
   margin: auto;
   margin-top: 100px;
   font-size: 1.5em;

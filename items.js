@@ -10,7 +10,7 @@ function buycursor() {
         counterupdate()
 
         document.getElementById('info_cps').innerHTML = config.cursorcps * config.cursormultiplier
-        document.getElementById('info_owned').innerHTML = config.cursortotal
+        document.getElementById('cursor_owned').innerHTML = config.cursortotal
 
         if (config.countraw >= config.cursorprice) {
             document.getElementById('cursorimg').style.setProperty('filter', 'brightness(100%)')
@@ -52,7 +52,7 @@ function buybone() {
         counterupdate()
 
         document.getElementById('info_cps').innerHTML = config.bonecps
-        document.getElementById('info_owned').innerHTML = config.bonetotal
+        document.getElementById('bone_owned').innerHTML = config.bonetotal
 
         if (config.count >= config.boneprice) {
             document.getElementById('boneimg').style.setProperty('filter', 'brightness(100%)')
@@ -81,7 +81,7 @@ function buyfrisbe() {
         counterupdate()
 
         document.getElementById('info_cps').innerHTML = config.frisbecps
-        document.getElementById('info_owned').innerHTML = config.frisbetotal
+        document.getElementById('frisbe_owned').innerHTML = config.frisbetotal
 
         if (config.count >= config.frisbeprice) {
             document.getElementById('frisbeimg').style.setProperty('filter', 'brightness(100%)')
@@ -111,7 +111,7 @@ function buytreat() {
         counterupdate()
 
         document.getElementById('info_cps').innerHTML = config.treatcps
-        document.getElementById('info_owned').innerHTML = config.treattotal
+        document.getElementById('treat_owned').innerHTML = config.treattotal
 
         if (config.count >= config.treatprice) {
             document.getElementById('treatimg').style.setProperty('filter', 'brightness(100%)')
@@ -160,4 +160,11 @@ function treat_hover() {
     document.getElementById('info_owned').style.setProperty('color', 'grey');
     document.getElementById('owned_label').style.setProperty('opacity', '1')
     document.getElementById('info_label').innerHTML = "CPS: ";
+}
+
+window.onload = function() {
+    document.getElementById('cursor_owned').innerHTML = config.cursortotal
+    document.getElementById('bone_owned').innerHTML = config.bonetotal
+    document.getElementById('frisbe_owned').innerHTML = config.frisbetotal
+    document.getElementById('treat_owned').innerHTML = config.treattotal
 }

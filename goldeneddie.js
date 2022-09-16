@@ -8,26 +8,30 @@ setInterval(() => {
     if(config.goldeneddie_random_count <= 0) {
         goldeneddie_random_count = config.goldeneddiecount
     }
-
-    goldeneddie_random_count -= 1
-    document.getElementById('goldeneddie_chance_count').innerHTML = goldeneddie_random_count
-
+    
+    if(config.goldeneddies_unlocked === true) {
+        goldeneddie_random_count -= 1
+        document.getElementById('goldeneddie_chance_count').innerHTML = goldeneddie_random_count
+    }
+        
 }, config.goldeneddiecount / 100);
 
 function goldeneddie_randomize() {
-    goldeneddie_random = Math.round(Math.random() * 10)
-    goldeneddie_random_count = 100
-    goldeneddierandom()
-    document.getElementById('goldeneddie_chance').innerHTML = goldeneddie_random
+    if(config.goldeneddies_unlocked === true) {
+        goldeneddie_random = Math.round(Math.random() * 10)
+        goldeneddie_random_count = 100
+        goldeneddierandom()
+        document.getElementById('goldeneddie_chance').innerHTML = goldeneddie_random
+        
+        if(goldeneddie_random === 7) {
+            document.getElementById('goldeneddie_chance').style.setProperty('color', 'lime')
+        } else {
+            document.getElementById('goldeneddie_chance').style.setProperty('color', 'red')
+        }
     
-    if(goldeneddie_random === 7) {
-        document.getElementById('goldeneddie_chance').style.setProperty('color', 'lime')
-    } else {
-        document.getElementById('goldeneddie_chance').style.setProperty('color', 'red')
-    }
-
-    if(goldeneddie_random === !7) {
-        document.getElementById('goldeneddie').style.setProperty('transform', 'scale(0%)')
+        if(goldeneddie_random === !7) {
+            document.getElementById('goldeneddie').style.setProperty('transform', 'scale(0%)')
+        }   
     }
 }
 
@@ -53,11 +57,12 @@ function goldeneddie() {
 }
 
 function goldeneddie_click() {
+    config.totaleddieorbsraw += (config.countraw * 7 ) - config.totaleddieorbsraw
     config.countraw *= 7
-    config.totaleddieorbsraw *= 7
-    document.getElementById('noti_text').style.setProperty('width', '150px')
-    document.getElementById('noti_text').innerHTML = 'Eddie Orbs x7!'
-    savenoti()
+    document.getElementById('alert_text').style.setProperty('width', '150px')
+    document.getElementById('alert_text').style.setProperty('background-color', 'rgba(253, 255, 125, 0.5)')
+    document.getElementById('alert_text').innerHTML = 'Eddie Orbs x7!'
+    savealert()
     document.getElementById('goldeneddie').hidden = true
     config.goldeneddiesclicked += 1
 

@@ -3,57 +3,110 @@ setInterval(upgrade_update, 1)
 function upgrade_silvercursors_hover() {
     document.getElementById('info_title').innerHTML = "Silver Cursors";
     document.getElementById('info_cps').innerHTML = "Doubles cursor speed";
-    document.getElementById('info_owned').style.setProperty('color', 'transparent');
-    document.getElementById('owned_label').style.setProperty('opacity', '0');
-    document.getElementById('info_label').innerHTML = "";
+
+    if(config.countraw >= 500) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "500"
 }
 
 function upgrade_goldenfingers_hover() {
     document.getElementById('info_title').innerHTML = "Golden Fingers";
     document.getElementById('info_cps').innerHTML = "Changes the CPC based on how many cursors are owned";
-    document.getElementById('info_owned').style.setProperty('color', 'transparent');
-    document.getElementById('owned_label').style.setProperty('opacity', '0');
-    document.getElementById('info_label').innerHTML = "";
+    
+    if(config.countraw >= 1000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "1,000"
 }
 
 function upgrade_platinumfingers_hover() {
     document.getElementById('info_title').innerHTML = "Platinum Fingers";
     document.getElementById('info_cps').innerHTML = "Changes the CPC based on how many cursors are owned";
-    document.getElementById('info_owned').style.setProperty('color', 'transparent');
-    document.getElementById('owned_label').style.setProperty('opacity', '0');
-    document.getElementById('info_label').innerHTML = "";
+
+    
+    if(config.countraw >= 10000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "10,000"
 }
 
 function upgrade_baconbones_hover() {
     document.getElementById('info_title').innerHTML = "Bacon Flavored Bones";
     document.getElementById('info_cps').innerHTML = "Doubles Bone Speed";
-    document.getElementById('info_owned').style.setProperty('color', 'transparent');
-    document.getElementById('owned_label').style.setProperty('opacity', '0');
-    document.getElementById('info_label').innerHTML = "";
+    
+    if(config.countraw >= 20000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "20,000"
 }
 
 function upgrade_superfrisbe_hover() {
     document.getElementById('info_title').innerHTML = "The Super Ultra Mega Deluxe Epic Frisbe Pro (XTREME Premium Edition) MAX PRO 2023™ 🔥💯😱👌😂😈";
     document.getElementById('info_cps').innerHTML = "Doubles Frisbe Speed";
-    document.getElementById('info_owned').style.setProperty('color', 'transparent');
-    document.getElementById('owned_label').style.setProperty('opacity', '0');
-    document.getElementById('info_label').innerHTML = "";
+
+    
+    if(config.countraw >= 50000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "50,000"
 }
 
 function upgrade_diamondfingers_hover() {
     document.getElementById('info_title').innerHTML = "Diamond Fingers";
     document.getElementById('info_cps').innerHTML = "Changes the CPC based on how many cursors are owned";
-    document.getElementById('info_owned').style.setProperty('color', 'transparent');
-    document.getElementById('owned_label').style.setProperty('opacity', '0');
-    document.getElementById('info_label').innerHTML = "";
+
+    
+    if(config.countraw >= 50000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "50,000"
+}
+
+function upgrade_goldeneddies_hover() {
+    document.getElementById('info_title').innerHTML = "Golden Eddies";
+    document.getElementById('info_cps').innerHTML = "Unlocks Golden Eddies";
+
+    
+    if(config.countraw >= 75000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "75,000"
 }
 
 function upgrade_shimmeringeddies_hover() {
     document.getElementById('info_title').innerHTML = "Shimmering Eddies";
     document.getElementById('info_cps').innerHTML = "Raises the chance of Golden Eddies spawn";
-    document.getElementById('info_owned').style.setProperty('color', 'transparent');
-    document.getElementById('owned_label').style.setProperty('opacity', '0');
-    document.getElementById('info_label').innerHTML = "";
+
+    
+    if(config.countraw >= 100000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "100,000"
 }
 
 function upgrade_silvercursors() {
@@ -133,6 +186,20 @@ function upgrade_superfrisbe() {
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
+
+function upgrade_goldeneddies() {
+    if(config.upgrade_goldeneddies_bought === false && config.count >= 75000) {
+        document.getElementById('upgrade_goldeneddies').style.setProperty('display', 'none')
+        config.upgrade_goldeneddies_bought = true
+        config.countraw -= 75000
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 100000
+        config.goldeneddies_unlocked = true
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
 
 function upgrade_shimmeringeddies() {
     if(config.upgrade_shimmeringeddies_bought === false && config.count >= 100000) {

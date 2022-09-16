@@ -11,3 +11,15 @@ function topbutton() {
 function topclick() {
     document.documentElement.scrollTop = 0
 }
+
+function noti_open() {
+    document.getElementById('notis').style.setProperty('right', '0')
+}
+
+function noti_close() {
+    document.getElementById('notis').style.setProperty('right', '-25%')
+}
+
+function upgrades_collapse() {
+    config.upgrades_collapsed = !config.upgrades_collapsed
+}

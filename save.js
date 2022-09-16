@@ -11,10 +11,13 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     cpsdisplay: 0,
     cpc: 1,
     cpcmultiplier: 1,
+
     timesclicked: 0,
     totaleddieorbsraw: 0,
     eddieorbsspent: 0,
     goldeneddiesclicked: 0,
+
+    goldeneddies_unlocked: false,
 
     goldeneddiecount: 10000,
 
@@ -30,9 +33,9 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     treatmultiplier: 1,
 
     cursorprice: 10,
-    boneprice: 100,
-    frisbeprice: 500,
-    treatprice: 2500,
+    boneprice: 500,
+    frisbeprice: 5000,
+    treatprice: 10000,
 
     totalachievements: 0,
     totalupgrades: 0,
@@ -43,9 +46,12 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     upgrade_baconbones_bought: false,
     upgrade_superfrisbe_bought: false,
     upgrade_diamondfingers_bought: false,
+    upgrade_goldeneddies_bought: false,
     upgrade_shimmeringeddies_bought: false,
 
     upgrades: 0,
+
+    upgrades_collapsed: false,
 
     setting1var: true,
     setting2var: false,

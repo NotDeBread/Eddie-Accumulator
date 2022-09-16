@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!--
-    TODO:
-    -More Upgrades
-    -More Items
-    -Better UI
-    -Statistics
--->
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +10,7 @@
     <title id="webtitle">Eddie Accumulator</title>
 </head>
 
-<body onload="load()">
+<body>
 
     <div class="topper">
         <p style="display: inline;" id="topper_title">Eddie Accumulator</p>
@@ -26,12 +18,35 @@
         <a href="https://github.com/NotDeBread/Eddie-Accumulator">Github</a>
         <div class="topper-divider">|</div>
         <a class="debread" href="https://notdebread.github.io/Website-V3/" target="_blank">DeBread</a>
+        <div class="topper-divider">|</div>
 
         <a style="float: right;" href="changelog.html">Changelog</a>
-        <p class="version" style="float: right; padding-right: 10px;">BETA v0.07</p>
+        <p class="version" style="float: right; padding-right: 10px;">BETA v0.08</p>
+        <div class="topper-divider" style="float: right;">|</div>
+        <a style="float: right;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
     </div>
 
     <img class="goldeneddie" id="goldeneddie" src="images/goldeneddie.png" onclick="goldeneddie_click()">
+
+    <!----------LEFT BUTTONS---------->
+
+    <!--Not Left Buttons-->
+
+    <img src="images/icons/bell.png" class="noti-icon" onclick="noti_open()">
+
+    <section class="notis" id="notis">
+        <div class="notis-header">
+            <img src="images/icons/collapse.png" class="notis-img" onclick="noti_close()">
+            <p class="notis-title">Notifications</p>
+        </div>
+
+        <div>
+            <div class="noti">
+                <span class="noti-title">BETA v0.08 Released!</span><br>
+                <span class="noti-desc">BETA v0.08 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+            </div>
+        </div>
+    </section>
 
     <!--Settings-->
 
@@ -57,9 +72,15 @@
             <p class="setting-checkbox1-text">Short Numbers</p>
         </div>
         <div class="setting-1">
-            <img src="images/icons/checkbox2.png" class="settings-checkbox" onclick="setting4(); save()"
+            <img src="images/icons/checkbox1.png" class="settings-checkbox" onclick="setting4(); save()"
                 id="setting4-img">
             <p class="setting-checkbox1-text">Walter Mode</p>
+        </div>
+        <div class="setting-1">
+            <a href="indexold.html">
+                <img src="images/icons/checkbox1.png" class="settings-checkbox">
+            </a>
+            <p class="setting-checkbox1-text">Old UI (Broken)</p>
         </div>
         <div id="settings_content" class="settings-content">
             <div class="settings-defaultbutton" onclick="defaultbutton()">
@@ -85,13 +106,16 @@
         </div>
         <div id="credits_content" class="credits-content">
             <div>
-                <p>Helpers:</p>
+                <p style="font-size: 1.1em;">Helpers:</p>
                 <a class="credits-link" style="color: rgb(182, 240, 255);" href="https://github.com/ZekoTheFox"
                     target="_blank">Zeko</a><br>
                 <a class="credits-link" style="color: rgb(164, 255, 177); cursor: default;">ZeanZarzin</a><br>
-                <p style="padding-top: 10px;">Icons:</p>
+                <p style="padding-top: 10px; font-size: 1.1em;">Icons:</p>
                 <a class="credits-link" href="https://tabler-icons.io/" style="color: rgb(115, 176, 255)"
                     target="_blank">Tabler</a>
+                <p style="padding-top: 10px; font-size: 1.1em;">Number Formatter:</p>
+                <a class="credits-link" href="http://numeraljs.com/" style="color: rgb(253, 255, 136)"
+                    target="_blank">Numeral.js</a>
             </div>
         </div>
     </div>
@@ -143,6 +167,10 @@
         </div>
     </div>
 
+    <div class="alert" id="savealert">
+        <p class="alert-text" id="alert_text">Saved!</p>
+    </div>
+
     <!--Achievements-->
 
     <div class="achievement" id="achievement1" onclick="achievementclose()">
@@ -158,145 +186,122 @@
         <p class="achievement-desc" id="ach_desc">Buy 10 Cursors</p>
     </div>
 
-    <!--Counters-->
 
-    <div class="center">
-        <div class="counter-all">
-            <p id="count" class="counter">-</p>
-            <p class="cps-label" title="Clicks Per Second">CPS:
-            <p id="cps" class="cps">0</p>
-            <p class="cpc-label" title="Clicks Per Click"><br>CPC:
-            <p id="cpc" class="cpc">1</p>
-            </p>
-        </div>
-        <img id="eddie" src="images/EddieSphere.gif" class="eddie" onclick="eddieclick()">
-    </div>
 
-    <div class="noti" id="savenoti">
-        <p class="noti-text" id="noti_text">Saved!</p>
-    </div>
+    <!-------------------------------------------------------------------------------->
 
-    <section class="section-info">
-        <p id="info_title" class="info-title">-</p>
-        <p class="info-label" id="info_label">CPS:</p>
-        <p id="info_cps" class="info-cps">-</p>
-        <p class="info-label" style="color: grey;" id="owned_label"><br>Owned:</p>
-        <p id="info_owned" class="info-owned">-</p>
+
+
+    <section class="all">
+        <section class="left">
+            <div class="counters">
+                <span class="counter" id="count">-</span><br>
+                <span title="Eddies Per Second">EPS:</span> <span id="cps">-</span><br>
+                <span title="Eddies Per Click">EPC:</span> <span id="cpc">-</span>
+            </div>
+            <img src="images/EddieSphere.gif" class="eddie" id="eddie" onclick="eddieclick()">
+        </section>
+
+        <section class="right">
+            <div class="upgrades-all">
+                <div class="upgrade-tooltip" id="upgrade_tooltip">
+                    <span class="upgrade-tooltip-name" id="info_title">Upgrade Name</span><br>
+                    <span class="upgrade-tooltip-desc" id="info_cps">Upgrade Description</span><br>
+                    <span class="upgrade-tooltip-price" id="info_price">Upgrade Cost</span>
+                </div>
+                <div class="upgrades-header" onclick="upgrades_collapse()">
+                    <span style="width: 100%; padding-left: 25px;">Upgrades</span>
+                    <img src="images/icons/collapse.png" class="upgrades-header-img" id="upgrade_collapse_img">
+                </div>
+                <div class="upgrades" id="upgrades">
+                    <div class="no-upgrades" id="no_upgrades" hidden>No upgrades yet! Keep playing to find more.</div>
+                    <img class="upgrade" src="images/upgrades/silvercursors.png" id="upgrade_silvercursors"
+                        onmouseenter="upgrade_silvercursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_silvercursors()" hidden>
+                    <img class="upgrade" src="images/upgrades/goldenfingers.png" id="upgrade_goldenfingers"
+                        onmouseenter="upgrade_goldenfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_goldenfingers()" hidden>
+                    <img class="upgrade" src="images/upgrades/platinumfingers.png" id="upgrade_platinumfingers"
+                        onmouseenter="upgrade_platinumfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_platinumfingers()" hidden>
+                    <img class="upgrade" src="images/upgrades/baconbones.png" id="upgrade_baconbones"
+                        onmouseenter="upgrade_baconbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_baconbones()"
+                        hidden>
+                    <img class="upgrade" src="images/upgrades/diamondfingers.png" id="upgrade_diamondfingers"
+                        onmouseenter="upgrade_diamondfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_diamondfingers()"
+                        hidden>
+                    <img class="upgrade" src="images/upgrades/superfrisbe.png" id="upgrade_superfrisbe"
+                        onmouseenter="upgrade_superfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_superfrisbe()" hidden>
+                    <img class="upgrade" src="images/upgrades/goldeneddies.png" id="upgrade_goldeneddies"
+                        onmouseenter="upgrade_goldeneddies_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_goldeneddies()" hidden>
+                    <img class="upgrade" src="images/upgrades/shimmeringeddies.png" id="upgrade_shimmeringeddies"
+                        onmouseenter="upgrade_shimmeringeddies_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_shimmeringeddies()" hidden>
+                </div>
+            </div>
+
+
+            <!--CURSOR-->
+
+            <div class="item" onclick="buycursor()" id="cursorimg">
+                <img src="images/buildings/cursor.png" class="item-image">
+                <div class="item-content">
+                    <div class="item-left">
+                        <span class="item-title">Cursor</span><br>
+                        <span id="cursorprice">-</span>
+                    </div>
+                    <span class="item-counter" id="cursor_owned">0</span>
+                </div>
+            </div>
+
+            <!--BONE-->
+
+            <div class="item" onclick="buybone()" id="boneimg">
+                <img src="images/buildings/bone.png" class="item-image">
+                <div class="item-content">
+                    <div class="item-left">
+                        <span class="item-title">Bone</span><br>
+                        <span id="boneprice">-</span>
+                    </div>
+                    <span class="item-counter" id="bone_owned">0</span>
+                </div>
+            </div>
+
+            <!--FRISBE-->
+
+            <div class="item" onclick="buyfrisbe()" id="frisbeimg">
+                <img src="images/buildings/frisbe.png" class="item-image">
+                <div class="item-content">
+                    <div class="item-left">
+                        <span class="item-title">Frisbe</span><br>
+                        <span id="frisbeprice">-</span>
+                    </div>
+                    <span class="item-counter" id="frisbe_owned">0</span>
+                </div>
+            </div>
+
+            <!--TREAT-->
+
+            <div class="item" onclick="buytreat()" id="treatimg">
+                <img src="images/buildings/treat.png" class="item-image">
+                <div class="item-content">
+                    <div class="item-left">
+                        <span class="item-title">Treat</span><br>
+                        <span id="treatprice">-</span>
+                    </div>
+                    <span class="item-counter" id="treat_owned">0</span>
+                </div>
+            </div>
+        </section>
     </section>
 
-    <section class="section-buildings">
-        <div class="buildings">
-            <div>
-                <img id="cursorimg" src="images/buildings/cursor.png" class="building" onclick="buycursor()"
-                    onmouseenter="cursor_hover()">
-            </div>
-            <div>
-                <img id="boneimg" src="images/buildings/bone.png" class="building" onclick="buybone()"
-                    onmouseenter="bone_hover()">
-            </div>
-            <div>
-                <img id="frisbeimg" src="images/buildings/frisbe.png" class="building" onclick="buyfrisbe()"
-                    onmouseenter="frisbe_hover()">
-            </div>
-            <div>
-                <img id="treatimg" src="images/buildings/treat.png" class="building" onclick="buytreat()"
-                    onmouseenter="treat_hover()">
-            </div>
-        </div>
-
-        <div class="buildings-prices">
-            <p id="cursorprice" class="building-price">10</p>
-            <p id="boneprice" class="building-price">100</p>
-            <p id="frisbeprice" class="building-price">500</p>
-            <p id="treatprice" class="building-price">2,500</p>
-        </div>
-
-    </section>
-
-    <section class="section-upgrades">
-        <div class="upgrades">
-
-            <!--Silver Cursors-->
-
-            <div id="upgrade_silvercursors" hidden>
-                <img src="images/upgrades/silvercursors.png" class="upgrade" onclick="upgrade_silvercursors()"
-                    onmouseenter="upgrade_silvercursors_hover()" id="upgrade_silvercursors_img">
-                <p class="upgrade-price" id="upgrade_silvercursors_price">500</p>
-            </div>
-
-            <!--Golden Fingers-->
-
-            <div id="upgrade_goldenfingers" hidden>
-                <img src="images/upgrades/goldenfingers.png" class="upgrade" onclick="upgrade_goldenfingers()"
-                    onmouseenter="upgrade_goldenfingers_hover()" id="upgrade_goldenfingers_img">
-                <p class="upgrade-price" id="upgrade_goldenfingers_price">1,000</p>
-            </div>
-
-            <!--Platinum Fingers-->
-
-            <div id="upgrade_platinumfingers" hidden>
-                <img src="images/upgrades/platinumfingers.png" class="upgrade" onclick="upgrade_platinumfingers()"
-                    onmouseenter="upgrade_platinumfingers_hover()" id="upgrade_platinumfingers_img">
-                <p class="upgrade-price" id="upgrade_platinumfingers_price">10,000</p>
-            </div>
-
-            <!--Bacon Bones-->
-
-            <div id="upgrade_baconbones" hidden>
-                <img src="images/upgrades/baconbones.png" class="upgrade" onclick="upgrade_baconbones()"
-                    onmouseenter="upgrade_baconbones_hover()" id="upgrade_baconbones_img">
-                <p class="upgrade-price" id="upgrade_baconbones_price">20,000</p>
-            </div>
-
-            <!--Diamond Fingers-->
-
-            <div id="upgrade_diamondfingers" hidden>
-                <img src="images/upgrades/diamondfingers.png" class="upgrade" onclick="upgrade_diamondfingers()"
-                    onmouseenter="upgrade_diamondfingers_hover()" id="upgrade_diamondfingers_img">
-                <p class="upgrade-price" id="upgrade_diamondfingers_price">50,000</p>
-            </div>
-
-            <!--Super Frisbe-->
-
-            <div id="upgrade_superfrisbe" hidden>
-                <img src="images/upgrades/superfrisbe.png" class="upgrade" onclick="upgrade_superfrisbe()"
-                    onmouseenter="upgrade_superfrisbe_hover()" id="upgrade_superfrisbe_img">
-                <p class="upgrade-price" id="upgrade_superfrisbe_price">50,000</p>
-            </div>
-
-            <!--Shimmering Eddies-->
-
-            <div id="upgrade_shimmeringeddies" hidden>
-                <img src="images/upgrades/shimmeringeddies.png" class="upgrade" onclick="upgrade_shimmeringeddies()"
-                    onmouseenter="upgrade_shimmeringeddies_hover()" id="upgrade_shimmeringeddies_img">
-                <p class="upgrade-price" id="upgrade_shimmeringeddies_price">100,000</p>
-            </div>
-        </div>
-    </section>
 
     <div class="savebutton" onclick="save()">
         <p class="savebutton-text">Save</p>
     </div>
-
-    <div class="label-footer" id="label_footer">
-        <p>HTML</p>
-    </div>
-
-    <footer class="footer">
-        <div>
-            <p class="footer-text" id="footer_text">Made With</p>
-        </div>
-        <div class="footer-center">
-            <div class="footer-imgs">
-                <img src="images/icons/html.png" class="footer-img" onmouseenter="htmlhover(); footerlabelenter()"
-                    onmouseleave="footerlabelleave()">
-                <img src="images/icons/css.png" class="footer-img" onmouseenter="csshover(); footerlabelenter()"
-                    onmouseleave="footerlabelleave()">
-                <img src="images/icons/js.png" class="footer-img" onmouseenter="jshover(); footerlabelenter()"
-                    onmouseleave="footerlabelleave()">
-            </div>
-        </div>
-    </footer>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="save.js"></script>
@@ -306,8 +311,8 @@
     <script src="achievements.js"></script>
     <script src="items.js"></script>
     <script src="settings.js"></script>
+    <script src="misc.js"></script>
+
 </body>
-
-
 
 </html>

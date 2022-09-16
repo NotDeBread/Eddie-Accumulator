@@ -126,7 +126,7 @@ function credits() {
         if(!creditsopen) {
             document.getElementById('credits_img').src = "images/icons/back.png"
             document.getElementById('credits').style.setProperty('width', '150px')
-            document.getElementById('credits').style.setProperty('height', '150px')
+            document.getElementById('credits').style.setProperty('height', '180px')
             document.getElementById('credits').style.setProperty('background-color', 'var(--darkerbg)')
             document.getElementById('credits_content').style.setProperty('opacity', '1')
             document.getElementById('credits_header').style.setProperty('color', 'rgba(255, 255, 255, 255)')
@@ -240,59 +240,55 @@ function clickspersecond() {
     }
 
     if(config.count >= 500){
-        document.getElementById('upgrade_silvercursors_price').style.setProperty('color', 'lime')
-        document.getElementById('upgrade_silvercursors_img').style.setProperty('filter', 'brightness(100%)')
+        document.getElementById('upgrade_silvercursors').style.setProperty('filter', 'brightness(100%)')
     } else {
-        document.getElementById('upgrade_silvercursors_price').style.setProperty('color', 'red')
-        document.getElementById('upgrade_silvercursors_img').style.setProperty('filter', 'brightness(75%)')
+        document.getElementById('upgrade_silvercursors').style.setProperty('filter', 'brightness(75%)')
     }
 
     if(config.count >= 1000){
-        document.getElementById('upgrade_goldenfingers_price').style.setProperty('color', 'lime')
-        document.getElementById('upgrade_goldenfingers_img').style.setProperty('filter', 'brightness(100%)')
+        document.getElementById('upgrade_goldenfingers').style.setProperty('filter', 'brightness(100%)')
     } else {
-        document.getElementById('upgrade_goldenfingers_price').style.setProperty('color', 'red')
-        document.getElementById('upgrade_goldenfingers_img').style.setProperty('filter', 'brightness(75%)')
+        document.getElementById('upgrade_goldenfingers').style.setProperty('filter', 'brightness(75%)')
     }
 
     if(config.count >= 10000){
-        document.getElementById('upgrade_platinumfingers_price').style.setProperty('color', 'lime')
-        document.getElementById('upgrade_platinumfingers_img').style.setProperty('filter', 'brightness(100%)')
+        document.getElementById('upgrade_platinumfingers').style.setProperty('filter', 'brightness(100%)')
     } else {
-        document.getElementById('upgrade_platinumfingers_price').style.setProperty('color', 'red')
-        document.getElementById('upgrade_platinumfingers_img').style.setProperty('filter', 'brightness(75%)')
+        document.getElementById('upgrade_platinumfingers').style.setProperty('filter', 'brightness(75%)')
     }
     
     if(config.count >= 20000){
-        document.getElementById('upgrade_baconbones_price').style.setProperty('color', 'lime')
-        document.getElementById('upgrade_baconbones_img').style.setProperty('filter', 'brightness(100%)')
+        document.getElementById('upgrade_baconbones').style.setProperty('filter', 'brightness(100%)')
     } else {
-        document.getElementById('upgrade_baconbones_price').style.setProperty('color', 'red')
-        document.getElementById('upgrade_baconbones_img').style.setProperty('filter', 'brightness(75%)')
+        document.getElementById('upgrade_baconbones').style.setProperty('filter', 'brightness(75%)')
     }
     
     if(config.count >= 50000){
-            document.getElementById('upgrade_diamondfingers_price').style.setProperty('color', 'lime')
-            document.getElementById('upgrade_diamondfingers_img').style.setProperty('filter', 'brightness(100%)')
+            document.getElementById('upgrade_diamondfingers').style.setProperty('filter', 'brightness(100%)')
     } else {
-            document.getElementById('upgrade_diamondfingers_price').style.setProperty('color', 'red')
-            document.getElementById('upgrade_diamondfingers_img').style.setProperty('filter', 'brightness(75%)')
+            document.getElementById('upgrade_diamondfingers').style.setProperty('filter', 'brightness(75%)')
     }
     
     if(config.count >= 50000){
-        document.getElementById('upgrade_superfrisbe_price').style.setProperty('color', 'lime')
-        document.getElementById('upgrade_superfrisbe_img').style.setProperty('filter', 'brightness(100%)')
+        document.getElementById('upgrade_superfrisbe').style.setProperty('filter', 'brightness(100%)')
     } else {
-        document.getElementById('upgrade_superfrisbe_price').style.setProperty('color', 'red')
-        document.getElementById('upgrade_superfrisbe_img').style.setProperty('filter', 'brightness(75%)')
+        document.getElementById('upgrade_superfrisbe').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 75000){
+        document.getElementById('upgrade_goldeneddies').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_goldeneddies').style.setProperty('filter', 'brightness(75%)')
     }
     
     if(config.count >= 100000){
-        document.getElementById('upgrade_shimmeringeddies_price').style.setProperty('color', 'lime')
-        document.getElementById('upgrade_shimmeringeddies_img').style.setProperty('filter', 'brightness(100%)')
+        document.getElementById('upgrade_shimmeringeddies').style.setProperty('filter', 'brightness(100%)')
     } else {
-        document.getElementById('upgrade_shimmeringeddies_price').style.setProperty('color', 'red')
-        document.getElementById('upgrade_shimmeringeddies_img').style.setProperty('filter', 'brightness(75%)')
+        document.getElementById('upgrade_shimmeringeddies').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if (config.totaleddieorbs >= 100000) {
+        config.upgrades += 1
     }
 
     if(config.countraw < 0) {
@@ -310,34 +306,38 @@ function update() {
     config.count = Math.round(config.countraw)
     config.totaleddieorbs = Math.round(config.totaleddieorbs)
 
-    if(config.timesclicked >= 100 && config.upgrade_silvercursors_bought === false){
+    if(config.timesclicked >= 100 && config.upgrade_silvercursors_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_silvercursors').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
-        }
-    if(config.cursortotal >= 10){
+        } else {document.getElementById('upgrade_silvercursors').hidden = true}
+    if(config.cursortotal >= 10 && config.upgrades_collapsed === false){
         document.getElementById('upgrade_goldenfingers').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
-        }
-    if(config.cursortotal >= 25){
+        } else {document.getElementById('upgrade_goldenfingers').hidden = true}
+    if(config.cursortotal >= 25 && config.upgrades_collapsed === false){
         document.getElementById('upgrade_platinumfingers').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
-    }
-    if(config.cursortotal >= 50 && config.upgrade_diamondfingers_bought === false){
+    } else {document.getElementById('upgrade_platinumfingers').hidden = true}
+    if(config.cursortotal >= 50 && config.upgrade_diamondfingers_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_diamondfingers').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
-    }
-    if(config.bonetotal >= 10 && config.upgrade_baconbones_bought === false){
+    } else {document.getElementById('upgrade_diamondfingers').hidden = true}
+    if(config.bonetotal >= 10 && config.upgrade_baconbones_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_baconbones').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
-    }
-    if(config.frisbetotal >= 10 && config.upgrade_superfrisbe_bought === false){
+    } else {document.getElementById('upgrade_baconbones').hidden = true}
+    if(config.frisbetotal >= 10 && config.upgrade_superfrisbe_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_superfrisbe').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
-    }
-    if(config.goldeneddiesclicked === 1 && config.upgrade_shimmeringeddies_bought === false){
+    } else {document.getElementById('upgrade_superfrisbe').hidden = true}
+    if(config.totaleddieorbsraw >= 100000 && config.upgrade_goldeneddies_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_goldeneddies').hidden = false;
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    } else {document.getElementById('upgrade_goldeneddies').hidden = true}
+    if(config.goldeneddiesclicked >= 1 && config.upgrade_shimmeringeddies_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_shimmeringeddies').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
-    }
+    } else {document.getElementById('upgrade_shimmeringeddies').hidden = true}
 
     if(config.devtoolsunlocked === true) {
         document.getElementById('devtools').hidden = false
@@ -350,6 +350,23 @@ function update() {
     if(config.monospace === false) {
         document.getElementById('count').style.setProperty('font-family', 'renogare')
         document.getElementById('setting2-img').src = "images/icons/checkbox1.png"
+    }
+
+    if(config.upgrades >= 1 && config.upgrades_collapsed === false) {
+        document.getElementById('no_upgrades').hidden = true
+    } else {
+        document.getElementById('no_upgrades').hidden = false
+    }
+
+    if(config.totalupgrades === 7) {
+        document.getElementById('no_upgrades').innerHTML = 'All upgrades found!'
+    }
+
+    if(config.upgrades_collapsed === true) {
+        document.getElementById('no_upgrades').hidden = true
+        document.getElementById('upgrade_collapse_img').style.setProperty('transform', 'rotate(180deg)')
+    } else {
+        document.getElementById('upgrade_collapse_img').style.setProperty('transform', 'rotate(90deg)')
     }
 
     config.totaleddieorbs = Math.round(config.totaleddieorbsraw)
@@ -427,8 +444,16 @@ function jshover() {
     document.getElementById('label_footer').style.setProperty('transform', 'translateX(25px)')
 }
 
+function upgradetooltip_enter() {
+    document.getElementById('upgrade_tooltip').style.setProperty('opacity', '1')
+}
+
+function upgradetooltip_leave() {
+    document.getElementById('upgrade_tooltip').style.setProperty('opacity', '0')
+}
+
 window.addEventListener('keydown', (event) => {
-    if(event.key === 'q' && event.ctrlKey) {
+    if(event.key === 'q' && event.ctrlKey && config.devtoolsunlocked === false) {
         document.getElementById('devtools').hidden = false
         config.devtoolsunlocked = true
         console.log('Developer Tools Unlocked!')
