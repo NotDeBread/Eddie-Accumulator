@@ -101,6 +101,10 @@ body {
   width: 0;
 }
 
+.changelog-header {
+  font-size: 1.25em;
+}
+
 .changelog-body {
   font-size: 1.5em;
   background-color: var(--darkbg);
@@ -119,6 +123,18 @@ body {
   width: 500px;
 }
 
+.feature-body {
+  font-size: 1.5em;
+  background-color: var(--darkbg);
+  padding: 10px;
+}
+
+.feature-flex {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .bug {
   background-color: var(--darkbg);
   text-align: center;
@@ -131,6 +147,23 @@ body {
 
 .bug-link {
   color: cornflowerblue;
+}
+
+.addition {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.addition-img {
+  width: 20px;
+}
+
+.addition-img:hover {
+  transform: scale(125%);
+}
+
+.addition-text {
+  padding-left: 20px;
 }
 
 .top-button {

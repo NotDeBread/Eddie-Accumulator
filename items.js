@@ -6,6 +6,8 @@ function buycursor() {
         config.eddieorbsspent += config.cursorprice
         config.cursorprice = Math.round(config.cursorprice * 1.1)
 
+        document.getElementById('item_tt_eps').innerHTML = config.cursorcps * config.cursormultiplier
+
 
         counterupdate()
 
@@ -29,6 +31,9 @@ function buycursor() {
         if (config.cursortotal === 50) {
             config.upgrades += 1
         }
+        if (config.cursortotal === 75) {
+            config.upgrades += 1
+        }
 
         if(config.cursortotal === 1) {
             achievement2()
@@ -47,7 +52,8 @@ function buybone() {
         config.countraw -= config.boneprice
         config.eddieorbsspent += config.boneprice
         config.boneprice = Math.round(config.boneprice * 1.1)
-
+        
+        document.getElementById('item_tt_eps').innerHTML = config.bonecps * config.bonemultiplier
 
         counterupdate()
 
@@ -77,6 +83,7 @@ function buyfrisbe() {
         config.eddieorbsspent += config.frisbeprice
         config.frisbeprice = Math.round(config.frisbeprice * 1.1)
 
+        document.getElementById('item_tt_eps').innerHTML = config.frisbecps * config.frisbemultiplier
 
         counterupdate()
 
@@ -107,6 +114,7 @@ function buytreat() {
         config.eddieorbsspent += config.treatprice
         config.treatprice = Math.round(config.treatprice * 1.1)
 
+        document.getElementById('item_tt_eps').innerHTML = config.treatcps * config.treatmultiplier
 
         counterupdate()
 
@@ -167,4 +175,42 @@ window.onload = function() {
     document.getElementById('bone_owned').innerHTML = config.bonetotal
     document.getElementById('frisbe_owned').innerHTML = config.frisbetotal
     document.getElementById('treat_owned').innerHTML = config.treattotal
+}
+
+
+
+function item_tt_enter() {
+    document.getElementById('item-tooltip').style.setProperty('opacity', '1')
+    document.getElementById('item-tooltip').style.setProperty('left', '-190px')
+}
+
+function item_tt_leave() {
+    document.getElementById('item-tooltip').style.setProperty('opacity', '0')
+    document.getElementById('item-tooltip').style.setProperty('left', '-200px')
+}
+
+
+
+function cursor_tt() {
+    document.getElementById('item-tooltip').style.setProperty('top', '0px')
+    document.getElementById('item_tt_title').innerHTML = "Cursor"
+    document.getElementById('item_tt_eps').innerHTML = config.cursorcps * config.cursormultiplier
+}
+
+function bone_tt() {
+    document.getElementById('item-tooltip').style.setProperty('top', '55px')
+    document.getElementById('item_tt_title').innerHTML = "Bone"
+    document.getElementById('item_tt_eps').innerHTML = config.bonecps * config.bonemultiplier
+}
+
+function frisbe_tt() {
+    document.getElementById('item-tooltip').style.setProperty('top', '110px')
+    document.getElementById('item_tt_title').innerHTML = "Frisbe"
+    document.getElementById('item_tt_eps').innerHTML = config.frisbecps * config.frisbemultiplier
+}
+
+function treat_tt() {
+    document.getElementById('item-tooltip').style.setProperty('top', '165px')
+    document.getElementById('item_tt_title').innerHTML = "Treat"
+    document.getElementById('item_tt_eps').innerHTML = config.treatcps * config.treatmultiplier
 }

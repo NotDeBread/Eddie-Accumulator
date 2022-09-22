@@ -7,7 +7,7 @@ function settings() {
     if(!settingsopen) {
         document.getElementById('settings_img').src = "images/icons/back.png"
         document.getElementById('settings').style.setProperty('width', '250px')
-        document.getElementById('settings').style.setProperty('height', '250px')
+        document.getElementById('settings').style.setProperty('height', '260px')
         document.getElementById('settings').style.setProperty('background-color', 'var(--darkerbg)')
         document.getElementById('settings_content').style.setProperty('opacity', '1')
         document.getElementById('settings_header').style.setProperty('color', 'rgba(255, 255, 255, 255)')

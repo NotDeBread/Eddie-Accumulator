@@ -1,3 +1,5 @@
+var goldeneddie_type = 0
+
 var goldeneddie_random_count = config.goldeneddiecount / 100
 
 setInterval(() => {
@@ -46,6 +48,7 @@ function goldeneddie() {
     document.getElementById('goldeneddie').style.setProperty('left', `calc(100vw * ${Math.random()}`)
     document.getElementById('goldeneddie').style.setProperty('top', `calc(100vh * ${Math.random()}`)
     document.getElementById('goldeneddie').style.setProperty('transform', 'scale(100%)')
+    goldeneddie_type = Math.round(Math.random() * 2)
 
     setTimeout(() => {
         document.getElementById('goldeneddie').style.setProperty('transform', 'scale(0%)')
@@ -57,16 +60,41 @@ function goldeneddie() {
 }
 
 function goldeneddie_click() {
-    config.totaleddieorbsraw += (config.countraw * 7 ) - config.totaleddieorbsraw
-    config.countraw *= 7
-    document.getElementById('alert_text').style.setProperty('width', '150px')
-    document.getElementById('alert_text').style.setProperty('background-color', 'rgba(253, 255, 125, 0.5)')
-    document.getElementById('alert_text').innerHTML = 'Eddie Orbs x7!'
-    savealert()
-    document.getElementById('goldeneddie').hidden = true
-    config.goldeneddiesclicked += 1
-
-    if(config.goldeneddiesclicked === 1) {
+    if(config.goldeneddiesclicked === 0) {
         config.upgrades += 1
     }
+    
+    if(goldeneddie_type === 0) {
+    config.totaleddieorbsraw += (config.countraw * 2 ) - config.countraw
+    config.countraw *= 2
+
+    document.getElementById('alert_text').innerHTML = 'Eddie Orbs x2!'
+    document.getElementById('alert_text').style.setProperty('width', '150px')
+
+} else if(goldeneddie_type === 1) {
+    document.getElementById('alert_text').innerHTML = 'Eddie Orb production x2 for 30 seconds!'
+    document.getElementById('alert_text').style.setProperty('width', '400px')
+    document.getElementById('cps').style.setProperty('color', 'yellow')
+    config.goldeneddiemultiplier += 1
+    
+    setTimeout(() => {
+        config.goldeneddiemultiplier -= 1
+    }, 30000);
+} else if(goldeneddie_type === 2) {
+    document.getElementById('alert_text').innerHTML = 'EPC x2 for 30 seconds!'
+    document.getElementById('alert_text').style.setProperty('width', '300px')
+    document.getElementById('cpc').style.setProperty('color', 'yellow')
+    config.golden_cpcmultiplier += 1
+    
+    setTimeout(() => {
+        config.golden_cpcmultiplier -= 1
+    }, 30000);
+
+}
+
+document.getElementById('alert_text').style.setProperty('background-color', 'rgba(253, 255, 125, 0.5)')
+savealert()
+document.getElementById('goldeneddie').hidden = true
+
+config.goldeneddiesclicked += 1
 }

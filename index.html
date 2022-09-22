@@ -17,13 +17,12 @@
         <div class="topper-divider">|</div>
         <a href="https://github.com/NotDeBread/Eddie-Accumulator">Github</a>
         <div class="topper-divider">|</div>
-        <a class="debread" href="https://notdebread.github.io/Website-V3/" target="_blank">DeBread</a>
+        <a class="debread" href="https://debread.space" target="_blank">DeBread</a>
         <div class="topper-divider">|</div>
 
         <a style="float: right;" href="changelog.html">Changelog</a>
-        <p class="version" style="float: right; padding-right: 10px;">BETA v0.08</p>
-        <div class="topper-divider" style="float: right;">|</div>
-        <a style="float: right;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
+        <p class="version" style="float: right; padding-right: 10px;">BETA v0.09</p>
+        <a style="float: right; margin-right: 10px;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
     </div>
 
     <img class="goldeneddie" id="goldeneddie" src="images/goldeneddie.png" onclick="goldeneddie_click()">
@@ -42,8 +41,18 @@
 
         <div>
             <div class="noti">
+                <span class="noti-title">BETA v0.09 Released!</span><br>
+                <span class="noti-desc">BETA v0.09 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+            </div>
+            <div class="noti">
+                <span class="noti-title">Feature Request Form</span><br>
+                <span class="noti-desc">I'm currently running low on ideas for features, if you have any in mind click <a
+                        href="https://forms.gle/2KgT8xn1K7fqpXfj6" style="color: cornflowerblue;">Here.</a></span>
+            </div>
+            <div class="noti">
                 <span class="noti-title">BETA v0.08 Released!</span><br>
-                <span class="noti-desc">BETA v0.08 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+                <span class="noti-desc">BETA v0.08 has been realeased! Learn more <a href="changelog.html"
+                        style="color: cornflowerblue;">Here.</a></span>
             </div>
         </div>
     </section>
@@ -81,6 +90,11 @@
                 <img src="images/icons/checkbox1.png" class="settings-checkbox">
             </a>
             <p class="setting-checkbox1-text">Old UI (Broken)</p>
+        </div>
+        <div id="settings_content" class="settings-content">
+            <div class="settings-defaultbutton" onclick="save()">
+                <p>Save</p>
+            </div>
         </div>
         <div id="settings_content" class="settings-content">
             <div class="settings-defaultbutton" onclick="defaultbutton()">
@@ -174,16 +188,87 @@
     <!--Achievements-->
 
     <div class="achievement" id="achievement1" onclick="achievementclose()">
-        <p class="achievement-title" id="ach_title">Click</p>
-        <p class="achievement-desc" id="ach_desc">Click Eddie 1 Time</p>
+        <div>
+            <p class="achievement-title" id="ach_title">Click</p>
+            <p class="achievement-desc" id="ach_desc">Click Eddie 1 Time</p>
+        </div>
     </div>
+
     <div class="achievement" id="achievement2" onclick="achievementclose()">
-        <p class="achievement-title" id="ach_title">Eddie Incursion</p>
-        <p class="achievement-desc" id="ach_desc">Buy 1 Cursor</p>
+        <div>
+            <p class="achievement-title" id="ach_title">Eddie Incursion</p>
+            <p class="achievement-desc" id="ach_desc">Buy 1 Cursor</p>
+        </div>
     </div>
+
     <div class="achievement" id="achievement3" onclick="achievementclose()">
-        <p class="achievement-title" id="ach_title">Eddie Invasion</p>
-        <p class="achievement-desc" id="ach_desc">Buy 10 Cursors</p>
+        <div>
+            <p class="achievement-title" id="ach_title">Eddie Invasion</p>
+            <p class="achievement-desc" id="ach_desc">Buy 10 Cursors</p>
+        </div>
+    </div>
+
+    <div class="achievement" id="achievement4" onclick="achievementclose()">
+        <div>
+            <p class="achievement-title" id="ach_title">House of Eddies</p>
+            <p class="achievement-desc" id="ach_desc">Reach 100 Total Eddie Orbs</p>
+        </div>
+    </div>
+
+    <div class="achievement" id="achievement5" onclick="achievementclose()">
+        <div>
+            <p class="achievement-title" id="ach_title">Building of Eddies</p>
+            <p class="achievement-desc" id="ach_desc">Reach 1,000 Total Eddie Orbs</p>
+        </div>
+    </div>
+
+    <div class="achievement" id="achievement6" onclick="achievementclose()">
+        <div>
+            <p class="achievement-title" id="ach_title">City of Eddies</p>
+            <p class="achievement-desc" id="ach_desc">Reach 10,000 Total Eddie Orbs</p>
+        </div>
+    </div>
+
+    <div class="achievement" id="achievement7" onclick="achievementclose()">
+        <div>
+            <p class="achievement-title" id="ach_title">County of Eddies</p>
+            <p class="achievement-desc" id="ach_desc">Reach 100,000 Total Eddie Orbs</p>
+        </div>
+    </div>
+
+    <div class="achievement" id="achievement8" onclick="achievementclose()">
+        <div>
+            <p class="achievement-title" id="ach_title">State of Eddies</p>
+            <p class="achievement-desc" id="ach_desc">Reach 1 Million Total Eddie Orbs</p>
+        </div>
+    </div>
+
+    <div class="achievement" id="achievement9" onclick="achievementclose()">
+        <div>
+            <p class="achievement-title" id="ach_title">Country of Eddies</p>
+            <p class="achievement-desc" id="ach_desc">Reach 10 Million Total Eddie Orbs</p>
+        </div>
+    </div>
+
+    <div class="achievement" id="achievement10" onclick="achievementclose()">
+        <div>
+            <p class="achievement-title" id="ach_title">Continent of Eddies</p>
+            <p class="achievement-desc" id="ach_desc">Reach 100 Million Total Eddie Orbs</p>
+        </div>
+    </div>
+
+    <div class="achievement" id="achievement11" onclick="achievementclose()">
+        <div>
+            <p class="achievement-title" id="ach_title">Planet of Eddies</p>
+            <p class="achievement-desc" id="ach_desc">Reach 1 Billion Total Eddie Orbs</p>
+        </div>
+    </div>
+
+    <div class="achievement" id="achievement12" onclick="achievementclose()">
+        <div>
+            <p class="achievement-title" id="ach_title">Solar System of Eddies</p>
+            <p class="achievement-desc" id="ach_desc">Reach 10 Billion Total Eddie Orbs</p>
+        </div>
     </div>
 
 
@@ -196,7 +281,7 @@
         <section class="left">
             <div class="counters">
                 <span class="counter" id="count">-</span><br>
-                <span title="Eddies Per Second">EPS:</span> <span id="cps">-</span><br>
+                <span title="Eddies Per Second">EPS:</span> <span id="cps" class="cps">-</span><br>
                 <span title="Eddies Per Click">EPC:</span> <span id="cpc">-</span>
             </div>
             <img src="images/EddieSphere.gif" class="eddie" id="eddie" onclick="eddieclick()">
@@ -210,26 +295,33 @@
                     <span class="upgrade-tooltip-price" id="info_price">Upgrade Cost</span>
                 </div>
                 <div class="upgrades-header" onclick="upgrades_collapse()">
-                    <span style="width: 100%; padding-left: 25px;">Upgrades</span>
+                    <span style="width: 100%; padding-left: 25px;">Upgrades<span id="upgrade_countall"> - </span><span id="upgrade_count">0</span></span>
                     <img src="images/icons/collapse.png" class="upgrades-header-img" id="upgrade_collapse_img">
                 </div>
                 <div class="upgrades" id="upgrades">
-                    <div class="no-upgrades" id="no_upgrades" hidden>No upgrades yet! Keep playing to find more.</div>
+                    <div class="no-upgrades" id="no_upgrades">No available upgrades! Keep playing to find more.</div>
                     <img class="upgrade" src="images/upgrades/silvercursors.png" id="upgrade_silvercursors"
                         onmouseenter="upgrade_silvercursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_silvercursors()" hidden>
+                    <img class="upgrade" src="images/upgrades/goldencursors.png" id="upgrade_goldencursors"
+                        onmouseenter="upgrade_goldencursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_goldencursors()" hidden>
                     <img class="upgrade" src="images/upgrades/goldenfingers.png" id="upgrade_goldenfingers"
                         onmouseenter="upgrade_goldenfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_goldenfingers()" hidden>
                     <img class="upgrade" src="images/upgrades/platinumfingers.png" id="upgrade_platinumfingers"
                         onmouseenter="upgrade_platinumfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_platinumfingers()" hidden>
-                    <img class="upgrade" src="images/upgrades/baconbones.png" id="upgrade_baconbones"
-                        onmouseenter="upgrade_baconbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_baconbones()"
-                        hidden>
                     <img class="upgrade" src="images/upgrades/diamondfingers.png" id="upgrade_diamondfingers"
                         onmouseenter="upgrade_diamondfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_diamondfingers()"
+                        hidden>
+                    <img class="upgrade" src="images/upgrades/emeraldfingers.png" id="upgrade_emeraldfingers"
+                        onmouseenter="upgrade_emeraldfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_emeraldfingers()"
+                        hidden>
+                    <img class="upgrade" src="images/upgrades/baconbones.png" id="upgrade_baconbones"
+                        onmouseenter="upgrade_baconbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_baconbones()"
                         hidden>
                     <img class="upgrade" src="images/upgrades/superfrisbe.png" id="upgrade_superfrisbe"
                         onmouseenter="upgrade_superfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
@@ -244,66 +336,71 @@
             </div>
 
 
-            <!--CURSOR-->
-
-            <div class="item" onclick="buycursor()" id="cursorimg">
-                <img src="images/buildings/cursor.png" class="item-image">
-                <div class="item-content">
-                    <div class="item-left">
-                        <span class="item-title">Cursor</span><br>
-                        <span id="cursorprice">-</span>
-                    </div>
-                    <span class="item-counter" id="cursor_owned">0</span>
+            <div class="items-all">
+                <div class="item-tooltip" id="item-tooltip">
+                    <span id="item_tt_title" style="font-size: 1.5em;">-</span><br>
+                    <span>EPS: </span>
+                    <span id="item_tt_eps">-</span>
                 </div>
-            </div>
 
-            <!--BONE-->
+                <div class="item-container">
+                    <!--CURSOR-->
 
-            <div class="item" onclick="buybone()" id="boneimg">
-                <img src="images/buildings/bone.png" class="item-image">
-                <div class="item-content">
-                    <div class="item-left">
-                        <span class="item-title">Bone</span><br>
-                        <span id="boneprice">-</span>
+                    <div class="item" onclick="buycursor()" id="cursorimg" onmouseenter="item_tt_enter(); cursor_tt()" onmouseleave="item_tt_leave()">
+                        <img src="images/buildings/cursor.png" class="item-image">
+                        <div class="item-content">
+                            <div class="item-left">
+                                <span class="item-title">Cursor</span><br>
+                                <span id="cursorprice">-</span>
+                            </div>
+                            <span class="item-counter" id="cursor_owned">0</span>
+                        </div>
                     </div>
-                    <span class="item-counter" id="bone_owned">0</span>
-                </div>
-            </div>
 
-            <!--FRISBE-->
+                    <!--BONE-->
 
-            <div class="item" onclick="buyfrisbe()" id="frisbeimg">
-                <img src="images/buildings/frisbe.png" class="item-image">
-                <div class="item-content">
-                    <div class="item-left">
-                        <span class="item-title">Frisbe</span><br>
-                        <span id="frisbeprice">-</span>
+                    <div class="item" onclick="buybone()" id="boneimg" onmouseenter="item_tt_enter(); bone_tt()" onmouseleave="item_tt_leave()">
+                        <img src="images/buildings/bone.png" class="item-image">
+                        <div class="item-content">
+                            <div class="item-left">
+                                <span class="item-title">Bone</span><br>
+                                <span id="boneprice">-</span>
+                            </div>
+                            <span class="item-counter" id="bone_owned">0</span>
+                        </div>
                     </div>
-                    <span class="item-counter" id="frisbe_owned">0</span>
-                </div>
-            </div>
 
-            <!--TREAT-->
+                    <!--FRISBE-->
 
-            <div class="item" onclick="buytreat()" id="treatimg">
-                <img src="images/buildings/treat.png" class="item-image">
-                <div class="item-content">
-                    <div class="item-left">
-                        <span class="item-title">Treat</span><br>
-                        <span id="treatprice">-</span>
+                    <div class="item" onclick="buyfrisbe()" id="frisbeimg" onmouseenter="item_tt_enter(); frisbe_tt()" onmouseleave="item_tt_leave()">
+                        <img src="images/buildings/frisbe.png" class="item-image">
+                        <div class="item-content">
+                            <div class="item-left">
+                                <span class="item-title">Frisbe</span><br>
+                                <span id="frisbeprice">-</span>
+                            </div>
+                            <span class="item-counter" id="frisbe_owned">0</span>
+                        </div>
                     </div>
-                    <span class="item-counter" id="treat_owned">0</span>
+
+                    <!--TREAT-->
+
+                    <div class="item" onclick="buytreat()" id="treatimg" onmouseenter="item_tt_enter(); treat_tt()" onmouseleave="item_tt_leave()">
+                        <img src="images/buildings/treat.png" class="item-image">
+                        <div class="item-content">
+                            <div class="item-left">
+                                <span class="item-title">Treat</span><br>
+                                <span id="treatprice">-</span>
+                            </div>
+                            <span class="item-counter" id="treat_owned">0</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </section>
 
-
-    <div class="savebutton" onclick="save()">
-        <p class="savebutton-text">Save</p>
-    </div>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="node_modules/numeral/numeral.js"></script>
     <script src="save.js"></script>
     <script src="script.js"></script>
     <script src="upgrades.js"></script>

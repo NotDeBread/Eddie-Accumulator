@@ -40,14 +40,21 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     totalachievements: 0,
     totalupgrades: 0,
 
+    upgrade_silvercursors_bought: false,
+    upgrade_goldencursors_bought: false,
+    upgrade_baconbones_bought: false,
     upgrade_goldenfingers_bought: false,
     upgrade_platinumfingers_bought: false,
-    upgrade_silvercursors_bought: false,
-    upgrade_baconbones_bought: false,
-    upgrade_superfrisbe_bought: false,
     upgrade_diamondfingers_bought: false,
+    upgrade_emeraldfingers_bought: false,
+    upgrade_superfrisbe_bought: false,
     upgrade_goldeneddies_bought: false,
     upgrade_shimmeringeddies_bought: false,
+
+    goldeneddies_check: false,
+
+    goldeneddiemultiplier: 1,
+    golden_cpcmultiplier: 1,
 
     upgrades: 0,
 
@@ -57,6 +64,18 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     setting2var: false,
     setting3var: true,
     setting4var: false,
+    setting5var: false,
+
+    ach4_check: false,
+    ach5_check: false,
+    ach6_check: false,
+    ach7_check: false,
+    ach8_check: false,
+    ach9_check: false,
+    ach10_check: false,
+    ach11_check: false,
+    ach12_check: false,
+
 
     autosave: true,
     monospace: false,

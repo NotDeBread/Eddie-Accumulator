@@ -6,6 +6,7 @@
   --blackTP: rgba(0, 0, 0, 50%);
   --blackTP2: rgba(0, 0, 0, 75%);
   --upgrades: 0;
+  --goldeneddie-timer: 0%;
 }
 
 @font-face {
@@ -44,6 +45,7 @@ a:active {
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 .topper {
@@ -72,10 +74,6 @@ body {
   100% {
     background-position: 1920px;
   }
-}
-
-.game {
-  display: inline;
 }
 
 .version {
@@ -210,7 +208,7 @@ body {
   text-align: center;
   border: 1px solid red;
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .settings-deletebutton:hover {
@@ -325,7 +323,7 @@ body {
 
 .stats {
   position: absolute;
-  top: 100px;
+  top: 95px;
   margin: 10px;
   width: 40px;
   height: 40px;
@@ -348,7 +346,7 @@ body {
 
 .devtools {
   position: absolute;
-  top: 140px;
+  top: 130px;
   margin: 10px;
   width: 40px;
   height: 40px;
@@ -397,29 +395,44 @@ body {
 
 .achievement {
   position: absolute;
+  display: flex;
+  gap: 10px;
   background-color: var(--darkbg);
-  width: 200px;
+  width: 300px;
   cursor: pointer;
-  border-radius: 5px;
   top: 50px;
-  left: -250px;
-  z-index: 5;
   padding: 5px;
+  left: -350px;
+  z-index: 5;
   box-shadow: 0px 0px 10px black;
   transition: left 0.75s cubic-bezier(0.75, -0.5, 0.25, 1.5);
 }
 
+.achievement:hover {
+  transform: scale(101%);
+}
+
+.achievement:active {
+  transform: scale(100%);
+}
+
+.achievement-img {
+  width: 40px;
+  height: 40px;
+}
+
 .achievement-title {
-  font-size: 1.25em;
+  font-size: 1.5em;
 }
 
 .achievement-desc {
-  font-size: 1.1em;
+  font-size: 1.25em;
   color: grey;
 }
 
 .all {
   display: flex;
+  height: 400px;
 }
 
 .left {
@@ -433,11 +446,16 @@ body {
   font-size: 3em;
 }
 
+.cps {
+  transition: color ease-in-out 0.25s;
+}
+
 .eddie {
   width: 150px;
   margin: 0 auto;
   margin-top: 50px;
   transition: transform ease-in-out 0.05s;
+  cursor: pointer;
 }
 
 .eddie:hover {
@@ -473,6 +491,7 @@ body {
   height: 50px;
   background-color: var(--darkerbg);
   color: var(--blackTP);
+  user-select: none;
 }
 
 .upgrades-header {
@@ -484,6 +503,7 @@ body {
 .upgrades-header-img {
   filter: invert();
   width: 25px;
+  transition: transform ease-in-out 0.1s;
 }
 
 .upgrades {
@@ -494,13 +514,14 @@ body {
 
 .upgrade-tooltip {
   position: absolute;
-  top: 15%;
+  top: 30px;
   left: -225px;
+  user-select: none;
   text-align: center;
-  background-color: var(--blackTP2);
+  background-color: var(--blackTP);
   width: 200px;
   border-radius: 5px;
-  transition: opacity ease-in-out 0.25s;
+  transition: opacity ease-in-out 0.25s, left ease-in-out 0.25s;
   opacity: 0;
 }
 
@@ -509,7 +530,7 @@ body {
   width: 0px;
   height: 0px;
   border-top: 10px solid transparent;
-  border-left: 10px solid var(--blackTP2);
+  border-left: 10px solid var(--blackTP);
   border-bottom: 10px solid transparent;
   border-right: 10px solid transparent;
   position: absolute;
@@ -534,6 +555,7 @@ body {
 
 .upgrade {
   width: 50px;
+  cursor: pointer;
 }
 
 .upgrade:hover {
@@ -544,6 +566,55 @@ body {
   transform: scale(100%);
 }
 
+.item-tooltip {
+  background-color: var(--blackTP);
+  padding: 5px;
+  position: absolute;
+  width: 150px;
+  height: 40px;
+  left: -200px;
+  top: 0px;
+  opacity: 0;
+  z-index: 5;
+  text-align: center;
+  border-radius: 5px;
+  user-select: none;
+  transition: opacity ease-in-out 0.25s, top ease-in-out 0.25s,
+    left ease-in-out 0.25s;
+}
+
+.item-tooltip:after {
+  content: " ";
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-left: 10px solid var(--blackTP);
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  right: -20px;
+  top: 16px;
+  margin-left: -10px;
+}
+
+.items-all {
+  position: relative;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.item-multipliers {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  width: 100px;
+}
+
 .item {
   width: 300px;
   height: 50px;
@@ -552,6 +623,7 @@ body {
   align-items: center;
   justify-content: space-between;
   user-select: none;
+  cursor: pointer;
 }
 
 .item:active {
@@ -586,30 +658,6 @@ body {
   font-size: 3em;
   text-align: right;
   padding: 5px;
-}
-
-.savebutton {
-  text-align: center;
-  background-color: var(--darkbg);
-  width: 100px;
-  padding: 5px;
-  margin: 0 auto;
-  margin-top: 50px;
-  cursor: pointer;
-  border: 1px solid var(--darkerbg);
-  user-select: none;
-}
-
-.savebutton:hover {
-  transform: scale(105%);
-}
-
-.savebutton:active {
-  transform: scale(100%);
-}
-
-.savebutton-text {
-  font-size: 1.5em;
 }
 
 .noti-icon {
@@ -672,7 +720,7 @@ body {
 }
 
 .noti {
-  margin-top: 50px;
+  margin-top: 20px;
   background-color: var(--darkerbg);
   border-radius: 5px;
   padding: 5px;

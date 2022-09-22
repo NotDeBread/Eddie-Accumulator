@@ -14,8 +14,8 @@ setInterval(clickspersecond, 25)
 setInterval(update, 1)
 
 function eddieclick() {
-    config.countraw += (config.cpc * config.cpcmultiplier)
-    config.totaleddieorbsraw += (config.cpc * config.cpcmultiplier)
+    config.countraw += (config.cpc * config.cpcmultiplier) * config.golden_cpcmultiplier
+    config.totaleddieorbsraw += (config.cpc * config.cpcmultiplier) * config.golden_cpcmultiplier
     config.timesclicked += 1
 
     counterformat()
@@ -43,6 +43,10 @@ function eddieclick() {
     }
 
     if (config.timesclicked === 100) {
+        config.upgrades += 1
+    }
+
+    if (config.timesclicked === 1000) {
         config.upgrades += 1
     }
 }
@@ -172,13 +176,13 @@ function labelcredits() {
 }
 
 function labelstats() {
-    document.getElementById('label_left').style.setProperty('top', '115px')
+    document.getElementById('label_left').style.setProperty('top', '110px')
     document.getElementById('label_left').innerHTML = 'Statistics'
     document.getElementById('label_left').style.setProperty('width', '110px')
 }
 
 function labeldevtools() {
-    document.getElementById('label_left').style.setProperty('top', '155px')
+    document.getElementById('label_left').style.setProperty('top', '145px')
     document.getElementById('label_left').innerHTML = 'Developer Tools'
     document.getElementById('label_left').style.setProperty('width', '140px')
 }
@@ -186,14 +190,14 @@ function labeldevtools() {
 
 
 function clickspersecond() {
-    config.countraw += (config.cursorcps * config.cursormultiplier ) / 40
-    config.countraw += (config.bonecps * config.bonemultiplier) / 40
-    config.countraw += (config.frisbecps * config.frisbemultiplier) / 40
-    config.countraw += (config.treatcps * config.treatmultiplier) / 40
-    config.totaleddieorbsraw += (config.cursorcps * config.cursormultiplier ) / 40
-    config.totaleddieorbsraw += (config.bonecps * config.bonemultiplier) / 40
-    config.totaleddieorbsraw += (config.frisbecps * config.frisbemultiplier) / 40
-    config.totaleddieorbsraw += (config.treatcps * config.treatmultiplier) / 40
+    config.countraw += (config.cursorcps * config.cursormultiplier ) / 40 * config.goldeneddiemultiplier
+    config.countraw += (config.bonecps * config.bonemultiplier) / 40 * config.goldeneddiemultiplier
+    config.countraw += (config.frisbecps * config.frisbemultiplier) / 40 * config.goldeneddiemultiplier
+    config.countraw += (config.treatcps * config.treatmultiplier) / 40 * config.goldeneddiemultiplier
+    config.totaleddieorbsraw += (config.cursorcps * config.cursormultiplier ) / 40 * config.goldeneddiemultiplier
+    config.totaleddieorbsraw += (config.bonecps * config.bonemultiplier) / 40 * config.goldeneddiemultiplier
+    config.totaleddieorbsraw += (config.frisbecps * config.frisbemultiplier) / 40 * config.goldeneddiemultiplier
+    config.totaleddieorbsraw += (config.treatcps * config.treatmultiplier) / 40 * config.goldeneddiemultiplier
     config.count = Math.round(config.countraw)
 
     counterformat()
@@ -287,10 +291,6 @@ function clickspersecond() {
         document.getElementById('upgrade_shimmeringeddies').style.setProperty('filter', 'brightness(75%)')
     }
 
-    if (config.totaleddieorbs >= 100000) {
-        config.upgrades += 1
-    }
-
     if(config.countraw < 0) {
         config.countraw = 0
     }
@@ -300,7 +300,7 @@ function clickspersecond() {
 
 function update() {
 
-    cps = ((config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + (config.frisbecps * config.frisbemultiplier) + config.treatcps)
+    cps = ((config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + (config.frisbecps * config.frisbemultiplier) + config.treatcps) * config.goldeneddiemultiplier
     document.getElementById('cps').innerHTML = cps
 
     config.count = Math.round(config.countraw)
@@ -310,30 +310,47 @@ function update() {
         document.getElementById('upgrade_silvercursors').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
         } else {document.getElementById('upgrade_silvercursors').hidden = true}
+
+    if(config.timesclicked >= 1000 && config.upgrade_goldencursors_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_goldencursors').hidden = false;
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+        } else {document.getElementById('upgrade_goldencursors').hidden = true}
+
     if(config.cursortotal >= 10 && config.upgrades_collapsed === false){
         document.getElementById('upgrade_goldenfingers').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
         } else {document.getElementById('upgrade_goldenfingers').hidden = true}
+
     if(config.cursortotal >= 25 && config.upgrades_collapsed === false){
         document.getElementById('upgrade_platinumfingers').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     } else {document.getElementById('upgrade_platinumfingers').hidden = true}
+
     if(config.cursortotal >= 50 && config.upgrade_diamondfingers_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_diamondfingers').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     } else {document.getElementById('upgrade_diamondfingers').hidden = true}
+
+    if(config.cursortotal >= 75 && config.upgrade_emeraldfingers_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_emeraldfingers').hidden = false;
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    } else {document.getElementById('upgrade_emeraldfingers').hidden = true}
+
     if(config.bonetotal >= 10 && config.upgrade_baconbones_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_baconbones').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     } else {document.getElementById('upgrade_baconbones').hidden = true}
+
     if(config.frisbetotal >= 10 && config.upgrade_superfrisbe_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_superfrisbe').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     } else {document.getElementById('upgrade_superfrisbe').hidden = true}
+
     if(config.totaleddieorbsraw >= 100000 && config.upgrade_goldeneddies_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_goldeneddies').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     } else {document.getElementById('upgrade_goldeneddies').hidden = true}
+
     if(config.goldeneddiesclicked >= 1 && config.upgrade_shimmeringeddies_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_shimmeringeddies').hidden = false;
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
@@ -358,15 +375,69 @@ function update() {
         document.getElementById('no_upgrades').hidden = false
     }
 
-    if(config.totalupgrades === 7) {
-        document.getElementById('no_upgrades').innerHTML = 'All upgrades found!'
+    if(config.totalupgrades === 10) {
+        document.getElementById('no_upgrades').innerHTML = "All upgrades found!"
     }
 
     if(config.upgrades_collapsed === true) {
         document.getElementById('no_upgrades').hidden = true
         document.getElementById('upgrade_collapse_img').style.setProperty('transform', 'rotate(180deg)')
+        document.getElementById('upgrade_countall').innerHTML = " - "
+        document.getElementById('upgrade_count').innerHTML = config.upgrades
     } else {
         document.getElementById('upgrade_collapse_img').style.setProperty('transform', 'rotate(90deg)')
+        document.getElementById('upgrade_countall').innerHTML = ""
+        document.getElementById('upgrade_count').innerHTML = ""
+    }
+
+    if(config.totaleddieorbs >= 100000 && config.goldeneddies_check === false) {
+        config.upgrades += 1
+        config.goldeneddies_check = !config.goldeneddies_check
+    }
+
+    if(config.goldeneddiemultiplier === 1) {
+        document.getElementById('cps').style.setProperty('color', 'white')
+    }
+
+    if(config.golden_cpcmultiplier === 1) {
+        document.getElementById('cpc').style.setProperty('color', 'white')
+    }
+
+    if(config.totaleddieorbs >= 100 && config.ach4_check === false) {
+        achievement4()
+        config.ach4_check = !config.ach4_check
+    }
+    if(config.totaleddieorbs >= 1000 && config.ach5_check === false) {
+        achievement5()
+        config.ach5_check = !config.ach5_check
+    }
+    if(config.totaleddieorbs >= 10000 && config.ach6_check === false) {
+        achievement6()
+        config.ach6_check = !config.ach6_check
+    }
+    if(config.totaleddieorbs >= 100000 && config.ach7_check === false) {
+        achievement7()
+        config.ach7_check = !config.ach7_check
+    }
+    if(config.totaleddieorbs >= 1000000 && config.ach8_check === false) {
+        achievement8()
+        config.ach8_check = !config.ach8_check
+    }
+    if(config.totaleddieorbs >= 10000000 && config.ach9_check === false) {
+        achievement9()
+        config.ach9_check = !config.ach9_check
+    }
+    if(config.totaleddieorbs >= 100000000 && config.ach10_check === false) {
+        achievement10()
+        config.ach10_check = !config.ach10_check
+    }
+    if(config.totaleddieorbs >= 1000000000 && config.ach11_check === false) {
+        achievement11()
+        config.ach11_check = !config.ach11_check
+    }
+    if(config.totaleddieorbs >= 10000000000 && config.ach12_check === false) {
+        achievement12()
+        config.ach12_check = !config.ach12_check
     }
 
     config.totaleddieorbs = Math.round(config.totaleddieorbsraw)
@@ -396,7 +467,7 @@ window.onload = function() {
 
 function counterupdate() {
     counterformat()
-    document.getElementById('cpc').innerHTML = config.cpc * config.cpcmultiplier;
+    document.getElementById('cpc').innerHTML = config.cpc * config.cpcmultiplier * config.golden_cpcmultiplier;
     document.getElementById('cursorprice').innerHTML = config.cursorprice;
     document.getElementById('boneprice').innerHTML = config.boneprice;
     document.getElementById('frisbeprice').innerHTML = config.frisbeprice;
@@ -416,41 +487,6 @@ function counterformat() {
 }
 
 //---------OTHER----------//
-
-function footerlabelenter() {
-    document.getElementById('label_footer').style.setProperty('opacity', '1')
-    document.getElementById('footer_text').style.setProperty('opacity', '0')
-    document.getElementById('label_footer').style.setProperty('margin-top', '7px')
-}
-
-function footerlabelleave() {
-    document.getElementById('label_footer').style.setProperty('opacity', '0')
-    document.getElementById('footer_text').style.setProperty('opacity', '1')
-    document.getElementById('label_footer').style.setProperty('margin-top', '0px')
-}
-
-function htmlhover() {
-    document.getElementById('label_footer').innerHTML = 'HTML'
-    document.getElementById('label_footer').style.setProperty('transform', 'translateX(-25px)')
-}
-
-function csshover() {
-    document.getElementById('label_footer').innerHTML = 'CSS'
-    document.getElementById('label_footer').style.setProperty('transform', 'translateX(0px)')
-}
-
-function jshover() {
-    document.getElementById('label_footer').innerHTML = 'JS'
-    document.getElementById('label_footer').style.setProperty('transform', 'translateX(25px)')
-}
-
-function upgradetooltip_enter() {
-    document.getElementById('upgrade_tooltip').style.setProperty('opacity', '1')
-}
-
-function upgradetooltip_leave() {
-    document.getElementById('upgrade_tooltip').style.setProperty('opacity', '0')
-}
 
 window.addEventListener('keydown', (event) => {
     if(event.key === 'q' && event.ctrlKey && config.devtoolsunlocked === false) {
