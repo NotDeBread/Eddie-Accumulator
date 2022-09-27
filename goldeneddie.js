@@ -20,33 +20,33 @@ setInterval(() => {
 
 function goldeneddie_randomize() {
     if(config.goldeneddies_unlocked === true) {
-        goldeneddie_random = Math.round(Math.random() * 10)
+        config.goldeneddie_random = Math.round(Math.random() * 10)
         goldeneddie_random_count = 100
         goldeneddierandom()
         document.getElementById('goldeneddie_chance').innerHTML = goldeneddie_random
         
-        if(goldeneddie_random === 7) {
+        if(config.goldeneddie_random === 7) {
             document.getElementById('goldeneddie_chance').style.setProperty('color', 'lime')
         } else {
             document.getElementById('goldeneddie_chance').style.setProperty('color', 'red')
         }
     
-        if(goldeneddie_random === !7) {
+        if(config.goldeneddie_random === !7) {
             document.getElementById('goldeneddie').style.setProperty('transform', 'scale(0%)')
         }   
     }
 }
 
 function goldeneddierandom() {
-    if(goldeneddie_random === 7) {
+    if(config.goldeneddie_random === 7) {
         console.log('Golden Eddie Spawned!')
         goldeneddie()
     }
 }
 
 function goldeneddie() {
-    document.getElementById('goldeneddie').style.setProperty('left', `calc(100vw * ${Math.random()}`)
-    document.getElementById('goldeneddie').style.setProperty('top', `calc(100vh * ${Math.random()}`)
+    document.getElementById('goldeneddie').style.setProperty('left', `calc(100% * ${Math.random()}`)
+    document.getElementById('goldeneddie').style.setProperty('top', `calc(100% * ${Math.random()}`)
     document.getElementById('goldeneddie').style.setProperty('transform', 'scale(100%)')
     goldeneddie_type = Math.round(Math.random() * 2)
 
@@ -71,30 +71,53 @@ function goldeneddie_click() {
     document.getElementById('alert_text').innerHTML = 'Eddie Orbs x2!'
     document.getElementById('alert_text').style.setProperty('width', '150px')
 
-} else if(goldeneddie_type === 1) {
-    document.getElementById('alert_text').innerHTML = 'Eddie Orb production x2 for 30 seconds!'
+    document.getElementById('count').classList.add('counter-ani')
+    
+    setTimeout(() => {
+        document.getElementById('count').classList.remove('counter-ani')
+    }, 1000);
+
+
+    } else if(goldeneddie_type === 1) {
+    document.getElementById('alert_text').innerHTML = 'Eddie Orb production x3 for 30 seconds!'
     document.getElementById('alert_text').style.setProperty('width', '400px')
     document.getElementById('cps').style.setProperty('color', 'yellow')
-    config.goldeneddiemultiplier += 1
+    config.goldeneddiemultiplier += 2
+
+    document.getElementById('goldeneddie_counter').classList.remove('goldeneddie-counter-ani')
+    document.getElementById('goldeneddie_counter').classList.add('goldeneddie-counter-ani')
     
     setTimeout(() => {
-        config.goldeneddiemultiplier -= 1
+        document.getElementById('goldeneddie_counter').classList.remove('goldeneddie-counter-ani')
     }, 30000);
-} else if(goldeneddie_type === 2) {
-    document.getElementById('alert_text').innerHTML = 'EPC x2 for 30 seconds!'
+
+    setTimeout(() => {
+        config.goldeneddiemultiplier -= 2
+    }, 30000);
+
+
+    } else if(goldeneddie_type === 2) {
+    document.getElementById('alert_text').innerHTML = 'EPC x3 for 30 seconds!'
     document.getElementById('alert_text').style.setProperty('width', '300px')
     document.getElementById('cpc').style.setProperty('color', 'yellow')
-    config.golden_cpcmultiplier += 1
+    config.golden_cpcmultiplier += 2
+
+    document.getElementById('goldeneddie_counter').classList.remove('goldeneddie-counter-ani')
+    document.getElementById('goldeneddie_counter').classList.add('goldeneddie-counter-ani')
     
     setTimeout(() => {
-        config.golden_cpcmultiplier -= 1
+        document.getElementById('goldeneddie_counter').classList.remove('goldeneddie-counter-ani')
+    }, 30000);
+    
+    setTimeout(() => {
+        config.golden_cpcmultiplier -= 2
     }, 30000);
 
-}
+    }
 
-document.getElementById('alert_text').style.setProperty('background-color', 'rgba(253, 255, 125, 0.5)')
-savealert()
-document.getElementById('goldeneddie').hidden = true
+    document.getElementById('alert_text').style.setProperty('background-color', 'rgba(253, 255, 125, 0.5)')
+    savealert()
+    document.getElementById('goldeneddie').hidden = true
 
-config.goldeneddiesclicked += 1
+    config.goldeneddiesclicked += 1
 }

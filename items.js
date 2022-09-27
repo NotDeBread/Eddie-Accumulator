@@ -71,6 +71,10 @@ function buybone() {
         if(config.bonetotal === 10) {
             config.upgrades += 1
         }
+
+        if(config.bonetotal === 25) {
+            config.upgrades += 1
+        }
     }
 }
 
@@ -99,6 +103,10 @@ function buyfrisbe() {
         }
                 
         if(config.frisbetotal === 10) {
+            config.upgrades += 1
+        }
+
+        if(config.frisbetotal === 25) {
             config.upgrades += 1
         }
     }
@@ -131,7 +139,31 @@ function buytreat() {
     }
 }
 
+function buybed() {
+    if (config.countraw >= config.bedprice || devtoolsopen === true) {
+        config.bedcps += 1000
+        config.cpsdisplay += 50
+        config.bedtotal += 1
+        config.countraw -= config.bedprice
+        config.eddieorbsspent += config.bedprice
+        config.bedprice = Math.round(config.bedprice * 1.1)
 
+        document.getElementById('item_tt_eps').innerHTML = config.bedcps * config.bedmultiplier
+
+        counterupdate()
+
+        document.getElementById('info_cps').innerHTML = config.bedcps
+        document.getElementById('bed_owned').innerHTML = config.bedtotal
+
+        if (config.count >= config.treatprice) {
+            document.getElementById('bedimg').style.setProperty('filter', 'brightness(100%)')
+            document.getElementById('bedprice').style.setProperty('color', 'lime')
+        } else {
+            document.getElementById('bedimg').style.setProperty('filter', 'brightness(75%)')
+            document.getElementById('bedprice').style.setProperty('color', 'red')
+        }
+    }
+}
 
 
 function cursor_hover() {
@@ -175,6 +207,7 @@ window.onload = function() {
     document.getElementById('bone_owned').innerHTML = config.bonetotal
     document.getElementById('frisbe_owned').innerHTML = config.frisbetotal
     document.getElementById('treat_owned').innerHTML = config.treattotal
+    document.getElementById('bed_owned').innerHTML = config.bedtotal
 }
 
 
@@ -213,4 +246,10 @@ function treat_tt() {
     document.getElementById('item-tooltip').style.setProperty('top', '165px')
     document.getElementById('item_tt_title').innerHTML = "Treat"
     document.getElementById('item_tt_eps').innerHTML = config.treatcps * config.treatmultiplier
+}
+
+function bed_tt() {
+    document.getElementById('item-tooltip').style.setProperty('top', '220px')
+    document.getElementById('item_tt_title').innerHTML = "Bed"
+    document.getElementById('item_tt_eps').innerHTML = config.bedcps * config.bedmultiplier
 }

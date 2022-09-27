@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
 
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,11 @@
 
 <body>
 
+    <div class="loader-wrapper" id="loader">
+        <img src="images/loading.webp" class="loader" onclick="achievement13()"></img>
+        <span>Loading...</span>
+    </div>
+
     <div class="topper">
         <p style="display: inline;" id="topper_title">Eddie Accumulator</p>
         <div class="topper-divider">|</div>
@@ -20,12 +25,18 @@
         <a class="debread" href="https://debread.space" target="_blank">DeBread</a>
         <div class="topper-divider">|</div>
 
-        <a style="float: right;" href="changelog.html">Changelog</a>
-        <p class="version" style="float: right; padding-right: 10px;">BETA v0.09</p>
+        <a onclick="save()" style="float: right;" href="changelog.html">Changelog</a>
+        <p class="version" style="float: right; padding-right: 10px;">BETA v0.10</p>
         <a style="float: right; margin-right: 10px;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
     </div>
 
-    <img class="goldeneddie" id="goldeneddie" src="images/goldeneddie.png" onclick="goldeneddie_click()">
+    <div class="goldeneddie-counter" id="goldeneddie_counter"></div>
+
+    <div class="goldeneddie-container-container">
+        <div class="goldeneddie-container">
+            <img class="goldeneddie" id="goldeneddie" src="images/goldeneddie.png" onclick="goldeneddie_click()">
+        </div>
+    </div>
 
     <!----------LEFT BUTTONS---------->
 
@@ -40,6 +51,10 @@
         </div>
 
         <div>
+            <div class="noti">
+                <span class="noti-title">BETA v0.10 Released!</span><br>
+                <span class="noti-desc">BETA v0.10 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+            </div>
             <div class="noti">
                 <span class="noti-title">BETA v0.09 Released!</span><br>
                 <span class="noti-desc">BETA v0.09 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
@@ -84,12 +99,6 @@
             <img src="images/icons/checkbox1.png" class="settings-checkbox" onclick="setting4(); save()"
                 id="setting4-img">
             <p class="setting-checkbox1-text">Walter Mode</p>
-        </div>
-        <div class="setting-1">
-            <a href="indexold.html">
-                <img src="images/icons/checkbox1.png" class="settings-checkbox">
-            </a>
-            <p class="setting-checkbox1-text">Old UI (Broken)</p>
         </div>
         <div id="settings_content" class="settings-content">
             <div class="settings-defaultbutton" onclick="save()">
@@ -156,6 +165,9 @@
                 <div class="devbutton" onclick="dev_golden()" style="width: 150px;">
                     <p>Spawn Golden Eddie</p>
                 </div>
+                <div class="devbutton" onclick="train()" style="width: 150px;">
+                    <p>Spawn Train</p>
+                </div>
                 <div class="devbutton" onclick="dev_x10()">
                     <p>x10 Eddie Orbs</p>
                 </div>
@@ -177,6 +189,9 @@
                 <p style="text-align: center;">Golden Eddie Randomizer</p>
                 <p id="goldeneddie_chance" style="text-align: center;">-</p>
                 <p id="goldeneddie_chance_count" style="text-align: center;">-</p>
+
+                <p style="text-align: center;">Train Eddie Randomizer</p>
+                <p id="train_chance" style="text-align: center;">-</p>
             </div>
         </div>
     </div>
@@ -271,9 +286,18 @@
         </div>
     </div>
 
+    <div class="achievement" id="achievement13" onclick="achievementclose()">
+        <div>
+            <p class="achievement-title" id="ach_title">Wrong Eddie Orb</p>
+            <p class="achievement-desc" id="ach_desc">Those aren't the Eddie Orbs you're clicking for...</p>
+        </div>
+    </div>
+
+
 
 
     <!-------------------------------------------------------------------------------->
+
 
 
 
@@ -283,6 +307,7 @@
                 <span class="counter" id="count">-</span><br>
                 <span title="Eddies Per Second">EPS:</span> <span id="cps" class="cps">-</span><br>
                 <span title="Eddies Per Click">EPC:</span> <span id="cpc">-</span>
+                <span id="warning" style="color: red;"></span>
             </div>
             <img src="images/EddieSphere.gif" class="eddie" id="eddie" onclick="eddieclick()">
         </section>
@@ -303,42 +328,84 @@
                     <img class="upgrade" src="images/upgrades/silvercursors.png" id="upgrade_silvercursors"
                         onmouseenter="upgrade_silvercursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_silvercursors()" hidden>
+
                     <img class="upgrade" src="images/upgrades/goldencursors.png" id="upgrade_goldencursors"
                         onmouseenter="upgrade_goldencursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_goldencursors()" hidden>
+
                     <img class="upgrade" src="images/upgrades/goldenfingers.png" id="upgrade_goldenfingers"
                         onmouseenter="upgrade_goldenfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_goldenfingers()" hidden>
+
                     <img class="upgrade" src="images/upgrades/platinumfingers.png" id="upgrade_platinumfingers"
                         onmouseenter="upgrade_platinumfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_platinumfingers()" hidden>
+
                     <img class="upgrade" src="images/upgrades/diamondfingers.png" id="upgrade_diamondfingers"
                         onmouseenter="upgrade_diamondfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_diamondfingers()"
                         hidden>
+
                     <img class="upgrade" src="images/upgrades/emeraldfingers.png" id="upgrade_emeraldfingers"
                         onmouseenter="upgrade_emeraldfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_emeraldfingers()"
                         hidden>
+
                     <img class="upgrade" src="images/upgrades/baconbones.png" id="upgrade_baconbones"
                         onmouseenter="upgrade_baconbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_baconbones()"
+                        hidden>
+
+                    <img class="upgrade" src="images/upgrades/meatbones.png" id="upgrade_meatbones"
+                        onmouseenter="upgrade_meatbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_meatbones()"
                         hidden>
                     <img class="upgrade" src="images/upgrades/superfrisbe.png" id="upgrade_superfrisbe"
                         onmouseenter="upgrade_superfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_superfrisbe()" hidden>
+
+                    <img class="upgrade" src="images/upgrades/superepicfrisbe.png" id="upgrade_superepicfrisbe"
+                        onmouseenter="upgrade_superepicfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_superepicfrisbe()" hidden>
+
                     <img class="upgrade" src="images/upgrades/goldeneddies.png" id="upgrade_goldeneddies"
                         onmouseenter="upgrade_goldeneddies_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_goldeneddies()" hidden>
+
                     <img class="upgrade" src="images/upgrades/shimmeringeddies.png" id="upgrade_shimmeringeddies"
                         onmouseenter="upgrade_shimmeringeddies_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_shimmeringeddies()" hidden>
+
+                    <img class="upgrade" src="images/upgrades/emptybottle.png" id="upgrade_emptybottle"
+                        onmouseenter="upgrade_emptybottle_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_emptybottle()" hidden>
+
                 </div>
             </div>
 
+            <div class="spells-all" id="spells" hidden>
+                <div class="spells-header">
+                    <span>Spells</span>
+                </div>
+
+                <div class="spell-tooltip" id="spell_tooltip">
+                    <span id="spell_title" class="spell-title">Spell Title</span><br>
+                    <span id="spell_desc">Spell Desc</span><br>
+                    <span id="spell_price">Spell Price</span>
+                </div>
+
+                <div class="spells">
+                    <img src="images/spells/goldenspell.png" class="spell" onmouseenter="spell_enter(); spell_golden_hover()" onmouseleave="spell_leave()"
+                        onclick="spell_golden()" id="spell_golden">
+                    <img src="images/spells/spellslot.png" class="spell">
+                    <img src="images/spells/spellslot.png" class="spell">
+                    <img src="images/spells/spellslot.png" class="spell">
+                    <img src="images/spells/spellslot.png" class="spell">
+                    <img src="images/spells/spellslot.png" class="spell">
+                </div>
+            </div>
 
             <div class="items-all">
                 <div class="item-tooltip" id="item-tooltip">
-                    <span id="item_tt_title" style="font-size: 1.5em;">-</span><br>
+                    <span id="item_tt_title" style="font-size: 1.5em; font-weight: 600;">-</span><br>
                     <span>EPS: </span>
                     <span id="item_tt_eps">-</span>
                 </div>
@@ -351,7 +418,7 @@
                         <div class="item-content">
                             <div class="item-left">
                                 <span class="item-title">Cursor</span><br>
-                                <span id="cursorprice">-</span>
+                                <span id="cursorprice" style="font-weight: 600;">-</span>
                             </div>
                             <span class="item-counter" id="cursor_owned">0</span>
                         </div>
@@ -364,7 +431,7 @@
                         <div class="item-content">
                             <div class="item-left">
                                 <span class="item-title">Bone</span><br>
-                                <span id="boneprice">-</span>
+                                <span id="boneprice" style="font-weight: 600;">-</span>
                             </div>
                             <span class="item-counter" id="bone_owned">0</span>
                         </div>
@@ -377,7 +444,7 @@
                         <div class="item-content">
                             <div class="item-left">
                                 <span class="item-title">Frisbe</span><br>
-                                <span id="frisbeprice">-</span>
+                                <span id="frisbeprice" style="font-weight: 600;">-</span>
                             </div>
                             <span class="item-counter" id="frisbe_owned">0</span>
                         </div>
@@ -390,14 +457,30 @@
                         <div class="item-content">
                             <div class="item-left">
                                 <span class="item-title">Treat</span><br>
-                                <span id="treatprice">-</span>
+                                <span id="treatprice" style="font-weight: 600;">-</span>
                             </div>
                             <span class="item-counter" id="treat_owned">0</span>
+                        </div>
+                    </div>
+
+                    <!--BED-->
+
+                    <div class="item" onclick="buybed()" id="bedimg" onmouseenter="item_tt_enter(); bed_tt()" onmouseleave="item_tt_leave()">
+                        <img src="images/buildings/bed.png" class="item-image">
+                        <div class="item-content">
+                            <div class="item-left">
+                                <span class="item-title">Bed</span><br>
+                                <span id="bedprice" style="font-weight: 600;">-</span>
+                            </div>
+                            <span class="item-counter" id="bed_owned">0</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <img src="images/train.gif" class="train" id="train" onclick="trainclick()">
+
     </section>
 
     <script src="node_modules/numeral/numeral.js"></script>
@@ -408,6 +491,8 @@
     <script src="achievements.js"></script>
     <script src="items.js"></script>
     <script src="settings.js"></script>
+    <script src="train.js"></script>
+    <script src="spells.js"></script>
     <script src="misc.js"></script>
 
 </body>

@@ -106,6 +106,15 @@ function achievement12() {
     }, 5000);
 }
 
+function achievement13() {
+    document.getElementById('achievement13').style.setProperty('left', '10px')
+    config.totalachievements += 1
+
+    setTimeout(() => {
+        document.getElementById('achievement13').style.setProperty('left', '-350px')  
+    }, 5000);
+}
+
 function achievementclose() {
     document.getElementById('achievement1').style.setProperty('left', '-350px')
     document.getElementById('achievement2').style.setProperty('left', '-350px')
@@ -119,7 +128,7 @@ function achievementclose() {
     document.getElementById('achievement10').style.setProperty('left', '-350px')
     document.getElementById('achievement11').style.setProperty('left', '-350px')
     document.getElementById('achievement12').style.setProperty('left', '-350px')
-
+    document.getElementById('achievement13').style.setProperty('left', '-350px')
 }
 
 function buycursor() {

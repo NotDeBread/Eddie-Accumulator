@@ -4,6 +4,7 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     bonetotal: 0,
     frisbetotal: 0,
     treattotal: 0,
+    bedtotal: 0,
     
     
     count: 0,
@@ -21,37 +22,61 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
 
     goldeneddiecount: 10000,
 
+    goldeneddie_random: 0,
+
     cursorcps: 0,
     bonecps: 0,
     frisbecps: 0,
     treatcps: 0,
+    bedcps: 0,
     
     clickmultiplier: 1,
     cursormultiplier: 1,
     bonemultiplier: 1,
     frisbemultiplier: 1,
     treatmultiplier: 1,
+    bedmultiplier: 1,
 
     cursorprice: 10,
     boneprice: 500,
-    frisbeprice: 5000,
-    treatprice: 10000,
+    frisbeprice: 10000,
+    treatprice: 50000,
+    bedprice: 250000,
+
+    spells_unlocked: false,
+
+    spell_golden_price: 250000,
+
+    spell_golden_cooldown: false,
 
     totalachievements: 0,
     totalupgrades: 0,
 
+    //Upgrades
+
     upgrade_silvercursors_bought: false,
     upgrade_goldencursors_bought: false,
-    upgrade_baconbones_bought: false,
+    
     upgrade_goldenfingers_bought: false,
     upgrade_platinumfingers_bought: false,
     upgrade_diamondfingers_bought: false,
     upgrade_emeraldfingers_bought: false,
+
+    upgrade_baconbones_bought: false,
+    upgrade_meatbones_bought: false,
+
     upgrade_superfrisbe_bought: false,
+    upgrade_superepicfrisbe_bought: false,
+
     upgrade_goldeneddies_bought: false,
     upgrade_shimmeringeddies_bought: false,
 
+    upgrade_emptybottle_bought: false,
+
+
+
     goldeneddies_check: false,
+    emptybottle_check: false,
 
     goldeneddiemultiplier: 1,
     golden_cpcmultiplier: 1,

@@ -5,6 +5,7 @@
   --darkerbg: rgb(18, 17, 27);
   --blackTP: rgba(0, 0, 0, 50%);
   --blackTP2: rgba(0, 0, 0, 75%);
+  --hitbox: rgba(0, 0, 255, 25%);
   --upgrades: 0;
   --goldeneddie-timer: 0%;
 }
@@ -19,12 +20,17 @@
   src: url("fonts/inconsolata.ttf");
 }
 
+@font-face {
+  font-family: deca;
+  src: url(fonts/deca.ttf);
+}
+
 html {
   font-size: 62.5%;
   scrollbar-width: none;
   -ms-overflow-style: none;
   background-color: var(--bg);
-  font-family: renogare;
+  font-family: deca;
 }
 
 p,
@@ -48,15 +54,72 @@ body {
   overflow-x: hidden;
 }
 
+.loader-wrapper {
+  background-color: var(--bg);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  overflow: hidden;
+  transition: opacity ease-in-out 0.5s;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  font-weight: 600;
+  animation: loader linear 2s infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .topper {
   background-color: var(--darkbg);
   padding: 5px;
   border-bottom: 2px solid var(--darkerbg);
+  font-family: renogare;
 }
 
 .topper-divider {
   display: inline;
   color: var(--darkerbg);
+}
+
+.goldeneddie-counter {
+  background-color: yellow;
+  height: 1px;
+  width: 0%;
+}
+
+.goldeneddie-counter-ani {
+  animation: goldeneddie-counter 30s linear;
+}
+
+@keyframes goldeneddie-counter {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
 }
 
 .debread {
@@ -84,6 +147,24 @@ body {
   bottom: 0;
 }
 
+.goldeneddie-container-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.goldeneddie-container {
+  width: 80%;
+  height: 75%;
+  position: relative;
+}
+
 .goldeneddie {
   position: absolute;
   width: 150px;
@@ -91,6 +172,7 @@ body {
   transform: scale(0%);
   transition: transform ease-in-out 2s;
   cursor: pointer;
+  pointer-events: all;
 }
 
 .alert {
@@ -104,10 +186,11 @@ body {
 .alert-text {
   background-color: rgba(0, 0, 0, 50%);
   margin: 0 auto;
-  width: 100px;
+  width: 0px;
   font-size: 1.5em;
   border-radius: 5px;
   padding: 5px;
+  font-weight: 600;
 }
 
 .label-left {
@@ -128,6 +211,7 @@ body {
   opacity: 0;
   color: white;
   cursor: default;
+  font-weight: 600;
 }
 
 .label-left:after {
@@ -154,12 +238,15 @@ body {
   overflow: hidden;
   border-radius: 5px;
   z-index: 3;
+  user-select: none;
+  font-weight: 600;
 }
 
 .settings-header {
   display: flex;
   align-items: center;
   font-size: 1.5em;
+  font-weight: 600;
 }
 
 .settings-text {
@@ -303,6 +390,7 @@ body {
   width: 100%;
   text-align: center;
   padding-right: 40px;
+  font-weight: 600;
   transition: color 0.1s ease-in-out;
 }
 
@@ -315,6 +403,7 @@ body {
 .credits-link {
   cursor: pointer;
   font-size: 1.25em;
+  font-weight: 600;
 }
 
 .credits-link:hover {
@@ -423,6 +512,7 @@ body {
 
 .achievement-title {
   font-size: 1.5em;
+  font-weight: 600;
 }
 
 .achievement-desc {
@@ -444,6 +534,25 @@ body {
 .counter {
   text-align: center;
   font-size: 3em;
+  height: 40px;
+}
+
+.counter-ani {
+  font-size: 3em;
+  color: white;
+  animation: counter-ani linear 0.5s;
+}
+
+@keyframes counter-ani {
+  0% {
+    font-size: 3.5em;
+    color: yellow;
+  }
+
+  100% {
+    font-size: 3em;
+    color: white;
+  }
 }
 
 .cps {
@@ -456,6 +565,7 @@ body {
   margin-top: 50px;
   transition: transform ease-in-out 0.05s;
   cursor: pointer;
+  user-select: none;
 }
 
 .eddie:hover {
@@ -498,6 +608,7 @@ body {
   display: flex;
   cursor: pointer;
   user-select: none;
+  font-weight: 600;
 }
 
 .upgrades-header-img {
@@ -542,6 +653,7 @@ body {
 .upgrade-tooltip-name {
   padding: 5px;
   font-size: 1em;
+  font-weight: 600;
 }
 
 .upgrade-tooltip-desc {
@@ -551,6 +663,7 @@ body {
 
 .upgrade-tooltip-price {
   font-size: 0.75em;
+  font-weight: 600;
 }
 
 .upgrade {
@@ -563,6 +676,67 @@ body {
 }
 
 .upgrade:active {
+  transform: scale(100%);
+}
+
+.spell-tooltip {
+  position: absolute;
+  background-color: var(--blackTP);
+  padding: 5px;
+  border-radius: 5px;
+  left: -200px;
+  width: 150px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity ease-in-out 0.25s, left ease-in-out 0.25s;
+}
+
+.spell-tooltip:after {
+  content: " ";
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-left: 10px solid var(--blackTP);
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  right: -20px;
+  top: 16px;
+  margin-left: -10px;
+}
+
+.spells-all {
+  background-color: var(--darkbg);
+  width: 300px;
+  padding: 5px;
+  position: relative;
+}
+
+.spells-header {
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.spell-title {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.spells {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.spell {
+  width: 50px;
+}
+
+.spell:hover {
+  transform: scale(105%);
+}
+
+.spell:active {
   transform: scale(100%);
 }
 
@@ -616,7 +790,7 @@ body {
 }
 
 .item {
-  width: 300px;
+  width: 310px;
   height: 50px;
   background-color: var(--darkbg);
   display: flex;
@@ -652,12 +826,14 @@ body {
 
 .item-title {
   font-size: 2em;
+  font-weight: 600;
 }
 
 .item-counter {
   font-size: 3em;
   text-align: right;
   padding: 5px;
+  font-weight: 600;
 }
 
 .noti-icon {
@@ -698,6 +874,7 @@ body {
   background-color: var(--blackTP);
   text-align: center;
   padding-right: 30px;
+  font-weight: 600;
 }
 
 .notis-img {
@@ -728,4 +905,18 @@ body {
 
 .noti-title {
   font-size: 1.5em;
+  font-weight: 600;
+}
+
+.noti-desc {
+  font-size: 1.1em;
+}
+
+.train {
+  position: absolute;
+  bottom: 0;
+  left: -200px;
+  width: 200px;
+  cursor: pointer;
+  transition: left linear 30s;
 }

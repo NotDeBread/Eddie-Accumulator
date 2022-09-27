@@ -94,8 +94,21 @@ function upgrade_baconbones_hover() {
     document.getElementById('info_price').innerHTML = "20,000"
 }
 
+function upgrade_meatbones_hover() {
+    document.getElementById('info_title').innerHTML = "Bones with some meat left over";
+    document.getElementById('info_cps').innerHTML = "Triples Bone Speed";
+    
+    if(config.countraw >= 50000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "50,000"
+}
+
 function upgrade_superfrisbe_hover() {
-    document.getElementById('info_title').innerHTML = "The Super Ultra Mega Deluxe Epic Frisbe Pro (XTREME Premium Edition) MAX PRO 2023™ 🔥💯😱👌😂😈";
+    document.getElementById('info_title').innerHTML = "The Super Frisbe";
     document.getElementById('info_cps').innerHTML = "Doubles Frisbe Speed";
 
     
@@ -106,6 +119,20 @@ function upgrade_superfrisbe_hover() {
     }
 
     document.getElementById('info_price').innerHTML = "50,000"
+}
+
+function upgrade_superepicfrisbe_hover() {
+    document.getElementById('info_title').innerHTML = "The Super Epic Frisbe";
+    document.getElementById('info_cps').innerHTML = "Triples Frisbe Speed";
+
+    
+    if(config.countraw >= 50000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "75,000"
 }
 
 function upgrade_goldeneddies_hover() {
@@ -134,6 +161,20 @@ function upgrade_shimmeringeddies_hover() {
     }
 
     document.getElementById('info_price').innerHTML = "100,000"
+}
+
+function upgrade_emptybottle_hover() {
+    document.getElementById('info_title').innerHTML = "Empty Bottle";
+    document.getElementById('info_cps').innerHTML = "Unlocks, Something...";
+
+    
+    if(config.countraw >= 250000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "250,000"
 }
 
 function upgrade_silvercursors() {
@@ -205,11 +246,11 @@ function upgrade_emeraldfingers() {
     if(config.upgrade_emeraldfingers_bought === false && config.count >= 100000) {
         document.getElementById('upgrade_emeraldfingers').style.setProperty('display', 'none')
         config.upgrade_emeraldfingers_bought = true
-        config.countraw -= 10000
+        config.countraw -= 100000
         config.clickmultiplier += 2
         config.upgrades -= 1
         config.totalupgrades += 1
-        config.eddieorbsspent += 10000
+        config.eddieorbsspent += 100000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -227,15 +268,41 @@ function upgrade_baconbones() {
     }
 }
 
+function upgrade_meatbones() {
+    if(config.upgrade_meatbones_bought === false && config.count >= 50000) {
+        document.getElementById('upgrade_meatbones').style.setProperty('display', 'none')
+        config.upgrade_meatbones_bought = true
+        config.countraw -= 50000
+        config.bonemultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 50000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
 function upgrade_superfrisbe() {
     if(config.upgrade_superfrisbe_bought === false && config.count >= 50000) {
         document.getElementById('upgrade_superfrisbe').style.setProperty('display', 'none')
         config.upgrade_superfrisbe_bought = true
-        config.countraw -= 20000
+        config.countraw -= 50000
         config.frisbemultiplier *= 2
         config.upgrades -= 1
         config.totalupgrades += 1
         config.eddieorbsspent += 50000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_superepicfrisbe() {
+    if(config.upgrade_superepicfrisbe_bought === false && config.count >= 75000) {
+        document.getElementById('upgrade_superepicfrisbe').style.setProperty('display', 'none')
+        config.upgrade_superepicfrisbe_bought = true
+        config.countraw -= 75000
+        config.frisbemultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 75000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -265,6 +332,21 @@ function upgrade_shimmeringeddies() {
         config.eddieorbsspent += 100000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
         
+        save()
+    }
+}
+
+function upgrade_emptybottle() {
+    if(config.upgrade_emptybottle_bought === false && config.count >= 250000) {
+        document.getElementById('upgrade_emptybottle').style.setProperty('display', 'none')
+        config.upgrade_emptybottle_bought = true
+        config.spells_unlocked = true
+        config.countraw -= 250000
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 250000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+        unlockspells()
         save()
     }
 }

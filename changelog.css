@@ -10,11 +10,17 @@
   src: url("fonts/renogare.otf");
 }
 
+@font-face {
+  font-family: deca;
+  src: url(fonts/deca.ttf);
+}
+
 html {
   font-size: 62.5%;
   scrollbar-width: none;
   -ms-overflow-style: none;
   background-color: var(--bg);
+  scroll-behavior: smooth;
 }
 
 p,
@@ -22,11 +28,12 @@ a {
   color: white;
   margin: 0;
   text-decoration: none;
+  font-weight: 600;
 }
 
 body {
   margin: 0;
-  font-family: renogare;
+  font-family: deca;
 }
 
 .backbutton {
@@ -113,10 +120,13 @@ body {
 
 .changelog-extention {
   padding-left: 10px;
+  font-weight: 300;
+  list-style: circle;
 }
 
 .changelog-extention-2 {
   padding-left: 25px;
+  font-weight: 300;
 }
 
 .changelog-img {
@@ -180,6 +190,7 @@ body {
   cursor: pointer;
   transition: height ease-in-out 0.25s,
     bottom cubic-bezier(0.75, -0.5, 0.25, 1.5) 0.5s;
+  user-select: none;
 }
 
 .top-button:hover {
