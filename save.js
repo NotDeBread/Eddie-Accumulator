@@ -1,3 +1,6 @@
+document.getElementById('loader_text').innerHTML = 'Loading Save...'
+console.log('Loading Save...')
+
 const config = JSON.parse(localStorage.getItem('save')) ?? {
     buildingtotal: 0,
     cursortotal: 0,
@@ -56,17 +59,22 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
 
     upgrade_silvercursors_bought: false,
     upgrade_goldencursors_bought: false,
+    upgrade_platinumcursors_bought: false,
     
     upgrade_goldenfingers_bought: false,
     upgrade_platinumfingers_bought: false,
     upgrade_diamondfingers_bought: false,
     upgrade_emeraldfingers_bought: false,
+    upgrade_rubyfingers_bought: false,
 
     upgrade_baconbones_bought: false,
     upgrade_meatbones_bought: false,
 
     upgrade_superfrisbe_bought: false,
     upgrade_superepicfrisbe_bought: false,
+
+    upgrade_hmtreats_bought: false,
+    upgrade_barkbites_bought: false,
 
     upgrade_goldeneddies_bought: false,
     upgrade_shimmeringeddies_bought: false,

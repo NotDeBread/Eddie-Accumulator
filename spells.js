@@ -1,3 +1,6 @@
+document.getElementById('loader_text').innerHTML = 'Loading Spells'
+console.log('Loading Spells...')
+
 function spell_enter() {
     document.getElementById('spell_tooltip').style.setProperty('opacity','1')
     document.getElementById('spell_tooltip').style.setProperty('left','-190px')
@@ -34,8 +37,8 @@ function spell_golden() {
 
         config.spell_golden_cooldown = true
         config.countraw -= config.spell_golden_price
-        config.spell_golden_price *= 1.5
         config.eddieorbsspent += config.spell_golden_price
+        config.spell_golden_price *= 1.5
 
         //Price Formatter
 
@@ -45,8 +48,10 @@ function spell_golden() {
 
 
         setTimeout(() => {
-            document.getElementById('spell_golden').style.setProperty('filter','none')
+            document.getElementById('spell_golden').style.setProperty('filter','grayscale()')
             config.spell_golden_cooldown = false
         }, 10000);
+
+        save()
     }
 }

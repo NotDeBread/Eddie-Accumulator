@@ -1,4 +1,3 @@
-
 if(config.totaleddieorbs >= 1000000 && config.shortnumbers === true) {
     document.getElementById('stat_eddieorbs').innerHTML = numeral(config.totaleddieorbs).format('0.000a')
 } else {

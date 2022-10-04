@@ -1,3 +1,6 @@
+document.getElementById('loader_text').innerHTML = 'Loading Golden Eddies...'
+console.log('Loading Golden Eddies...')
+
 var goldeneddie_type = 0
 
 var goldeneddie_random_count = config.goldeneddiecount / 100
@@ -82,7 +85,7 @@ function goldeneddie_click() {
     document.getElementById('alert_text').innerHTML = 'Eddie Orb production x3 for 30 seconds!'
     document.getElementById('alert_text').style.setProperty('width', '400px')
     document.getElementById('cps').style.setProperty('color', 'yellow')
-    config.goldeneddiemultiplier += 2
+    config.goldeneddiemultiplier *= 3
 
     document.getElementById('goldeneddie_counter').classList.remove('goldeneddie-counter-ani')
     document.getElementById('goldeneddie_counter').classList.add('goldeneddie-counter-ani')
@@ -92,7 +95,7 @@ function goldeneddie_click() {
     }, 30000);
 
     setTimeout(() => {
-        config.goldeneddiemultiplier -= 2
+        config.goldeneddiemultiplier /= 3
     }, 30000);
 
 
@@ -100,7 +103,7 @@ function goldeneddie_click() {
     document.getElementById('alert_text').innerHTML = 'EPC x3 for 30 seconds!'
     document.getElementById('alert_text').style.setProperty('width', '300px')
     document.getElementById('cpc').style.setProperty('color', 'yellow')
-    config.golden_cpcmultiplier += 2
+    config.golden_cpcmultiplier *= 3
 
     document.getElementById('goldeneddie_counter').classList.remove('goldeneddie-counter-ani')
     document.getElementById('goldeneddie_counter').classList.add('goldeneddie-counter-ani')
@@ -110,10 +113,18 @@ function goldeneddie_click() {
     }, 30000);
     
     setTimeout(() => {
-        config.golden_cpcmultiplier -= 2
+        config.golden_cpcmultiplier /= 3
     }, 30000);
 
     }
+
+    config.spell_golden_cooldown = true
+    document.getElementById('spell_golden').style.setProperty('filter','grayscale()')
+
+    setTimeout(() => {
+        config.spell_golden_cooldown = false
+        document.getElementById('spell_golden').style.setProperty('filter','none')
+    }, 5000);
 
     document.getElementById('alert_text').style.setProperty('background-color', 'rgba(253, 255, 125, 0.5)')
     savealert()

@@ -1,3 +1,6 @@
+document.getElementById('loader_text').innerHTML = 'Loading Items...'
+console.log('Loading Items...')
+
 function buycursor() {
     if (config.countraw >= config.cursorprice || devtoolsopen === true) {
         config.cursorcps += 1
@@ -32,6 +35,9 @@ function buycursor() {
             config.upgrades += 1
         }
         if (config.cursortotal === 75) {
+            config.upgrades += 1
+        }
+        if (config.cursortotal === 100) {
             config.upgrades += 1
         }
 
@@ -135,6 +141,13 @@ function buytreat() {
         } else {
             document.getElementById('treatimg').style.setProperty('filter', 'brightness(75%)')
             document.getElementById('treatprice').style.setProperty('color', 'red')
+        }
+
+        if(config.treattotal === 10) {
+            config.upgrades += 1
+        }
+        if(config.treattotal === 25) {
+            config.upgrades += 1
         }
     }
 }

@@ -3,10 +3,13 @@
   --bg: rgb(32, 28, 45);
   --darkbg: rgb(24, 22, 36);
   --darkerbg: rgb(18, 17, 27);
+  --warning: rgb(255, 86, 86);
   --blackTP: rgba(0, 0, 0, 50%);
   --blackTP2: rgba(0, 0, 0, 75%);
-  --hitbox: rgba(0, 0, 255, 25%);
-  --upgrades: 0;
+  --hitbox: rgba(0, 0, 255, 10%);
+  --hitbox2: rgba(255, 0, 0, 10%);
+  --hitbox3: rgba(0, 255, 0, 10%);
+  --hitbox4: rgba(255, 255, 0, 10%);
   --goldeneddie-timer: 0%;
 }
 
@@ -31,6 +34,7 @@ html {
   -ms-overflow-style: none;
   background-color: var(--bg);
   font-family: deca;
+  user-select: none;
 }
 
 p,
@@ -90,6 +94,60 @@ body {
   }
 }
 
+.warning {
+  position: absolute;
+  background-color: var(--warning);
+  width: 300px;
+  height: fit-content;
+  bottom: 0;
+  right: -350px;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  transition: right 0.75s cubic-bezier(0.75, -0.5, 0.25, 1.5);
+}
+
+.warning:hover {
+  transform: scale(101%);
+}
+
+.warning:active {
+  transform: scale(99%);
+}
+
+.warning-left {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.warning-right {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.warning-title {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.warning-desc {
+  font-size: 1.25em;
+}
+
+.warning-img {
+  filter: invert();
+  margin-top: 3px;
+  width: 40px;
+  height: 40px;
+}
+
 .topper {
   background-color: var(--darkbg);
   padding: 5px;
@@ -103,6 +161,7 @@ body {
 }
 
 .goldeneddie-counter {
+  position: absolute;
   background-color: yellow;
   height: 1px;
   width: 0%;
@@ -522,7 +581,7 @@ body {
 
 .all {
   display: flex;
-  height: 400px;
+  height: calc(100vh - 250px);
 }
 
 .left {
@@ -545,12 +604,10 @@ body {
 
 @keyframes counter-ani {
   0% {
-    font-size: 3.5em;
     color: yellow;
   }
 
   100% {
-    font-size: 3em;
     color: white;
   }
 }
@@ -862,7 +919,6 @@ body {
   z-index: 5;
   background-color: var(--darkbg);
   border-left: 2px solid var(--darkerbg);
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   transition: right cubic-bezier(0, 1, 0.75, 1) 0.5s;

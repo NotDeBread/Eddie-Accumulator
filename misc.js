@@ -23,3 +23,18 @@ function noti_close() {
 function upgrades_collapse() {
     config.upgrades_collapsed = !config.upgrades_collapsed
 }
+
+function warningclick() {
+    document.getElementById('warning_').style.setProperty('right','-350px')
+}
+
+document.getElementById('loader_text').innerHTML = 'Done!'
+console.log('Done!')
+
+setTimeout(() => {
+    document.getElementById('loader').style.setProperty('opacity','0')
+    
+    setTimeout(() => {
+        document.getElementById('loader').style.setProperty('height','0')
+    }, 500);
+}, 250);

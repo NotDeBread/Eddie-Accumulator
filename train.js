@@ -1,3 +1,6 @@
+document.getElementById('loader_text').innerHTML = 'Loading Train...'
+console.log('Loading Train...')
+
 var trainrandomizer = 0
 
 setInterval(() => {

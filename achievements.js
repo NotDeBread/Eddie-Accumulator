@@ -1,3 +1,6 @@
+document.getElementById('loader_text').innerHTML = 'Loading Achievements...'
+console.log('Loading Achievemets...')
+
 function achievement1() {
     document.getElementById('achievement1').style.setProperty('left', '10px')
     config.totalachievements += 1

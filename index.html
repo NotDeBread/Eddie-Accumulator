@@ -14,7 +14,17 @@
 
     <div class="loader-wrapper" id="loader">
         <img src="images/loading.webp" class="loader" onclick="achievement13()"></img>
-        <span>Loading...</span>
+        <span id="loader_text">Loading...</span>
+    </div>
+
+    <div class="warning" onclick="warningclick()" id="warning_">
+        <div class="warning-left">
+            <span class="warning-title">Warning!</span><br>
+            <span class="warning-desc">Devtools enabled! Delete Save to disable!</span>
+        </div>
+        <div class="warning-right">
+            <img class="warning-img" src="images/icons/warning.png">
+        </div>
     </div>
 
     <div class="topper">
@@ -26,7 +36,7 @@
         <div class="topper-divider">|</div>
 
         <a onclick="save()" style="float: right;" href="changelog.html">Changelog</a>
-        <p class="version" style="float: right; padding-right: 10px;">BETA v0.10</p>
+        <p class="version" style="float: right; padding-right: 10px;">BETA v0.11</p>
         <a style="float: right; margin-right: 10px;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
     </div>
 
@@ -52,6 +62,20 @@
 
         <div>
             <div class="noti">
+                <span class="noti-title">Need Help With Upgrade Names!</span><br>
+                <span class="noti-desc">I'm currently having problems with coming up with names for new upgrades, I need names for the following:</span><br><br>
+                <span class="noti-desc">50 Bones - Triples Bone Speed</span><br>
+                <span class="noti-desc">75 Bones - Triples Bone Speed</span><br><br>
+                <span class="noti-desc">10 Beds - Doubles Bed Speed</span><br>
+                <span class="noti-desc">25 Beds - Triples Bed Speed</span><br><br>
+                <span class="noti-desc">If you have any ideas please fill out the <a href="https://forms.gle/2KgT8xn1K7fqpXfj6"
+                        style="color: cornflowerblue;" target="_blank">Feature Request Form.</a></span>
+            </div>
+            <div class="noti">
+                <span class="noti-title">BETA v0.11 Released!</span><br>
+                <span class="noti-desc">BETA v0.11 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+            </div>
+            <div class="noti">
                 <span class="noti-title">BETA v0.10 Released!</span><br>
                 <span class="noti-desc">BETA v0.10 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
             </div>
@@ -62,7 +86,7 @@
             <div class="noti">
                 <span class="noti-title">Feature Request Form</span><br>
                 <span class="noti-desc">I'm currently running low on ideas for features, if you have any in mind click <a
-                        href="https://forms.gle/2KgT8xn1K7fqpXfj6" style="color: cornflowerblue;">Here.</a></span>
+                        href="https://forms.gle/2KgT8xn1K7fqpXfj6" style="color: cornflowerblue;" target="_blank">Here.</a></span>
             </div>
             <div class="noti">
                 <span class="noti-title">BETA v0.08 Released!</span><br>
@@ -186,6 +210,9 @@
                 <div class="devbutton" onclick="dev_10xTreats()">
                     <p>10x Treats</p>
                 </div>
+                <div class="devbutton" onclick="dev_10xBeds()">
+                    <p>10x Beds</p>
+                </div>
                 <p style="text-align: center;">Golden Eddie Randomizer</p>
                 <p id="goldeneddie_chance" style="text-align: center;">-</p>
                 <p id="goldeneddie_chance_count" style="text-align: center;">-</p>
@@ -301,7 +328,7 @@
 
 
 
-    <section class="all">
+    <section class="all" onclick="bodyclick()">
         <section class="left">
             <div class="counters">
                 <span class="counter" id="count">-</span><br>
@@ -325,6 +352,9 @@
                 </div>
                 <div class="upgrades" id="upgrades">
                     <div class="no-upgrades" id="no_upgrades">No available upgrades! Keep playing to find more.</div>
+
+                    <!--17 Total-->
+
                     <img class="upgrade" src="images/upgrades/silvercursors.png" id="upgrade_silvercursors"
                         onmouseenter="upgrade_silvercursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_silvercursors()" hidden>
@@ -332,6 +362,10 @@
                     <img class="upgrade" src="images/upgrades/goldencursors.png" id="upgrade_goldencursors"
                         onmouseenter="upgrade_goldencursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_goldencursors()" hidden>
+
+                    <img class="upgrade" src="images/upgrades/platinumcursors.png" id="upgrade_platinumcursors"
+                        onmouseenter="upgrade_platinumcursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_platinumcursors()" hidden>
 
                     <img class="upgrade" src="images/upgrades/goldenfingers.png" id="upgrade_goldenfingers"
                         onmouseenter="upgrade_goldenfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
@@ -351,6 +385,11 @@
                         onclick="upgrade_emeraldfingers()"
                         hidden>
 
+                    <img class="upgrade" src="images/upgrades/rubyfingers.png" id="upgrade_rubyfingers"
+                        onmouseenter="upgrade_rubyfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_rubyfingers()"
+                        hidden>
+
                     <img class="upgrade" src="images/upgrades/baconbones.png" id="upgrade_baconbones"
                         onmouseenter="upgrade_baconbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_baconbones()"
                         hidden>
@@ -365,6 +404,14 @@
                     <img class="upgrade" src="images/upgrades/superepicfrisbe.png" id="upgrade_superepicfrisbe"
                         onmouseenter="upgrade_superepicfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_superepicfrisbe()" hidden>
+
+                    <img class="upgrade" src="images/upgrades/hmtreats.png" id="upgrade_hmtreats"
+                        onmouseenter="upgrade_hmtreats_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_hmtreats()" hidden>
+
+                    <img class="upgrade" src="images/upgrades/barkbites.png" id="upgrade_barkbites"
+                        onmouseenter="upgrade_barkbites_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_barkbites()" hidden>
 
                     <img class="upgrade" src="images/upgrades/goldeneddies.png" id="upgrade_goldeneddies"
                         onmouseenter="upgrade_goldeneddies_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
@@ -490,7 +537,7 @@
     <script src="goldeneddie.js"></script>
     <script src="achievements.js"></script>
     <script src="items.js"></script>
-    <script src="settings.js"></script>
+    <script src="menus.js"></script>
     <script src="train.js"></script>
     <script src="spells.js"></script>
     <script src="misc.js"></script>
