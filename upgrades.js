@@ -34,13 +34,26 @@ function upgrade_platinumcursors_hover() {
     document.getElementById('info_title').innerHTML = "Platinum Cursors";
     document.getElementById('info_cps').innerHTML = "Doubles cursor speed";
 
-    if(config.countraw >= 5000) {
+    if(config.countraw >= 25000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
 
-    document.getElementById('info_price').innerHTML = "5,000"
+    document.getElementById('info_price').innerHTML = "25,000"
+}
+
+function upgrade_emeraldcursors_hover() {
+    document.getElementById('info_title').innerHTML = "Emerald Cursors";
+    document.getElementById('info_cps').innerHTML = "Doubles cursor speed";
+
+    if(config.countraw >= 100000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "100,000"
 }
 
 function upgrade_goldenfingers_hover() {
@@ -134,8 +147,21 @@ function upgrade_meatbones_hover() {
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
-
+    
     document.getElementById('info_price').innerHTML = "50,000"
+}
+
+function upgrade_thebone_hover() {
+    document.getElementById('info_title').innerHTML = "THE BONE™";
+    document.getElementById('info_cps').innerHTML = "Triples Bone Speed <br> <i>Idea from Zeke<i>";
+    
+    if(config.countraw >= 250000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "250,000"
 }
 
 function upgrade_superfrisbe_hover() {
@@ -143,13 +169,13 @@ function upgrade_superfrisbe_hover() {
     document.getElementById('info_cps').innerHTML = "Doubles Frisbe Speed";
 
     
-    if(config.countraw >= 50000) {
+    if(config.countraw >= 100000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
 
-    document.getElementById('info_price').innerHTML = "50,000"
+    document.getElementById('info_price').innerHTML = "100,000"
 }
 
 function upgrade_superepicfrisbe_hover() {
@@ -157,13 +183,27 @@ function upgrade_superepicfrisbe_hover() {
     document.getElementById('info_cps').innerHTML = "Triples Frisbe Speed";
 
     
-    if(config.countraw >= 75000) {
+    if(config.countraw >= 500000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
 
-    document.getElementById('info_price').innerHTML = "75,000"
+    document.getElementById('info_price').innerHTML = "500,000"
+}
+
+function upgrade_superultraepicfrisbe_hover() {
+    document.getElementById('info_title').innerHTML = "The Super Ultra Epic Frisbe";
+    document.getElementById('info_cps').innerHTML = "Triples Frisbe Speed";
+
+    
+    if(config.countraw >= 1500000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "1.5 Million"
 }
 
 function upgrade_hmtreats_hover() {
@@ -210,7 +250,7 @@ function upgrade_goldeneddies_hover() {
 
 function upgrade_shimmeringeddies_hover() {
     document.getElementById('info_title').innerHTML = "Shimmering Eddies";
-    document.getElementById('info_cps').innerHTML = "Raises Golden Eddie spawnrate";
+    document.getElementById('info_cps').innerHTML = "Raises Golden Eddie Spawnrate";
 
     
     if(config.countraw >= 100000) {
@@ -263,14 +303,27 @@ function upgrade_goldencursors() {
 }
 
 function upgrade_platinumcursors() {
-    if(config.upgrade_platinumcursors_bought === false && config.count >= 5000) {
+    if(config.upgrade_platinumcursors_bought === false && config.count >= 25000) {
         document.getElementById('upgrade_platinumcursors').style.setProperty('display', 'none')
         config.upgrade_platinumcursors_bought = true
-        config.countraw -= 5000
+        config.countraw -= 25000
         config.cursormultiplier *= 2
         config.upgrades -= 1
         config.totalupgrades += 1
-        config.eddieorbsspent += 5000
+        config.eddieorbsspent += 25000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_emeraldcursors() {
+    if(config.upgrade_emeraldcursors_bought === false && config.count >= 100000) {
+        document.getElementById('upgrade_emeraldcursors').style.setProperty('display', 'none')
+        config.upgrade_emeraldcursors_bought = true
+        config.countraw -= 100000
+        config.cursormultiplier *= 2
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 100000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -367,28 +420,54 @@ function upgrade_meatbones() {
     }
 }
 
+function upgrade_thebone() {
+    if(config.upgrade_thebone_bought === false && config.count >= 250000) {
+        document.getElementById('upgrade_thebone').style.setProperty('display', 'none')
+        config.upgrade_thebone_bought = true
+        config.countraw -= 250000
+        config.bonemultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 250000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
 function upgrade_superfrisbe() {
-    if(config.upgrade_superfrisbe_bought === false && config.count >= 50000) {
+    if(config.upgrade_superfrisbe_bought === false && config.count >= 100000) {
         document.getElementById('upgrade_superfrisbe').style.setProperty('display', 'none')
         config.upgrade_superfrisbe_bought = true
-        config.countraw -= 50000
+        config.countraw -= 100000
         config.frisbemultiplier *= 2
         config.upgrades -= 1
         config.totalupgrades += 1
-        config.eddieorbsspent += 50000
+        config.eddieorbsspent += 100000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
 
 function upgrade_superepicfrisbe() {
-    if(config.upgrade_superepicfrisbe_bought === false && config.count >= 75000) {
+    if(config.upgrade_superepicfrisbe_bought === false && config.count >= 500000) {
         document.getElementById('upgrade_superepicfrisbe').style.setProperty('display', 'none')
         config.upgrade_superepicfrisbe_bought = true
-        config.countraw -= 75000
+        config.countraw -= 500000
         config.frisbemultiplier *= 3
         config.upgrades -= 1
         config.totalupgrades += 1
-        config.eddieorbsspent += 75000
+        config.eddieorbsspent += 500000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_superultraepicfrisbe() {
+    if(config.upgrade_superultraepicfrisbe_bought === false && config.count >= 1500000) {
+        document.getElementById('upgrade_superultraepicfrisbe').style.setProperty('display', 'none')
+        config.upgrade_superultraepicfrisbe_bought = true
+        config.countraw -= 1500000
+        config.frisbemultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 1500000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }

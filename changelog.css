@@ -133,6 +133,10 @@ body {
   width: 500px;
 }
 
+.changelog-date {
+  color: gray;
+}
+
 .feature-body {
   font-size: 1.5em;
   background-color: var(--darkbg);

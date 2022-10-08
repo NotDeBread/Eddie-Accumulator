@@ -25,9 +25,6 @@ function buycursor() {
             document.getElementById('cursorprice').style.setProperty('color', 'red')
         }
 
-        if (config.cursortotal === 10) {
-            config.upgrades += 1
-        }
         if (config.cursortotal === 25) {
             config.upgrades += 1
         }
@@ -38,6 +35,9 @@ function buycursor() {
             config.upgrades += 1
         }
         if (config.cursortotal === 100) {
+            config.upgrades += 1
+        }
+        if (config.cursortotal === 125) {
             config.upgrades += 1
         }
 
@@ -81,6 +81,10 @@ function buybone() {
         if(config.bonetotal === 25) {
             config.upgrades += 1
         }
+
+        if(config.bonetotal === 50) {
+            config.upgrades += 1
+        }
     }
 }
 
@@ -113,6 +117,10 @@ function buyfrisbe() {
         }
 
         if(config.frisbetotal === 25) {
+            config.upgrades += 1
+        }
+
+        if(config.frisbetotal === 50) {
             config.upgrades += 1
         }
     }

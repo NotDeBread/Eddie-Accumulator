@@ -552,6 +552,7 @@ body {
   padding: 5px;
   left: -350px;
   z-index: 5;
+  border-radius: 5px;
   box-shadow: 0px 0px 10px black;
   transition: left 0.75s cubic-bezier(0.75, -0.5, 0.25, 1.5);
 }
@@ -657,7 +658,7 @@ body {
   width: 300px;
   height: 50px;
   background-color: var(--darkerbg);
-  color: var(--blackTP);
+  color: grey;
   user-select: none;
 }
 
@@ -919,6 +920,7 @@ body {
   z-index: 5;
   background-color: var(--darkbg);
   border-left: 2px solid var(--darkerbg);
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   transition: right cubic-bezier(0, 1, 0.75, 1) 0.5s;
@@ -966,6 +968,14 @@ body {
 
 .noti-desc {
   font-size: 1.1em;
+}
+
+.rank-progress {
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  transition: all ease-in-out 0.5s;
 }
 
 .train {

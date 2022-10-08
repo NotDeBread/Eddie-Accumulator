@@ -36,7 +36,7 @@
         <div class="topper-divider">|</div>
 
         <a onclick="save()" style="float: right;" href="changelog.html">Changelog</a>
-        <p class="version" style="float: right; padding-right: 10px;">BETA v0.11</p>
+        <p class="version" style="float: right; padding-right: 10px;">BETA v0.12</p>
         <a style="float: right; margin-right: 10px;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
     </div>
 
@@ -60,6 +60,10 @@
             <p class="notis-title">Notifications</p>
         </div>
 
+        <div class="noti">
+            <span class="noti-title">BETA v0.12 Released!</span><br>
+            <span class="noti-desc">BETA v0.12 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+        </div>
         <div>
             <div class="noti">
                 <span class="noti-title">Need Help With Upgrade Names!</span><br>
@@ -195,6 +199,9 @@
                 <div class="devbutton" onclick="dev_x10()">
                     <p>x10 Eddie Orbs</p>
                 </div>
+                <div class="devbutton" onclick="dev_x2()">
+                    <p>x2 Eddie Orbs</p>
+                </div>
                 <div class="devbutton" onclick="dev_x10cpc()">
                     <p>x10 CPC</p>
                 </div>
@@ -229,99 +236,12 @@
 
     <!--Achievements-->
 
-    <div class="achievement" id="achievement1" onclick="achievementclose()">
+    <div class="achievement" id="achievement" onclick="achievementclose()">
         <div>
             <p class="achievement-title" id="ach_title">Click</p>
             <p class="achievement-desc" id="ach_desc">Click Eddie 1 Time</p>
         </div>
     </div>
-
-    <div class="achievement" id="achievement2" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">Eddie Incursion</p>
-            <p class="achievement-desc" id="ach_desc">Buy 1 Cursor</p>
-        </div>
-    </div>
-
-    <div class="achievement" id="achievement3" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">Eddie Invasion</p>
-            <p class="achievement-desc" id="ach_desc">Buy 10 Cursors</p>
-        </div>
-    </div>
-
-    <div class="achievement" id="achievement4" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">House of Eddies</p>
-            <p class="achievement-desc" id="ach_desc">Reach 100 Total Eddie Orbs</p>
-        </div>
-    </div>
-
-    <div class="achievement" id="achievement5" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">Building of Eddies</p>
-            <p class="achievement-desc" id="ach_desc">Reach 1,000 Total Eddie Orbs</p>
-        </div>
-    </div>
-
-    <div class="achievement" id="achievement6" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">City of Eddies</p>
-            <p class="achievement-desc" id="ach_desc">Reach 10,000 Total Eddie Orbs</p>
-        </div>
-    </div>
-
-    <div class="achievement" id="achievement7" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">County of Eddies</p>
-            <p class="achievement-desc" id="ach_desc">Reach 100,000 Total Eddie Orbs</p>
-        </div>
-    </div>
-
-    <div class="achievement" id="achievement8" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">State of Eddies</p>
-            <p class="achievement-desc" id="ach_desc">Reach 1 Million Total Eddie Orbs</p>
-        </div>
-    </div>
-
-    <div class="achievement" id="achievement9" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">Country of Eddies</p>
-            <p class="achievement-desc" id="ach_desc">Reach 10 Million Total Eddie Orbs</p>
-        </div>
-    </div>
-
-    <div class="achievement" id="achievement10" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">Continent of Eddies</p>
-            <p class="achievement-desc" id="ach_desc">Reach 100 Million Total Eddie Orbs</p>
-        </div>
-    </div>
-
-    <div class="achievement" id="achievement11" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">Planet of Eddies</p>
-            <p class="achievement-desc" id="ach_desc">Reach 1 Billion Total Eddie Orbs</p>
-        </div>
-    </div>
-
-    <div class="achievement" id="achievement12" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">Solar System of Eddies</p>
-            <p class="achievement-desc" id="ach_desc">Reach 10 Billion Total Eddie Orbs</p>
-        </div>
-    </div>
-
-    <div class="achievement" id="achievement13" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">Wrong Eddie Orb</p>
-            <p class="achievement-desc" id="ach_desc">Those aren't the Eddie Orbs you're clicking for...</p>
-        </div>
-    </div>
-
-
-
 
     <!-------------------------------------------------------------------------------->
 
@@ -351,9 +271,9 @@
                     <img src="images/icons/collapse.png" class="upgrades-header-img" id="upgrade_collapse_img">
                 </div>
                 <div class="upgrades" id="upgrades">
-                    <div class="no-upgrades" id="no_upgrades">No available upgrades! Keep playing to find more.</div>
+                    <div class="no-upgrades" id="no_upgrades"><i>No available upgrades! Keep playing to find more.</i></div>
 
-                    <!--17 Total-->
+                    <!--19 Total-->
 
                     <img class="upgrade" src="images/upgrades/silvercursors.png" id="upgrade_silvercursors"
                         onmouseenter="upgrade_silvercursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
@@ -367,6 +287,10 @@
                         onmouseenter="upgrade_platinumcursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_platinumcursors()" hidden>
 
+                    <img class="upgrade" src="images/upgrades/emeraldcursors.png" id="upgrade_emeraldcursors"
+                        onmouseenter="upgrade_emeraldcursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_emeraldcursors()" hidden>
+
                     <img class="upgrade" src="images/upgrades/goldenfingers.png" id="upgrade_goldenfingers"
                         onmouseenter="upgrade_goldenfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_goldenfingers()" hidden>
@@ -377,17 +301,14 @@
 
                     <img class="upgrade" src="images/upgrades/diamondfingers.png" id="upgrade_diamondfingers"
                         onmouseenter="upgrade_diamondfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_diamondfingers()"
-                        hidden>
+                        onclick="upgrade_diamondfingers()" hidden>
 
                     <img class="upgrade" src="images/upgrades/emeraldfingers.png" id="upgrade_emeraldfingers"
                         onmouseenter="upgrade_emeraldfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_emeraldfingers()"
-                        hidden>
+                        onclick="upgrade_emeraldfingers()" hidden>
 
                     <img class="upgrade" src="images/upgrades/rubyfingers.png" id="upgrade_rubyfingers"
-                        onmouseenter="upgrade_rubyfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_rubyfingers()"
+                        onmouseenter="upgrade_rubyfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_rubyfingers()"
                         hidden>
 
                     <img class="upgrade" src="images/upgrades/baconbones.png" id="upgrade_baconbones"
@@ -397,6 +318,11 @@
                     <img class="upgrade" src="images/upgrades/meatbones.png" id="upgrade_meatbones"
                         onmouseenter="upgrade_meatbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_meatbones()"
                         hidden>
+
+                    <img class="upgrade" src="images/upgrades/thebone.png" id="upgrade_thebone"
+                        onmouseenter="upgrade_thebone_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_thebone()"
+                        hidden>
+
                     <img class="upgrade" src="images/upgrades/superfrisbe.png" id="upgrade_superfrisbe"
                         onmouseenter="upgrade_superfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_superfrisbe()" hidden>
@@ -404,6 +330,10 @@
                     <img class="upgrade" src="images/upgrades/superepicfrisbe.png" id="upgrade_superepicfrisbe"
                         onmouseenter="upgrade_superepicfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_superepicfrisbe()" hidden>
+
+                    <img class="upgrade" src="images/upgrades/superultraepicfrisbe.png" id="upgrade_superultraepicfrisbe"
+                        onmouseenter="upgrade_superultraepicfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                        onclick="upgrade_superultraepicfrisbe()" hidden>
 
                     <img class="upgrade" src="images/upgrades/hmtreats.png" id="upgrade_hmtreats"
                         onmouseenter="upgrade_hmtreats_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
@@ -424,7 +354,6 @@
                     <img class="upgrade" src="images/upgrades/emptybottle.png" id="upgrade_emptybottle"
                         onmouseenter="upgrade_emptybottle_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                         onclick="upgrade_emptybottle()" hidden>
-
                 </div>
             </div>
 
@@ -526,9 +455,11 @@
             </div>
         </section>
 
+
         <img src="images/train.gif" class="train" id="train" onclick="trainclick()">
 
     </section>
+    <div class="rank-progress" id="rank_progress"></div>
 
     <script src="node_modules/numeral/numeral.js"></script>
     <script src="save.js"></script>

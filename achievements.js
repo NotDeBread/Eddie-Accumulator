@@ -2,143 +2,162 @@ document.getElementById('loader_text').innerHTML = 'Loading Achievements...'
 console.log('Loading Achievemets...')
 
 function achievement1() {
-    document.getElementById('achievement1').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'Click'
+    document.getElementById('ach_desc').innerHTML = 'Click Eddie 1 Time'
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
+    config.ach1 = true
+
 
     setTimeout(() => {
-        document.getElementById('achievement1').style.setProperty('left', '-350px')
+        document.getElementById('achievement').style.setProperty('left', '-350px')
     }, 5000);
 }
 
 function achievement2() {
-    document.getElementById('achievement2').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'Eddie Incursion'
+    document.getElementById('ach_desc').innerHTML = 'Buy 1 Cursor'
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
+    config.ach2 = true
 
     setTimeout(() => {
-        document.getElementById('achievement2').style.setProperty('left', '-350px')
+        document.getElementById('achievement').style.setProperty('left', '-350px')
     }, 5000);
 }
 
 function achievement3() {
-    document.getElementById('achievement3').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'Eddie Invasion'
+    document.getElementById('ach_desc').innerHTML = 'Buy 10 Cursors '
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
+    config.ach3 = true
 
     setTimeout(() => {
-        document.getElementById('achievement3').style.setProperty('left', '-350px')
+        document.getElementById('achievement').style.setProperty('left', '-350px')
     }, 5000);
 }
 
 function achievement4() {
-    document.getElementById('achievement4').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'House of Eddies'
+    document.getElementById('ach_desc').innerHTML = 'Reach 100 Total Eddie Orbs'
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
+    config.ach4 = true
 
     setTimeout(() => {
-        document.getElementById('achievement4').style.setProperty('left', '-350px')
+        document.getElementById('achievement').style.setProperty('left', '-350px')
     }, 5000);
 }
 
 function achievement5() {
-    document.getElementById('achievement5').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'Building of Eddies'
+    document.getElementById('ach_desc').innerHTML = 'Reach 1,000 Total Eddie Orbs'
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
+    config.ach5 = true
 
     setTimeout(() => {
-        document.getElementById('achievement5').style.setProperty('left', '-350px')
+        document.getElementById('achievement').style.setProperty('left', '-350px')
     }, 5000);
 }
 
 function achievement6() {
-    document.getElementById('achievement6').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'City of Eddies'
+    document.getElementById('ach_desc').innerHTML = 'Reach 10,000 Total Eddie Orbs'
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
+    config.ach6 = true
 
     setTimeout(() => {
-        document.getElementById('achievement6').style.setProperty('left', '-350px')
+        document.getElementById('achievement').style.setProperty('left', '-350px')
     }, 5000);
 }
 
 function achievement7() {
-    document.getElementById('achievement7').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'County of Eddies'
+    document.getElementById('ach_desc').innerHTML = 'Reach 100,000 Total Eddie Orbs'
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
+    config.ach7 = true
 
     setTimeout(() => {
-        document.getElementById('achievement7').style.setProperty('left', '-350px')
+        document.getElementById('achievement').style.setProperty('left', '-350px')
     }, 5000);
 }
 
 function achievement8() {
-    document.getElementById('achievement8').style.setProperty('left', '10px')
+    document.getElementById('achievement').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'State of Eddies'
+    document.getElementById('ach_desc').innerHTML = 'Reach 1 Million Total Eddie Orbs'
     config.totalachievements += 1
+    config.ach8 = true
 
     setTimeout(() => {
-        document.getElementById('achievement8').style.setProperty('left', '-350px')
+        document.getElementById('achievement').style.setProperty('left', '-350px')
     }, 5000);
 }
 
 function achievement9() {
-    document.getElementById('achievement9').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'Country of Eddies'
+    document.getElementById('ach_desc').innerHTML = 'Reach 10 Million Total Eddie Orbs'
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
+    config.ach9 = true
     
     setTimeout(() => {
-        document.getElementById('achievement9').style.setProperty('left', '-350px')
+        document.getElementById('achievement').style.setProperty('left', '-350px')
     }, 5000);
 }
 
 function achievement10() {
-    document.getElementById('achievement10').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'Countinent of Eddies'
+    document.getElementById('ach_desc').innerHTML = 'Reach 100 Million Total Eddie Orbs'
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
+    config.ach10 = true
 
     setTimeout(() => {
-        document.getElementById('achievement10').style.setProperty('left', '-350px')
+        document.getElementById('achievement').style.setProperty('left', '-350px')
     }, 5000);
 }
 
 function achievement11() {
-    document.getElementById('achievement11').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'Planet of Eddies'
+    document.getElementById('ach_desc').innerHTML = 'Reach 1 Billion Total Eddie Orbs'
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
+    config.ach11 = true
 
     setTimeout(() => {
-        document.getElementById('achievement11').style.setProperty('left', '-350px')
+        document.getElementById('achievement').style.setProperty('left', '-350px')
     }, 5000);
 }
 
 function achievement12() {
-    document.getElementById('achievement12').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'Solar System of Eddies'
+    document.getElementById('ach_desc').innerHTML = 'Reach 10 Billion Total Eddie Orbs'
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
+    config.ach12 = true
 
     setTimeout(() => {
-        document.getElementById('achievement12').style.setProperty('left', '-350px')  
+        document.getElementById('achievement').style.setProperty('left', '-350px')  
     }, 5000);
 }
 
 function achievement13() {
-    document.getElementById('achievement13').style.setProperty('left', '10px')
+    document.getElementById('ach_title').innerHTML = 'Wrong Eddie Orb'
+    document.getElementById('ach_desc').innerHTML = 'That is not the right eddie orb...'
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
+    config.ach13 = true
 
     setTimeout(() => {
-        document.getElementById('achievement13').style.setProperty('left', '-350px')  
+        document.getElementById('achievement').style.setProperty('left', '-350px')  
     }, 5000);
 }
 
 function achievementclose() {
-    document.getElementById('achievement1').style.setProperty('left', '-350px')
-    document.getElementById('achievement2').style.setProperty('left', '-350px')
-    document.getElementById('achievement3').style.setProperty('left', '-350px')
-    document.getElementById('achievement4').style.setProperty('left', '-350px')
-    document.getElementById('achievement5').style.setProperty('left', '-350px')
-    document.getElementById('achievement6').style.setProperty('left', '-350px')
-    document.getElementById('achievement7').style.setProperty('left', '-350px')
-    document.getElementById('achievement8').style.setProperty('left', '-350px')
-    document.getElementById('achievement9').style.setProperty('left', '-350px')
-    document.getElementById('achievement10').style.setProperty('left', '-350px')
-    document.getElementById('achievement11').style.setProperty('left', '-350px')
-    document.getElementById('achievement12').style.setProperty('left', '-350px')
-    document.getElementById('achievement13').style.setProperty('left', '-350px')
-}
-
-function buycursor() {
-    if(config.cursortotal === 1)
-    achievement2()
-    
-    if(config.cursortotal === 10) {
-        achievement3()
-    }
+    document.getElementById('achievement').style.setProperty('left', '-350px')
 }

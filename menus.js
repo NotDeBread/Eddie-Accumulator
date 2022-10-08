@@ -194,7 +194,7 @@ function devtools() {
         if(!devtoolsopen) {
             document.getElementById('devtools_img').src = "images/icons/back.png"
             document.getElementById('devtools').style.setProperty('width', '200px')
-            document.getElementById('devtools').style.setProperty('height', '250px')
+            document.getElementById('devtools').style.setProperty('height', '275px')
             document.getElementById('devtools').style.setProperty('background-color', 'var(--darkerbg)')
             document.getElementById('devtools_content').style.setProperty('opacity', '1')
             document.getElementById('devtools_header').style.setProperty('color', 'rgba(255, 255, 255, 255)')
@@ -236,6 +236,11 @@ function devtools() {
 function dev_x10() {
     config.countraw *= 10
     config.totaleddieorbsraw *= 10
+}
+
+function dev_x2() {
+    config.countraw *= 2
+    config.totaleddieorbsraw *= 2
 }
 
 function dev_golden() {

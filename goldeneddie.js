@@ -118,14 +118,6 @@ function goldeneddie_click() {
 
     }
 
-    config.spell_golden_cooldown = true
-    document.getElementById('spell_golden').style.setProperty('filter','grayscale()')
-
-    setTimeout(() => {
-        config.spell_golden_cooldown = false
-        document.getElementById('spell_golden').style.setProperty('filter','none')
-    }, 5000);
-
     document.getElementById('alert_text').style.setProperty('background-color', 'rgba(253, 255, 125, 0.5)')
     savealert()
     document.getElementById('goldeneddie').hidden = true

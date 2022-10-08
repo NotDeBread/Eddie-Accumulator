@@ -17,7 +17,7 @@ function unlockspells() {
 
 function spell_golden_hover() {
     document.getElementById('spell_title').innerHTML = 'Spell of Shininess'
-    document.getElementById('spell_desc').innerHTML = 'Spawns a Golden Eddie'
+    document.getElementById('spell_desc').innerHTML = 'Starts a random Golden Eddie effect'
 
     if(config.countraw >= config.spell_golden_price) {
         document.getElementById('spell_price').style.setProperty('color','lime')
@@ -30,8 +30,8 @@ function spell_golden_hover() {
 
 function spell_golden() {
     if(config.spell_golden_cooldown === false && config.countraw >= config.spell_golden_price) {
-        config.goldneddierandom === 7
-        goldeneddie() 
+        goldeneddie_type = Math.round(Math.random() * 2)
+        goldeneddie_click() 
 
         document.getElementById('spell_golden').style.setProperty('filter','grayscale()')
 
@@ -48,10 +48,12 @@ function spell_golden() {
 
 
         setTimeout(() => {
-            document.getElementById('spell_golden').style.setProperty('filter','grayscale()')
+            document.getElementById('spell_golden').style.setProperty('filter','none')
             config.spell_golden_cooldown = false
-        }, 10000);
+        }, 2500);
 
-        save()
+        setTimeout(() => {
+            save()
+        }, 4000);
     }
 }
