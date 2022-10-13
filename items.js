@@ -10,6 +10,7 @@ function buycursor() {
         config.cursorprice = Math.round(config.cursorprice * 1.1)
 
         document.getElementById('item_tt_eps').innerHTML = config.cursorcps * config.cursormultiplier
+        document.getElementById('item_tt_epseach').innerHTML = config.cursormultiplier
 
 
         counterupdate()
@@ -60,6 +61,7 @@ function buybone() {
         config.boneprice = Math.round(config.boneprice * 1.1)
         
         document.getElementById('item_tt_eps').innerHTML = config.bonecps * config.bonemultiplier
+        document.getElementById('item_tt_epseach').innerHTML = 10 * config.bonemultiplier
 
         counterupdate()
 
@@ -98,6 +100,7 @@ function buyfrisbe() {
         config.frisbeprice = Math.round(config.frisbeprice * 1.1)
 
         document.getElementById('item_tt_eps').innerHTML = config.frisbecps * config.frisbemultiplier
+        document.getElementById('item_tt_epseach').innerHTML = 50 * config.frisbemultiplier
 
         counterupdate()
 
@@ -137,6 +140,7 @@ function buytreat() {
         config.treatprice = Math.round(config.treatprice * 1.1)
 
         document.getElementById('item_tt_eps').innerHTML = config.treatcps * config.treatmultiplier
+        document.getElementById('item_tt_epseach').innerHTML = 100 * config.treatmultiplier
 
         counterupdate()
 
@@ -170,6 +174,7 @@ function buybed() {
         config.bedprice = Math.round(config.bedprice * 1.1)
 
         document.getElementById('item_tt_eps').innerHTML = config.bedcps * config.bedmultiplier
+        document.getElementById('item_tt_epseach').innerHTML = 1000 * config.bedmultiplier
 
         counterupdate()
 
@@ -184,43 +189,6 @@ function buybed() {
             document.getElementById('bedprice').style.setProperty('color', 'red')
         }
     }
-}
-
-
-function cursor_hover() {
-    document.getElementById('info_title').innerHTML = "Cursor";
-    document.getElementById('info_cps').innerHTML = config.cursorcps * config.cursormultiplier;
-    document.getElementById('info_owned').innerHTML = config.cursortotal;
-    document.getElementById('info_owned').style.setProperty('color', 'grey');
-    document.getElementById('owned_label').style.setProperty('opacity', '1')
-    document.getElementById('info_label').innerHTML = "CPS: ";
-}
-
-function bone_hover() {
-    document.getElementById('info_title').innerHTML = "Bone";
-    document.getElementById('info_cps').innerHTML = config.bonecps * config.bonemultiplier;
-    document.getElementById('info_owned').innerHTML = config.bonetotal;
-    document.getElementById('info_owned').style.setProperty('color', 'grey');
-    document.getElementById('owned_label').style.setProperty('opacity', '1')
-    document.getElementById('info_label').innerHTML = "CPS: ";
-}
-
-function frisbe_hover() {
-    document.getElementById('info_title').innerHTML = "Frisbe";
-    document.getElementById('info_cps').innerHTML = config.frisbecps;
-    document.getElementById('info_owned').innerHTML = config.frisbetotal;
-    document.getElementById('info_owned').style.setProperty('color', 'grey');
-    document.getElementById('owned_label').style.setProperty('opacity', '1')
-    document.getElementById('info_label').innerHTML = "CPS: ";
-}
-
-function treat_hover() {
-    document.getElementById('info_title').innerHTML = "Treat";
-    document.getElementById('info_cps').innerHTML = config.treatcps;
-    document.getElementById('info_owned').innerHTML = config.treattotal;
-    document.getElementById('info_owned').style.setProperty('color', 'grey');
-    document.getElementById('owned_label').style.setProperty('opacity', '1')
-    document.getElementById('info_label').innerHTML = "CPS: ";
 }
 
 window.onload = function() {
@@ -249,28 +217,33 @@ function cursor_tt() {
     document.getElementById('item-tooltip').style.setProperty('top', '0px')
     document.getElementById('item_tt_title').innerHTML = "Cursor"
     document.getElementById('item_tt_eps').innerHTML = config.cursorcps * config.cursormultiplier
+    document.getElementById('item_tt_epseach').innerHTML = config.cursormultiplier
 }
 
 function bone_tt() {
     document.getElementById('item-tooltip').style.setProperty('top', '55px')
     document.getElementById('item_tt_title').innerHTML = "Bone"
     document.getElementById('item_tt_eps').innerHTML = config.bonecps * config.bonemultiplier
+    document.getElementById('item_tt_epseach').innerHTML = 10 * config.bonemultiplier
 }
 
 function frisbe_tt() {
     document.getElementById('item-tooltip').style.setProperty('top', '110px')
     document.getElementById('item_tt_title').innerHTML = "Frisbe"
     document.getElementById('item_tt_eps').innerHTML = config.frisbecps * config.frisbemultiplier
+    document.getElementById('item_tt_epseach').innerHTML = 50 * config.frisbemultiplier
 }
 
 function treat_tt() {
     document.getElementById('item-tooltip').style.setProperty('top', '165px')
     document.getElementById('item_tt_title').innerHTML = "Treat"
     document.getElementById('item_tt_eps').innerHTML = config.treatcps * config.treatmultiplier
+    document.getElementById('item_tt_epseach').innerHTML = 100 * config.treatmultiplier
 }
 
 function bed_tt() {
     document.getElementById('item-tooltip').style.setProperty('top', '220px')
     document.getElementById('item_tt_title').innerHTML = "Bed"
     document.getElementById('item_tt_eps').innerHTML = config.bedcps * config.bedmultiplier
+    document.getElementById('item_tt_epseach').innerHTML = 1000 * config.bedmultiplier
 }

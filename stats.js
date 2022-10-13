@@ -14,7 +14,7 @@ if(config.eddieorbsspent >= 1000000 && config.shortnumbers === true) {
     document.getElementById('stat_eddieorbsspent').innerHTML = numeral(config.eddieorbsspent).format('0,00')
 }
 
-document.getElementById('stat_timesclicked').innerHTML = config.timesclicked
+document.getElementById('stat_timesclicked').innerHTML = numeral(config.timesclicked).format('0,00')
 document.getElementById('stat_goldeneddies').innerHTML = config.goldeneddiesclicked
 document.getElementById('stat_upgrades').innerHTML = config.totalupgrades
 document.getElementById('stat_achievements').innerHTML = config.totalachievements
@@ -60,9 +60,6 @@ if(config.upgrade_platinumcursors_bought === true) {
     document.getElementById('upgrade_platinumcursors').hidden = false
 }
 
-if(config.upgrade_goldenfingers_bought === true) {
-    document.getElementById('upgrade_goldenfingers').hidden = false
-}
 
 if(config.upgrade_platinumcursors_bought === true) {
     document.getElementById('upgrade_platinumcursors').hidden = false
@@ -70,6 +67,14 @@ if(config.upgrade_platinumcursors_bought === true) {
 
 if(config.upgrade_emeraldcursors_bought === true) {
     document.getElementById('upgrade_emeraldcursors').hidden = false
+}
+
+if(config.upgrade_goldenfingers_bought === true) {
+    document.getElementById('upgrade_goldenfingers').hidden = false
+}
+
+if(config.upgrade_platinumfingers_bought === true) {
+    document.getElementById('upgrade_platinumfingers').hidden = false
 }
 
 if(config.upgrade_diamondfingers_bought === true) {
@@ -131,12 +136,12 @@ if(config.upgrade_emptybottle_bought === true) {
 
 function upgradett_enter() {
     document.getElementById('upgradett').style.setProperty('opacity','1')
-    document.getElementById('upgradett').style.setProperty('left','-330px')
+    document.getElementById('upgradett').style.setProperty('right','-330px')
 }
 
 function upgradett_leave() {
     document.getElementById('upgradett').style.setProperty('opacity','0')
-    document.getElementById('upgradett').style.setProperty('left','-340px')
+    document.getElementById('upgradett').style.setProperty('right','-340px')
 }
 
 function silvercursors_hover() {
@@ -241,44 +246,59 @@ function emptybottle_hover() {
 
 //----------RANKS----------//
 
-if(config.totaleddieorbs <= 1000) {
+if(config.totaleddieorbs < 1000) {
     document.getElementById('rank').src = 'images/ranks/rank-d.png'
     document.getElementById('rank_progress_overlay').style.setProperty('background-color','rgb(132, 86, 75)')
     document.getElementById('rank_progress').innerHTML = numeral(1000 - config.totaleddieorbs).format('0,00')
     document.getElementById('rank_progress_overlay').style.setProperty('width', (config.totaleddieorbs / 1000) * 100 + '%')
 
-} else if(config.totaleddieorbs <= 10000) {
+} else if(config.totaleddieorbs < 10000) {
     document.getElementById('rank').src = 'images/ranks/rank-dplus.png'
     document.getElementById('rank_progress_overlay').style.setProperty('background-color','rgb(242, 118, 107)')
     document.getElementById('rank_progress').innerHTML = numeral(10000 - config.totaleddieorbs).format('0,00')
     document.getElementById('rank_progress_overlay').style.setProperty('width', (config.totaleddieorbs / 10000) * 100 + '%')
 
-} else if(config.totaleddieorbs <= 100000) {
+} else if(config.totaleddieorbs < 100000) {
     document.getElementById('rank').src = 'images/ranks/rank-c.png'
     document.getElementById('rank_progress_overlay').style.setProperty('background-color','rgb(191, 143, 96)')
     document.getElementById('rank_progress').innerHTML = numeral(100000 - config.totaleddieorbs).format('0,00')
     document.getElementById('rank_progress_overlay').style.setProperty('width', (config.totaleddieorbs / 100000) * 100 + '%')
 
-} else if(config.totaleddieorbs <= 1000000) {
+} else if(config.totaleddieorbs < 1000000) {
     document.getElementById('rank').src = 'images/ranks/rank-cplus.png'
     document.getElementById('rank_progress_overlay').style.setProperty('background-color','rgb(208, 158, 79)')
     document.getElementById('rank_progress').innerHTML = numeral(1000000 - config.totaleddieorbs).format('0,00')
     document.getElementById('rank_progress_overlay').style.setProperty('width', (config.totaleddieorbs / 1000000) * 100 + '%')
-} else if(config.totaleddieorbs <= 10000000) {
+} else if(config.totaleddieorbs < 10000000) {
     document.getElementById('rank').src = 'images/ranks/rank-b.png'
     document.getElementById('rank_progress_overlay').style.setProperty('background-color','rgb(248, 219, 113)')
     document.getElementById('rank_progress').innerHTML = numeral(10000000 - config.totaleddieorbs).format('0,00')
     document.getElementById('rank_progress_overlay').style.setProperty('width', (config.totaleddieorbs / 10000000) * 100 + '%')
-} else if(config.totaleddieorbs <= 100000000) {
+} else if(config.totaleddieorbs < 100000000) {
     document.getElementById('rank').src = 'images/ranks/rank-bplus.png'
     document.getElementById('rank_progress_overlay').style.setProperty('background-color','rgb(250, 246, 109)')
     document.getElementById('rank_progress').innerHTML = numeral(100000000 - config.totaleddieorbs).format('0,00')
     document.getElementById('rank_progress_overlay').style.setProperty('width', (config.totaleddieorbs / 100000000) * 100 + '%')
-} else if(config.totaleddieorbs <= 1000000000) {
+} else if(config.totaleddieorbs < 1000000000) {
     document.getElementById('rank').src = 'images/ranks/rank-a.png'
     document.getElementById('rank_progress_overlay').style.setProperty('background-color','rgb(153, 229, 80)')
     document.getElementById('rank_progress').innerHTML = numeral(1000000000 - config.totaleddieorbs).format('0,00')
     document.getElementById('rank_progress_overlay').style.setProperty('width', (config.totaleddieorbs / 1000000000) * 100 + '%')
+} else if(config.totaleddieorbs < 10000000000) {
+    document.getElementById('rank').src = 'images/ranks/rank-aplus.png'
+    document.getElementById('rank_progress_overlay').style.setProperty('background-color','rgb(73, 236, 102)')
+    document.getElementById('rank_progress').innerHTML = numeral(10000000000 - config.totaleddieorbs).format('0,00')
+    document.getElementById('rank_progress_overlay').style.setProperty('width', (config.totaleddieorbs / 10000000000) * 100 + '%')
+} else if(config.totaleddieorbs < 100000000000) {
+    document.getElementById('rank').src = 'images/ranks/rank-s.png'
+    document.getElementById('rank_progress_overlay').style.setProperty('background-color','rgb(91, 110, 225)')
+    document.getElementById('rank_progress').innerHTML = numeral(100000000000 - config.totaleddieorbs).format('0,00')
+    document.getElementById('rank_progress_overlay').style.setProperty('width', (config.totaleddieorbs / 100000000000) * 100 + '%')
+} else if(config.totaleddieorbs < 1000000000000) {
+    document.getElementById('rank').src = 'images/ranks/rank-splus.png'
+    document.getElementById('rank_progress_overlay').style.setProperty('background-color','rgb(82, 78, 238)')
+    document.getElementById('rank_progress').innerHTML = numeral(1000000000000 - config.totaleddieorbs).format('0,00')
+    document.getElementById('rank_progress_overlay').style.setProperty('width', (config.totaleddieorbs / 1000000000000) * 100 + '%')
 }
 
 //---------ACHIEVEMENTS----------//
@@ -359,4 +379,10 @@ if(config.ach13 === true) {
     document.getElementById('achievement13-title').innerHTML = 'Wrong Eddie Orb'
     document.getElementById('achievement13-title').style.setProperty('color','white')
     document.getElementById('achievement13-desc').innerHTML = 'Click The Loading Screen Icon'
+}
+
+if(config.ach14 === true) {
+    document.getElementById('achievement13-title').innerHTML = 'Youre a Wizard Eddie'
+    document.getElementById('achievement13-title').style.setProperty('color','white')
+    document.getElementById('achievement13-desc').innerHTML = 'Unlock Spells'
 }

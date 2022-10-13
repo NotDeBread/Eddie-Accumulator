@@ -28,11 +28,13 @@ function warningclick() {
     document.getElementById('warning_').style.setProperty('right','-350px')
 }
 
-document.getElementById('loader_text').innerHTML = 'Done!'
+document.getElementById('loader_text').innerHTML = ''
 console.log('Done!')
 
 setTimeout(() => {
     document.getElementById('loader').style.setProperty('opacity','0')
+    document.getElementById('loader_img').style.setProperty('width','0')
+    document.getElementById('loader_img').style.setProperty('height','0')
     
     setTimeout(() => {
         document.getElementById('loader').style.setProperty('height','0')

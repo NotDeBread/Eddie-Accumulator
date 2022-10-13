@@ -3,6 +3,7 @@
   --bg: rgb(32, 28, 45);
   --darkbg: rgb(24, 22, 36);
   --darkerbg: rgb(18, 17, 27);
+  --darkestbg: rgb(11, 11, 17);
   --warning: rgb(255, 86, 86);
   --blackTP: rgba(0, 0, 0, 50%);
   --blackTP2: rgba(0, 0, 0, 75%);
@@ -26,6 +27,54 @@
 @font-face {
   font-family: deca;
   src: url(fonts/deca.ttf);
+}
+
+@media screen and (max-width: 800px) {
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  .all {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .right {
+    margin-top: 50px;
+  }
+
+  .item-tooltip {
+    display: none;
+  }
+
+  .upgrade-tooltip {
+    display: none;
+  }
+
+  .noti-icon {
+    display: none;
+  }
+
+  .notis {
+    display: none;
+    opacity: 0;
+  }
+
+  .topper {
+    display: none;
+  }
+
+  .warning {
+    display: none;
+  }
 }
 
 html {
@@ -82,6 +131,7 @@ body {
   height: 50px;
   font-weight: 600;
   animation: loader linear 2s infinite;
+  transition: width ease-in 0.5s, height ease-in 0.5s;
 }
 
 @keyframes loader {
@@ -109,6 +159,7 @@ body {
   justify-content: space-between;
   cursor: pointer;
   user-select: none;
+  z-index: 5;
   transition: right 0.75s cubic-bezier(0.75, -0.5, 0.25, 1.5);
 }
 
@@ -621,17 +672,17 @@ body {
   width: 150px;
   margin: 0 auto;
   margin-top: 50px;
-  transition: transform ease-in-out 0.05s;
+  transition: transform cubic-bezier(0.25, 0, 0, 1.5) 0.25s;
   cursor: pointer;
   user-select: none;
 }
 
 .eddie:hover {
-  transform: scale(105%);
+  transform: scale(110%);
 }
 
 .eddie:active {
-  transform: scale(100%);
+  transform: scale(95%);
 }
 
 .counters {
@@ -856,6 +907,7 @@ body {
   justify-content: space-between;
   user-select: none;
   cursor: pointer;
+  transition: filter 0.25s ease-in-out;
 }
 
 .item:active {
@@ -978,11 +1030,24 @@ body {
   transition: all ease-in-out 0.5s;
 }
 
+.rank-text {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.rank {
+  width: 25px;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
 .train {
   position: absolute;
   bottom: 0;
   left: -200px;
-  width: 200px;
+  width: 200px; /* 1,000 Lines!! */
   cursor: pointer;
   transition: left linear 30s;
 }

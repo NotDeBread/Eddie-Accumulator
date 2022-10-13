@@ -111,6 +111,7 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     ach11: false,
     ach12: false,
     ach13: false,
+    ach14: false,
 
     ach4_check: false,
     ach5_check: false,

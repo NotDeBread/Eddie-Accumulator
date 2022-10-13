@@ -13,8 +13,8 @@
 <body>
 
     <div class="loader-wrapper" id="loader">
-        <img src="images/loading.webp" class="loader" onclick="achievement13()"></img>
-        <span id="loader_text">Loading...</span>
+        <img src="images/loading.webp" class="loader" id="loader_img" onclick="achievement13()"></img>
+        <span id="loader_text"></span>
     </div>
 
     <div class="warning" onclick="warningclick()" id="warning_">
@@ -36,7 +36,7 @@
         <div class="topper-divider">|</div>
 
         <a onclick="save()" style="float: right;" href="changelog.html">Changelog</a>
-        <p class="version" style="float: right; padding-right: 10px;">BETA v0.12</p>
+        <p class="version" style="float: right; padding-right: 10px;">BETA v0.13</p>
         <a style="float: right; margin-right: 10px;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
     </div>
 
@@ -61,6 +61,27 @@
         </div>
 
         <div class="noti">
+            <span class="noti-title">Need Help With Achievement Names!</span><br>
+            <span class="noti-desc">I having trouble coming up with ideas for achievement names! I need names for the following:</span><br><br>
+            <span class="noti-desc">-Click Eddie 100 Times</span><br>
+            <span class="noti-desc">-Click Eddie 1,000 Times</span><br>
+            <span class="noti-desc">-Click Eddie 10,000 Times</span><br><br>
+            <span class="noti-desc">-Buy 50 Cursors</span><br>
+            <span class="noti-desc">-Buy 100 Cursors</span><br><br>
+            <span class="noti-desc">-Reach 1,000 Eddie Orbs Per Second</span><br>
+            <span class="noti-desc">-Reach 10,000 Eddie Orbs Per Second</span><br>
+            <span class="noti-desc">-Reach 100,000 Eddie Orbs Per Second</span><br><br>
+            <span class="noti-desc">If you have any ideas please fill out the <a href="https://forms.gle/2KgT8xn1K7fqpXfj6"
+                    style="color: cornflowerblue;" target="_blank">Feature Request Form.</a></span><br>
+            <span class="noti-desc">If your idea manages to get into the game you will be credited in the description of the achievement.</span><br>
+        </div>
+
+        <div class="noti">
+            <span class="noti-title">BETA v0.13 Released!</span><br>
+            <span class="noti-desc">BETA v0.13 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+        </div>
+
+        <div class="noti">
             <span class="noti-title">BETA v0.12 Released!</span><br>
             <span class="noti-desc">BETA v0.12 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
         </div>
@@ -68,12 +89,14 @@
             <div class="noti">
                 <span class="noti-title">Need Help With Upgrade Names!</span><br>
                 <span class="noti-desc">I'm currently having problems with coming up with names for new upgrades, I need names for the following:</span><br><br>
-                <span class="noti-desc">50 Bones - Triples Bone Speed</span><br>
+                <span class="noti-desc" style="text-decoration: line-through; color: gray;">50 Bones - Triples Bone Speed</span><br>
                 <span class="noti-desc">75 Bones - Triples Bone Speed</span><br><br>
                 <span class="noti-desc">10 Beds - Doubles Bed Speed</span><br>
                 <span class="noti-desc">25 Beds - Triples Bed Speed</span><br><br>
                 <span class="noti-desc">If you have any ideas please fill out the <a href="https://forms.gle/2KgT8xn1K7fqpXfj6"
-                        style="color: cornflowerblue;" target="_blank">Feature Request Form.</a></span>
+                        style="color: cornflowerblue;" target="_blank">Feature Request Form.</a></span><br>
+                <span class="noti-desc">If your idea manages to get into the game you will be credited in the description of the upgrade.</span><br>
+                <i style="color: gray;">Edited</i>
             </div>
             <div class="noti">
                 <span class="noti-title">BETA v0.11 Released!</span><br>
@@ -381,9 +404,10 @@
 
             <div class="items-all">
                 <div class="item-tooltip" id="item-tooltip">
-                    <span id="item_tt_title" style="font-size: 1.5em; font-weight: 600;">-</span><br>
+                    <span id="item_tt_title" style="font-size: 1.3em; font-weight: 600;">-</span><br>
                     <span>EPS: </span>
-                    <span id="item_tt_eps">-</span>
+                    <span id="item_tt_eps">-</span><br>
+                    <span style="color: grey;">( </span><span style="color: grey;" id="item_tt_epseach">-</span><span style="color: grey;"> Each )</span>
                 </div>
 
                 <div class="item-container">
@@ -459,6 +483,9 @@
         <img src="images/train.gif" class="train" id="train" onclick="trainclick()">
 
     </section>
+
+    <img src="images/ranks/rank-none.png" id="rank" class="rank">
+    <span class="rank-text"><span id="rank_count"></span> Eddie Orbs Till Next Rank</span>
     <div class="rank-progress" id="rank_progress"></div>
 
     <script src="node_modules/numeral/numeral.js"></script>

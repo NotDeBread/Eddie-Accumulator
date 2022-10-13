@@ -211,13 +211,13 @@ function upgrade_hmtreats_hover() {
     document.getElementById('info_cps').innerHTML = "Doubles Treat Speed";
 
     
-    if(config.countraw >= 50000) {
+    if(config.countraw >= 750000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
 
-    document.getElementById('info_price').innerHTML = "75,000"
+    document.getElementById('info_price').innerHTML = "750,000"
 }
 
 function upgrade_barkbites_hover() {
@@ -225,13 +225,13 @@ function upgrade_barkbites_hover() {
     document.getElementById('info_cps').innerHTML = "Triples Treat Speed";
 
     
-    if(config.countraw >= 150000) {
+    if(config.countraw >= 1500000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
 
-    document.getElementById('info_price').innerHTML = "150,000"
+    document.getElementById('info_price').innerHTML = "1.5 Million"
 }
 
 function upgrade_goldeneddies_hover() {
@@ -473,27 +473,27 @@ function upgrade_superultraepicfrisbe() {
 }
 
 function upgrade_hmtreats() {
-    if(config.upgrade_hmtreats_bought === false && config.count >= 75000) {
+    if(config.upgrade_hmtreats_bought === false && config.count >= 750000) {
         document.getElementById('upgrade_hmtreats').style.setProperty('display', 'none')
         config.upgrade_hmtreats_bought = true
-        config.countraw -= 75000
+        config.countraw -= 750000
         config.treatmultiplier *= 2
         config.upgrades -= 1
         config.totalupgrades += 1
-        config.eddieorbsspent += 75000
+        config.eddieorbsspent += 750000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
 
 function upgrade_barkbites() {
-    if(config.upgrade_barkbites_bought === false && config.count >= 150000) {
+    if(config.upgrade_barkbites_bought === false && config.count >= 1500000) {
         document.getElementById('upgrade_barkbites').style.setProperty('display', 'none')
         config.upgrade_barkbites_bought = true
-        config.countraw -= 150000
+        config.countraw -= 1500000
         config.treatmultiplier *= 3
         config.upgrades -= 1
         config.totalupgrades += 1
-        config.eddieorbsspent += 150000
+        config.eddieorbsspent += 1500000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -537,6 +537,9 @@ function upgrade_emptybottle() {
         config.eddieorbsspent += 250000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
         unlockspells()
+
+        config.ach14 = true
+        achievement14()
         save()
     }
 }
