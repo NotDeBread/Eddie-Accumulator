@@ -25,8 +25,8 @@ function goldeneddie_randomize() {
     if(config.goldeneddies_unlocked === true) {
         config.goldeneddie_random = Math.round(Math.random() * 10)
         goldeneddie_random_count = 100
+        document.getElementById('goldeneddie_chance').innerHTML = config.goldeneddie_random
         goldeneddierandom()
-        document.getElementById('goldeneddie_chance').innerHTML = goldeneddie_random
         
         if(config.goldeneddie_random === 7) {
             document.getElementById('goldeneddie_chance').style.setProperty('color', 'lime')
@@ -43,6 +43,7 @@ function goldeneddie_randomize() {
 function goldeneddierandom() {
     if(config.goldeneddie_random === 7) {
         console.log('Golden Eddie Spawned!')
+        config.goldeneddiesspawned += 1
         goldeneddie()
     }
 }

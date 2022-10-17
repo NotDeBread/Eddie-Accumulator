@@ -78,7 +78,11 @@ function eddieclick() {
         config.upgrades += 1
     }
 
-    if (config.timesclicked === 750) {
+    if (config.timesclicked === 1000) {
+        config.upgrades += 1
+    }
+
+    if (config.timesclicked === 1500) {
         config.upgrades += 1
     }
 }
@@ -89,12 +93,14 @@ function clickspersecond() {
     config.countraw += (config.frisbecps * config.frisbemultiplier) / 40 * config.goldeneddiemultiplier
     config.countraw += (config.treatcps * config.treatmultiplier) / 40 * config.goldeneddiemultiplier
     config.countraw += (config.bedcps * config.bedmultiplier) / 40 * config.goldeneddiemultiplier
+    config.countraw += (config.friendcps * config.friendmultiplier) / 40 * config.goldeneddiemultiplier
     config.totaleddieorbsraw += (config.cursorcps * config.cursormultiplier ) / 40 * config.goldeneddiemultiplier
     config.totaleddieorbsraw += (config.bonecps * config.bonemultiplier) / 40 * config.goldeneddiemultiplier
     config.totaleddieorbsraw += (config.frisbecps * config.frisbemultiplier) / 40 * config.goldeneddiemultiplier
     config.totaleddieorbsraw += (config.treatcps * config.treatmultiplier) / 40 * config.goldeneddiemultiplier
     config.totaleddieorbsraw += (config.bedcps * config.bedmultiplier) / 40 * config.goldeneddiemultiplier
-    config.count = Math.round(config.countraw)
+    config.totaleddieorbsraw += (config.friendcps * config.friendmultiplier) / 40 * config.goldeneddiemultiplier
+    config.count = config.countraw
 
     counterformat()
     counterupdate()
@@ -147,125 +153,12 @@ function clickspersecond() {
         document.getElementById('bedprice').style.setProperty('color', 'red')
     }
 
-    if(config.count >= 500){
-        document.getElementById('upgrade_silvercursors').style.setProperty('filter', 'brightness(100%)')
+    if (config.count >= config.friendprice) {
+        document.getElementById('friendimg').style.setProperty('filter', 'brightness(100%)')
+        document.getElementById('friendprice').style.setProperty('color', 'lime')
     } else {
-        document.getElementById('upgrade_silvercursors').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.count >= 1000){
-        document.getElementById('upgrade_goldencursors').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_goldencursors').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.count >= 25000){
-        document.getElementById('upgrade_platinumcursors').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_platinumcursors').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.count >= 100000){
-        document.getElementById('upgrade_emeraldcursors').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_emeraldcursors').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.count >= 1000){
-        document.getElementById('upgrade_goldenfingers').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_goldenfingers').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.count >= 25000){
-        document.getElementById('upgrade_platinumfingers').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_platinumfingers').style.setProperty('filter', 'brightness(75%)')
-    }
-    
-    if(config.count >= 100000){
-            document.getElementById('upgrade_diamondfingers').style.setProperty('filter', 'brightness(100%)')
-    } else {
-            document.getElementById('upgrade_diamondfingers').style.setProperty('filter', 'brightness(75%)')
-    }
-        
-    if(config.count >= 500000){
-        document.getElementById('upgrade_emeraldfingers').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_emeraldfingers').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.count >= 1000000){
-        document.getElementById('upgrade_rubyfingers').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_rubyfingers').style.setProperty('filter', 'brightness(75%)')
-    }
-    
-    if(config.count >= 20000){
-        document.getElementById('upgrade_baconbones').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_baconbones').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.count >= 50000){
-        document.getElementById('upgrade_meatbones').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_meatbones').style.setProperty('filter', 'brightness(75%)')
-    }
-    
-    if(config.count >= 250000){
-        document.getElementById('upgrade_thebone').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_thebone').style.setProperty('filter', 'brightness(75%)')
-    }
-    
-    if(config.count >= 100000){
-        document.getElementById('upgrade_superfrisbe').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_superfrisbe').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.count >= 500000){
-        document.getElementById('upgrade_superepicfrisbe').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_superepicfrisbe').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.count >= 1500000){
-        document.getElementById('upgrade_superultraepicfrisbe').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_superultraepicfrisbe').style.setProperty('filter', 'brightness(75%)')
-    }
-
-
-    if(config.count >= 75000){
-        document.getElementById('upgrade_hmtreats').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_hmtreats').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.count >= 150000){
-        document.getElementById('upgrade_barkbites').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_barkbites').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.count >= 75000){
-        document.getElementById('upgrade_goldeneddies').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_goldeneddies').style.setProperty('filter', 'brightness(75%)')
-    }
-    
-    if(config.count >= 100000){
-        document.getElementById('upgrade_shimmeringeddies').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_shimmeringeddies').style.setProperty('filter', 'brightness(75%)')
-    }
-
-    if(config.count >= 250000){
-        document.getElementById('upgrade_emptybottle').style.setProperty('filter', 'brightness(100%)')
-    } else {
-        document.getElementById('upgrade_emptybottle').style.setProperty('filter', 'brightness(75%)')
+        document.getElementById('friendimg').style.setProperty('filter', 'brightness(75%)')
+        document.getElementById('friendprice').style.setProperty('color', 'red')
     }
 
     if(config.countraw < 0) {
@@ -281,90 +174,10 @@ function update() {
         document.getElementById('cps').innerHTML = numeral(cps).format('0.000a')
     } else {document.getElementById('cps').innerHTML = numeral(cps).format('0,00')}
 
-    cps = ((config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + (config.frisbecps * config.frisbemultiplier) + config.treatcps * config.treatmultiplier + config.bedcps) * config.goldeneddiemultiplier
+    cps = ((config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + (config.frisbecps * config.frisbemultiplier) + (config.treatcps * config.treatmultiplier) + (config.bedcps * config.bedmultiplier) + (config.friendcps * config.friendmultiplier)) * config.goldeneddiemultiplier
 
-    config.count = Math.round(config.countraw)
+    config.count = config.countraw
     config.totaleddieorbs = Math.round(config.totaleddieorbs)
-
-    if(config.timesclicked >= 100 && config.upgrade_silvercursors_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_silvercursors').hidden = false;
-        } else {document.getElementById('upgrade_silvercursors').hidden = true}
-
-    if(config.timesclicked >= 250 && config.upgrade_goldencursors_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_goldencursors').hidden = false;
-        } else {document.getElementById('upgrade_goldencursors').hidden = true}
-
-    if(config.timesclicked >= 500 && config.upgrade_platinumcursors_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_platinumcursors').hidden = false;
-        } else {document.getElementById('upgrade_platinumcursors').hidden = true}
-
-    if(config.timesclicked >= 750 && config.upgrade_emeraldcursors_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_emeraldcursors').hidden = false;
-        } else {document.getElementById('upgrade_emeraldcursors').hidden = true}
-
-    if(config.cursortotal >=25 && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_goldenfingers').hidden = false;
-        } else {document.getElementById('upgrade_goldenfingers').hidden = true}
-
-    if(config.cursortotal >= 50 && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_platinumfingers').hidden = false;
-    } else {document.getElementById('upgrade_platinumfingers').hidden = true}
-
-    if(config.cursortotal >= 75 && config.upgrade_diamondfingers_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_diamondfingers').hidden = false;
-    } else {document.getElementById('upgrade_diamondfingers').hidden = true}
-
-    if(config.cursortotal >= 100 && config.upgrade_emeraldfingers_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_emeraldfingers').hidden = false;
-    } else {document.getElementById('upgrade_emeraldfingers').hidden = true}
-
-    if(config.cursortotal >= 125 && config.upgrade_rubyfingers_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_rubyfingers').hidden = false;
-    } else {document.getElementById('upgrade_rubyfingers').hidden = true}
-
-    if(config.bonetotal >= 10 && config.upgrade_baconbones_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_baconbones').hidden = false;
-    } else {document.getElementById('upgrade_baconbones').hidden = true}
-    
-    if(config.bonetotal >= 25 && config.upgrade_meatbones_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_meatbones').hidden = false;
-    } else {document.getElementById('upgrade_meatbones').hidden = true}
-
-    if(config.bonetotal >= 50 && config.upgrade_thebone_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_thebone').hidden = false;
-    } else {document.getElementById('upgrade_thebone').hidden = true}
-
-    if(config.frisbetotal >= 10 && config.upgrade_superfrisbe_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_superfrisbe').hidden = false;
-    } else {document.getElementById('upgrade_superfrisbe').hidden = true}
-
-    if(config.frisbetotal >= 25 && config.upgrade_superepicfrisbe_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_superepicfrisbe').hidden = false;
-    } else {document.getElementById('upgrade_superepicfrisbe').hidden = true}
-
-    if(config.frisbetotal >= 50 && config.upgrade_superultraepicfrisbe_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_superultraepicfrisbe').hidden = false;
-    } else {document.getElementById('upgrade_superultraepicfrisbe').hidden = true}
-
-    if(config.treattotal >= 10 && config.upgrade_hmtreats_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_hmtreats').hidden = false;
-    } else {document.getElementById('upgrade_hmtreats').hidden = true}
-
-    if(config.treattotal >= 25 && config.upgrade_barkbites_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_barkbites').hidden = false;
-    } else {document.getElementById('upgrade_barkbites').hidden = true}
-
-    if(config.totaleddieorbsraw >= 100000 && config.upgrade_goldeneddies_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_goldeneddies').hidden = false;
-    } else {document.getElementById('upgrade_goldeneddies').hidden = true}
-
-    if(config.totaleddieorbsraw >= 500000 && config.upgrade_emptybottle_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_emptybottle').hidden = false;
-    } else {document.getElementById('upgrade_emptybottle').hidden = true}
-
-    if(config.goldeneddiesclicked >= 1 && config.upgrade_shimmeringeddies_bought === false && config.upgrades_collapsed === false){
-        document.getElementById('upgrade_shimmeringeddies').hidden = false;
-    } else {document.getElementById('upgrade_shimmeringeddies').hidden = true}
 
     if(config.devtoolsunlocked === true) {
         document.getElementById('devtools').hidden = false
@@ -385,7 +198,7 @@ function update() {
         document.getElementById('no_upgrades').hidden = false
     }
 
-    if(config.totalupgrades === 20) {
+    if(config.totalupgrades === 23) {
         document.getElementById('no_upgrades').innerHTML = "All upgrades found!"
     }
 
@@ -398,6 +211,14 @@ function update() {
         document.getElementById('upgrade_collapse_img').style.setProperty('transform', 'rotate(90deg)')
         document.getElementById('upgrade_countall').innerHTML = ""
         document.getElementById('upgrade_count').innerHTML = ""
+    }
+
+    if(config.spells_collapsed === true) {
+        document.getElementById('spells_header_img').style.setProperty('transform', 'rotate(180deg)')
+        document.getElementById('spells-all').style.setProperty('display','none')
+    } else {
+        document.getElementById('spells_header_img').style.setProperty('transform', 'rotate(90deg)')
+        document.getElementById('spells-all').style.setProperty('display','unset')
     }
 
     if(config.totaleddieorbs >= 100000 && config.goldeneddies_check === false) {
@@ -459,6 +280,10 @@ function update() {
         document.getElementById('spells').hidden = false
     }
 
+    document.getElementById('spell_bar_overlay').style.setProperty('width', (config.flasks / config.flasks_max) * 100 + '%')
+    document.getElementById('flasks').innerHTML = config.flasks
+    document.getElementById('flasks_max').innerHTML = config.flasks_max
+
     config.totaleddieorbs = Math.round(config.totaleddieorbsraw)
 }
 
@@ -489,6 +314,10 @@ function counterupdate() {
     if(config.bedprice >= 1000000 && config.shortnumbers === true) {
         document.getElementById('bedprice').innerHTML = numeral(config.bedprice).format('0.000a');
     } else {document.getElementById('bedprice').innerHTML = numeral(config.bedprice).format('0,00');}
+
+    if(config.friendprice >= 1000000 && config.shortnumbers === true) {
+        document.getElementById('friendprice').innerHTML = numeral(config.friendprice).format('0.000a');
+    } else {document.getElementById('friendprice').innerHTML = numeral(config.friendprice).format('0,00');}
 }
 
 function counterformat() {
@@ -497,12 +326,12 @@ function counterformat() {
             document.getElementById('count').innerHTML = 'Infinity'
         }
         else if(config.countraw >= 1000000) {
-            document.getElementById('count').innerHTML = numeral(config.count).format('0.000a');
+            document.getElementById('count').innerHTML = numeral(config.countraw).format('0.000a');
         } else {
-            document.getElementById('count').innerHTML = numeral(config.count).format('0,00')
+            document.getElementById('count').innerHTML = numeral(config.countraw).format('0,00')
         }
     } else {
-        document.getElementById('count').innerHTML = numeral(config.count).format('0,00')
+        document.getElementById('count').innerHTML = numeral(config.countraw).format('0,00')
     }
 }
 
@@ -555,48 +384,48 @@ function rankupdate() {
         document.getElementById('rank').src = 'images/ranks/rank-dplus.png'
         document.getElementById('rank_progress').style.setProperty('background-color','rgb(242, 118, 107)')
         document.getElementById('rank_count').innerHTML = numeral(10000 - config.totaleddieorbs).format('0,00')
-        document.getElementById('rank_progress').style.setProperty('width', (config.totaleddieorbs / 10000) * 100 + '%')
+        document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 1000) / 10000) * 100 + '%')
     
     } else if(config.totaleddieorbs < 100000) {
         document.getElementById('rank').src = 'images/ranks/rank-c.png'
         document.getElementById('rank_progress').style.setProperty('background-color','rgb(191, 143, 96)')
         document.getElementById('rank_count').innerHTML = numeral(100000 - config.totaleddieorbs).format('0,00')
-        document.getElementById('rank_progress').style.setProperty('width', (config.totaleddieorbs / 100000) * 100 + '%')
+        document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 10000) / 100000) * 100 + '%')
     
     } else if(config.totaleddieorbs < 1000000) {
         document.getElementById('rank').src = 'images/ranks/rank-cplus.png'
         document.getElementById('rank_progress').style.setProperty('background-color','rgb(208, 158, 79)')
         document.getElementById('rank_count').innerHTML = numeral(1000000 - config.totaleddieorbs).format('0,00')
-        document.getElementById('rank_progress').style.setProperty('width', (config.totaleddieorbs / 1000000) * 100 + '%')
+        document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 100000) / 1000000) * 100 + '%')
     } else if(config.totaleddieorbs < 10000000) {
         document.getElementById('rank').src = 'images/ranks/rank-b.png'
         document.getElementById('rank_progress').style.setProperty('background-color','rgb(248, 219, 113)')
         document.getElementById('rank_count').innerHTML = numeral(10000000 - config.totaleddieorbs).format('0,00')
-        document.getElementById('rank_progress').style.setProperty('width', (config.totaleddieorbs / 10000000) * 100 + '%')
+        document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 1000000) / 10000000) * 100 + '%')
     } else if(config.totaleddieorbs < 100000000) {
         document.getElementById('rank').src = 'images/ranks/rank-bplus.png'
         document.getElementById('rank_progress').style.setProperty('background-color','rgb(250, 246, 109)')
         document.getElementById('rank_count').innerHTML = numeral(100000000 - config.totaleddieorbs).format('0,00')
-        document.getElementById('rank_progress').style.setProperty('width', (config.totaleddieorbs / 100000000) * 100 + '%')
+        document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 10000000) / 100000000) * 100 + '%')
     } else if(config.totaleddieorbs < 1000000000) {
         document.getElementById('rank').src = 'images/ranks/rank-a.png'
         document.getElementById('rank_progress').style.setProperty('background-color','rgb(153, 229, 80)')
         document.getElementById('rank_count').innerHTML = numeral(1000000000 - config.totaleddieorbs).format('0,00')
-        document.getElementById('rank_progress').style.setProperty('width', (config.totaleddieorbs / 1000000000) * 100 + '%')
+        document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 100000000) / 1000000000) * 100 + '%')
     } else if(config.totaleddieorbs < 10000000000) {
         document.getElementById('rank').src = 'images/ranks/rank-aplus.png'
         document.getElementById('rank_progress').style.setProperty('background-color','rgb(73, 236, 102)')
         document.getElementById('rank_count').innerHTML = numeral(10000000000 - config.totaleddieorbs).format('0,00')
-        document.getElementById('rank_progress').style.setProperty('width', (config.totaleddieorbs / 10000000000) * 100 + '%')
+        document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 1000000000) / 10000000000) * 100 + '%')
     } else if(config.totaleddieorbs < 100000000000) {
         document.getElementById('rank').src = 'images/ranks/rank-s.png'
         document.getElementById('rank_progress').style.setProperty('background-color','rgb(91, 110, 225)')
         document.getElementById('rank_count').innerHTML = numeral(100000000000 - config.totaleddieorbs).format('0,00')
-        document.getElementById('rank_progress').style.setProperty('width', (config.totaleddieorbs / 100000000000) * 100 + '%')
-    } else if(config.totaleddieorbs < 1000000000000) {
+        document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 10000000000) / 100000000000) * 100 + '%')
+    } else {
+        document.getElementById('rank_text').innerHTML = 'Maximum Rank!'
         document.getElementById('rank').src = 'images/ranks/rank-splus.png'
         document.getElementById('rank_progress').style.setProperty('background-color','rgb(82, 78, 238)')
-        document.getElementById('rank_count').innerHTML = numeral(1000000000000 - config.totaleddieorbs).format('0,00')
-        document.getElementById('rank_progress').style.setProperty('width', (config.totaleddieorbs / 1000000000000) * 100 + '%')
+        document.getElementById('rank_progress').style.setProperty('width', '100%')
     }
 }

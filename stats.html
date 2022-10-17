@@ -50,7 +50,7 @@
                         <div class="stat-container">
                             <div class="stat">
                                 <span class="stats-name">Golden Eddies Clicked: </span>
-                                <span class="stats-text" id="stat_goldeneddies">0</span><br>
+                                <span class="stats-text" id="stat_goldeneddies">0</span> <span id="stat_ge_precent"></span><br>
                             </div>
                             <div class="stat-img-container">
                                 <img src="images/stats/goldeneddie.png" class="stat-img">
@@ -58,9 +58,18 @@
                         </div>
                         <div class="stat-container">
                             <div class="stat">
+                                <span class="stats-name">Golden Eddies Spawned: </span>
+                                <span class="stats-text" id="stat_goldeneddies_s">0</span><br>
+                            </div>
+                            <div class="stat-img-container">
+                                <img src="images/stats/goldeneddiesspawned.png" class="stat-img">
+                            </div>
+                        </div>
+                        <div class="stat-container">
+                            <div class="stat">
                                 <span class="stats-name">Upgrades Bought: </span>
                                 <span class="stats-text" id="stat_upgrades">0</span>
-                                <span class="stats-text">/ 20</span><br>
+                                <span class="stats-text">/ 23</span><br>
                             </div>
                             <div class="stat-img-container">
                                 <img src="images/stats/upgrade.png" class="stat-img">
@@ -114,20 +123,31 @@
                         </div>
                         <img class="upgrade" src="images/upgrades/silvercursors.png" id="upgrade_silvercursors"
                             onmouseenter="silvercursors_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+
                         <img class="upgrade" src="images/upgrades/goldencursors.png" id="upgrade_goldencursors"
                             onmouseenter="goldencursors_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+
                         <img class="upgrade" src="images/upgrades/platinumcursors.png" id="upgrade_platinumcursors"
                             onmouseenter="platinumcursors_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/diamondcursors.png" id="upgrade_diamondcursors"
+                            onmouseenter="diamondcursors_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+
                         <img class="upgrade" src="images/upgrades/emeraldcursors.png" id="upgrade_emeraldcursors"
                             onmouseenter="emeraldcursors_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+
                         <img class="upgrade" src="images/upgrades/goldenfingers.png" id="upgrade_goldenfingers"
                             onmouseenter="goldenfingers_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+
                         <img class="upgrade" src="images/upgrades/platinumfingers.png" id="upgrade_platinumfingers"
                             onmouseenter="platinumfingers_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+
                         <img class="upgrade" src="images/upgrades/diamondfingers.png" id="upgrade_diamondfingers"
                             onmouseenter="diamondfingers_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+
                         <img class="upgrade" src="images/upgrades/emeraldfingers.png" id="upgrade_emeraldfingers"
                             onmouseenter="emeraldfingers_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+
                         <img class="upgrade" src="images/upgrades/rubyfingers.png" id="upgrade_rubyfingers"
                             onmouseenter="rubyfingers_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
                         <img class="upgrade" src="images/upgrades/baconbones.png" id="upgrade_baconbones"
@@ -146,6 +166,10 @@
                             onmouseleave="upgradett_leave()" hidden>
                         <img class="upgrade" src="images/upgrades/barkbites.png" id="upgrade_barkbites" onmouseenter="barkbites_hover(); upgradett_enter()"
                             onmouseleave="upgradett_leave()" hidden>
+                        <img class="upgrade" src="images/upgrades/frostedtreats.png" id="upgrade_frostedtreats"
+                            onmouseenter="frostedtreats_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+                        <img class="upgrade" src="images/upgrades/xlbed.png" id="upgrade_xlbed"
+                            onmouseenter="xlbed_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
                         <img class="upgrade" src="images/upgrades/goldeneddies.png" id="upgrade_goldeneddies"
                             onmouseenter="goldeneddies_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
                         <img class="upgrade" src="images/upgrades/shimmeringeddies.png" id="upgrade_shimmeringeddies"
@@ -165,7 +189,7 @@
                             <div>
                             </div>
                             <div>
-                                <span><span id="rank_progress" class="rank-counter">?</span> Eddie Orbs till next rank</span>
+                                <span id="rank_text"><span id="rank_progress" class="rank-counter">?</span> Eddie Orbs till next rank</span>
                                 <div style="position: relative; border-radius: 5px; overflow: hidden;">
                                     <div class="rank-prograss-overlay" id="rank_progress_overlay"></div>
                                     <div class="rank-progress"></div>
@@ -230,6 +254,10 @@
                     <div class="achievement">
                         <span class="achievement-title" id="achievement13-title">???</span><br>
                         <span class="achievement-desc" id="achievement13-desc">Locked Achievement</span>
+                    </div>
+                    <div class="achievement">
+                        <span class="achievement-title" id="achievement14-title">???</span><br>
+                        <span class="achievement-desc" id="achievement14-desc">Locked Achievement</span>
                     </div>
                 </div>
             </section>

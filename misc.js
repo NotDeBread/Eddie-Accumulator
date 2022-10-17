@@ -12,16 +12,12 @@ function topclick() {
     document.documentElement.scrollTop = 0
 }
 
-function noti_open() {
-    document.getElementById('notis').style.setProperty('right', '0')
-}
-
-function noti_close() {
-    document.getElementById('notis').style.setProperty('right', '-25%')
-}
-
 function upgrades_collapse() {
     config.upgrades_collapsed = !config.upgrades_collapsed
+}
+
+function spells_collapse() {
+    config.spells_collapsed = !config.spells_collapsed
 }
 
 function warningclick() {

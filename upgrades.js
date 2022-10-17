@@ -3,6 +3,265 @@ console.log('Loading Upgrades...')
 
 
 setInterval(upgrade_update, 1)
+setInterval(update, 1)
+
+function update() {
+    if(config.count >= 500){
+        document.getElementById('upgrade_silvercursors').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_silvercursors').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 1000){
+        document.getElementById('upgrade_goldencursors').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_goldencursors').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 25000){
+        document.getElementById('upgrade_platinumcursors').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_platinumcursors').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 250000){
+        document.getElementById('upgrade_diamondcursors').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_diamondcursors').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 1000000){
+        document.getElementById('upgrade_emeraldcursors').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_emeraldcursors').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 1000){
+        document.getElementById('upgrade_goldenfingers').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_goldenfingers').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 25000){
+        document.getElementById('upgrade_platinumfingers').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_platinumfingers').style.setProperty('filter', 'brightness(75%)')
+    }
+    
+    if(config.count >= 250000){
+        document.getElementById('upgrade_diamondfingers').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_diamondfingers').style.setProperty('filter', 'brightness(75%)')
+    }
+        
+    if(config.count >= 1000000){
+        document.getElementById('upgrade_emeraldfingers').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_emeraldfingers').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 10000000){
+        document.getElementById('upgrade_rubyfingers').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_rubyfingers').style.setProperty('filter', 'brightness(75%)')
+    }
+    
+    if(config.count >= 20000){
+        document.getElementById('upgrade_baconbones').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_baconbones').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 50000){
+        document.getElementById('upgrade_meatbones').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_meatbones').style.setProperty('filter', 'brightness(75%)')
+    }
+    
+    if(config.count >= 250000){
+        document.getElementById('upgrade_thebone').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_thebone').style.setProperty('filter', 'brightness(75%)')
+    }
+    
+    if(config.count >= 100000){
+        document.getElementById('upgrade_superfrisbe').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_superfrisbe').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 500000){
+        document.getElementById('upgrade_superepicfrisbe').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_superepicfrisbe').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 1500000){
+        document.getElementById('upgrade_superultraepicfrisbe').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_superultraepicfrisbe').style.setProperty('filter', 'brightness(75%)')
+    }
+
+
+    if(config.count >= 750000){
+        document.getElementById('upgrade_hmtreats').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_hmtreats').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 1500000){
+        document.getElementById('upgrade_barkbites').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_barkbites').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 5000000){
+        document.getElementById('upgrade_frostedtreats').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_frostedtreats').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 5000000){
+        document.getElementById('upgrade_xlbed').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_xlbed').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 75000){
+        document.getElementById('upgrade_goldeneddies').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_goldeneddies').style.setProperty('filter', 'brightness(75%)')
+    }
+    
+    if(config.count >= 100000){
+        document.getElementById('upgrade_shimmeringeddies').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_shimmeringeddies').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 250000){
+        document.getElementById('upgrade_emptybottle').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_emptybottle').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.totaleddieorbs <= 50000) {
+        document.getElementById('frisbeimg').style.setProperty('display','none')
+    } else {
+        document.getElementById('frisbeimg').style.setProperty('display','flex')
+    }
+    
+    if(config.totaleddieorbs <= 250000) {
+        document.getElementById('treatimg').style.setProperty('display','none')
+    } else {
+        document.getElementById('treatimg').style.setProperty('display','flex')
+    }
+    
+    if(config.totaleddieorbs <= 1250000) {
+        document.getElementById('bedimg').style.setProperty('display','none')
+    } else {
+        document.getElementById('bedimg').style.setProperty('display','flex')
+    }
+    
+    if(config.totaleddieorbs <= 25000000) {
+        document.getElementById('friendimg').style.setProperty('display','none')
+    } else {
+        document.getElementById('friendimg').style.setProperty('display','flex')
+    }
+
+    if(config.timesclicked >= 100 && config.upgrade_silvercursors_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_silvercursors').hidden = false;
+    } else {document.getElementById('upgrade_silvercursors').hidden = true}
+
+    if(config.timesclicked >= 250 && config.upgrade_goldencursors_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_goldencursors').hidden = false;
+    } else {document.getElementById('upgrade_goldencursors').hidden = true}
+
+    if(config.timesclicked >= 500 && config.upgrade_platinumcursors_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_platinumcursors').hidden = false;
+    } else {document.getElementById('upgrade_platinumcursors').hidden = true}
+
+    if(config.timesclicked >= 1000 && config.upgrade_diamondcursors_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_diamondcursors').hidden = false;
+    } else {document.getElementById('upgrade_diamondcursors').hidden = true}
+
+    if(config.timesclicked >= 1500 && config.upgrade_emeraldcursors_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_emeraldcursors').hidden = false;
+    } else {document.getElementById('upgrade_emeraldcursors').hidden = true}
+
+    if(config.cursortotal >= 25 && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_goldenfingers').hidden = false;
+    } else {document.getElementById('upgrade_goldenfingers').hidden = true}
+
+    if(config.cursortotal >= 50 && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_platinumfingers').hidden = false;
+    } else {document.getElementById('upgrade_platinumfingers').hidden = true}
+
+    if(config.cursortotal >= 75 && config.upgrade_diamondfingers_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_diamondfingers').hidden = false;
+    } else {document.getElementById('upgrade_diamondfingers').hidden = true}
+
+    if(config.cursortotal >= 100 && config.upgrade_emeraldfingers_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_emeraldfingers').hidden = false;
+    } else {document.getElementById('upgrade_emeraldfingers').hidden = true}
+
+    if(config.cursortotal >= 125 && config.upgrade_rubyfingers_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_rubyfingers').hidden = false;
+    } else {document.getElementById('upgrade_rubyfingers').hidden = true}
+
+    if(config.bonetotal >= 10 && config.upgrade_baconbones_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_baconbones').hidden = false;
+    } else {document.getElementById('upgrade_baconbones').hidden = true}
+    
+    if(config.bonetotal >= 25 && config.upgrade_meatbones_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_meatbones').hidden = false;
+    } else {document.getElementById('upgrade_meatbones').hidden = true}
+
+    if(config.bonetotal >= 50 && config.upgrade_thebone_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_thebone').hidden = false;
+    } else {document.getElementById('upgrade_thebone').hidden = true}
+
+    if(config.frisbetotal >= 10 && config.upgrade_superfrisbe_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_superfrisbe').hidden = false;
+    } else {document.getElementById('upgrade_superfrisbe').hidden = true}
+
+    if(config.frisbetotal >= 25 && config.upgrade_superepicfrisbe_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_superepicfrisbe').hidden = false;
+    } else {document.getElementById('upgrade_superepicfrisbe').hidden = true}
+
+    if(config.frisbetotal >= 50 && config.upgrade_superultraepicfrisbe_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_superultraepicfrisbe').hidden = false;
+    } else {document.getElementById('upgrade_superultraepicfrisbe').hidden = true}
+
+    if(config.treattotal >= 10 && config.upgrade_hmtreats_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_hmtreats').hidden = false;
+    } else {document.getElementById('upgrade_hmtreats').hidden = true}
+
+    if(config.treattotal >= 25 && config.upgrade_barkbites_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_barkbites').hidden = false;
+    } else {document.getElementById('upgrade_barkbites').hidden = true}
+
+    if(config.treattotal >= 50 && config.upgrade_frostedtreats_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_frostedtreats').hidden = false;
+    } else {document.getElementById('upgrade_frostedtreats').hidden = true}
+
+    if(config.bedtotal >= 10 && config.upgrade_xlbed_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_xlbed').hidden = false;
+    } else {document.getElementById('upgrade_xlbed').hidden = true}
+
+    if(config.totaleddieorbsraw >= 100000 && config.upgrade_goldeneddies_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_goldeneddies').hidden = false;
+    } else {document.getElementById('upgrade_goldeneddies').hidden = true}
+
+    if(config.totaleddieorbsraw >= 500000 && config.upgrade_emptybottle_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_emptybottle').hidden = false;
+    } else {document.getElementById('upgrade_emptybottle').hidden = true}
+
+    if(config.goldeneddiesclicked >= 1 && config.upgrade_shimmeringeddies_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_shimmeringeddies').hidden = false;
+    } else {document.getElementById('upgrade_shimmeringeddies').hidden = true}
+}
+
 
 function upgrade_silvercursors_hover() {
     document.getElementById('info_title').innerHTML = "Silver Cursors";
@@ -43,18 +302,35 @@ function upgrade_platinumcursors_hover() {
     document.getElementById('info_price').innerHTML = "25,000"
 }
 
-function upgrade_emeraldcursors_hover() {
-    document.getElementById('info_title').innerHTML = "Emerald Cursors";
+function upgrade_diamondcursors_hover() {
+    document.getElementById('info_title').innerHTML = "Diamond Cursors";
     document.getElementById('info_cps').innerHTML = "Doubles cursor speed";
 
-    if(config.countraw >= 100000) {
+    if(config.countraw >= 250000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
 
-    document.getElementById('info_price').innerHTML = "100,000"
+    document.getElementById('info_price').innerHTML = "250,000"
 }
+
+function upgrade_emeraldcursors_hover() {
+    document.getElementById('info_title').innerHTML = "Emerald Cursors";
+    document.getElementById('info_cps').innerHTML = "Doubles cursor speed";
+
+    if(config.countraw >= 1000000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "1 Million"
+}
+
+
+
+
 
 function upgrade_goldenfingers_hover() {
     document.getElementById('info_title').innerHTML = "Golden Fingers";
@@ -88,31 +364,17 @@ function upgrade_diamondfingers_hover() {
     document.getElementById('info_cps').innerHTML = "Doubles EPC by how many cursors are owned";
 
     
-    if(config.countraw >= 100000) {
+    if(config.countraw >= 250000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
 
-    document.getElementById('info_price').innerHTML = "100,000"
+    document.getElementById('info_price').innerHTML = "250,000"
 }
 
 function upgrade_emeraldfingers_hover() {
     document.getElementById('info_title').innerHTML = "Emerald Fingers";
-    document.getElementById('info_cps').innerHTML = "Doubles EPC by how many cursors are owned";
-
-    
-    if(config.countraw >= 500000) {
-        document.getElementById('info_price').style.setProperty('color', 'lime')
-    } else {
-        document.getElementById('info_price').style.setProperty('color', 'red')
-    }
-
-    document.getElementById('info_price').innerHTML = "500,000"
-}
-
-function upgrade_rubyfingers_hover() {
-    document.getElementById('info_title').innerHTML = "Ruby Fingers";
     document.getElementById('info_cps').innerHTML = "Doubles EPC by how many cursors are owned";
 
     
@@ -123,6 +385,20 @@ function upgrade_rubyfingers_hover() {
     }
 
     document.getElementById('info_price').innerHTML = "1 Million"
+}
+
+function upgrade_rubyfingers_hover() {
+    document.getElementById('info_title').innerHTML = "Ruby Fingers";
+    document.getElementById('info_cps').innerHTML = "Doubles EPC by how many cursors are owned";
+
+    
+    if(config.countraw >= 10000000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "10 Million"
 }
 
 function upgrade_baconbones_hover() {
@@ -234,6 +510,34 @@ function upgrade_barkbites_hover() {
     document.getElementById('info_price').innerHTML = "1.5 Million"
 }
 
+function upgrade_frostedtreats_hover() {
+    document.getElementById('info_title').innerHTML = "Frosted Treats";
+    document.getElementById('info_cps').innerHTML = "Triples Treat Speed";
+
+    
+    if(config.countraw >= 5000000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "5 Million"
+}
+
+function upgrade_xlbed_hover() {
+    document.getElementById('info_title').innerHTML = "XL Bed";
+    document.getElementById('info_cps').innerHTML = "Doubles Bed Speed";
+
+    
+    if(config.countraw >= 5000000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "5 Million"
+}
+
 function upgrade_goldeneddies_hover() {
     document.getElementById('info_title').innerHTML = "Golden Eddies";
     document.getElementById('info_cps').innerHTML = "Unlocks Golden Eddies";
@@ -315,8 +619,21 @@ function upgrade_platinumcursors() {
     }
 }
 
+function upgrade_diamondcursors() {
+    if(config.upgrade_diamondcursors_bought === false && config.count >= 250000) {
+        document.getElementById('upgrade_diamondcursors').style.setProperty('display', 'none')
+        config.upgrade_diamondcursors_bought = true
+        config.countraw -= 100000
+        config.cursormultiplier *= 2
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 100000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
 function upgrade_emeraldcursors() {
-    if(config.upgrade_emeraldcursors_bought === false && config.count >= 100000) {
+    if(config.upgrade_emeraldcursors_bought === false && config.count >= 1000000) {
         document.getElementById('upgrade_emeraldcursors').style.setProperty('display', 'none')
         config.upgrade_emeraldcursors_bought = true
         config.countraw -= 100000
@@ -356,40 +673,40 @@ function upgrade_platinumfingers() {
 }
 
 function upgrade_diamondfingers() {
-    if(config.upgrade_diamondfingers_bought === false && config.count >= 100000) {
+    if(config.upgrade_diamondfingers_bought === false && config.count >= 250000) {
         document.getElementById('upgrade_diamondfingers').style.setProperty('display', 'none')
         config.upgrade_diamondfingers_bought = true
-        config.countraw -= 100000
+        config.countraw -= 250000
         config.clickmultiplier *= 2
         config.upgrades -= 1
         config.totalupgrades += 1
-        config.eddieorbsspent += 100000
+        config.eddieorbsspent += 250000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
 
 function upgrade_emeraldfingers() {
-    if(config.upgrade_emeraldfingers_bought === false && config.count >= 500000) {
+    if(config.upgrade_emeraldfingers_bought === false && config.count >= 1000000) {
         document.getElementById('upgrade_emeraldfingers').style.setProperty('display', 'none')
         config.upgrade_emeraldfingers_bought = true
-        config.countraw -= 500000
-        config.clickmultiplier *= 2
-        config.upgrades -= 1
-        config.totalupgrades += 1
-        config.eddieorbsspent += 500000
-        document.documentElement.style.setProperty('--upgrades', config.upgrades)
-    }
-}
-
-function upgrade_rubyfingers() {
-    if(config.upgrade_rubyfingers_bought === false && config.count >= 1000000) {
-        document.getElementById('upgrade_rubyfingers').style.setProperty('display', 'none')
-        config.upgrade_rubyfingers_bought = true
         config.countraw -= 1000000
         config.clickmultiplier *= 2
         config.upgrades -= 1
         config.totalupgrades += 1
         config.eddieorbsspent += 1000000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_rubyfingers() {
+    if(config.upgrade_rubyfingers_bought === false && config.count >= 10000000) {
+        document.getElementById('upgrade_rubyfingers').style.setProperty('display', 'none')
+        config.upgrade_rubyfingers_bought = true
+        config.countraw -= 10000000
+        config.clickmultiplier *= 2
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 10000000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -494,6 +811,32 @@ function upgrade_barkbites() {
         config.upgrades -= 1
         config.totalupgrades += 1
         config.eddieorbsspent += 1500000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_frostedtreats() {
+    if(config.upgrade_frostedtreats_bought === false && config.count >= 5000000) {
+        document.getElementById('upgrade_frostedtreats').style.setProperty('display', 'none')
+        config.upgrade_frostedtreats_bought = true
+        config.countraw -= 5000000
+        config.treatmultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 5000000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_xlbed() {
+    if(config.upgrade_xlbed_bought === false && config.count >= 5000000) {
+        document.getElementById('upgrade_xlbed').style.setProperty('display', 'none')
+        config.upgrade_xlbed_bought = true
+        config.countraw -= 5000000
+        config.bedmultiplier *= 2
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 5000000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }

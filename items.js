@@ -1,6 +1,30 @@
 document.getElementById('loader_text').innerHTML = 'Loading Items...'
 console.log('Loading Items...')
 
+if(config.totaleddieorbs <= 50000) {
+    document.getElementById('frisbeimg').style.setProperty('display','none')
+} else {
+    document.getElementById('frisbeimg').style.setProperty('display','flex')
+}
+
+if(config.totaleddieorbs <= 250000) {
+    document.getElementById('treatimg').style.setProperty('display','none')
+} else {
+    document.getElementById('treatimg').style.setProperty('display','flex')
+}
+
+if(config.totaleddieorbs <= 1250000) {
+    document.getElementById('bedimg').style.setProperty('display','none')
+} else {
+    document.getElementById('bedimg').style.setProperty('display','flex')
+}
+
+if(config.totaleddieorbs <= 25000000) {
+    document.getElementById('friendimg').style.setProperty('display','none')
+} else {
+    document.getElementById('friendimg').style.setProperty('display','flex')
+}
+
 function buycursor() {
     if (config.countraw >= config.cursorprice || devtoolsopen === true) {
         config.cursorcps += 1
@@ -133,7 +157,7 @@ function buyfrisbe() {
 function buytreat() {
     if (config.countraw >= config.treatprice || devtoolsopen === true) {
         config.treatcps += 100
-        config.cpsdisplay += 50
+        config.cpsdisplay += 100
         config.treattotal += 1
         config.countraw -= config.treatprice
         config.eddieorbsspent += config.treatprice
@@ -161,13 +185,16 @@ function buytreat() {
         if(config.treattotal === 25) {
             config.upgrades += 1
         }
+        if(config.treattotal === 50) {
+            config.upgrades += 1
+        }
     }
 }
 
 function buybed() {
     if (config.countraw >= config.bedprice || devtoolsopen === true) {
         config.bedcps += 1000
-        config.cpsdisplay += 50
+        config.cpsdisplay += 1000
         config.bedtotal += 1
         config.countraw -= config.bedprice
         config.eddieorbsspent += config.bedprice
@@ -181,15 +208,48 @@ function buybed() {
         document.getElementById('info_cps').innerHTML = config.bedcps
         document.getElementById('bed_owned').innerHTML = config.bedtotal
 
-        if (config.count >= config.treatprice) {
+        if (config.count >= config.bedprice) {
             document.getElementById('bedimg').style.setProperty('filter', 'brightness(100%)')
             document.getElementById('bedprice').style.setProperty('color', 'lime')
         } else {
             document.getElementById('bedimg').style.setProperty('filter', 'brightness(75%)')
             document.getElementById('bedprice').style.setProperty('color', 'red')
         }
+
+        if(config.bedtotal === 10) {
+            config.upgrades += 1
+        }
     }
 }
+
+function buyfriend() {
+    if (config.countraw >= config.friendprice || devtoolsopen === true) {
+        config.friendcps += 10000
+        config.cpsdisplay += 10000
+        config.friendtotal += 1
+        config.countraw -= config.friendprice
+        config.eddieorbsspent += config.friendprice
+        config.friendprice = Math.round(config.friendprice * 1.1)
+
+        document.getElementById('item_tt_eps').innerHTML = config.friendcps * config.friendmultiplier
+        document.getElementById('item_tt_epseach').innerHTML = 10000 * config.friendmultiplier
+
+        counterupdate()
+
+        document.getElementById('info_cps').innerHTML = config.friendcps
+        document.getElementById('friend_owned').innerHTML = config.friendtotal
+
+        if (config.count >= config.friendprice) {
+            document.getElementById('friendimg').style.setProperty('filter', 'brightness(100%)')
+            document.getElementById('friendprice').style.setProperty('color', 'lime')
+        } else {
+            document.getElementById('friendimg').style.setProperty('filter', 'brightness(75%)')
+            document.getElementById('friendprice').style.setProperty('color', 'red')
+        }
+    }
+}
+
+
 
 window.onload = function() {
     document.getElementById('cursor_owned').innerHTML = config.cursortotal
@@ -246,4 +306,11 @@ function bed_tt() {
     document.getElementById('item_tt_title').innerHTML = "Bed"
     document.getElementById('item_tt_eps').innerHTML = config.bedcps * config.bedmultiplier
     document.getElementById('item_tt_epseach').innerHTML = 1000 * config.bedmultiplier
+}
+
+function friend_tt() {
+    document.getElementById('item-tooltip').style.setProperty('top', '275px')
+    document.getElementById('item_tt_title').innerHTML = "Friend"
+    document.getElementById('item_tt_eps').innerHTML = config.friendcps * config.friendmultiplier
+    document.getElementById('item_tt_epseach').innerHTML = 10000 * config.friendmultiplier
 }

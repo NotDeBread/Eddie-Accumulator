@@ -1,5 +1,14 @@
 document.getElementById('loader_text').innerHTML = 'Loading Spells'
 console.log('Loading Spells...')
+setInterval(flaskincrease, 30000)
+
+function flaskincrease() {
+    if(config.flasks < config.flasks_max && config.spells_unlocked === true) {
+        config.flasks += 1
+    }
+} 
+
+
 
 function spell_enter() {
     document.getElementById('spell_tooltip').style.setProperty('opacity','1')
@@ -18,42 +27,32 @@ function unlockspells() {
 function spell_golden_hover() {
     document.getElementById('spell_title').innerHTML = 'Spell of Shininess'
     document.getElementById('spell_desc').innerHTML = 'Starts a random Golden Eddie effect'
+    document.getElementById('spell_price').innerHTML = '20 Flasks'
 
-    if(config.countraw >= config.spell_golden_price) {
+    if(config.flasks >= 20) {
         document.getElementById('spell_price').style.setProperty('color','lime')
     } else {document.getElementById('spell_price').style.setProperty('color','red')}
-
-    if(config.spell_golden_price >= 1000000) {
-        document.getElementById('spell_price').innerHTML = numeral(config.spell_golden_price).format('0.000a') 
-    } else {document.getElementById('spell_price').innerHTML = numeral(config.spell_golden_price).format('0,00')}
 }
 
 function spell_golden() {
-    if(config.spell_golden_cooldown === false && config.countraw >= config.spell_golden_price) {
+    if(config.spell_golden_cooldown === false && config.flasks >= 20) {
         goldeneddie_type = Math.round(Math.random() * 2)
         goldeneddie_click() 
+        silentsave()
 
         document.getElementById('spell_golden').style.setProperty('filter','grayscale()')
+        config.flasks_max += 2
+        config.flasks -= 20
 
         config.spell_golden_cooldown = true
-        config.countraw -= config.spell_golden_price
-        config.eddieorbsspent += config.spell_golden_price
-        config.spell_golden_price *= 1.5
 
-        //Price Formatter
-
-        if(config.spell_golden_price >= 1000000) {
-            document.getElementById('spell_price').innerHTML = numeral(config.spell_golden_price).format('0.000a') 
-        } else {document.getElementById('spell_price').innerHTML = numeral(config.spell_golden_price).format('0,00')}
-
+        if(config.flasks >= 20) {
+            document.getElementById('spell_price').style.setProperty('color','lime')
+        } else {document.getElementById('spell_price').style.setProperty('color','red')}
 
         setTimeout(() => {
             document.getElementById('spell_golden').style.setProperty('filter','none')
             config.spell_golden_cooldown = false
         }, 2500);
-
-        setTimeout(() => {
-            save()
-        }, 4000);
     }
 }

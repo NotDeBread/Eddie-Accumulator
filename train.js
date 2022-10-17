@@ -19,13 +19,11 @@ function trainrandom() {
 
 
 function train() {
-    console.log('train')
     document.getElementById('train').hidden = false
     document.getElementById('train').style.setProperty('left','125%')
 
     setTimeout(() => {
         if(document.getElementById('train').hidden === false) {
-            console.log('train done')
             document.getElementById('train').hidden = true
             document.getElementById('train').style.setProperty('left','-200px')
         }

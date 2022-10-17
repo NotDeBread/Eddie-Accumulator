@@ -139,6 +139,11 @@ function save() {
     savealert()
 }
 
+function silentsave() {
+    localStorage.setItem('save', JSON.stringify(config))
+    console.log('Saved', numeral(config.count).format('0,00'), 'Eddie Orbs!')
+}
+
 function savealert() {
     document.getElementById('savealert').style.setProperty('opacity','1')
     document.getElementById('savealert').style.setProperty('transform', 'scale(100%)')
@@ -194,7 +199,7 @@ function devtools() {
         if(!devtoolsopen) {
             document.getElementById('devtools_img').src = "images/icons/back.png"
             document.getElementById('devtools').style.setProperty('width', '200px')
-            document.getElementById('devtools').style.setProperty('height', '275px')
+            document.getElementById('devtools').style.setProperty('height', '325px')
             document.getElementById('devtools').style.setProperty('background-color', 'var(--darkerbg)')
             document.getElementById('devtools_content').style.setProperty('opacity', '1')
             document.getElementById('devtools_header').style.setProperty('color', 'rgba(255, 255, 255, 255)')
@@ -282,6 +287,12 @@ function dev_10xTreats() {
 function dev_10xBeds() {
     for (let index = 0; index < 10; index++) {
         buybed()
+    }
+}
+
+function dev_10xFriends() {
+    for (let index = 0; index < 10; index++) {
+        buyfriend()
     }
 }
 
@@ -377,6 +388,7 @@ function bodyclick() {
     document.getElementById('settings').style.setProperty('background-color', 'transparent')
     document.getElementById('settings_content').style.setProperty('opacity', '0')
     document.getElementById('settings_header').style.setProperty('color', 'rgba(255, 255, 255, 0)')
+    document.getElementById('notis').style.setProperty('right', '-25%')
     document.getElementById('deletebutton_text').innerHTML = 'Delete Save'
 
     settingsopen = false
@@ -398,4 +410,12 @@ function bodyclick() {
     document.getElementById('devtools_header').style.setProperty('color', 'rgba(255, 255, 255, 0)')
 
     devtoolsopen = false
+}
+
+function noti_open() {
+    document.getElementById('notis').style.setProperty('right', '0')
+}
+
+function noti_close() {
+    document.getElementById('notis').style.setProperty('right', '-25%')
 }

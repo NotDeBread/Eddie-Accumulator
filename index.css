@@ -286,7 +286,7 @@ body {
 }
 
 .alert {
-  margin-top: 30px;
+  margin-top: 5px;
   text-align: center;
   opacity: 0;
   transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
@@ -576,12 +576,26 @@ body {
   font-size: 1.5em;
 }
 
+.devtools-items-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.devtools-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 150px;
+}
+
 .devbutton {
   margin: 0 auto;
   border: 1px solid grey;
-  width: 100px;
+  width: 75px;
   text-align: center;
   cursor: pointer;
+  margin-top: 5px;
 }
 
 .devbutton:hover {
@@ -825,6 +839,15 @@ body {
   font-size: 1.5em;
   font-weight: 600;
   text-align: center;
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.spells-header-img {
+  filter: invert();
+  width: 25px;
+  transition: transform ease-in-out 0.1s;
 }
 
 .spell-title {
@@ -832,9 +855,37 @@ body {
   font-weight: 600;
 }
 
-.spells {
+.spell-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+}
+
+.spell-bar {
+  background-color: var(--bg);
+  height: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.spell-bar-overlay {
+  background-image: url(images/gradient.png);
+  animation: gradient 5s linear infinite;
+  position: absolute;
+  height: 100%;
+  width: 0;
+  transition: width ease-in-out 0.5s;
+}
+
+.spell-bar-text {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  font-size: 1.5em;
 }
 
 .spell {
@@ -907,7 +958,8 @@ body {
   justify-content: space-between;
   user-select: none;
   cursor: pointer;
-  transition: filter 0.25s ease-in-out;
+  opacity: 1;
+  transition: filter 0.25s ease-in-out, opacity 0.25s ease-in-out;
 }
 
 .item:active {

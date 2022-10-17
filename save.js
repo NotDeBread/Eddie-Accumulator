@@ -5,6 +5,7 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     frisbetotal: 0,
     treattotal: 0,
     bedtotal: 0,
+    friendtotal: 0,
     
     
     count: 0,
@@ -14,9 +15,11 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     cpcmultiplier: 1,
 
     timesclicked: 0,
+    totaleddieorbs: 0,
     totaleddieorbsraw: 0,
     eddieorbsspent: 0,
     goldeneddiesclicked: 0,
+    goldeneddiesspawned: 0,
 
     goldeneddies_unlocked: false,
 
@@ -29,6 +32,7 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     frisbecps: 0,
     treatcps: 0,
     bedcps: 0,
+    friendcps: 0,
     
     clickmultiplier: 1,
     cursormultiplier: 1,
@@ -36,16 +40,16 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     frisbemultiplier: 1,
     treatmultiplier: 1,
     bedmultiplier: 1,
+    friendmultiplier: 1,
 
     cursorprice: 10,
     boneprice: 500,
     frisbeprice: 10000,
     treatprice: 50000,
     bedprice: 250000,
+    friendprice: 5000000,
 
     spells_unlocked: false,
-
-    spell_golden_price: 250000,
 
     spell_golden_cooldown: false,
 
@@ -57,6 +61,7 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     upgrade_silvercursors_bought: false,
     upgrade_goldencursors_bought: false,
     upgrade_platinumcursors_bought: false,
+    upgrade_diamondcursors_bought: false,
     upgrade_emeraldcursors_bought: false,
     
     upgrade_goldenfingers_bought: false,
@@ -75,6 +80,9 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
 
     upgrade_hmtreats_bought: false,
     upgrade_barkbites_bought: false,
+    upgrade_frostedtreats_bought: false,
+
+    upgrade_xlbed_bought: false,
 
     upgrade_goldeneddies_bought: false,
     upgrade_shimmeringeddies_bought: false,
@@ -89,9 +97,13 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     goldeneddiemultiplier: 1,
     golden_cpcmultiplier: 1,
 
+    flasks: 0,
+    flasks_max: 50,
+
     upgrades: 0,
 
     upgrades_collapsed: false,
+    spells_collapsed: false,
 
     setting1var: true,
     setting2var: false,

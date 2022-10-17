@@ -1,4 +1,4 @@
-var eps = (config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + (config.frisbecps * config.frisbemultiplier) + (config.treatcps * config.treatmultiplier) + config.bedcps
+var eps = (config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + (config.frisbecps * config.frisbemultiplier) + (config.treatcps * config.treatmultiplier) + (config.bedcps * config.bedmultiplier) + (config.friendcps * config.friendmultiplier)
 var eddieorbs = config.countraw
 
 
@@ -16,8 +16,12 @@ if(config.eddieorbsspent >= 1000000 && config.shortnumbers === true) {
 
 document.getElementById('stat_timesclicked').innerHTML = numeral(config.timesclicked).format('0,00')
 document.getElementById('stat_goldeneddies').innerHTML = config.goldeneddiesclicked
+if(config.goldeneddiesspawned > 0 && config.goldeneddiesclicked > 0) {
+    document.getElementById('stat_ge_precent').innerHTML = '( ' + Math.round(( config.goldeneddiesclicked / config.goldeneddiesspawned ) * 100) + '% )'
+}
 document.getElementById('stat_upgrades').innerHTML = config.totalupgrades
 document.getElementById('stat_achievements').innerHTML = config.totalachievements
+document.getElementById('stat_goldeneddies_s').innerHTML = config.goldeneddiesspawned
 
 if(eddieorbs >= 1000000000000000000000000000000000) {
     document.getElementById('eddieorbs').innerHTML = 'Infinity'
@@ -119,6 +123,14 @@ if(config.upgrade_hmtreats_bought === true) {
 
 if(config.upgrade_barkbites_bought === true) {
     document.getElementById('upgrade_barkbites').hidden = false
+}
+
+if(config.upgrade_frostedtreats_bought === true) {
+    document.getElementById('upgrade_frostedtreats').hidden = false
+}
+
+if(config.upgrade_xlbed_bought === true) {
+    document.getElementById('upgrade_xlbed').hidden = false
 }
 
 if(config.upgrade_goldeneddies_bought === true) {
@@ -229,6 +241,16 @@ function barkbites_hover() {
     document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Treat Speed'
 }
 
+function frostedtreats_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Frosted Treats'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Treat Speed'
+}
+
+function xlbed_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'XL Bed'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Bed Speed'
+}
+
 function goldeneddies_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Golden Eddies'
     document.getElementById('upgrade_tt_desc').innerHTML = 'Unlocks Golden Eddies'
@@ -294,11 +316,11 @@ if(config.totaleddieorbs < 1000) {
     document.getElementById('rank_progress_overlay').style.setProperty('background-color','rgb(91, 110, 225)')
     document.getElementById('rank_progress').innerHTML = numeral(100000000000 - config.totaleddieorbs).format('0,00')
     document.getElementById('rank_progress_overlay').style.setProperty('width', (config.totaleddieorbs / 100000000000) * 100 + '%')
-} else if(config.totaleddieorbs < 1000000000000) {
+} else {
     document.getElementById('rank').src = 'images/ranks/rank-splus.png'
+    document.getElementById('rank_text').innerHTML = 'Maximum Rank!'
     document.getElementById('rank_progress_overlay').style.setProperty('background-color','rgb(82, 78, 238)')
-    document.getElementById('rank_progress').innerHTML = numeral(1000000000000 - config.totaleddieorbs).format('0,00')
-    document.getElementById('rank_progress_overlay').style.setProperty('width', (config.totaleddieorbs / 1000000000000) * 100 + '%')
+    document.getElementById('rank_progress_overlay').style.setProperty('width', '100%')
 }
 
 //---------ACHIEVEMENTS----------//
@@ -382,7 +404,7 @@ if(config.ach13 === true) {
 }
 
 if(config.ach14 === true) {
-    document.getElementById('achievement13-title').innerHTML = 'Youre a Wizard Eddie'
-    document.getElementById('achievement13-title').style.setProperty('color','white')
-    document.getElementById('achievement13-desc').innerHTML = 'Unlock Spells'
+    document.getElementById('achievement14-title').innerHTML = 'Youre a Wizard Eddie'
+    document.getElementById('achievement14-title').style.setProperty('color','white')
+    document.getElementById('achievement14-desc').innerHTML = 'Unlock Spells'
 }
