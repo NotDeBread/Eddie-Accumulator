@@ -224,5 +224,6 @@ body {
 }
 
 .top-button:active {
+  transition: none;
   height: 30px;
 }

@@ -10,7 +10,6 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     
     count: 0,
     countraw: 0,
-    cpsdisplay: 0,
     cpc: 1,
     cpcmultiplier: 1,
 
@@ -50,14 +49,14 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     friendprice: 5000000,
 
     spells_unlocked: false,
+    spells_used: 0,
 
-    spell_golden_cooldown: false,
-
+    
     totalachievements: 0,
     totalupgrades: 0,
-
+    
     //Upgrades//
-
+    
     upgrade_silvercursors_bought: false,
     upgrade_goldencursors_bought: false,
     upgrade_platinumcursors_bought: false,
@@ -69,48 +68,47 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     upgrade_diamondfingers_bought: false,
     upgrade_emeraldfingers_bought: false,
     upgrade_rubyfingers_bought: false,
-
+    
     upgrade_baconbones_bought: false,
     upgrade_meatbones_bought: false,
     upgrade_thebone_bought: false,
-
+    upgrade_nylonbones_bought: false,
+    
     upgrade_superfrisbe_bought: false,
     upgrade_superepicfrisbe_bought: false,
     upgrade_superultraepicfrisbe_bought: false,
-
+    
     upgrade_hmtreats_bought: false,
     upgrade_barkbites_bought: false,
     upgrade_frostedtreats_bought: false,
-
+    
     upgrade_xlbed_bought: false,
-
+    
     upgrade_goldeneddies_bought: false,
     upgrade_shimmeringeddies_bought: false,
-
+    
     upgrade_emptybottle_bought: false,
-
-
-
+    upgrade_biggerflasks_bought: false,
+    
+    
     goldeneddies_check: false,
     emptybottle_check: false,
-
+    biggerflasks_check: false,
+    
     goldeneddiemultiplier: 1,
     golden_cpcmultiplier: 1,
-
+    
     flasks: 0,
     flasks_max: 50,
-
+    totalflasks: 0,
+    flasksused: 0,
+    flask_increase: 1,
+    
     upgrades: 0,
-
+    
     upgrades_collapsed: false,
     spells_collapsed: false,
-
-    setting1var: true,
-    setting2var: false,
-    setting3var: true,
-    setting4var: false,
-    setting5var: false,
-
+    
     ach1: false,
     ach3: false,
     ach4: false,
@@ -135,11 +133,10 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     ach11_check: false,
     ach12_check: false,
 
+    devtoolsunlocked: false,
 
     autosave: true,
-    monospace: false,
+    monospacefont: false,
     shortnumbers: true,
     walter: false,
-
-    devtoolsunlocked: false,
 }

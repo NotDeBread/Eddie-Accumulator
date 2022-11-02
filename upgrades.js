@@ -83,6 +83,12 @@ function update() {
     } else {
         document.getElementById('upgrade_thebone').style.setProperty('filter', 'brightness(75%)')
     }
+
+    if(config.count >= 2500000){
+        document.getElementById('upgrade_nylonbones').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_nylonbones').style.setProperty('filter', 'brightness(75%)')
+    }
     
     if(config.count >= 100000){
         document.getElementById('upgrade_superfrisbe').style.setProperty('filter', 'brightness(100%)')
@@ -143,6 +149,12 @@ function update() {
         document.getElementById('upgrade_emptybottle').style.setProperty('filter', 'brightness(100%)')
     } else {
         document.getElementById('upgrade_emptybottle').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 1000000){
+        document.getElementById('upgrade_biggerflasks').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_biggerflasks').style.setProperty('filter', 'brightness(75%)')
     }
 
     if(config.totaleddieorbs <= 50000) {
@@ -221,6 +233,10 @@ function update() {
         document.getElementById('upgrade_thebone').hidden = false;
     } else {document.getElementById('upgrade_thebone').hidden = true}
 
+    if(config.bonetotal >= 75 && config.upgrade_nylonbones_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_nylonbones').hidden = false;
+    } else {document.getElementById('upgrade_nylonbones').hidden = true}
+
     if(config.frisbetotal >= 10 && config.upgrade_superfrisbe_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_superfrisbe').hidden = false;
     } else {document.getElementById('upgrade_superfrisbe').hidden = true}
@@ -256,6 +272,10 @@ function update() {
     if(config.totaleddieorbsraw >= 500000 && config.upgrade_emptybottle_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_emptybottle').hidden = false;
     } else {document.getElementById('upgrade_emptybottle').hidden = true}
+
+    if(config.totaleddieorbsraw >= 1000000 && config.upgrade_biggerflasks_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_biggerflasks').hidden = false;
+    } else {document.getElementById('upgrade_biggerflasks').hidden = true}
 
     if(config.goldeneddiesclicked >= 1 && config.upgrade_shimmeringeddies_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_shimmeringeddies').hidden = false;
@@ -440,6 +460,20 @@ function upgrade_thebone_hover() {
     document.getElementById('info_price').innerHTML = "250,000"
 }
 
+function upgrade_nylonbones_hover() {
+    document.getElementById('info_title').innerHTML = "Nylon Bones";
+    document.getElementById('info_cps').innerHTML = "Triples Bone Speed";
+    
+    if(config.countraw >= 2500000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "2.5 Million"
+}
+
+
 function upgrade_superfrisbe_hover() {
     document.getElementById('info_title').innerHTML = "The Super Frisbe";
     document.getElementById('info_cps').innerHTML = "Doubles Frisbe Speed";
@@ -580,6 +614,20 @@ function upgrade_emptybottle_hover() {
     document.getElementById('info_price').innerHTML = "250,000"
 }
 
+function upgrade_biggerflasks_hover() {
+    document.getElementById('info_title').innerHTML = "Bigger Flasks";
+    document.getElementById('info_cps').innerHTML = "+1 Flask every 30 seconds";
+
+    
+    if(config.countraw >= 1000000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "1 Million"
+}
+
 function upgrade_silvercursors() {
     if(config.upgrade_silvercursors_bought === false && config.count >= 500) {
         document.getElementById('upgrade_silvercursors').style.setProperty('display', 'none')
@@ -636,11 +684,11 @@ function upgrade_emeraldcursors() {
     if(config.upgrade_emeraldcursors_bought === false && config.count >= 1000000) {
         document.getElementById('upgrade_emeraldcursors').style.setProperty('display', 'none')
         config.upgrade_emeraldcursors_bought = true
-        config.countraw -= 100000
+        config.countraw -= 1000000
         config.cursormultiplier *= 2
         config.upgrades -= 1
         config.totalupgrades += 1
-        config.eddieorbsspent += 100000
+        config.eddieorbsspent += 1000000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -746,6 +794,19 @@ function upgrade_thebone() {
         config.upgrades -= 1
         config.totalupgrades += 1
         config.eddieorbsspent += 250000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_nylonbones() {
+    if(config.upgrade_nylonbones_bought === false && config.count >= 2500000) {
+        document.getElementById('upgrade_nylonbones').style.setProperty('display', 'none')
+        config.upgrade_nylonbones_bought = true
+        config.countraw -= 2500000
+        config.bonemultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 2500000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -884,6 +945,19 @@ function upgrade_emptybottle() {
         config.ach14 = true
         achievement14()
         save()
+    }
+}
+
+function upgrade_biggerflasks() {
+    if(config.upgrade_biggerflasks_bought === false && config.count >= 1000000) {
+        document.getElementById('upgrade_biggerflasks').style.setProperty('display', 'none')
+        config.upgrade_biggerflasks_bought = true
+        config.countraw -= 1000000
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 1000000
+        config.flask_increase += 1
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
 

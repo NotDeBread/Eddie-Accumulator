@@ -12,525 +12,570 @@
 
 <body>
 
-    <div class="loader-wrapper" id="loader">
-        <img src="images/loading.webp" class="loader" id="loader_img" onclick="achievement13()"></img>
-        <span id="loader_text"></span>
-    </div>
-
-    <div class="warning" onclick="warningclick()" id="warning_">
-        <div class="warning-left">
-            <span class="warning-title">Warning!</span><br>
-            <span class="warning-desc">Devtools enabled! Delete Save to disable!</span>
+    <section class="settings-container-container" id="settings">
+        <div class="settings-container" id="settings_container">
+            <div id="settings_content" class="settings-content">
+                <div class="settings-top">
+                    <img src="images/icons/back.png" class="settings-back" onclick="settingsclose()">
+                    <span class="settings-header">Settings</span>
+                </div>
+                <div class="settings-all">
+                    <div class="settings">
+                        <div class="setting">
+                            <img src="images/icons/checkbox1.png" class="setting-checkbox" id="cb_1" onclick="setting1()">
+                            <span class="setting-text">Autosaves</span>
+                        </div>
+                        <span class="setting-desc">Enables saving once every minute</span>
+                        <div class="setting">
+                            <img src="images/icons/checkbox1.png" class="setting-checkbox" id="cb_2" onclick="setting2()">
+                            <span class="setting-text">Monospace Font</span>
+                        </div>
+                        <span class="setting-desc">Changes the counter font to a monospace font so that it's easier to read</span>
+                        <div class="setting">
+                            <img src="images/icons/checkbox1.png" class="setting-checkbox" id="cb_3" onclick="setting3()">
+                            <span class="setting-text">Short Numbers</span>
+                        </div>
+                        <span class="setting-desc">Formats the counter and building prices so that they display Millions, Billions ect.</span>
+                        <div class="setting">
+                            <img src="images/icons/checkbox1.png" class="setting-checkbox" id="cb_4" onclick="setting4()">
+                            <span class="setting-text">Walter Mode</span>
+                        </div>
+                        <span class="setting-desc">Walter.</span>
+                    </div>
+                    <div class="settings-bottom">
+                        <div class="setting-button" onclick="save()">
+                            <span>Save</span>
+                        </div>
+                    </div>
+                    <div class="settings-bottom">
+                        <div class="setting-button" onclick="deletebutton()" style="border: 1px solid red;">
+                            <span id="deletebutton">Delete Save</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="warning-right">
-            <img class="warning-img" src="images/icons/warning.png">
-        </div>
-    </div>
+    </section>
 
-    <div class="topper">
-        <p style="display: inline;" id="topper_title">Eddie Accumulator</p>
-        <div class="topper-divider">|</div>
-        <a href="https://github.com/NotDeBread/Eddie-Accumulator" target="_blank">Github</a>
-        <div class="topper-divider">|</div>
-        <a class="debread" href="https://debread.space" target="_blank">DeBread</a>
-        <div class="topper-divider">|</div>
 
-        <a onclick="save()" style="float: right;" href="changelog.html">Changelog</a>
-        <p class="version" style="float: right; padding-right: 10px;">BETA v0.14</p>
-        <a style="float: right; margin-right: 10px;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
-    </div>
 
-    <div class="goldeneddie-counter" id="goldeneddie_counter"></div>
+    <section class="game" id="game">
 
-    <div class="goldeneddie-container-container">
-        <div class="goldeneddie-container">
-            <img class="goldeneddie" id="goldeneddie" src="images/goldeneddie.png" onclick="goldeneddie_click()">
-        </div>
-    </div>
-
-    <!----------LEFT BUTTONS---------->
-
-    <!--Not Left Buttons-->
-
-    <img src="images/icons/bell.png" class="noti-icon" onclick="noti_open()">
-
-    <section class="notis" id="notis">
-        <div class="notis-header">
-            <img src="images/icons/collapse.png" class="notis-img" onclick="noti_close()">
-            <p class="notis-title">Announcements</p>
-        </div>
-
-        <div class="noti">
-            <span class="noti-title">BETA v0.14 Released!</span><br>
-            <span class="noti-desc">BETA v0.14 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
-        </div>
-
-        <div class="noti">
-            <span class="noti-title">Need Help With Achievement Names!</span><br>
-            <span class="noti-desc">I having trouble coming up with ideas for achievement names! I need names for the following:</span><br><br>
-            <span class="noti-desc">-Click Eddie 100 Times</span><br>
-            <span class="noti-desc">-Click Eddie 1,000 Times</span><br>
-            <span class="noti-desc">-Click Eddie 10,000 Times</span><br><br>
-            <span class="noti-desc">-Buy 50 Cursors</span><br>
-            <span class="noti-desc">-Buy 100 Cursors</span><br><br>
-            <span class="noti-desc">-Reach 1,000 Eddie Orbs Per Second</span><br>
-            <span class="noti-desc">-Reach 10,000 Eddie Orbs Per Second</span><br>
-            <span class="noti-desc">-Reach 100,000 Eddie Orbs Per Second</span><br><br>
-            <span class="noti-desc">If you have any ideas please fill out the <a href="https://forms.gle/2KgT8xn1K7fqpXfj6"
-                    style="color: cornflowerblue;" target="_blank">Feature Request Form.</a></span><br>
-            <span class="noti-desc">If your idea manages to get into the game you will be credited in the description of the achievement.</span><br>
+        <div class="loader-wrapper" id="loader">
+            <img src="images/loading.webp" class="loader" id="loader_img" onclick="achievement13()"></img>
+            <span id="loader_text"></span>
         </div>
 
-        <div class="noti">
-            <span class="noti-title">BETA v0.13 Released!</span><br>
-            <span class="noti-desc">BETA v0.13 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+        <div class="warning" onclick="warningclick()" id="warning_">
+            <div class="warning-left">
+                <span class="warning-title">Warning!</span><br>
+                <span class="warning-desc">Devtools enabled! Delete Save to disable!</span>
+            </div>
+            <div class="warning-right">
+                <img class="warning-img" src="images/icons/warning.png">
+            </div>
         </div>
 
-        <div class="noti">
-            <span class="noti-title">BETA v0.12 Released!</span><br>
-            <span class="noti-desc">BETA v0.12 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+        <div class="topper">
+            <p style="display: inline;" id="topper_title">Eddie Accumulator</p>
+            <div class="topper-divider">|</div>
+            <a href="https://github.com/NotDeBread/Eddie-Accumulator" target="_blank">Github</a>
+            <div class="topper-divider">|</div>
+            <a class="debread" href="https://debread.space" target="_blank">DeBread</a>
+            <div class="topper-divider">|</div>
+
+            <a onclick="save()" style="float: right;" href="changelog.html">Changelog</a>
+            <p class="version" style="float: right; padding-right: 10px;">BETA v0.15</p>
+            <a style="float: right; margin-right: 10px;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
         </div>
-        <div>
+
+        <div class="goldeneddie-counter" id="goldeneddie_counter"></div>
+
+        <div class="goldeneddie-container-container">
+            <div class="goldeneddie-container">
+                <img class="goldeneddie" id="goldeneddie" src="images/goldeneddie.png" onclick="goldeneddie_click()">
+            </div>
+        </div>
+
+        <!----------LEFT BUTTONS---------->
+
+        <!--Not Left Buttons-->
+
+
+
+        <img src="images/icons/bell.png" class="noti-icon" onclick="noti_open()">
+
+        <section class="notis" id="notis">
+            <div class="notis-header">
+                <img src="images/icons/collapse.png" class="notis-img" onclick="noti_close()">
+                <p class="notis-title">Announcements</p>
+            </div>
+
             <div class="noti">
-                <span class="noti-title">Need Help With Upgrade Names!</span><br>
-                <span class="noti-desc">I'm currently having problems with coming up with names for new upgrades, I need names for the following:</span><br><br>
-                <span class="noti-desc" style="text-decoration: line-through; color: gray;">50 Bones - Triples Bone Speed</span><br>
-                <span class="noti-desc">75 Bones - Triples Bone Speed</span><br><br>
-                <span class="noti-desc" style="text-decoration: line-through; color: gray;">10 Beds - Doubles Bed Speed</span><br>
-                <span class="noti-desc">25 Beds - Triples Bed Speed</span><br><br>
+                <span class="noti-title">BETA v0.15 Released!</span><br>
+                <span class="noti-desc">BETA v0.15 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+            </div>
+
+            <div class="noti">
+                <span class="noti-title">BETA v0.14 Released!</span><br>
+                <span class="noti-desc">BETA v0.14 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+            </div>
+
+            <div class="noti">
+                <span class="noti-title">Need Help With Achievement Names!</span><br>
+                <span class="noti-desc">I having trouble coming up with ideas for achievement names! I need names for the following:</span><br><br>
+                <span class="noti-desc">-Click Eddie 100 Times</span><br>
+                <span class="noti-desc">-Click Eddie 1,000 Times</span><br>
+                <span class="noti-desc">-Click Eddie 10,000 Times</span><br><br>
+                <span class="noti-desc">-Buy 50 Cursors</span><br>
+                <span class="noti-desc">-Buy 100 Cursors</span><br><br>
+                <span class="noti-desc">-Reach 1,000 Eddie Orbs Per Second</span><br>
+                <span class="noti-desc">-Reach 10,000 Eddie Orbs Per Second</span><br>
+                <span class="noti-desc">-Reach 100,000 Eddie Orbs Per Second</span><br><br>
                 <span class="noti-desc">If you have any ideas please fill out the <a href="https://forms.gle/2KgT8xn1K7fqpXfj6"
                         style="color: cornflowerblue;" target="_blank">Feature Request Form.</a></span><br>
-                <span class="noti-desc">If your idea manages to get into the game you will be credited in the description of the upgrade.</span><br>
-                <i style="color: gray;">Edited</i>
+                <span class="noti-desc">If your idea manages to get into the game you will be credited in the description of the achievement.</span><br>
             </div>
-            <div class="noti">
-                <span class="noti-title">BETA v0.11 Released!</span><br>
-                <span class="noti-desc">BETA v0.11 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
-            </div>
-            <div class="noti">
-                <span class="noti-title">BETA v0.10 Released!</span><br>
-                <span class="noti-desc">BETA v0.10 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
-            </div>
-            <div class="noti">
-                <span class="noti-title">BETA v0.09 Released!</span><br>
-                <span class="noti-desc">BETA v0.09 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
-            </div>
-            <div class="noti">
-                <span class="noti-title">Feature Request Form</span><br>
-                <span class="noti-desc">I'm currently running low on ideas for features, if you have any in mind click <a
-                        href="https://forms.gle/2KgT8xn1K7fqpXfj6" style="color: cornflowerblue;" target="_blank">Here.</a></span>
-            </div>
-            <div class="noti">
-                <span class="noti-title">BETA v0.08 Released!</span><br>
-                <span class="noti-desc">BETA v0.08 has been realeased! Learn more <a href="changelog.html"
-                        style="color: cornflowerblue;">Here.</a></span>
-            </div>
-        </div>
-    </section>
 
-    <!--Settings-->
-
-    <div class="settings" id="settings">
-        <div class="settings-header">
-            <img src="images/icons/settings.png" class="settings-img" id="settings_img" onclick="settings()"
-                onmouseenter="labelenter(); labelsettings()" onmouseleave="labelleave()">
-            <p class="settings-text" id="settings_header">Settings</p>
-        </div>
-        <div class="setting-1">
-            <img src="images/icons/checkbox2.png" class="settings-checkbox" onclick="setting1(); save()"
-                id="setting1-img">
-            <p class="setting-checkbox1-text">Autosaves</p>
-        </div>
-        <div class="setting-1">
-            <img src="images/icons/checkbox1.png" class="settings-checkbox" onclick="setting2(); save()"
-                id="setting2-img">
-            <p class="setting-checkbox2-text">Monospace Font</p>
-        </div>
-        <div class="setting-1">
-            <img src="images/icons/checkbox2.png" class="settings-checkbox" onclick="setting3(); save()"
-                id="setting3-img">
-            <p class="setting-checkbox1-text">Short Numbers</p>
-        </div>
-        <div class="setting-1">
-            <img src="images/icons/checkbox1.png" class="settings-checkbox" onclick="setting4(); save()"
-                id="setting4-img">
-            <p class="setting-checkbox1-text">Walter Mode</p>
-        </div>
-        <div id="settings_content" class="settings-content">
-            <div class="settings-defaultbutton" onclick="save()">
-                <p>Save</p>
+            <div class="noti">
+                <span class="noti-title">BETA v0.13 Released!</span><br>
+                <span class="noti-desc">BETA v0.13 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
             </div>
-        </div>
-        <div id="settings_content" class="settings-content">
-            <div class="settings-defaultbutton" onclick="defaultbutton()">
-                <p>Reset To Default</p>
+
+            <div class="noti">
+                <span class="noti-title">BETA v0.12 Released!</span><br>
+                <span class="noti-desc">BETA v0.12 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
             </div>
-        </div>
-        <div id="settings_content" class="settings-content">
-            <div class="settings-deletebutton" onclick="deletebutton()">
-                <p class="settings-deletebutton-text" id="deletebutton_text">Delete Save</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="label-left" id="label_left"></div>
-
-    <!--Credits-->
-
-    <div class="credits" id="credits">
-        <div class="credits-header">
-            <img src="images/icons/users.png" class="credits-img" id="credits_img" onclick="credits()"
-                onmouseenter="labelenter(); labelcredits()" onmouseleave="labelleave()">
-            <p class="credits-text" id="credits_header">Credits</p>
-        </div>
-        <div id="credits_content" class="credits-content">
             <div>
-                <p style="font-size: 1.1em;">Helpers:</p>
-                <a class="credits-link" style="color: rgb(182, 240, 255);" href="https://github.com/ZekoTheFox"
-                    target="_blank">Zeko</a><br>
-                <a class="credits-link" style="color: rgb(164, 255, 177); cursor: default;">ZeanZarzin</a><br>
-                <p style="padding-top: 10px; font-size: 1.1em;">Icons:</p>
-                <a class="credits-link" href="https://tabler-icons.io/" style="color: rgb(115, 176, 255)"
-                    target="_blank">Tabler</a>
-                <p style="padding-top: 10px; font-size: 1.1em;">Number Formatter:</p>
-                <a class="credits-link" href="http://numeraljs.com/" style="color: rgb(253, 255, 136)"
-                    target="_blank">Numeral.js</a>
-            </div>
-        </div>
-    </div>
-
-    <!--Stats-->
-
-    <div class="stats">
-        <a href="stats.html">
-            <img src="images/icons/stats.png" class="stats-img" onmouseenter="labelenter(); labelstats()"
-                onmouseleave="labelleave()" onclick="save()">
-        </a>
-    </div>
-
-    <!--Devtools-->
-
-    <div class="devtools" id="devtools" hidden>
-        <div class="devtools-header">
-            <img src="images/icons/tool.png" id="devtools_img" class="devtools-img" onclick="devtools()"
-                onmouseenter="labelenter(); labeldevtools()" onmouseleave="labelleave()">
-            <p class="devtools-text" id="devtools_header">DevTools</p>
-        </div>
-        <div id="devtools_content">
-            <div>
-                <div class="devbutton" onclick="dev_golden()" style="width: 150px;">
-                    <p>Spawn Golden Eddie</p>
+                <div class="noti">
+                    <span class="noti-title">Need Help With Upgrade Names!</span><br>
+                    <span class="noti-desc">I'm currently having problems with coming up with names for new upgrades, I need names for the
+                        following:</span><br><br>
+                    <span class="noti-desc" style="text-decoration: line-through; color: gray;">50 Bones - Triples Bone Speed</span><br>
+                    <span class="noti-desc" style="text-decoration: line-through; color: gray;">75 Bones - Triples Bone Speed</span><br><br>
+                    <span class="noti-desc" style="text-decoration: line-through; color: gray;">10 Beds - Doubles Bed Speed</span><br>
+                    <span class="noti-desc">25 Beds - Triples Bed Speed</span><br><br>
+                    <span class="noti-desc">If you have any ideas please fill out the <a href="https://forms.gle/2KgT8xn1K7fqpXfj6"
+                            style="color: cornflowerblue;" target="_blank">Feature Request Form.</a></span><br>
+                    <span class="noti-desc">If your idea manages to get into the game you will be credited in the description of the upgrade.</span><br>
+                    <i style="color: gray;">Edited</i>
                 </div>
-                <div class="devbutton" onclick="train()" style="width: 150px;">
-                    <p>Spawn Train</p>
+                <div class="noti">
+                    <span class="noti-title">BETA v0.11 Released!</span><br>
+                    <span class="noti-desc">BETA v0.11 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
                 </div>
-                <div class="devbutton" onclick="dev_x10()" style="width: 150px;">
-                    <p>x10 Eddie Orbs</p>
+                <div class="noti">
+                    <span class="noti-title">BETA v0.10 Released!</span><br>
+                    <span class="noti-desc">BETA v0.10 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
                 </div>
-                <div class="devbutton" onclick="dev_x2()" style="width: 150px;">
-                    <p>x2 Eddie Orbs</p>
+                <div class="noti">
+                    <span class="noti-title">BETA v0.09 Released!</span><br>
+                    <span class="noti-desc">BETA v0.09 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
                 </div>
-                <div class="devbutton" onclick="dev_x10cpc()" style="width: 150px;">
-                    <p>x10 CPC</p>
+                <div class="noti">
+                    <span class="noti-title">Feature Request Form</span><br>
+                    <span class="noti-desc">I'm currently running low on ideas for features, if you have any in mind click <a
+                            href="https://forms.gle/2KgT8xn1K7fqpXfj6" style="color: cornflowerblue;" target="_blank">Here.</a></span>
                 </div>
-                <div class="devtools-items-container">
-                    <span style="font-weight: 600; padding: 5px; font-size: 1.25em;">Items</span>
-                    <section class="devtools-items">
-                        <div class="devbutton" onclick="dev_10xCursors()" style="border: 1px rgb(243, 243, 243) solid;">
-                            <p>10x Cursors</p>
-                        </div>
-                        <div class=" devbutton" onclick="dev_10xBones()" style="border: 1px rgb(255, 242, 204) solid;">
-                            <p>10x Bones</p>
-                        </div>
-                        <div class="devbutton" onclick="dev_10xFrisbes()" style="border: 1px rgb(201, 218, 248) solid;">
-                            <p>10x Frisbes</p>
-                        </div>
-                        <div class="devbutton" onclick="dev_10xTreats()" style="border: 1px rgb(244, 204, 204) solid;">
-                            <p>10x Treats</p>
-                        </div>
-                        <div class="devbutton" onclick="dev_10xBeds()" style="border: 1px rgb(217, 210, 233) solid;">
-                            <p>10x Beds</p>
-                        </div>
-                        <div class="devbutton" onclick="dev_10xFriends()" style="border: 1px rgb(217, 234, 211) solid;">
-                            <p>10x Friends</p>
-                        </div>
-                    </section>
-                </div>
-                <p style="text-align: center; font-weight: 600; padding: 5px; font-size: 1.25em;">Golden Eddie Randomizer</p>
-                <p id="goldeneddie_chance" style="text-align: center;">-</p>
-                <p id="goldeneddie_chance_count" style="text-align: center;">-</p>
-
-                <p style="text-align: center; font-weight: 600; padding: 5px; font-size: 1.25em;">Train Randomizer</p>
-                <p id="train_chance" style="text-align: center;">-</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="alert" id="savealert">
-        <p class="alert-text" id="alert_text">Saved!</p>
-    </div>
-
-    <!--Achievements-->
-
-    <div class="achievement" id="achievement" onclick="achievementclose()">
-        <div>
-            <p class="achievement-title" id="ach_title">Click</p>
-            <p class="achievement-desc" id="ach_desc">Click Eddie 1 Time</p>
-        </div>
-    </div>
-
-    <!-------------------------------------------------------------------------------->
-
-
-
-
-    <section class="all" onclick="bodyclick()">
-        <section class="left">
-            <div class="counters">
-                <span class="counter" id="count">-</span><br>
-                <span title="Eddies Per Second">EPS:</span> <span id="cps" class="cps">-</span><br>
-                <span title="Eddies Per Click">EPC:</span> <span id="cpc">-</span>
-                <span id="warning" style="color: red;"></span>
-            </div>
-            <img src="images/EddieSphere.gif" class="eddie" id="eddie" onclick="eddieclick()">
-        </section>
-
-        <section class="right">
-            <div class="upgrades-all">
-                <div class="upgrade-tooltip" id="upgrade_tooltip">
-                    <span class="upgrade-tooltip-name" id="info_title">Upgrade Name</span><br>
-                    <span class="upgrade-tooltip-desc" id="info_cps">Upgrade Description</span><br>
-                    <span class="upgrade-tooltip-price" id="info_price">Upgrade Cost</span>
-                </div>
-                <div class="upgrades-header" onclick="upgrades_collapse()">
-                    <span style="width: 100%; padding-left: 25px;">Upgrades<span id="upgrade_countall"> - </span><span id="upgrade_count">0</span></span>
-                    <img src="images/icons/collapse.png" class="upgrades-header-img" id="upgrade_collapse_img">
-                </div>
-                <div class="upgrades" id="upgrades">
-                    <div class="no-upgrades" id="no_upgrades"><i>No available upgrades! Keep playing to find more.</i></div>
-
-                    <!--19 Total-->
-
-                    <img class="upgrade" src="images/upgrades/silvercursors.png" id="upgrade_silvercursors"
-                        onmouseenter="upgrade_silvercursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_silvercursors()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/goldencursors.png" id="upgrade_goldencursors"
-                        onmouseenter="upgrade_goldencursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_goldencursors()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/platinumcursors.png" id="upgrade_platinumcursors"
-                        onmouseenter="upgrade_platinumcursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_platinumcursors()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/diamondcursors.png" id="upgrade_diamondcursors"
-                        onmouseenter="upgrade_diamondcursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_diamondcursors()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/emeraldcursors.png" id="upgrade_emeraldcursors"
-                        onmouseenter="upgrade_emeraldcursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_emeraldcursors()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/goldenfingers.png" id="upgrade_goldenfingers"
-                        onmouseenter="upgrade_goldenfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_goldenfingers()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/platinumfingers.png" id="upgrade_platinumfingers"
-                        onmouseenter="upgrade_platinumfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_platinumfingers()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/diamondfingers.png" id="upgrade_diamondfingers"
-                        onmouseenter="upgrade_diamondfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_diamondfingers()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/emeraldfingers.png" id="upgrade_emeraldfingers"
-                        onmouseenter="upgrade_emeraldfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_emeraldfingers()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/rubyfingers.png" id="upgrade_rubyfingers"
-                        onmouseenter="upgrade_rubyfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_rubyfingers()"
-                        hidden>
-
-                    <img class="upgrade" src="images/upgrades/baconbones.png" id="upgrade_baconbones"
-                        onmouseenter="upgrade_baconbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_baconbones()"
-                        hidden>
-
-                    <img class="upgrade" src="images/upgrades/meatbones.png" id="upgrade_meatbones"
-                        onmouseenter="upgrade_meatbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_meatbones()"
-                        hidden>
-
-                    <img class="upgrade" src="images/upgrades/thebone.png" id="upgrade_thebone"
-                        onmouseenter="upgrade_thebone_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_thebone()"
-                        hidden>
-
-                    <img class="upgrade" src="images/upgrades/superfrisbe.png" id="upgrade_superfrisbe"
-                        onmouseenter="upgrade_superfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_superfrisbe()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/superepicfrisbe.png" id="upgrade_superepicfrisbe"
-                        onmouseenter="upgrade_superepicfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_superepicfrisbe()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/superultraepicfrisbe.png" id="upgrade_superultraepicfrisbe"
-                        onmouseenter="upgrade_superultraepicfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_superultraepicfrisbe()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/hmtreats.png" id="upgrade_hmtreats"
-                        onmouseenter="upgrade_hmtreats_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_hmtreats()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/barkbites.png" id="upgrade_barkbites"
-                        onmouseenter="upgrade_barkbites_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_barkbites()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/frostedtreats.png" id="upgrade_frostedtreats"
-                        onmouseenter="upgrade_frostedtreats_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_frostedtreats()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/xlbed.png" id="upgrade_xlbed"
-                        onmouseenter="upgrade_xlbed_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_xlbed()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/goldeneddies.png" id="upgrade_goldeneddies"
-                        onmouseenter="upgrade_goldeneddies_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_goldeneddies()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/shimmeringeddies.png" id="upgrade_shimmeringeddies"
-                        onmouseenter="upgrade_shimmeringeddies_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_shimmeringeddies()" hidden>
-
-                    <img class="upgrade" src="images/upgrades/emptybottle.png" id="upgrade_emptybottle"
-                        onmouseenter="upgrade_emptybottle_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                        onclick="upgrade_emptybottle()" hidden>
-                </div>
-            </div>
-
-            <div class="spells-all" id="spells" hidden>
-                <div class="spells-header" onclick="spells_collapse()">
-                    <span style="width: 100%; padding-left: 25px;">Spells</span>
-                    <img src="images/icons/collapse.png" class="spells-header-img" id="spells_header_img">
-                </div>
-
-                <div class="spell-tooltip" id="spell_tooltip">
-                    <span id="spell_title" class="spell-title">Spell Title</span><br>
-                    <span id="spell_desc">Spell Desc</span><br>
-                    <span id="spell_price">Spell Price</span>
-                </div>
-
-                <div class="spells" id="spells-all">
-                    <div class="spell-container">
-                        <img src="images/spells/goldenspell.png" class="spell" onmouseenter="spell_enter(); spell_golden_hover()" onmouseleave="spell_leave()"
-                            onclick="spell_golden()" id="spell_golden">
-                    </div>
-                    <div class="spell-bar">
-                        <span class="spell-bar-text">
-                            <span id="flasks">-</span>
-                            <span> / </span>
-                            <span id="flasks_max">-</span>
-                        </span>
-                        <div class="spell-bar-overlay" id="spell_bar_overlay"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="items-all">
-                <div class="item-tooltip" id="item-tooltip">
-                    <span id="item_tt_title" style="font-size: 1.3em; font-weight: 600;">-</span><br>
-                    <span>EPS: </span>
-                    <span id="item_tt_eps">-</span><br>
-                    <span style="color: grey;">( </span><span style="color: grey;" id="item_tt_epseach">-</span><span style="color: grey;"> Each )</span>
-                </div>
-
-                <div class="item-container">
-                    <!--CURSOR-->
-
-                    <div class="item" onclick="buycursor()" id="cursorimg" onmouseenter="item_tt_enter(); cursor_tt()" onmouseleave="item_tt_leave()">
-                        <img src="images/buildings/cursor.png" class="item-image">
-                        <div class="item-content">
-                            <div class="item-left">
-                                <span class="item-title">Cursor</span><br>
-                                <span id="cursorprice" style="font-weight: 600;">-</span>
-                            </div>
-                            <span class="item-counter" id="cursor_owned">0</span>
-                        </div>
-                    </div>
-
-                    <!--BONE-->
-
-                    <div class="item" onclick="buybone()" id="boneimg" onmouseenter="item_tt_enter(); bone_tt()" onmouseleave="item_tt_leave()">
-                        <img src="images/buildings/bone.png" class="item-image">
-                        <div class="item-content">
-                            <div class="item-left">
-                                <span class="item-title">Bone</span><br>
-                                <span id="boneprice" style="font-weight: 600;">-</span>
-                            </div>
-                            <span class="item-counter" id="bone_owned">0</span>
-                        </div>
-                    </div>
-
-                    <!--FRISBE-->
-
-                    <div class="item" onclick="buyfrisbe()" id="frisbeimg" onmouseenter="item_tt_enter(); frisbe_tt()" onmouseleave="item_tt_leave()">
-                        <img src="images/buildings/frisbe.png" class="item-image">
-                        <div class="item-content">
-                            <div class="item-left">
-                                <span class="item-title">Frisbe</span><br>
-                                <span id="frisbeprice" style="font-weight: 600;">-</span>
-                            </div>
-                            <span class="item-counter" id="frisbe_owned">0</span>
-                        </div>
-                    </div>
-
-                    <!--TREAT-->
-
-                    <div class="item" onclick="buytreat()" id="treatimg" onmouseenter="item_tt_enter(); treat_tt()" onmouseleave="item_tt_leave()">
-                        <img src="images/buildings/treat.png" class="item-image">
-                        <div class="item-content">
-                            <div class="item-left">
-                                <span class="item-title">Treat</span><br>
-                                <span id="treatprice" style="font-weight: 600;">-</span>
-                            </div>
-                            <span class="item-counter" id="treat_owned">0</span>
-                        </div>
-                    </div>
-
-                    <!--BED-->
-
-                    <div class="item" onclick="buybed()" id="bedimg" onmouseenter="item_tt_enter(); bed_tt()" onmouseleave="item_tt_leave()">
-                        <img src="images/buildings/bed.png" class="item-image">
-                        <div class="item-content">
-                            <div class="item-left">
-                                <span class="item-title">Bed</span><br>
-                                <span id="bedprice" style="font-weight: 600;">-</span>
-                            </div>
-                            <span class="item-counter" id="bed_owned">0</span>
-                        </div>
-                    </div>
-
-                    <!--Friend-->
-
-                    <div class="item" onclick="buyfriend()" id="friendimg" onmouseenter="item_tt_enter(); friend_tt()" onmouseleave="item_tt_leave()">
-                        <img src="images/buildings/friend.png" class="item-image">
-                        <div class="item-content">
-                            <div class="item-left">
-                                <span class="item-title">Friend</span><br>
-                                <span id="friendprice" style="font-weight: 600;">-</span>
-                            </div>
-                            <span class="item-counter" id="friend_owned">0</span>
-                        </div>
-                    </div>
+                <div class="noti">
+                    <span class="noti-title">BETA v0.08 Released!</span><br>
+                    <span class="noti-desc">BETA v0.08 has been realeased! Learn more <a href="changelog.html"
+                            style="color: cornflowerblue;">Here.</a></span>
                 </div>
             </div>
         </section>
 
+        <!--Settings-->
 
-        <img src="images/train.gif" class="train" id="train" onclick="trainclick()">
+        <img src="images/icons/settings.png" class="settings-img" id="settings_img" onclick="settingsopen()"
+            onmouseenter="labelenter(); labelsettings()" onmouseleave="labelleave()">
+        <div class="label-left" id="label_left"></div>
+
+        <!--Credits-->
+
+
+        <div class="credits" id="credits">
+            <div class="credits-header">
+                <img src="images/icons/users.png" class="credits-img" id="credits_img" onclick="credits()"
+                    onmouseenter="labelenter(); labelcredits()" onmouseleave="labelleave()">
+                <p class="credits-text" id="credits_header">Credits</p>
+            </div>
+            <div id="credits_content" class="credits-content">
+                <div>
+                    <p style="font-size: 1.1em;">Helpers:</p>
+                    <a class="credits-link" style="color: rgb(182, 240, 255);" href="https://github.com/ZekoTheFox"
+                        target="_blank">Zeko</a><br>
+                    <a class="credits-link" style="color: rgb(164, 255, 177); cursor: default;">ZeanZarzin</a><br>
+                    <p style="padding-top: 10px; font-size: 1.1em;">Icons:</p>
+                    <a class="credits-link" href="https://tabler-icons.io/" style="color: rgb(115, 176, 255)"
+                        target="_blank">Tabler</a>
+                    <p style="padding-top: 10px; font-size: 1.1em;">Number Formatter:</p>
+                    <a class="credits-link" href="http://numeraljs.com/" style="color: rgb(253, 255, 136)"
+                        target="_blank">Numeral.js</a>
+                </div>
+            </div>
+        </div>
+
+        <!--Stats-->
+
+        <div class="stats">
+            <a href="stats.html">
+                <img src="images/icons/stats.png" class="stats-img" onmouseenter="labelenter(); labelstats()"
+                    onmouseleave="labelleave()" onclick="save()">
+            </a>
+        </div>
+
+        <!--Devtools-->
+
+        <div class="devtools" id="devtools" hidden>
+            <div class="devtools-header">
+                <img src="images/icons/tool.png" id="devtools_img" class="devtools-img" onclick="devtools()"
+                    onmouseenter="labelenter(); labeldevtools()" onmouseleave="labelleave()">
+                <p class="devtools-text" id="devtools_header">DevTools</p>
+            </div>
+            <div id="devtools_content">
+                <div>
+                    <div class="devbutton" onclick="dev_golden()" style="width: 150px;">
+                        <p>Spawn Golden Eddie</p>
+                    </div>
+                    <div class="devbutton" onclick="train()" style="width: 150px;">
+                        <p>Spawn Train</p>
+                    </div>
+                    <div class="devbutton" onclick="dev_x10()" style="width: 150px;">
+                        <p>x10 Eddie Orbs</p>
+                    </div>
+                    <div class="devbutton" onclick="dev_x2()" style="width: 150px;">
+                        <p>x2 Eddie Orbs</p>
+                    </div>
+                    <div class="devbutton" onclick="dev_x10cpc()" style="width: 150px;">
+                        <p>x10 CPC</p>
+                    </div>
+                    <div class="devbutton" onclick="dev_maxflasks()" style="width: 150px;">
+                        <p>Max Flasks</p>
+                    </div>
+                    <div class="devbutton" onclick="dev_infiniteflasks()" style="width: 150px;">
+                        <p>Infinite Flasks</p>
+                    </div>
+                    <div class="devbutton" onclick="dev_x10maxflasks()" style="width: 150px;">
+                        <p>Flasks Max x10</p>
+                    </div>
+                    <div class="devbutton" onclick="dev_unlockspells()" style="width: 150px;">
+                        <p>Unlock Spells</p>
+                    </div>
+                    <div class="devbutton" onclick="dev_spellofshininess()" style="width: 150px;">
+                        <p>Spell of Shininess</p>
+                    </div>
+                    <div class="devtools-items-container">
+                        <span style="font-weight: 600; padding: 5px; font-size: 1.25em;">Items</span>
+                        <section class="devtools-items">
+                            <div class="devbutton" onclick="dev_10xCursors()" style="border: 1px rgb(243, 243, 243) solid;">
+                                <p>10x Cursors</p>
+                            </div>
+                            <div class=" devbutton" onclick="dev_10xBones()" style="border: 1px rgb(255, 242, 204) solid;">
+                                <p>10x Bones</p>
+                            </div>
+                            <div class="devbutton" onclick="dev_10xFrisbes()" style="border: 1px rgb(201, 218, 248) solid;">
+                                <p>10x Frisbes</p>
+                            </div>
+                            <div class="devbutton" onclick="dev_10xTreats()" style="border: 1px rgb(244, 204, 204) solid;">
+                                <p>10x Treats</p>
+                            </div>
+                            <div class="devbutton" onclick="dev_10xBeds()" style="border: 1px rgb(217, 210, 233) solid;">
+                                <p>10x Beds</p>
+                            </div>
+                            <div class="devbutton" onclick="dev_10xFriends()" style="border: 1px rgb(217, 234, 211) solid;">
+                                <p>10x Friends</p>
+                            </div>
+                        </section>
+                    </div>
+                    <p style="text-align: center; font-weight: 600; padding: 5px; font-size: 1.25em;">Golden Eddie Randomizer</p>
+                    <p id="goldeneddie_chance" style="text-align: center;">-</p>
+                    <p id="goldeneddie_chance_count" style="text-align: center;">-</p>
+
+                    <p style="text-align: center; font-weight: 600; padding: 5px; font-size: 1.25em;">Train Randomizer</p>
+                    <p id="train_chance" style="text-align: center;">-</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert" id="savealert">
+            <p class="alert-text" id="alert_text">Saved!</p>
+        </div>
+
+        <!--Achievements-->
+
+        <div class="achievement" id="achievement" onclick="achievementclose()">
+            <div>
+                <p class="achievement-title" id="ach_title">Click</p>
+                <p class="achievement-desc" id="ach_desc">Click Eddie 1 Time</p>
+            </div>
+        </div>
+
+
+        <!-------------------------------------------------------------------------------->
+
+
+        <section class="all" onclick="bodyclick()">
+            <section class="left">
+                <div class="counters">
+                    <span class="counter" id="count">-</span><br>
+                    <span title="Eddies Per Second">EPS:</span> <span id="cps" class="cps">-</span><br>
+                    <span title="Eddies Per Click">EPC:</span> <span id="cpc">-</span>
+                    <span id="warning" style="color: red;"></span>
+                </div>
+                <img src="images/EddieSphere.gif" class="eddie" id="eddie" onclick="eddieclick()">
+            </section>
+
+            <section class="right">
+                <div class="upgrades-all">
+                    <div class="upgrade-tooltip" id="upgrade_tooltip">
+                        <span class="upgrade-tooltip-name" id="info_title">Upgrade Name</span><br>
+                        <span class="upgrade-tooltip-desc" id="info_cps">Upgrade Description</span><br>
+                        <span class="upgrade-tooltip-price" id="info_price">Upgrade Cost</span>
+                    </div>
+                    <div class="upgrades-header" onclick="upgrades_collapse()">
+                        <span style="width: 100%; padding-left: 25px;">Upgrades<span id="upgrade_countall"> - </span><span id="upgrade_count">0</span></span>
+                        <img src="images/icons/collapse.png" class="upgrades-header-img" id="upgrade_collapse_img">
+                    </div>
+                    <div class="upgrades" id="upgrades">
+                        <div class="no-upgrades" id="no_upgrades"><i>No available upgrades! Keep playing to find more.</i></div>
+
+                        <!--19 Total-->
+
+                        <img class="upgrade" src="images/upgrades/silvercursors.png" id="upgrade_silvercursors"
+                            onmouseenter="upgrade_silvercursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_silvercursors()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/goldencursors.png" id="upgrade_goldencursors"
+                            onmouseenter="upgrade_goldencursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_goldencursors()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/platinumcursors.png" id="upgrade_platinumcursors"
+                            onmouseenter="upgrade_platinumcursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_platinumcursors()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/diamondcursors.png" id="upgrade_diamondcursors"
+                            onmouseenter="upgrade_diamondcursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_diamondcursors()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/emeraldcursors.png" id="upgrade_emeraldcursors"
+                            onmouseenter="upgrade_emeraldcursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_emeraldcursors()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/goldenfingers.png" id="upgrade_goldenfingers"
+                            onmouseenter="upgrade_goldenfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_goldenfingers()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/platinumfingers.png" id="upgrade_platinumfingers"
+                            onmouseenter="upgrade_platinumfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_platinumfingers()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/diamondfingers.png" id="upgrade_diamondfingers"
+                            onmouseenter="upgrade_diamondfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_diamondfingers()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/emeraldfingers.png" id="upgrade_emeraldfingers"
+                            onmouseenter="upgrade_emeraldfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_emeraldfingers()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/rubyfingers.png" id="upgrade_rubyfingers"
+                            onmouseenter="upgrade_rubyfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_rubyfingers()"
+                            hidden>
+
+                        <img class="upgrade" src="images/upgrades/baconbones.png" id="upgrade_baconbones"
+                            onmouseenter="upgrade_baconbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_baconbones()"
+                            hidden>
+
+                        <img class="upgrade" src="images/upgrades/meatbones.png" id="upgrade_meatbones"
+                            onmouseenter="upgrade_meatbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_meatbones()"
+                            hidden>
+
+                        <img class="upgrade" src="images/upgrades/thebone.png" id="upgrade_thebone"
+                            onmouseenter="upgrade_thebone_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_thebone()"
+                            hidden>
+
+                        <img class="upgrade" src="images/upgrades/nylonbones.png" id="upgrade_nylonbones"
+                            onmouseenter="upgrade_nylonbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_nylonbones()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/superfrisbe.png" id="upgrade_superfrisbe"
+                            onmouseenter="upgrade_superfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_superfrisbe()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/superepicfrisbe.png" id="upgrade_superepicfrisbe"
+                            onmouseenter="upgrade_superepicfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_superepicfrisbe()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/superultraepicfrisbe.png" id="upgrade_superultraepicfrisbe"
+                            onmouseenter="upgrade_superultraepicfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_superultraepicfrisbe()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/hmtreats.png" id="upgrade_hmtreats"
+                            onmouseenter="upgrade_hmtreats_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_hmtreats()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/barkbites.png" id="upgrade_barkbites"
+                            onmouseenter="upgrade_barkbites_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_barkbites()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/frostedtreats.png" id="upgrade_frostedtreats"
+                            onmouseenter="upgrade_frostedtreats_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_frostedtreats()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/xlbed.png" id="upgrade_xlbed"
+                            onmouseenter="upgrade_xlbed_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_xlbed()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/goldeneddies.png" id="upgrade_goldeneddies"
+                            onmouseenter="upgrade_goldeneddies_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_goldeneddies()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/shimmeringeddies.png" id="upgrade_shimmeringeddies"
+                            onmouseenter="upgrade_shimmeringeddies_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_shimmeringeddies()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/emptybottle.png" id="upgrade_emptybottle"
+                            onmouseenter="upgrade_emptybottle_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_emptybottle()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/biggerflasks.png" id="upgrade_biggerflasks"
+                            onmouseenter="upgrade_biggerflasks_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_biggerflasks()" hidden>
+                    </div>
+                </div>
+
+                <div class="spells-all" id="spells" hidden>
+                    <div class="spells-header" onclick="spells_collapse()">
+                        <span style="width: 100%; padding-left: 25px;">Spells</span>
+                        <img src="images/icons/collapse.png" class="spells-header-img" id="spells_header_img">
+                    </div>
+
+                    <div class="spell-tooltip" id="spell_tooltip">
+                        <span id="spell_title" class="spell-title">Spell Title</span><br>
+                        <span id="spell_desc">Spell Desc</span><br>
+                        <span id="spell_price">Spell Price</span>
+                    </div>
+
+                    <div class="spells" id="spells-all">
+                        <div class="spell-container">
+                            <img src="images/spells/goldenspell.png" class="spell" onmouseenter="spell_enter(); spell_golden_hover()"
+                                onmouseleave="spell_leave()"
+                                onclick="spell_golden()" id="spell_golden">
+                        </div>
+                        <div class="spell-bar">
+                            <span class="spell-bar-text">
+                                <span id="flasks">-</span>
+                                <span> / </span>
+                                <span id="flasks_max">-</span>
+                            </span>
+                            <div class="spell-bar-overlay" id="spell_bar_overlay"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="items-all">
+                    <div class="item-tooltip" id="item-tooltip">
+                        <span id="item_tt_title" style="font-size: 1.3em; font-weight: 600;">-</span><br>
+                        <span>EPS: </span>
+                        <span id="item_tt_eps">-</span><br>
+                        <span style="color: grey;">( </span><span style="color: grey;" id="item_tt_epseach">-</span><span style="color: grey;"> Each )</span>
+                    </div>
+
+                    <div class="item-container">
+
+                        <!--CURSOR-->
+
+                        <div class="item" onclick="buycursor()" id="cursorimg" onmouseenter="item_tt_enter(); cursor_tt()" onmouseleave="item_tt_leave()">
+                            <img src="images/buildings/cursor.png" class="item-image">
+                            <div class="item-content">
+                                <div class="item-left">
+                                    <span class="item-title">Cursor</span><br>
+                                    <span id="cursorprice" style="font-weight: 600;">-</span>
+                                </div>
+                                <span class="item-counter" id="cursor_owned">0</span>
+                            </div>
+                        </div>
+
+                        <!--BONE-->
+
+                        <div class="item" onclick="buybone()" id="boneimg" onmouseenter="item_tt_enter(); bone_tt()" onmouseleave="item_tt_leave()">
+                            <img src="images/buildings/bone.png" class="item-image">
+                            <div class="item-content">
+                                <div class="item-left">
+                                    <span class="item-title">Bone</span><br>
+                                    <span id="boneprice" style="font-weight: 600;">-</span>
+                                </div>
+                                <span class="item-counter" id="bone_owned">0</span>
+                            </div>
+                        </div>
+
+                        <!--FRISBE-->
+
+                        <div class="item" onclick="buyfrisbe()" id="frisbeimg" onmouseenter="item_tt_enter(); frisbe_tt()" onmouseleave="item_tt_leave()">
+                            <img src="images/buildings/frisbe.png" class="item-image">
+                            <div class="item-content">
+                                <div class="item-left">
+                                    <span class="item-title">Frisbe</span><br>
+                                    <span id="frisbeprice" style="font-weight: 600;">-</span>
+                                </div>
+                                <span class="item-counter" id="frisbe_owned">0</span>
+                            </div>
+                        </div>
+
+                        <!--TREAT-->
+
+                        <div class="item" onclick="buytreat()" id="treatimg" onmouseenter="item_tt_enter(); treat_tt()" onmouseleave="item_tt_leave()">
+                            <img src="images/buildings/treat.png" class="item-image">
+                            <div class="item-content">
+                                <div class="item-left">
+                                    <span class="item-title">Treat</span><br>
+                                    <span id="treatprice" style="font-weight: 600;">-</span>
+                                </div>
+                                <span class="item-counter" id="treat_owned">0</span>
+                            </div>
+                        </div>
+
+                        <!--BED-->
+
+                        <div class="item" onclick="buybed()" id="bedimg" onmouseenter="item_tt_enter(); bed_tt()" onmouseleave="item_tt_leave()">
+                            <img src="images/buildings/bed.png" class="item-image">
+                            <div class="item-content">
+                                <div class="item-left">
+                                    <span class="item-title">Bed</span><br>
+                                    <span id="bedprice" style="font-weight: 600;">-</span>
+                                </div>
+                                <span class="item-counter" id="bed_owned">0</span>
+                            </div>
+                        </div>
+
+                        <!--Friend-->
+
+                        <div class="item" onclick="buyfriend()" id="friendimg" onmouseenter="item_tt_enter(); friend_tt()" onmouseleave="item_tt_leave()">
+                            <img src="images/buildings/friend.png" class="item-image">
+                            <div class="item-content">
+                                <div class="item-left">
+                                    <span class="item-title">Friend</span><br>
+                                    <span id="friendprice" style="font-weight: 600;">-</span>
+                                </div>
+                                <span class="item-counter" id="friend_owned">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <img src="images/train.gif" class="train" id="train" onclick="trainclick()">
+
+        </section>
+
+        <img src="images/ranks/rank-none.png" id="rank" class="rank">
+        <span class="rank-text" id="rank_text"><span id="rank_count"></span> Eddie Orbs Till Next Rank</span>
+        <div class="rank-progress" id="rank_progress"></div>
 
     </section>
-
-    <img src="images/ranks/rank-none.png" id="rank" class="rank">
-    <span class="rank-text" id="rank_text"><span id="rank_count"></span> Eddie Orbs Till Next Rank</span>
-    <div class="rank-progress" id="rank_progress"></div>
 
     <script src="node_modules/numeral/numeral.js"></script>
     <script src="save.js"></script>
@@ -542,6 +587,7 @@
     <script src="menus.js"></script>
     <script src="train.js"></script>
     <script src="spells.js"></script>
+    <script src="devtools.js"></script>
     <script src="misc.js"></script>
 
 </body>

@@ -111,6 +111,10 @@ function buybone() {
         if(config.bonetotal === 50) {
             config.upgrades += 1
         }
+
+        if(config.bonetotal === 75) {
+            config.upgrades += 1
+        }
     }
 }
 
@@ -249,16 +253,12 @@ function buyfriend() {
     }
 }
 
-
-
-window.onload = function() {
-    document.getElementById('cursor_owned').innerHTML = config.cursortotal
-    document.getElementById('bone_owned').innerHTML = config.bonetotal
-    document.getElementById('frisbe_owned').innerHTML = config.frisbetotal
-    document.getElementById('treat_owned').innerHTML = config.treattotal
-    document.getElementById('bed_owned').innerHTML = config.bedtotal
-}
-
+document.getElementById('cursor_owned').innerHTML = config.cursortotal
+document.getElementById('bone_owned').innerHTML = config.bonetotal
+document.getElementById('frisbe_owned').innerHTML = config.frisbetotal
+document.getElementById('treat_owned').innerHTML = config.treattotal
+document.getElementById('bed_owned').innerHTML = config.bedtotal
+document.getElementById('friend_owned').innerHTML = config.friendtotal
 
 
 function item_tt_enter() {
@@ -276,41 +276,41 @@ function item_tt_leave() {
 function cursor_tt() {
     document.getElementById('item-tooltip').style.setProperty('top', '0px')
     document.getElementById('item_tt_title').innerHTML = "Cursor"
-    document.getElementById('item_tt_eps').innerHTML = config.cursorcps * config.cursormultiplier
-    document.getElementById('item_tt_epseach').innerHTML = config.cursormultiplier
+    document.getElementById('item_tt_eps').innerHTML = numeral(config.cursorcps * config.cursormultiplier).format('0,00')
+    document.getElementById('item_tt_epseach').innerHTML = numeral(config.cursormultiplier).format('0,00')
 }
 
 function bone_tt() {
     document.getElementById('item-tooltip').style.setProperty('top', '55px')
     document.getElementById('item_tt_title').innerHTML = "Bone"
-    document.getElementById('item_tt_eps').innerHTML = config.bonecps * config.bonemultiplier
-    document.getElementById('item_tt_epseach').innerHTML = 10 * config.bonemultiplier
+    document.getElementById('item_tt_eps').innerHTML = numeral(config.bonecps * config.bonemultiplier).format('0,00')
+    document.getElementById('item_tt_epseach').innerHTML = numeral(10 * config.bonemultiplier).format('0,00')
 }
 
 function frisbe_tt() {
     document.getElementById('item-tooltip').style.setProperty('top', '110px')
     document.getElementById('item_tt_title').innerHTML = "Frisbe"
-    document.getElementById('item_tt_eps').innerHTML = config.frisbecps * config.frisbemultiplier
-    document.getElementById('item_tt_epseach').innerHTML = 50 * config.frisbemultiplier
+    document.getElementById('item_tt_eps').innerHTML = numeral(config.frisbecps * config.frisbemultiplier).format('0,00')
+    document.getElementById('item_tt_epseach').innerHTML = numeral(50 * config.frisbemultiplier).format('0,00')
 }
 
 function treat_tt() {
     document.getElementById('item-tooltip').style.setProperty('top', '165px')
     document.getElementById('item_tt_title').innerHTML = "Treat"
-    document.getElementById('item_tt_eps').innerHTML = config.treatcps * config.treatmultiplier
-    document.getElementById('item_tt_epseach').innerHTML = 100 * config.treatmultiplier
+    document.getElementById('item_tt_eps').innerHTML = numeral(config.treatcps * config.treatmultiplier).format('0,00')
+    document.getElementById('item_tt_epseach').innerHTML = numeral(100 * config.treatmultiplier).format('0,00')
 }
 
 function bed_tt() {
     document.getElementById('item-tooltip').style.setProperty('top', '220px')
     document.getElementById('item_tt_title').innerHTML = "Bed"
-    document.getElementById('item_tt_eps').innerHTML = config.bedcps * config.bedmultiplier
-    document.getElementById('item_tt_epseach').innerHTML = 1000 * config.bedmultiplier
+    document.getElementById('item_tt_eps').innerHTML = numeral(config.bedcps * config.bedmultiplier).format('0,00')
+    document.getElementById('item_tt_epseach').innerHTML = numeral(1000 * config.bedmultiplier).format('0,00')
 }
 
 function friend_tt() {
     document.getElementById('item-tooltip').style.setProperty('top', '275px')
     document.getElementById('item_tt_title').innerHTML = "Friend"
-    document.getElementById('item_tt_eps').innerHTML = config.friendcps * config.friendmultiplier
-    document.getElementById('item_tt_epseach').innerHTML = 10000 * config.friendmultiplier
+    document.getElementById('item_tt_eps').innerHTML = numeral(config.friendcps * config.friendmultiplier).format('0,00')
+    document.getElementById('item_tt_epseach').innerHTML = numeral(10000 * config.friendmultiplier).format('0,00')
 }

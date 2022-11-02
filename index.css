@@ -12,6 +12,7 @@
   --hitbox3: rgba(0, 255, 0, 10%);
   --hitbox4: rgba(255, 255, 0, 10%);
   --goldeneddie-timer: 0%;
+  --bouncy: cubic-bezier(0, 2, 1, 1);
 }
 
 @font-face {
@@ -32,22 +33,22 @@
 @media screen and (max-width: 800px) {
   html {
     overflow-x: hidden;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
   }
 
   body {
-    height: 100%;
+    height: 100vh;
   }
 
   .all {
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     margin-top: 20px;
   }
 
   .right {
+    align-items: unset;
     margin-top: 50px;
   }
 
@@ -73,6 +74,18 @@
   }
 
   .warning {
+    display: none;
+  }
+
+  .rank {
+    display: none;
+  }
+
+  .rank-progress {
+    display: none;
+  }
+
+  .rank-text {
     display: none;
   }
 }
@@ -114,7 +127,7 @@ body {
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   opacity: 1;
   display: flex;
   flex-direction: column;
@@ -142,6 +155,12 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.game {
+  filter: blur(0px);
+  height: 100vh;
+  transition: filter ease-in-out 0.25s;
 }
 
 .warning {
@@ -270,14 +289,14 @@ body {
 }
 
 .goldeneddie-container {
-  width: 80%;
-  height: 75%;
+  width: 75vw;
+  height: 50vh;
   position: relative;
 }
 
 .goldeneddie {
   position: absolute;
-  width: 150px;
+  width: 20rem;
   z-index: 10;
   transform: scale(0%);
   transition: transform ease-in-out 2s;
@@ -338,128 +357,149 @@ body {
   margin-left: -10px;
 }
 
-.settings {
+.settings-container-container {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  margin: 10px;
-  width: 40px;
-  height: 40px;
-  transition: background-color 0.25s ease-in-out, width 0.25s ease-in-out,
-    height 0.25s ease-in-out;
-  overflow: hidden;
-  border-radius: 5px;
-  z-index: 3;
-  user-select: none;
-  font-weight: 600;
+  z-index: 99;
+  pointer-events: none;
 }
 
-.settings-header {
+.settings-container {
+  width: 25vw;
+  height: 25vh;
+  background-color: var(--blackTP2);
+  border-radius: 10px;
+  pointer-events: all;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow: hidden;
+  transition: width ease-in-out 0.25s, height ease-in-out 0.25s,
+    opacity ease-in-out 0.25s;
+}
+
+.settings-content {
+  opacity: 0;
+  transition: all ease-in-out 0.1s;
+}
+
+.settings-back {
+  width: 30px;
+  height: 30px;
+  filter: invert();
+  cursor: pointer;
+}
+
+.settings-back:hover {
+  transition: transform var(--bouncy) 0.25s;
+  transform: scale(120%);
+}
+
+.settings-back:active {
+  transform: scale(100%);
+}
+
+.settings-all {
+  height: 100%;
+}
+
+.settings {
+  width: 100%;
+  transition: opacity ease-in-out 0.1;
+}
+
+.settings-bottom {
   display: flex;
   align-items: center;
-  font-size: 1.5em;
-  font-weight: 600;
+  flex-direction: column;
 }
 
-.settings-text {
-  width: 100%;
-  text-align: center;
-  padding-right: 40px;
-  transition: color 0.1s ease-in-out;
+.setting {
+  display: flex;
+  align-items: center;
+  width: 25%;
+}
+
+.setting-desc {
+  padding-left: 40px;
+  color: grey;
 }
 
 .settings-img {
   cursor: pointer;
   filter: invert();
   width: 30px;
-  margin: 5px;
+  position: absolute;
+  top: 40px;
+  left: 15px;
   z-index: 2;
 }
 
-.settings-img:hover {
-  transform: scale(110%);
-}
-
-.settings-img:active {
-  transform: scale(100%);
-}
-
-.settings-title {
-  text-align: center;
-  font-size: 1.25em;
-  position: absolute;
-}
-
-.settings-content {
-  transition: opacity, 0.25s ease-in-out;
-  text-align: center;
-  opacity: 1;
-}
-
-.settings-text {
-  font-size: 1.25em;
-}
-
-.settings-deletebutton {
-  background-color: var(--darkbg);
-  width: 100px;
-  margin: 0 auto;
-  text-align: center;
-  border: 1px solid red;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.settings-deletebutton:hover {
-  transform: scale(105%);
-}
-
-.settings-deletebutton:active {
-  transform: scale(100%);
-}
-
-.settings-defaultbutton {
-  background-color: var(--darkbg);
-  width: 100px;
-  margin: 0 auto;
-  text-align: center;
-  border: 1px solid grey;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.settings-defaultbutton:hover {
-  transform: scale(105%);
-}
-
-.settings-defaultbutton:active {
-  transform: scale(100%);
-}
-
-.setting-1 {
+.settings-top {
   display: flex;
-  align-items: center;
-  margin-left: 25px;
 }
 
-.setting-checkbox-1-text {
-  font-size: 1.25em;
+.settings-header {
+  font-size: 3em;
+  font-weight: 600;
+  width: 100%;
+  padding-right: 30px;
+  text-align: center;
 }
 
-.settings-checkbox {
+.setting-checkbox {
   width: 25px;
+  height: 25px;
   filter: invert();
   cursor: pointer;
 }
 
-.settings-checkbox:hover {
+.setting-text {
+  font-size: 1.2em;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.setting-button {
+  background-color: var(--blackTP2);
+  border: 1px solid gray;
+  padding: 5px;
+  width: 100px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.setting-button:hover {
+  transition: transform var(--bouncy) 0.25s;
   transform: scale(110%);
 }
 
-.settings-checkbox:active {
+.setting-button:active {
   transform: scale(100%);
 }
 
-.setting-checkbox-2-text {
-  font-size: 1.25em;
+.setting-checkbox:hover {
+  transition: transform var(--bouncy) 0.25s;
+  transform: scale(120%);
+}
+
+.setting-checkbox:active {
+  transform: scale(100%);
+}
+
+.settings-img:hover {
+  transition: transform var(--bouncy) 0.25s;
+  transform: scale(120%);
+}
+
+.settings-img:active {
+  transform: scale(100%);
 }
 
 .credits {
@@ -483,7 +523,8 @@ body {
 }
 
 .credits-img:hover {
-  transform: scale(110%);
+  transition: transform var(--bouncy) 0.25s;
+  transform: scale(120%);
 }
 
 .credits-img:active {
@@ -536,7 +577,8 @@ body {
 }
 
 .stats-img:hover {
-  transform: scale(110%);
+  transition: transform var(--bouncy) 0.25s;
+  transform: scale(120%);
 }
 
 .stats-img:active {
@@ -563,7 +605,8 @@ body {
 }
 
 .devtools-img:hover {
-  transform: scale(110%);
+  transition: transform var(--bouncy) 0.25s;
+  transform: scale(120%);
 }
 
 .devtools-img:active {
@@ -599,6 +642,7 @@ body {
 }
 
 .devbutton:hover {
+  transition: transform var(--bouncy) 0.25s;
   transform: scale(105%);
 }
 
@@ -647,7 +691,7 @@ body {
 
 .all {
   display: flex;
-  height: calc(100vh - 250px);
+  height: calc(100vh - 62px);
 }
 
 .left {
@@ -660,6 +704,7 @@ body {
   text-align: center;
   font-size: 3em;
   height: 40px;
+  font-family: renogare;
 }
 
 .counter-ani {
@@ -795,11 +840,11 @@ body {
 }
 
 .upgrade:hover {
-  transform: scale(105%);
+  transform: translateY(-1px);
 }
 
 .upgrade:active {
-  transform: scale(100%);
+  transform: translateY(0px);
 }
 
 .spell-tooltip {
@@ -856,8 +901,9 @@ body {
 }
 
 .spell-container {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .spell-bar {
@@ -890,6 +936,7 @@ body {
 
 .spell {
   width: 50px;
+  cursor: pointer;
 }
 
 .spell:hover {
@@ -998,6 +1045,21 @@ body {
   font-weight: 600;
 }
 
+.changelog-extention {
+  padding-left: 10px;
+  font-weight: 300;
+  list-style: circle;
+}
+
+.changelog-extention-2 {
+  padding-left: 25px;
+  font-weight: 300;
+}
+
+.changelog-date {
+  color: gray;
+}
+
 .noti-icon {
   filter: invert();
   position: absolute;
@@ -1008,7 +1070,8 @@ body {
 }
 
 .noti-icon:hover {
-  transform: scale(110%);
+  transition: transform var(--bouncy) 0.25s;
+  transform: scale(120%);
 }
 
 .noti-icon:active {
@@ -1046,7 +1109,8 @@ body {
 }
 
 .notis-img:hover {
-  transform: scale(110%);
+  transition: transform var(--bouncy) 0.25s;
+  transform: scale(120%);
 }
 
 .notis-img:active {
@@ -1079,7 +1143,7 @@ body {
   width: 0;
   height: 1px;
   bottom: 0;
-  transition: all ease-in-out 0.5s;
+  /* transition: all ease-in-out 0.5s; */
 }
 
 .rank-text {
@@ -1099,7 +1163,7 @@ body {
   position: absolute;
   bottom: 0;
   left: -200px;
-  width: 200px; /* 1,000 Lines!! */
+  width: 200px;
   cursor: pointer;
   transition: left linear 30s;
 }

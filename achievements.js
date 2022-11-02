@@ -111,7 +111,7 @@ function achievement9() {
 }
 
 function achievement10() {
-    document.getElementById('ach_title').innerHTML = 'Countinent of Eddies'
+    document.getElementById('ach_title').innerHTML = 'Continent of Eddies'
     document.getElementById('ach_desc').innerHTML = 'Reach 100 Million Total Eddie Orbs'
     document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
@@ -160,6 +160,18 @@ function achievement13() {
 
 function achievement14() {
     document.getElementById('ach_title').innerHTML = 'Youre a Wizard Eddie'
+    document.getElementById('ach_desc').innerHTML = 'Unlock Spells'
+    document.getElementById('achievement').style.setProperty('left', '10px')
+    config.totalachievements += 1
+    config.ach14 = true
+
+    setTimeout(() => {
+        document.getElementById('achievement').style.setProperty('left', '-350px')  
+    }, 5000);
+}
+
+function achievement14() {
+    document.getElementById('ach_title').innerHTML = 'Galaxy of Eddies'
     document.getElementById('ach_desc').innerHTML = 'Unlock Spells'
     document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1

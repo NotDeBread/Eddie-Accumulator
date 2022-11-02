@@ -52,7 +52,7 @@ function goldeneddie() {
     document.getElementById('goldeneddie').style.setProperty('left', `calc(100% * ${Math.random()}`)
     document.getElementById('goldeneddie').style.setProperty('top', `calc(100% * ${Math.random()}`)
     document.getElementById('goldeneddie').style.setProperty('transform', 'scale(100%)')
-    goldeneddie_type = Math.round(Math.random() * 2)
+    goldeneddie_type = Math.round(Math.random() * 3)
 
     setTimeout(() => {
         document.getElementById('goldeneddie').style.setProperty('transform', 'scale(0%)')
@@ -117,7 +117,20 @@ function goldeneddie_click() {
         config.golden_cpcmultiplier /= 3
     }, 30000);
 
-    }
+    } else if(goldeneddie_type === 3) {
+        document.getElementById('alert_text').style.setProperty('width', '150px')
+        document.getElementById('cpc').style.setProperty('color', 'yellow')
+        
+        if(config.flasks + 10 > config.flasks_max) {
+            document.getElementById('alert_text').innerText = '+' + (config.flasks_max - config.flasks) + ' Flasks!'
+            config.totalflasks += config.flasks_max - config.flasks
+            config.flasks = config.flasks_max
+        } else {
+            config.flasks += 10
+            config.totalflasks += 10
+            document.getElementById('alert_text').innerHTML = '+10 Flasks!'
+        }
+    } 
 
     document.getElementById('alert_text').style.setProperty('background-color', 'rgba(253, 255, 125, 0.5)')
     savealert()

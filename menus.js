@@ -1,122 +1,141 @@
 document.getElementById('loader_text').innerHTML = 'Loading Menus...'
 console.log('Loading Settings...')
 
-var settingsopen = false
 var creditsopen = false
 var devtoolsopen = false
 
 setInterval(autosave, 60000)
 
-function settings() {
+function settingsopen() {
+    document.getElementById('settings').style.setProperty('display','flex')
+    
+    setTimeout(() => {
+        document.getElementById('game').style.setProperty('filter','blur(10px)')
+        document.getElementById('settings_container').style.setProperty('width','50vw')
+        document.getElementById('settings_container').style.setProperty('height','50vh')
+        document.getElementById('settings_container').style.setProperty('opacity','1')
+        document.getElementById('settings_content').style.setProperty('opacity','1')
+    }, 1);
 
-//Open
+    if(config.autosave === true) {
+        document.getElementById('cb_1').src = 'images/icons/checkbox2.png'
+    } else {document.getElementById('cb_1').src = 'images/icons/checkbox1.png'}
 
-    if(!settingsopen) {
-        document.getElementById('settings_img').src = "images/icons/back.png"
-        document.getElementById('settings').style.setProperty('width', '250px')
-        document.getElementById('settings').style.setProperty('height', '260px')
-        document.getElementById('settings').style.setProperty('background-color', 'var(--darkerbg)')
-        document.getElementById('settings_content').style.setProperty('opacity', '1')
-        document.getElementById('settings_header').style.setProperty('color', 'rgba(255, 255, 255, 255)')
-        document.getElementById('label_left').style.setProperty('opacity','0')
-    }
+    if(config.monospacefont === true) {
+        document.getElementById('cb_2').src = 'images/icons/checkbox2.png'
+    } else {document.getElementById('cb_2').src = 'images/icons/checkbox1.png'}
 
-//Close
+    if(config.shortnumbers === true) {
+        document.getElementById('cb_3').src = 'images/icons/checkbox2.png'
+    } else {document.getElementById('cb_3').src = 'images/icons/checkbox1.png'}
 
-    if(settingsopen) {
-        document.getElementById('settings_img').src = "images/icons/settings.png"
-        document.getElementById('settings').style.setProperty('width', '40px')
-        document.getElementById('settings').style.setProperty('height', '40px')
-        document.getElementById('settings').style.setProperty('background-color', 'transparent')
-        document.getElementById('settings_content').style.setProperty('opacity', '0')
-        document.getElementById('settings_header').style.setProperty('color', 'rgba(255, 255, 255, 0)')
-        document.getElementById('deletebutton_text').innerHTML = 'Delete Save'
-        deletevar = 0
+    if(config.walter === true) {
+        document.getElementById('cb_4').src = 'images/icons/checkbox2.png'
+    } else {document.getElementById('cb_4').src = 'images/icons/checkbox1.png'}
+}
 
-    }
-    settingsopen = !settingsopen
+function settingsclose() {
+    document.getElementById('settings_container').style.setProperty('width','0vw')
+    document.getElementById('settings_container').style.setProperty('height','0vh')
+    document.getElementById('settings_container').style.setProperty('opacity','0')
+    document.getElementById('settings_content').style.setProperty('opacity','0')
+    document.getElementById('game').style.setProperty('filter','blur(0px)')
+    setTimeout(() => {
+        document.getElementById('settings').style.setProperty('display','none')
+        document.getElementById('deletebutton').innerHTML = 'Delete Save'
+    }, 250);
+}
 
-    document.getElementById('devtools_img').src = "images/icons/tool.png"
-    document.getElementById('devtools').style.setProperty('width', '40px')
-    document.getElementById('devtools').style.setProperty('height', '40px')
-    document.getElementById('devtools').style.setProperty('background-color', 'transparent')
-    document.getElementById('devtools_content').style.setProperty('opacity', '0')
-    document.getElementById('devtools_header').style.setProperty('color', 'rgba(255, 255, 255, 0)')
-
-    devtoolsopen = false
-
-    document.getElementById('credits_img').src = "images/icons/users.png"
-    document.getElementById('credits').style.setProperty('width', '40px')
-    document.getElementById('credits').style.setProperty('height', '40px')
-    document.getElementById('credits').style.setProperty('background-color', 'transparent')
-    document.getElementById('credits_content').style.setProperty('opacity', '0')
-    document.getElementById('credits_header').style.setProperty('color', 'rgba(255, 255, 255, 0)')
-
-    creditsopen = false
+if(config.monospacefont === true) {
+    document.getElementById('count').style.setProperty('font-family','inconsolata')
+} else {
+    document.getElementById('count').style.setProperty('font-family','renogare')
 }
 
 function setting1() {
-    if(!config.setting1var) {
-        document.getElementById('setting1-img').src = "images/icons/checkbox2.png"
-        config.autosave = true
-    } 
-    
-    if(config.setting1var) {
-        document.getElementById('setting1-img').src = "images/icons/checkbox1.png"
-        config.autosave = false
-    }
+    if(document.getElementById('cb_1').src = 'images/icons/checkbox1.png' && config.autosave === false) {
 
-    config.setting1var = !config.setting1var
+        document.getElementById('cb_1').src = 'images/icons/checkbox2.png'
+        config.autosave = true
+
+    } else {
+
+        document.getElementById('cb_1').src = 'images/icons/checkbox1.png'
+        config.autosave = false
+
+    }
 }
+
 
 function setting2() {
-    if(config.setting2var) {
-        document.getElementById('setting2-img').src = "images/icons/checkbox1.png"
-        config.monospace = false
-    } 
-    
-    if(!config.setting2var) {
-        document.getElementById('setting2-img').src = "images/icons/checkbox2.png"
-        config.monospace = true
-    }
+    if(document.getElementById('cb_2').src = 'images/icons/checkbox1.png' && config.monospacefont === false) {
 
-    config.setting2var = !config.setting2var
+        document.getElementById('cb_2').src = 'images/icons/checkbox2.png'
+        document.getElementById('count').style.setProperty('font-family','inconsolata')
+        config.monospacefont = true
+
+    } else {
+
+        document.getElementById('cb_2').src = 'images/icons/checkbox1.png'
+        document.getElementById('count').style.setProperty('font-family','renogare')
+        config.monospacefont = false
+
+    }
 }
 
-function setting3() {
-    if(!config.setting3var) {
-        document.getElementById('setting3-img').src = "images/icons/checkbox2.png"
-        config.shortnumbers = true
-    } 
-    
-    if(config.setting3var) {
-        document.getElementById('setting3-img').src = "images/icons/checkbox1.png"
-        config.shortnumbers = false
-    }
 
-    config.setting3var = !config.setting3var
+function setting3() {
+    if(document.getElementById('cb_3').src = 'images/icons/checkbox1.png' && config.shortnumbers === false) {
+
+        document.getElementById('cb_3').src = 'images/icons/checkbox2.png'
+        config.shortnumbers = true
+
+    } else {
+
+        document.getElementById('cb_3').src = 'images/icons/checkbox1.png'
+        config.shortnumbers = false
+
+    }
+}
+
+
+if(config.walter == true) {
+    document.getElementById('eddie').src = 'images/walter.gif'
+    document.getElementById('webtitle').innerText = 'Walter Accumulator'
+    document.getElementById('topper_title').innerText = 'Walter Accumulator'
+} else {
+    document.getElementById('eddie').src = 'images/EddieSphere.gif'
+    document.getElementById('webtitle').innerText = 'Eddie Accumulator'
+    document.getElementById('topper_title').innerText = 'Eddie Accumulator'
 }
 
 function setting4() {
-    if(!config.setting4var) {
-        document.getElementById('setting4-img').src = "images/icons/checkbox2.png"
-        config.walter = true
-        document.getElementById('eddie').src = 'images/walter.gif'
-        document.getElementById('webtitle').innerHTML = 'Walter Accumulator'
-        document.getElementById('topper_title').innerHTML = 'Walter Accumulator'
-        document.getElementById('favicon').href = 'images/icon2.png'
-    } 
-    
-    if(config.setting4var) {
-        document.getElementById('setting4-img').src = "images/icons/checkbox1.png"
-        config.walter = false
-        document.getElementById('eddie').src = 'images/EddieSphere.gif'
-        document.getElementById('webtitle').innerHTML = 'Eddie Accumulator'
-        document.getElementById('topper_title').innerHTML = 'Eddie Accumulator'
-        document.getElementById('favicon').href = 'images/icon.png'
-    }
+    if(document.getElementById('cb_4').src = 'images/icons/checkbox1.png' && config.walter === false) {
 
-    config.setting4var = !config.setting4var
+        document.getElementById('cb_4').src = 'images/icons/checkbox2.png'
+        document.getElementById('topper_title').innerText = 'Walter Accumulator'
+        document.getElementById('webtitle').innerText = 'Walter Accumulator'
+        document.getElementById('eddie').src = 'images/walter.gif'
+        config.walter = true
+
+    } else {
+
+        document.getElementById('cb_4').src = 'images/icons/checkbox1.png'
+        document.getElementById('topper_title').innerText = 'Eddie Accumulator'
+        document.getElementById('webtitle').innerText = 'Eddie Accumulator'
+        document.getElementById('eddie').src = 'images/EddieSphere.gif'
+        config.walter = false
+
+    }
+}
+
+function deletebutton() {
+    if(document.getElementById('deletebutton').innerHTML === 'Delete Save') {
+        document.getElementById('deletebutton').innerHTML = 'Are You Sure?'
+        document.getElementById('game').style.setProperty('filter','blur(20px)')
+    } else if(document.getElementById('deletebutton').innerHTML === 'Are You Sure?') {
+        deletesave()
+    }
 }
 
 function autosave() {
@@ -153,30 +172,6 @@ function savealert() {
     }, 3000);
 }
 
-function deletebutton() {
-    document.getElementById('deletebutton_text').innerHTML = 'Are you sure?'
-    deletevar += 1
-
-    if (deletevar === 2) {
-        deletesave()
-    }
-}
-
-function defaultbutton() {
-    config.autosave = true
-    config.setting1var = true
-    config.monospace = false
-    config.setting2var = false
-    config.shortnumbers = true
-    config.setting3var = true
-    config.walter = false
-    config.setting4var = false
-    document.getElementById('setting1-img').src = "images/icons/checkbox2.png"
-    document.getElementById('setting2-img').src = "images/icons/checkbox1.png"
-    document.getElementById('setting3-img').src = "images/icons/checkbox2.png"
-    document.getElementById('setting4-img').src = "images/icons/checkbox1.png"
-}
-
 function deletesave() {
     localStorage.removeItem('save', JSON.stringify(config))
     window.location.reload();
@@ -199,7 +194,7 @@ function devtools() {
         if(!devtoolsopen) {
             document.getElementById('devtools_img').src = "images/icons/back.png"
             document.getElementById('devtools').style.setProperty('width', '200px')
-            document.getElementById('devtools').style.setProperty('height', '325px')
+            document.getElementById('devtools').style.setProperty('height', '400px')
             document.getElementById('devtools').style.setProperty('background-color', 'var(--darkerbg)')
             document.getElementById('devtools_content').style.setProperty('opacity', '1')
             document.getElementById('devtools_header').style.setProperty('color', 'rgba(255, 255, 255, 255)')
@@ -218,16 +213,6 @@ function devtools() {
         }
         devtoolsopen = !devtoolsopen
 
-        document.getElementById('settings_img').src = "images/icons/settings.png"
-        document.getElementById('settings').style.setProperty('width', '40px')
-        document.getElementById('settings').style.setProperty('height', '40px')
-        document.getElementById('settings').style.setProperty('background-color', 'transparent')
-        document.getElementById('settings_content').style.setProperty('opacity', '0')
-        document.getElementById('settings_header').style.setProperty('color', 'rgba(255, 255, 255, 0)')
-        document.getElementById('deletebutton_text').innerHTML = 'Delete Save'
-
-        settingsopen = false
-
         document.getElementById('credits_img').src = "images/icons/users.png"
         document.getElementById('credits').style.setProperty('width', '40px')
         document.getElementById('credits').style.setProperty('height', '40px')
@@ -236,64 +221,6 @@ function devtools() {
         document.getElementById('credits_header').style.setProperty('color', 'rgba(255, 255, 255, 0)')
 
         creditsopen = false
-}
-
-function dev_x10() {
-    config.countraw *= 10
-    config.totaleddieorbsraw *= 10
-}
-
-function dev_x2() {
-    config.countraw *= 2
-    config.totaleddieorbsraw *= 2
-}
-
-function dev_golden() {
-    goldeneddie_random = 7
-    document.getElementById('goldeneddie_chance').innerHTML = goldeneddie_random
-    document.getElementById('goldeneddie_chance').style.setProperty('color', 'lime')
-    goldeneddie()
-}
-
-function dev_x10cpc() {
-    config.cpcmultiplier *= 10
-    document.getElementById('cpc').innerHTML = config.cpc * config.cpcmultiplier
-}
-
-function dev_10xCursors() {
-    for (let index = 0; index < 10; index++) {
-        buycursor()
-    }
-}
-
-function dev_10xBones() {
-    for (let index = 0; index < 10; index++) {
-        buybone()
-    }
-}
-
-function dev_10xFrisbes() {
-    for (let index = 0; index < 10; index++) {
-        buyfrisbe()
-    }
-}
-
-function dev_10xTreats() {
-    for (let index = 0; index < 10; index++) {
-        buytreat()
-    }
-}
-
-function dev_10xBeds() {
-    for (let index = 0; index < 10; index++) {
-        buybed()
-    }
-}
-
-function dev_10xFriends() {
-    for (let index = 0; index < 10; index++) {
-        buyfriend()
-    }
 }
 
 //Credits
@@ -332,16 +259,6 @@ function credits() {
         document.getElementById('devtools_header').style.setProperty('color', 'rgba(255, 255, 255, 0)')
 
         devtoolsopen = false
-
-        document.getElementById('settings_img').src = "images/icons/settings.png"
-        document.getElementById('settings').style.setProperty('width', '40px')
-        document.getElementById('settings').style.setProperty('height', '40px')
-        document.getElementById('settings').style.setProperty('background-color', 'transparent')
-        document.getElementById('settings_content').style.setProperty('opacity', '0')
-        document.getElementById('settings_header').style.setProperty('color', 'rgba(255, 255, 255, 0)')
-        document.getElementById('deletebutton_text').innerHTML = 'Delete Save'
-
-        settingsopen = false
 }
 
 function labelenter() {
@@ -382,16 +299,9 @@ function labeldevtools() {
 }
 
 function bodyclick() {
-    document.getElementById('settings_img').src = "images/icons/settings.png"
-    document.getElementById('settings').style.setProperty('width', '40px')
-    document.getElementById('settings').style.setProperty('height', '40px')
-    document.getElementById('settings').style.setProperty('background-color', 'transparent')
-    document.getElementById('settings_content').style.setProperty('opacity', '0')
-    document.getElementById('settings_header').style.setProperty('color', 'rgba(255, 255, 255, 0)')
-    document.getElementById('notis').style.setProperty('right', '-25%')
-    document.getElementById('deletebutton_text').innerHTML = 'Delete Save'
 
-    settingsopen = false
+    settingsclose()
+    noti_close()
 
     document.getElementById('credits_img').src = "images/icons/users.png"
     document.getElementById('credits').style.setProperty('width', '40px')
