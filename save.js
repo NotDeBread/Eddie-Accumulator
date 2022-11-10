@@ -77,12 +77,16 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     upgrade_superfrisbe_bought: false,
     upgrade_superepicfrisbe_bought: false,
     upgrade_superultraepicfrisbe_bought: false,
+    upgrade_superultraepicfrisbepro_bought: false,
     
     upgrade_hmtreats_bought: false,
     upgrade_barkbites_bought: false,
     upgrade_frostedtreats_bought: false,
+    upgrade_nugget_bought: false,
     
     upgrade_xlbed_bought: false,
+
+    upgrade_walter_bought: false,
     
     upgrade_goldeneddies_bought: false,
     upgrade_shimmeringeddies_bought: false,
@@ -122,6 +126,8 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     ach12: false,
     ach13: false,
     ach14: false,
+    ach15: false,
+    ach16: false,
 
     ach4_check: false,
     ach5_check: false,
@@ -132,6 +138,7 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     ach10_check: false,
     ach11_check: false,
     ach12_check: false,
+    ach15_check: false,
 
     devtoolsunlocked: false,
 
@@ -139,4 +146,6 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     monospacefont: false,
     shortnumbers: true,
     walter: false,
+
+    mode: 0,
 }

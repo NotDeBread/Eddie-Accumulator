@@ -28,10 +28,6 @@ function settingsopen() {
     if(config.shortnumbers === true) {
         document.getElementById('cb_3').src = 'images/icons/checkbox2.png'
     } else {document.getElementById('cb_3').src = 'images/icons/checkbox1.png'}
-
-    if(config.walter === true) {
-        document.getElementById('cb_4').src = 'images/icons/checkbox2.png'
-    } else {document.getElementById('cb_4').src = 'images/icons/checkbox1.png'}
 }
 
 function settingsclose() {
@@ -98,35 +94,132 @@ function setting3() {
     }
 }
 
-
-if(config.walter == true) {
-    document.getElementById('eddie').src = 'images/walter.gif'
-    document.getElementById('webtitle').innerText = 'Walter Accumulator'
-    document.getElementById('topper_title').innerText = 'Walter Accumulator'
-} else {
-    document.getElementById('eddie').src = 'images/EddieSphere.gif'
+function eddie() {
+    document.getElementById('mode').innerText = 'Eddie'
+    document.getElementById('eddie').src = 'images/spheres/EddieSphere.gif'
     document.getElementById('webtitle').innerText = 'Eddie Accumulator'
-    document.getElementById('topper_title').innerText = 'Eddie Accumulator'
+    document.getElementById('topper_title').innerText = 'Eddie Accumulator' 
 }
 
-function setting4() {
-    if(document.getElementById('cb_4').src = 'images/icons/checkbox1.png' && config.walter === false) {
+function walter() {
+    document.getElementById('mode').innerText = 'Walter'
+    document.getElementById('eddie').src = 'images/spheres/WalterSphere.gif'
+    document.getElementById('webtitle').innerText = 'Walter Accumulator'
+    document.getElementById('topper_title').innerText = 'Walter Accumulator'
+}
 
-        document.getElementById('cb_4').src = 'images/icons/checkbox2.png'
-        document.getElementById('topper_title').innerText = 'Walter Accumulator'
-        document.getElementById('webtitle').innerText = 'Walter Accumulator'
-        document.getElementById('eddie').src = 'images/walter.gif'
-        config.walter = true
+function shadow() {
+    document.getElementById('mode').innerText = 'Shadow'
+    document.getElementById('eddie').src = 'images/spheres/ShadowSphere.gif'
+    document.getElementById('webtitle').innerText = 'Shadow Accumulator'
+    document.getElementById('topper_title').innerText = 'Shadow Accumulator'
+}
 
-    } else {
+function bruno() {
+    document.getElementById('mode').innerText = 'Bruno'
+    document.getElementById('eddie').src = 'images/spheres/BrunoSphere.gif'
+    document.getElementById('webtitle').innerText = 'Bruno Accumulator'
+    document.getElementById('topper_title').innerText = 'Bruno Accumulator'
+}
 
-        document.getElementById('cb_4').src = 'images/icons/checkbox1.png'
-        document.getElementById('topper_title').innerText = 'Eddie Accumulator'
-        document.getElementById('webtitle').innerText = 'Eddie Accumulator'
-        document.getElementById('eddie').src = 'images/EddieSphere.gif'
-        config.walter = false
+function cj() {
+    document.getElementById('mode').innerText = 'CJ'
+    document.getElementById('eddie').src = 'images/spheres/CJSphere.gif'
+    document.getElementById('webtitle').innerText = 'CJ Accumulator'
+    document.getElementById('topper_title').innerText = 'CJ Accumulator'
+}
 
+function sabastion() {
+    document.getElementById('mode').innerText = 'Sabastion'
+    document.getElementById('eddie').src = 'images/spheres/SabastionSphere.gif'
+    document.getElementById('webtitle').innerText = 'Sabastion Accumulator'
+    document.getElementById('topper_title').innerText = 'Sabastion Accumulator'
+}
+
+
+if (config.mode === 0){
+    eddie()
+}
+
+if(config.mode === 1) {
+    walter()
+} 
+
+if(config.mode === 2) {
+    shadow()
+} 
+
+if(config.mode === 3) {
+    bruno()
+} 
+
+if(config.mode === 4) {
+    cj()
+} 
+
+if(config.mode === 5) {
+    sabastion()
+}
+
+function modenext() {
+    if(config.mode === 5) {
+        config.mode = 0
+    } else {config.mode ++}
+
+    if (config.mode === 0){
+        eddie()
     }
+
+    if(config.mode === 1) {
+        walter()
+    } 
+    
+    if(config.mode === 2) {
+        shadow()
+    }
+
+    if(config.mode === 3) {
+        bruno()
+    }
+
+    if(config.mode === 4) {
+        cj()
+    }
+    if(config.mode === 5) {
+        sabastion()
+    }
+    silentsave()
+}
+
+function modeback() {
+    if(config.mode === 0) {
+        config.mode = 5
+    } else {config.mode --}
+
+    if (config.mode === 0){
+        eddie()
+    }
+
+    if(config.mode === 1) {
+        walter()
+    } 
+    
+    if(config.mode === 2) {
+        shadow()
+    }
+
+    if(config.mode === 3) {
+        bruno()
+    }
+
+    if(config.mode === 4) {
+        cj()
+    }
+
+    if(config.mode === 5) {
+        sabastion()
+    }
+    silentsave()
 }
 
 function deletebutton() {

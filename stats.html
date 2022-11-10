@@ -96,7 +96,7 @@
                             <div class="stat">
                                 <span class="stats-name">Upgrades Bought: </span>
                                 <span class="stats-text" id="stat_upgrades">0</span>
-                                <span class="stats-text">/ 25</span><br>
+                                <span class="stats-text">/ 28</span><br>
                             </div>
                             <div class="stat-img-container">
                                 <img src="images/stats/upgrade.png" class="stat-img">
@@ -106,7 +106,7 @@
                             <div class="stat">
                                 <span class="stats-name">Achievements Unlocked: </span>
                                 <span class="stats-text" id="stat_achievements">0</span>
-                                <span class="stats-text">/ 14</span><br>
+                                <span class="stats-text">/ 15</span><br>
                             </div>
                             <div class="stat-img-container">
                                 <img src="images/stats/achievement.png" class="stat-img">
@@ -199,10 +199,16 @@
                         <img class="upgrade" src="images/upgrades/superultraepicfrisbe.png" id="upgrade_superultraepicfrisbe"
                             onmouseenter="superultraepicfrisbe_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
 
+                        <img class="upgrade" src="images/upgrades/superultraepicfrisbepro.png" id="upgrade_superultraepicfrisbepro"
+                            onmouseenter="superultraepicfrisbepro_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+
                         <img class="upgrade" src="images/upgrades/hmtreats.png" id="upgrade_hmtreats" onmouseenter="hmtreats_hover(); upgradett_enter()"
                             onmouseleave="upgradett_leave()" hidden>
 
                         <img class="upgrade" src="images/upgrades/barkbites.png" id="upgrade_barkbites" onmouseenter="barkbites_hover(); upgradett_enter()"
+                            onmouseleave="upgradett_leave()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/nugget.png" id="upgrade_nugget" onmouseenter="nugget_hover(); upgradett_enter()"
                             onmouseleave="upgradett_leave()" hidden>
 
                         <img class="upgrade" src="images/upgrades/frostedtreats.png" id="upgrade_frostedtreats"
@@ -210,6 +216,9 @@
 
                         <img class="upgrade" src="images/upgrades/xlbed.png" id="upgrade_xlbed"
                             onmouseenter="xlbed_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/walter.png" id="upgrade_walter"
+                            onmouseenter="walter_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
 
                         <img class="upgrade" src="images/upgrades/goldeneddies.png" id="upgrade_goldeneddies"
                             onmouseenter="goldeneddies_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
@@ -299,6 +308,10 @@
                         <span class="achievement-desc" id="achievement12-desc">Locked Achievement</span>
                     </div>
                     <div class="achievement">
+                        <span class="achievement-title" id="achievement15-title">???</span><br>
+                        <span class="achievement-desc" id="achievement15-desc">Locked Achievement</span>
+                    </div>
+                    <div class="achievement">
                         <span class="achievement-title" id="achievement13-title">???</span><br>
                         <span class="achievement-desc" id="achievement13-desc">Locked Achievement</span>
                     </div>
@@ -307,8 +320,18 @@
                         <span class="achievement-desc" id="achievement14-desc">Locked Achievement</span>
                     </div>
                 </div>
-            </section>
-        </section>
+
+                <div class="achievements">
+                    <span class="achievements-title">Secret Achievements</span>
+                    <div class="achievement secret">
+                        <span class="achievement-title" id="achievement16-title">???</span><br>
+                        <span class="achievement-desc" id="achievement16-desc">Locked Secret Achievement</span>
+                    </div>
+                </div>
+
+    </div>
+    </section>
+    </section>
     </div>
 
     <script src="node_modules/numeral/numeral.js"></script>

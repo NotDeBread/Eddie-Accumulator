@@ -52,6 +52,7 @@ function goldeneddie() {
     document.getElementById('goldeneddie').style.setProperty('left', `calc(100% * ${Math.random()}`)
     document.getElementById('goldeneddie').style.setProperty('top', `calc(100% * ${Math.random()}`)
     document.getElementById('goldeneddie').style.setProperty('transform', 'scale(100%)')
+    if(config.spells_unlocked)
     goldeneddie_type = Math.round(Math.random() * 3)
 
     setTimeout(() => {

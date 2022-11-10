@@ -87,9 +87,9 @@ function achievement7() {
 }
 
 function achievement8() {
-    document.getElementById('achievement').style.setProperty('left', '10px')
     document.getElementById('ach_title').innerHTML = 'State of Eddies'
     document.getElementById('ach_desc').innerHTML = 'Reach 1 Million Total Eddie Orbs'
+    document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
     config.ach8 = true
 
@@ -170,18 +170,35 @@ function achievement14() {
     }, 5000);
 }
 
-function achievement14() {
+function achievement15() {
     document.getElementById('ach_title').innerHTML = 'Galaxy of Eddies'
-    document.getElementById('ach_desc').innerHTML = 'Unlock Spells'
+    document.getElementById('ach_desc').innerHTML = 'Reach 100 Billion Total Eddie Orbs'
     document.getElementById('achievement').style.setProperty('left', '10px')
     config.totalachievements += 1
-    config.ach14 = true
+    config.ach15 = true
 
     setTimeout(() => {
         document.getElementById('achievement').style.setProperty('left', '-350px')  
     }, 5000);
 }
 
+function achievement16() {
+    document.getElementById('achs_title').innerHTML = 'True Walter Fan'
+    document.getElementById('achs_desc').innerHTML = 'Buy The Walter Upgrade While Having Walter Mode Enabled'
+    document.getElementById('achievements').style.setProperty('left', '10px')
+    document.getElementById('achievements').classList.add('secret')
+    config.totalachievements += 1
+    config.ach16 = true
+
+    setTimeout(() => {
+        document.getElementById('achievements').style.setProperty('left', '-350px')  
+    }, 5000);
+}
+
 function achievementclose() {
     document.getElementById('achievement').style.setProperty('left', '-350px')
+}
+
+function achievementsclose() {
+    document.getElementById('achievements').style.setProperty('left', '-350px')
 }

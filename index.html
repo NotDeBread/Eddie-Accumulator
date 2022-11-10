@@ -36,13 +36,14 @@
                             <span class="setting-text">Short Numbers</span>
                         </div>
                         <span class="setting-desc">Formats the counter and building prices so that they display Millions, Billions ect.</span>
-                        <div class="setting">
-                            <img src="images/icons/checkbox1.png" class="setting-checkbox" id="cb_4" onclick="setting4()">
-                            <span class="setting-text">Walter Mode</span>
-                        </div>
-                        <span class="setting-desc">Walter.</span>
                     </div>
                     <div class="settings-bottom">
+                        <span class="mode-title">Mode</span>
+                        <div class="mode-selector">
+                            <img src="images/icons/back.png" class="mode-button" onclick="modeback()">
+                            <span id="mode" class="mode">-</span>
+                            <img src="images/icons/back2.png" class="mode-button" onclick="modenext()">
+                        </div>
                         <div class="setting-button" onclick="save()">
                             <span>Save</span>
                         </div>
@@ -85,7 +86,7 @@
             <div class="topper-divider">|</div>
 
             <a onclick="save()" style="float: right;" href="changelog.html">Changelog</a>
-            <p class="version" style="float: right; padding-right: 10px;">BETA v0.15</p>
+            <p class="version" style="float: right; padding-right: 10px;">BETA v0.16</p>
             <a style="float: right; margin-right: 10px;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
         </div>
 
@@ -109,6 +110,11 @@
             <div class="notis-header">
                 <img src="images/icons/collapse.png" class="notis-img" onclick="noti_close()">
                 <p class="notis-title">Announcements</p>
+            </div>
+
+            <div class="noti">
+                <span class="noti-title">BETA v0.16 Released!</span><br>
+                <span class="noti-desc">BETA v0.16 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
             </div>
 
             <div class="noti">
@@ -262,9 +268,6 @@
                     <div class="devbutton" onclick="dev_unlockspells()" style="width: 150px;">
                         <p>Unlock Spells</p>
                     </div>
-                    <div class="devbutton" onclick="dev_spellofshininess()" style="width: 150px;">
-                        <p>Spell of Shininess</p>
-                    </div>
                     <div class="devtools-items-container">
                         <span style="font-weight: 600; padding: 5px; font-size: 1.25em;">Items</span>
                         <section class="devtools-items">
@@ -306,8 +309,17 @@
 
         <div class="achievement" id="achievement" onclick="achievementclose()">
             <div>
-                <p class="achievement-title" id="ach_title">Click</p>
-                <p class="achievement-desc" id="ach_desc">Click Eddie 1 Time</p>
+                <p class="achievement-title" id="ach_title">-</p>
+                <p class="achievement-desc" id="ach_desc">-</p>
+            </div>
+        </div>
+
+        <div class="achievementS" id="achievements" onclick="achievementsclose()">
+            <div>
+                <div class="ach-s">
+                    <span class="achievement-title" id="achs_title" style="width: 100%;">-</span><span class="ach-s-text">SECRET</span><br>
+                </div>
+                <p class="achievement-desc" id="achs_desc">-</p>
             </div>
         </div>
 
@@ -412,6 +424,10 @@
                             onmouseenter="upgrade_superultraepicfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_superultraepicfrisbe()" hidden>
 
+                        <img class="upgrade" src="images/upgrades/superultraepicfrisbepro.png" id="upgrade_superultraepicfrisbepro"
+                            onmouseenter="upgrade_superultraepicfrisbepro_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_superultraepicfrisbepro()" hidden>
+
                         <img class="upgrade" src="images/upgrades/hmtreats.png" id="upgrade_hmtreats"
                             onmouseenter="upgrade_hmtreats_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_hmtreats()" hidden>
@@ -424,9 +440,21 @@
                             onmouseenter="upgrade_frostedtreats_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_frostedtreats()" hidden>
 
+                        <img class="upgrade" src="images/upgrades/nugget.png" id="upgrade_nugget"
+                            onmouseenter="upgrade_nugget_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_nugget()" hidden>
+
                         <img class="upgrade" src="images/upgrades/xlbed.png" id="upgrade_xlbed"
                             onmouseenter="upgrade_xlbed_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_xlbed()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/walter.png" id="upgrade_walter"
+                            onmouseenter="upgrade_walter_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_walter()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/walter.png" id="upgrade_walter"
+                            onmouseenter="upgrade_walter_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_walter()" hidden>
 
                         <img class="upgrade" src="images/upgrades/goldeneddies.png" id="upgrade_goldeneddies"
                             onmouseenter="upgrade_goldeneddies_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
@@ -461,8 +489,9 @@
                     <div class="spells" id="spells-all">
                         <div class="spell-container">
                             <img src="images/spells/goldenspell.png" class="spell" onmouseenter="spell_enter(); spell_golden_hover()"
-                                onmouseleave="spell_leave()"
-                                onclick="spell_golden()" id="spell_golden">
+                                onmouseleave="spell_leave()" onclick="spell_golden()" id="spell_golden">
+                            <a href="https://forms.gle/d8mkVjVY1X8HjjcB7" target="_blank" style="height: 50px;"> <img src="images/spells/add.png" class="spell"
+                                    onmouseenter="spell_enter(); spell_add_hover()" onmouseleave="spell_leave()"></a>
                         </div>
                         <div class="spell-bar">
                             <span class="spell-bar-text">

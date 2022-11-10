@@ -26,9 +26,7 @@ document.getElementById('stat_spells').innerHTML = config.spells_used
 document.getElementById('stat_flasks').innerHTML = config.totalflasks
 document.getElementById('stat_flasks_used').innerHTML = config.flasksused
 
-if(eddieorbs >= 1000000000000000000000000000000000) {
-    document.getElementById('eddieorbs').innerHTML = 'Infinity'
-} else if(eddieorbs >= 1000000) {
+if(eddieorbs >= 1000000) {
     document.getElementById('eddieorbs').innerHTML = numeral(config.count / config.goldeneddiemultiplier).format('0.000a');
 } else {
     document.getElementById('eddieorbs').innerHTML = numeral(config.count / config.goldeneddiemultiplier).format('0,00')
@@ -122,6 +120,10 @@ if(config.upgrade_superultraepicfrisbe_bought === true) {
     document.getElementById('upgrade_superultraepicfrisbe').hidden = false
 }
 
+if(config.upgrade_superultraepicfrisbepro_bought === true) {
+    document.getElementById('upgrade_superultraepicfrisbepro').hidden = false
+}
+
 if(config.upgrade_hmtreats_bought === true) {
     document.getElementById('upgrade_hmtreats').hidden = false
 }
@@ -134,8 +136,16 @@ if(config.upgrade_frostedtreats_bought === true) {
     document.getElementById('upgrade_frostedtreats').hidden = false
 }
 
+if(config.upgrade_nugget_bought === true) {
+    document.getElementById('upgrade_nugget').hidden = false
+}
+
 if(config.upgrade_xlbed_bought === true) {
     document.getElementById('upgrade_xlbed').hidden = false
+}
+
+if(config.upgrade_walter_bought === true) {
+    document.getElementById('upgrade_walter').hidden = false
 }
 
 if(config.upgrade_goldeneddies_bought === true) {
@@ -177,6 +187,11 @@ function goldencursors_hover() {
 
 function platinumcursors_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Platinum Cursors'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Cursor Speed'
+}
+
+function diamond_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Diamond Cursors'
     document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Cursor Speed'
 }
 
@@ -245,6 +260,11 @@ function superultraepicfrisbe_hover() {
     document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Frisbe Speed'
 }
 
+function superultraepicfrisbepro_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Super Ultra Epic Frisbe PRO'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Frisbe Speed'
+}
+
 function hmtreats_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Home Made Treats'
     document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Treat Speed'
@@ -260,9 +280,20 @@ function frostedtreats_hover() {
     document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Treat Speed'
 }
 
+function nugget_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Nugget'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Treat Speed'
+}
+
+
 function xlbed_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'XL Bed'
     document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Bed Speed'
+}
+
+function walter_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Walter'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Friend Speed'
 }
 
 function goldeneddies_hover() {
@@ -458,6 +489,7 @@ if(config.ach12 === true) {
     document.getElementById('achievement12-desc').innerHTML = 'Reach 10 Billion Total Eddie Orbs'
 }
 
+
 if(config.ach13 === true) {
     document.getElementById('achievement13-title').innerHTML = 'Wrong Eddie Orb'
     document.getElementById('achievement13-title').style.setProperty('color','white')
@@ -468,4 +500,16 @@ if(config.ach14 === true) {
     document.getElementById('achievement14-title').innerHTML = 'Youre a Wizard Eddie'
     document.getElementById('achievement14-title').style.setProperty('color','white')
     document.getElementById('achievement14-desc').innerHTML = 'Unlock Spells'
+}
+
+if(config.ach15 === true) {
+    document.getElementById('achievement15-desc').innerHTML = 'Reach 100 Billion Total Eddie Orbs'
+    document.getElementById('achievement15-title').innerHTML = 'Galaxy of Eddies'
+    document.getElementById('achievement15-title').style.setProperty('color','white')
+}
+
+if(config.ach16 === true) {
+    document.getElementById('achievement16-desc').innerHTML = 'Buy The Walter Upgrade While Having Walter Mode Enabled'
+    document.getElementById('achievement16-title').innerHTML = 'True Walter Fan'
+    document.getElementById('achievement16-title').style.setProperty('color','white')
 }

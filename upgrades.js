@@ -108,6 +108,12 @@ function update() {
         document.getElementById('upgrade_superultraepicfrisbe').style.setProperty('filter', 'brightness(75%)')
     }
 
+    if(config.count >= 10000000){
+        document.getElementById('upgrade_superultraepicfrisbepro').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_superultraepicfrisbepro').style.setProperty('filter', 'brightness(75%)')
+    }
+
 
     if(config.count >= 750000){
         document.getElementById('upgrade_hmtreats').style.setProperty('filter', 'brightness(100%)')
@@ -127,10 +133,22 @@ function update() {
         document.getElementById('upgrade_frostedtreats').style.setProperty('filter', 'brightness(75%)')
     }
 
+    if(config.count >= 25000000){
+        document.getElementById('upgrade_nugget').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_nugget').style.setProperty('filter', 'brightness(75%)')
+    }
+
     if(config.count >= 5000000){
         document.getElementById('upgrade_xlbed').style.setProperty('filter', 'brightness(100%)')
     } else {
         document.getElementById('upgrade_xlbed').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 25000000){
+        document.getElementById('upgrade_walter').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_walter').style.setProperty('filter', 'brightness(75%)')
     }
 
     if(config.count >= 75000){
@@ -249,6 +267,10 @@ function update() {
         document.getElementById('upgrade_superultraepicfrisbe').hidden = false;
     } else {document.getElementById('upgrade_superultraepicfrisbe').hidden = true}
 
+    if(config.frisbetotal >= 75 && config.upgrade_superultraepicfrisbepro_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_superultraepicfrisbepro').hidden = false;
+    } else {document.getElementById('upgrade_superultraepicfrisbepro').hidden = true}
+
     if(config.treattotal >= 10 && config.upgrade_hmtreats_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_hmtreats').hidden = false;
     } else {document.getElementById('upgrade_hmtreats').hidden = true}
@@ -261,9 +283,17 @@ function update() {
         document.getElementById('upgrade_frostedtreats').hidden = false;
     } else {document.getElementById('upgrade_frostedtreats').hidden = true}
 
+    if(config.treattotal >= 75 && config.upgrade_nugget_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_nugget').hidden = false;
+    } else {document.getElementById('upgrade_nugget').hidden = true}
+
     if(config.bedtotal >= 10 && config.upgrade_xlbed_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_xlbed').hidden = false;
     } else {document.getElementById('upgrade_xlbed').hidden = true}
+
+    if(config.friendtotal >= 10 && config.upgrade_walter_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_walter').hidden = false;
+    } else {document.getElementById('upgrade_walter').hidden = true}
 
     if(config.totaleddieorbsraw >= 100000 && config.upgrade_goldeneddies_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_goldeneddies').hidden = false;
@@ -516,6 +546,20 @@ function upgrade_superultraepicfrisbe_hover() {
     document.getElementById('info_price').innerHTML = "1.5 Million"
 }
 
+function upgrade_superultraepicfrisbepro_hover() {
+    document.getElementById('info_title').innerHTML = "The Super Ultra Epic Frisbe PRO";
+    document.getElementById('info_cps').innerHTML = "Triples Frisbe Speed";
+
+    
+    if(config.countraw >= 10000000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "10 Million"
+}
+
 function upgrade_hmtreats_hover() {
     document.getElementById('info_title').innerHTML = "Home Made Treats";
     document.getElementById('info_cps').innerHTML = "Doubles Treat Speed";
@@ -558,6 +602,20 @@ function upgrade_frostedtreats_hover() {
     document.getElementById('info_price').innerHTML = "5 Million"
 }
 
+function upgrade_nugget_hover() {
+    document.getElementById('info_title').innerHTML = "Nugget";
+    document.getElementById('info_cps').innerHTML = "Triples Treat Speed";
+
+    
+    if(config.countraw >= 25000000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "25 Million"
+}
+
 function upgrade_xlbed_hover() {
     document.getElementById('info_title').innerHTML = "XL Bed";
     document.getElementById('info_cps').innerHTML = "Doubles Bed Speed";
@@ -570,6 +628,20 @@ function upgrade_xlbed_hover() {
     }
 
     document.getElementById('info_price').innerHTML = "5 Million"
+}
+
+function upgrade_walter_hover() {
+    document.getElementById('info_title').innerHTML = "Walter";
+    document.getElementById('info_cps').innerHTML = "Doubles Friend Speed";
+
+    
+    if(config.countraw >= 25000000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "25 Million"
 }
 
 function upgrade_goldeneddies_hover() {
@@ -850,6 +922,19 @@ function upgrade_superultraepicfrisbe() {
     }
 }
 
+function upgrade_superultraepicfrisbepro() {
+    if(config.upgrade_superultraepicfrisbepro_bought === false && config.count >= 10000000) {
+        document.getElementById('upgrade_superultraepicfrisbepro').style.setProperty('display', 'none')
+        config.upgrade_superultraepicfrisbepro_bought = true
+        config.countraw -= 10000000
+        config.frisbemultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 10000000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
 function upgrade_hmtreats() {
     if(config.upgrade_hmtreats_bought === false && config.count >= 750000) {
         document.getElementById('upgrade_hmtreats').style.setProperty('display', 'none')
@@ -889,6 +974,19 @@ function upgrade_frostedtreats() {
     }
 }
 
+function upgrade_nugget() {
+    if(config.upgrade_nugget_bought === false && config.count >= 25000000) {
+        document.getElementById('upgrade_nugget').style.setProperty('display', 'none')
+        config.upgrade_nugget_bought = true
+        config.countraw -= 25000000
+        config.treatmultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 25000000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
 function upgrade_xlbed() {
     if(config.upgrade_xlbed_bought === false && config.count >= 5000000) {
         document.getElementById('upgrade_xlbed').style.setProperty('display', 'none')
@@ -899,6 +997,23 @@ function upgrade_xlbed() {
         config.totalupgrades += 1
         config.eddieorbsspent += 5000000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_walter() {
+    if(config.upgrade_walter_bought === false && config.count >= 25000000) {
+        document.getElementById('upgrade_walter').style.setProperty('display', 'none')
+        config.upgrade_walter_bought = true
+        config.countraw -= 25000000
+        config.friendmultiplier *= 2
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 25000000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+
+        if(config.mode === 1) {
+            achievement16()
+        }
     }
 }
 

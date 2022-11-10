@@ -41,6 +41,12 @@ function spell_golden_hover() {
     } else {document.getElementById('spell_price').style.setProperty('color','red')}
 }
 
+function spell_add_hover() {
+    document.getElementById('spell_title').innerHTML = 'Request a Spell'
+    document.getElementById('spell_desc').innerHTML = 'Request a spell to be in Eddie Accumulator'
+    document.getElementById('spell_price').innerHTML = ''
+}
+
 function spell_golden() {
     if(config.flasks >= 20 || devtoolsopen === true) {
         goldenspell_type = Math.round(Math.random() * 2)

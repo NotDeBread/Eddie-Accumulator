@@ -29,8 +29,10 @@ function dev_unlockspells() {
     config.totalupgrades += 1
     unlockspells()
 
-    config.ach14 = true
-    achievement14()
+    if(config.ach14 === false) {
+        achievement14()
+        config.ach14 = true
+    }
     save()
 }
 

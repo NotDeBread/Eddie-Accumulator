@@ -154,6 +154,9 @@ function buyfrisbe() {
         if(config.frisbetotal === 50) {
             config.upgrades += 1
         }
+        if(config.frisbetotal === 75) {
+            config.upgrades += 1
+        }
     }
 }
 
@@ -190,6 +193,9 @@ function buytreat() {
             config.upgrades += 1
         }
         if(config.treattotal === 50) {
+            config.upgrades += 1
+        }
+        if(config.treattotal === 75) {
             config.upgrades += 1
         }
     }
@@ -249,6 +255,10 @@ function buyfriend() {
         } else {
             document.getElementById('friendimg').style.setProperty('filter', 'brightness(75%)')
             document.getElementById('friendprice').style.setProperty('color', 'red')
+        }
+
+        if(config.friendtotal === 10) {
+            config.upgrades += 1
         }
     }
 }
