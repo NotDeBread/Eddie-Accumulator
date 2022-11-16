@@ -1,6 +1,11 @@
 document.getElementById('loader_text').innerHTML = 'Loading Developer Tools...'
 console.log('Loading Developer Tools...')
 
+function dev_x1000() {
+    config.countraw *= 1000
+    config.totaleddieorbsraw *= 1000
+}
+
 function dev_x10() {
     config.countraw *= 10
     config.totaleddieorbsraw *= 10
@@ -12,10 +17,10 @@ function dev_x2() {
 }
 
 function dev_golden() {
-    goldeneddie_random = 7
     document.getElementById('goldeneddie_chance').innerHTML = goldeneddie_random
     document.getElementById('goldeneddie_chance').style.setProperty('color', 'lime')
-    goldeneddie()
+    goldeneddie_type = Math.round(Math.random() * 3)
+    goldeneddie_click()
 }
 
 function dev_x10cpc() {

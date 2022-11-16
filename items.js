@@ -33,7 +33,7 @@ function buycursor() {
         config.eddieorbsspent += config.cursorprice
         config.cursorprice = Math.round(config.cursorprice * 1.1)
 
-        document.getElementById('item_tt_eps').innerHTML = config.cursorcps * config.cursormultiplier
+        document.getElementById('item_tt_eps').innerHTML = numeral(config.cursorcps * config.cursormultiplier).format('0,00')
         document.getElementById('item_tt_epseach').innerHTML = config.cursormultiplier
 
 
@@ -65,6 +65,9 @@ function buycursor() {
         if (config.cursortotal === 125) {
             config.upgrades += 1
         }
+        if (config.cursortotal === 150) {
+            config.upgrades += 1
+        }
 
         if(config.cursortotal === 1) {
             achievement2()
@@ -84,7 +87,7 @@ function buybone() {
         config.eddieorbsspent += config.boneprice
         config.boneprice = Math.round(config.boneprice * 1.1)
         
-        document.getElementById('item_tt_eps').innerHTML = config.bonecps * config.bonemultiplier
+        document.getElementById('item_tt_eps').innerHTML = numeral(config.bonecps * config.bonemultiplier).format('0,00')
         document.getElementById('item_tt_epseach').innerHTML = 10 * config.bonemultiplier
 
         counterupdate()
@@ -115,6 +118,12 @@ function buybone() {
         if(config.bonetotal === 75) {
             config.upgrades += 1
         }
+        if(config.bonetotal === 100) {
+            config.upgrades += 1
+        }
+        if(config.bonetotal === 125) {
+            config.upgrades += 1
+        }
     }
 }
 
@@ -127,7 +136,7 @@ function buyfrisbe() {
         config.eddieorbsspent += config.frisbeprice
         config.frisbeprice = Math.round(config.frisbeprice * 1.1)
 
-        document.getElementById('item_tt_eps').innerHTML = config.frisbecps * config.frisbemultiplier
+        document.getElementById('item_tt_eps').innerHTML = numeral(config.frisbecps * config.frisbemultiplier).format('0,00')
         document.getElementById('item_tt_epseach').innerHTML = 50 * config.frisbemultiplier
 
         counterupdate()
@@ -157,6 +166,12 @@ function buyfrisbe() {
         if(config.frisbetotal === 75) {
             config.upgrades += 1
         }
+        if(config.frisbetotal === 100) {
+            config.upgrades += 1
+        }
+        if(config.frisbetotal === 125) {
+            config.upgrades += 1
+        }
     }
 }
 
@@ -170,7 +185,7 @@ function buytreat() {
         config.eddieorbsspent += config.treatprice
         config.treatprice = Math.round(config.treatprice * 1.1)
 
-        document.getElementById('item_tt_eps').innerHTML = config.treatcps * config.treatmultiplier
+        document.getElementById('item_tt_eps').innerHTML = numeral(config.treatcps * config.treatmultiplier).format('0,00')
         document.getElementById('item_tt_epseach').innerHTML = 100 * config.treatmultiplier
 
         counterupdate()
@@ -198,6 +213,12 @@ function buytreat() {
         if(config.treattotal === 75) {
             config.upgrades += 1
         }
+        if(config.treattotal === 100) {
+            config.upgrades += 1
+        }
+        if(config.treattotal === 125) {
+            config.upgrades += 1
+        }
     }
 }
 
@@ -210,7 +231,7 @@ function buybed() {
         config.eddieorbsspent += config.bedprice
         config.bedprice = Math.round(config.bedprice * 1.1)
 
-        document.getElementById('item_tt_eps').innerHTML = config.bedcps * config.bedmultiplier
+        document.getElementById('item_tt_eps').innerHTML = numeral(config.bedcps * config.bedmultiplier).format('0,00')
         document.getElementById('item_tt_epseach').innerHTML = 1000 * config.bedmultiplier
 
         counterupdate()
@@ -241,7 +262,7 @@ function buyfriend() {
         config.eddieorbsspent += config.friendprice
         config.friendprice = Math.round(config.friendprice * 1.1)
 
-        document.getElementById('item_tt_eps').innerHTML = config.friendcps * config.friendmultiplier
+        document.getElementById('item_tt_eps').innerHTML = numeral(config.friendcps * config.friendmultiplier).format('0,00')
         document.getElementById('item_tt_epseach').innerHTML = 10000 * config.friendmultiplier
 
         counterupdate()

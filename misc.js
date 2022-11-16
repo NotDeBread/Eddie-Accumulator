@@ -24,6 +24,27 @@ function warningclick() {
     document.getElementById('warning_').style.setProperty('right','-350px')
 }
 
+function list() {
+    console.log('Eddie Orbs :', Math.round(config.count))
+    console.log('Eddie Orbs (raw) :', config.count)
+    console.log('Eddie Orbs per Second:', ((config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + (config.frisbecps * config.frisbemultiplier) + (config.treatcps * config.treatmultiplier) + (config.bedcps * config.bedmultiplier) + (config.friendcps * config.friendmultiplier)) * config.goldeneddiemultiplier)
+    console.log('Eddie Orbs per Click:', config.cpc)
+    console.log('Developer Tools Enabled:', config.devtoolsunlocked)
+}
+
+if(config.updateviewed === false) {
+    document.getElementById('updatenew').hidden = false
+} else {
+    document.getElementById('updatenew').hidden = true
+    document.getElementById('updatecontainer').style.setProperty('display','none')
+}
+
+function updateclose() {
+    document.getElementById('updatenew').hidden = true
+    document.getElementById('updatecontainer').style.setProperty('display','none')
+    config.updateviewed = true
+}
+
 document.getElementById('loader_text').innerHTML = ''
 console.log('Done!')
 

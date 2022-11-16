@@ -138,4 +138,10 @@ function goldeneddie_click() {
     document.getElementById('goldeneddie').hidden = true
 
     config.goldeneddiesclicked += 1
+    if(config.goldeneddiesclicked === 1) {
+        achievement18()
+    }
+    if(config.goldeneddiesclicked === 11) {
+        achievement19()
+    }
 }

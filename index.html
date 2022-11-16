@@ -77,6 +77,85 @@
             </div>
         </div>
 
+
+
+        <div class="update-container" id="updatecontainer" hidden>
+            <section class="update" id="updatenew" hidden>
+                <div class="update-header">
+                    <div>
+                        <span class="update-pretitle">WHATS NEW:</span><br>
+                        <span class="update-title">BETA v0.17</span>
+                    </div>
+                    <span style="color: grey;">November 14th, 2022</span>
+                </div>
+
+                <div class="update-body">
+
+                    <div class="update-divider" style="margin-top: 25px;">
+                        <span style="color: var(--update1);">ADDITIONS</span>
+                        <div style="background-color: var(--update1);"></div>
+                    </div>
+
+                    <br>
+
+                    <p style="font-weight: 700;">-New Upgrades</p>
+                    <p class="changelog-extention">● Ruby Fingers</p>
+                    <p class="changelog-extention-2">○ Costs 10 Million Eddie Orbs</p>
+                    <p class="changelog-extention-2">○ Doubles Cursor Speed</p>
+                    <p class="changelog-extention">● Obsidian Fingers</p>
+                    <p class="changelog-extention-2">○ Costs 50 Million Eddie Orbs</p>
+                    <p class="changelog-extention-2">○ Doubles EPC by how many cursors are owned</p>
+                    <p class="changelog-extention">● Hide Bones</p>
+                    <p class="changelog-extention-2">○ Costs 15 Million Eddie Orbs</p>
+                    <p class="changelog-extention-2">○ Triples Bone Speed</p>
+                    <p class="changelog-extention">● Stick</p>
+                    <p class="changelog-extention-2">○ Costs 500 Million Eddie Orbs</p>
+                    <p class="changelog-extention-2">○ Triples Bone Speed</p>
+                    <p class="changelog-extention">● Super Ultra Epic Frisbe PRO (PREMIUM EDITION)</p>
+                    <p class="changelog-extention-2">○ Costs 1 Billion Eddie Orbs</p>
+                    <p class="changelog-extention-2">○ Triples Frisbe Speed</p>
+                    <p class="changelog-extention">● Pizza</p>
+                    <p class="changelog-extention-2">○ Costs 25 Billion Eddie Orbs</p>
+                    <p class="changelog-extention-2">○ Triples Frisbe Speed</p><br>
+                    <p class="changelog-extention">● Bacon</p>
+                    <p class="changelog-extention-2">○ Costs 100 Billion Eddie Orbs</p>
+                    <p class="changelog-extention-2">○ Triples Frisbe Speed</p><br>
+                    <p style="font-weight: 700;">-New Upgrade Prices</p>
+                    <p class="changelog-extention">● Super Ultra Epic Frisbe PRO</p>
+                    <p class="changelog-extention-2">○ 10 Million --> 100 Million</p>
+                    <p class="changelog-extention">● Bark Bites</p>
+                    <p class="changelog-extention-2">○ 1.5 Million --> 5 Million</p>
+                    <p class="changelog-extention">● Frosted Treats</p>
+                    <p class="changelog-extention-2">○ 5 Million --> 25 Million</p>
+                    <p class="changelog-extention">● Nugget</p>
+                    <p class="changelog-extention-2">○ 25 Million --> 500 Million</p>
+                    <p class="changelog-extention">● Walter</p>
+                    <p class="changelog-extention-2">○ 25 Million --> 100 Million</p><br>
+                    <p style="font-weight: 700;">-2 New Achievements</p>
+                    <p style="font-weight: 700;">-2 New Secret Achievements</p>
+
+                    <div class="update-divider" style="margin-top: 25px;">
+                        <span style="color: var(--update2);">BUGFIXES & IMPROVEMENTS</span>
+                        <div style="background-color: var(--update2);"></div>
+                    </div>
+                    <br>
+                    <p>-Fixed item EpS not formatting once bought</p>
+                    <p>-Fixed Diamond Cursors not displaying info in the stats page</p>
+                    <p>-More organized Developer Tools panel</p>
+                    <p>-More organized changelogs</p>
+                    <br><br>
+                </div>
+
+                <div class="update-bottom">
+                    <div class="update-button" onclick="updateclose()">
+                        <span class="update-button-txt">Cool!</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+
         <div class="topper">
             <p style="display: inline;" id="topper_title">Eddie Accumulator</p>
             <div class="topper-divider">|</div>
@@ -86,7 +165,7 @@
             <div class="topper-divider">|</div>
 
             <a onclick="save()" style="float: right;" href="changelog.html">Changelog</a>
-            <p class="version" style="float: right; padding-right: 10px;">BETA v0.16</p>
+            <p class="version" style="float: right; padding-right: 10px;">BETA v0.17</p>
             <a style="float: right; margin-right: 10px;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
         </div>
 
@@ -102,14 +181,17 @@
 
         <!--Not Left Buttons-->
 
-
-
         <img src="images/icons/bell.png" class="noti-icon" onclick="noti_open()">
 
         <section class="notis" id="notis">
             <div class="notis-header">
                 <img src="images/icons/collapse.png" class="notis-img" onclick="noti_close()">
                 <p class="notis-title">Announcements</p>
+            </div>
+
+            <div class="noti">
+                <span class="noti-title">BETA v0.16 Released!</span><br>
+                <span class="noti-desc">BETA v0.16 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
             </div>
 
             <div class="noti">
@@ -239,38 +321,56 @@
                     onmouseenter="labelenter(); labeldevtools()" onmouseleave="labelleave()">
                 <p class="devtools-text" id="devtools_header">DevTools</p>
             </div>
-            <div id="devtools_content">
+            <div id="devtools_content" class="devtools-container">
                 <div>
-                    <div class="devbutton" onclick="dev_golden()" style="width: 150px;">
-                        <p>Spawn Golden Eddie</p>
+                    <div class="devtools-element-container">
+                        <span style="font-weight: 600; padding: 5px; font-size: 1.25em;">Eddie Orbs</span>
+                        <section class="devtools-grid3">
+                            <div class="devbutton" onclick="dev_x1000()">
+                                <p>x1000</p>
+                            </div>
+                            <div class="devbutton" onclick="dev_x10()">
+                                <p>x10</p>
+                            </div>
+                            <div class="devbutton" onclick="dev_x2()">
+                                <p>x2</p>
+                            </div>
+                        </section>
                     </div>
-                    <div class="devbutton" onclick="train()" style="width: 150px;">
-                        <p>Spawn Train</p>
-                    </div>
-                    <div class="devbutton" onclick="dev_x10()" style="width: 150px;">
-                        <p>x10 Eddie Orbs</p>
-                    </div>
-                    <div class="devbutton" onclick="dev_x2()" style="width: 150px;">
-                        <p>x2 Eddie Orbs</p>
-                    </div>
-                    <div class="devbutton" onclick="dev_x10cpc()" style="width: 150px;">
+                    <div class="devbutton" onclick="dev_x10cpc()" style="margin-top: 5px;">
                         <p>x10 CPC</p>
                     </div>
-                    <div class="devbutton" onclick="dev_maxflasks()" style="width: 150px;">
-                        <p>Max Flasks</p>
+                    <div class="devtools-element-container">
+                        <span style="font-weight: 600; padding: 5px; font-size: 1.25em;">Flasks</span>
+                        <section class="devtools-grid2">
+                            <div class="devbutton" onclick="dev_maxflasks()">
+                                <p>Max Flasks</p>
+                            </div>
+                            <div class="devbutton" onclick="dev_infiniteflasks()">
+                                <p>Infinite Flasks</p>
+                            </div>
+                            <div class="devbutton" onclick="dev_x10maxflasks()">
+                                <p>Flasks Max x10</p>
+                            </div>
+                            <div class="devbutton" onclick="dev_unlockspells()">
+                                <p>Unlock Spells</p>
+                            </div>
+                        </section>
                     </div>
-                    <div class="devbutton" onclick="dev_infiniteflasks()" style="width: 150px;">
-                        <p>Infinite Flasks</p>
+                    <div class="devtools-element-container">
+                        <span style="font-weight: 600; padding: 5px; font-size: 1.25em;">Other</span>
+                        <section class="devtools-grid2">
+                            <div class="devbutton" onclick="dev_golden()">
+                                <p>Golden Eddie</p>
+                            </div>
+                            <div class="devbutton" onclick="train()">
+                                <p>Train</p>
+                            </div>
+                        </section>
                     </div>
-                    <div class="devbutton" onclick="dev_x10maxflasks()" style="width: 150px;">
-                        <p>Flasks Max x10</p>
-                    </div>
-                    <div class="devbutton" onclick="dev_unlockspells()" style="width: 150px;">
-                        <p>Unlock Spells</p>
-                    </div>
-                    <div class="devtools-items-container">
+                    <div class="devtools-element-container">
                         <span style="font-weight: 600; padding: 5px; font-size: 1.25em;">Items</span>
-                        <section class="devtools-items">
+                        <section class="devtools-grid2">
                             <div class="devbutton" onclick="dev_10xCursors()" style="border: 1px rgb(243, 243, 243) solid;">
                                 <p>10x Cursors</p>
                             </div>
@@ -330,9 +430,9 @@
         <section class="all" onclick="bodyclick()">
             <section class="left">
                 <div class="counters">
-                    <span class="counter" id="count">-</span><br>
-                    <span title="Eddies Per Second">EPS:</span> <span id="cps" class="cps">-</span><br>
-                    <span title="Eddies Per Click">EPC:</span> <span id="cpc">-</span>
+                    <span class="counter" id="count">Update Required. Please delete save.</span><br>
+                    <span title="Eddies Per Second">EPS:</span> <span id="cps" class="cps">!</span><br>
+                    <span title="Eddies Per Click">EPC:</span> <span id="cpc">!</span>
                     <span id="warning" style="color: red;"></span>
                 </div>
                 <img src="images/EddieSphere.gif" class="eddie" id="eddie" onclick="eddieclick()">
@@ -374,6 +474,10 @@
                             onmouseenter="upgrade_emeraldcursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_emeraldcursors()" hidden>
 
+                        <img class="upgrade" src="images/upgrades/rubycursors.png" id="upgrade_rubycursors"
+                            onmouseenter="upgrade_rubycursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_rubycursors()" hidden>
+
                         <img class="upgrade" src="images/upgrades/goldenfingers.png" id="upgrade_goldenfingers"
                             onmouseenter="upgrade_goldenfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_goldenfingers()" hidden>
@@ -392,13 +496,15 @@
 
                         <img class="upgrade" src="images/upgrades/rubyfingers.png" id="upgrade_rubyfingers"
                             onmouseenter="upgrade_rubyfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                            onclick="upgrade_rubyfingers()"
-                            hidden>
+                            onclick="upgrade_rubyfingers()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/obsidianfingers.png" id="upgrade_obsidianfingers"
+                            onmouseenter="upgrade_obsidianfingers_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_obsidianfingers()" hidden>
 
                         <img class="upgrade" src="images/upgrades/baconbones.png" id="upgrade_baconbones"
                             onmouseenter="upgrade_baconbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
-                            onclick="upgrade_baconbones()"
-                            hidden>
+                            onclick="upgrade_baconbones()" hidden>
 
                         <img class="upgrade" src="images/upgrades/meatbones.png" id="upgrade_meatbones"
                             onmouseenter="upgrade_meatbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_meatbones()"
@@ -411,6 +517,13 @@
                         <img class="upgrade" src="images/upgrades/nylonbones.png" id="upgrade_nylonbones"
                             onmouseenter="upgrade_nylonbones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_nylonbones()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/hidebones.png" id="upgrade_hidebones"
+                            onmouseenter="upgrade_hidebones_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_hidebones()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/stick.png" id="upgrade_stick"
+                            onmouseenter="upgrade_stick_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()" onclick="upgrade_stick()" hidden>
 
                         <img class="upgrade" src="images/upgrades/superfrisbe.png" id="upgrade_superfrisbe"
                             onmouseenter="upgrade_superfrisbe_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
@@ -428,6 +541,14 @@
                             onmouseenter="upgrade_superultraepicfrisbepro_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_superultraepicfrisbepro()" hidden>
 
+                        <img class="upgrade" src="images/upgrades/superultraepicfrisbeproPE.png" id="upgrade_superultraepicfrisbeproPE"
+                            onmouseenter="upgrade_superultraepicfrisbeproPE_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_superultraepicfrisbeproPE()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/superultraepicfrisbeproPE2026.png" id="upgrade_superultraepicfrisbeproPE2026"
+                            onmouseenter="upgrade_superultraepicfrisbeproPE2026_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_superultraepicfrisbeproPE2026()" hidden>
+
                         <img class="upgrade" src="images/upgrades/hmtreats.png" id="upgrade_hmtreats"
                             onmouseenter="upgrade_hmtreats_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_hmtreats()" hidden>
@@ -443,6 +564,14 @@
                         <img class="upgrade" src="images/upgrades/nugget.png" id="upgrade_nugget"
                             onmouseenter="upgrade_nugget_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_nugget()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/pizza.png" id="upgrade_pizza"
+                            onmouseenter="upgrade_pizza_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_pizza()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/bacon.png" id="upgrade_bacon"
+                            onmouseenter="upgrade_bacon_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_bacon()" hidden>
 
                         <img class="upgrade" src="images/upgrades/xlbed.png" id="upgrade_xlbed"
                             onmouseenter="upgrade_xlbed_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
@@ -521,7 +650,7 @@
                             <div class="item-content">
                                 <div class="item-left">
                                     <span class="item-title">Cursor</span><br>
-                                    <span id="cursorprice" style="font-weight: 600;">-</span>
+                                    <span id="cursorprice" style="font-weight: 600;">!</span>
                                 </div>
                                 <span class="item-counter" id="cursor_owned">0</span>
                             </div>
@@ -534,7 +663,7 @@
                             <div class="item-content">
                                 <div class="item-left">
                                     <span class="item-title">Bone</span><br>
-                                    <span id="boneprice" style="font-weight: 600;">-</span>
+                                    <span id="boneprice" style="font-weight: 600;">!</span>
                                 </div>
                                 <span class="item-counter" id="bone_owned">0</span>
                             </div>
@@ -547,7 +676,7 @@
                             <div class="item-content">
                                 <div class="item-left">
                                     <span class="item-title">Frisbe</span><br>
-                                    <span id="frisbeprice" style="font-weight: 600;">-</span>
+                                    <span id="frisbeprice" style="font-weight: 600;">!</span>
                                 </div>
                                 <span class="item-counter" id="frisbe_owned">0</span>
                             </div>
@@ -560,7 +689,7 @@
                             <div class="item-content">
                                 <div class="item-left">
                                     <span class="item-title">Treat</span><br>
-                                    <span id="treatprice" style="font-weight: 600;">-</span>
+                                    <span id="treatprice" style="font-weight: 600;">!</span>
                                 </div>
                                 <span class="item-counter" id="treat_owned">0</span>
                             </div>
@@ -573,7 +702,7 @@
                             <div class="item-content">
                                 <div class="item-left">
                                     <span class="item-title">Bed</span><br>
-                                    <span id="bedprice" style="font-weight: 600;">-</span>
+                                    <span id="bedprice" style="font-weight: 600;">!</span>
                                 </div>
                                 <span class="item-counter" id="bed_owned">0</span>
                             </div>
@@ -586,7 +715,7 @@
                             <div class="item-content">
                                 <div class="item-left">
                                     <span class="item-title">Friend</span><br>
-                                    <span id="friendprice" style="font-weight: 600;">-</span>
+                                    <span id="friendprice" style="font-weight: 600;">!</span>
                                 </div>
                                 <span class="item-counter" id="friend_owned">0</span>
                             </div>

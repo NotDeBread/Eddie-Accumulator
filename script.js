@@ -64,6 +64,9 @@ function eddieclick() {
     if (config.timesclicked === 1500) {
         config.upgrades += 1
     }
+    if (config.timesclicked === 2500) {
+        config.upgrades += 1
+    }
 }
 
 function clickspersecond() {
@@ -168,7 +171,7 @@ function update() {
         document.getElementById('no_upgrades').hidden = false
     }
 
-    if(config.totalupgrades === 28) {
+    if(config.totalupgrades === 36) {
         document.getElementById('no_upgrades').innerHTML = "All upgrades found!"
     }
 
@@ -320,6 +323,9 @@ window.addEventListener('keydown', (event) => {
         console.log('Developer Tools Unlocked!')
         document.getElementById('warning').innerHTML = '<br>DEVELOPER TOOLS ENABLED'
         document.getElementById('warning_').style.setProperty('right','0px')
+        if(config.ach17 === false) {
+            achievement17()
+        }
     }
 });
 

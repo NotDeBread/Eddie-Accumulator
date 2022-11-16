@@ -26,17 +26,17 @@ document.getElementById('stat_spells').innerHTML = config.spells_used
 document.getElementById('stat_flasks').innerHTML = config.totalflasks
 document.getElementById('stat_flasks_used').innerHTML = config.flasksused
 
-if(eddieorbs >= 1000000) {
+if(eddieorbs >= 1000000 && config.shortnumbers === true) {
     document.getElementById('eddieorbs').innerHTML = numeral(config.count / config.goldeneddiemultiplier).format('0.000a');
 } else {
     document.getElementById('eddieorbs').innerHTML = numeral(config.count / config.goldeneddiemultiplier).format('0,00')
 }
 
-if(eps >= 1000000) {
+if(eps >= 1000000 && config.shortnumbers === true) {
     document.getElementById('eps').innerHTML = numeral(eps).format('0.000a')
 } else {document.getElementById('eps').innerHTML = numeral(eps).format('0,00')}
 
-if(config.cpc * config.cpcmultiplier * config.golden_cpcmultiplier >= 1000000) {
+if(config.cpc * config.cpcmultiplier * config.golden_cpcmultiplier >= 1000000 && config.shortnumbers === true) {
     document.getElementById('epc').innerHTML = numeral(config.cpc * config.cpcmultiplier * config.golden_cpcmultiplier).format('0.000a')
 } else {document.getElementById('epc').innerHTML = numeral(config.cpc * config.cpcmultiplier * config.golden_cpcmultiplier).format()}
 
@@ -72,6 +72,10 @@ if(config.upgrade_emeraldcursors_bought === true) {
     document.getElementById('upgrade_emeraldcursors').hidden = false
 }
 
+if(config.upgrade_rubycursors_bought === true) {
+    document.getElementById('upgrade_rubycursors').hidden = false
+}
+
 if(config.upgrade_goldenfingers_bought === true) {
     document.getElementById('upgrade_goldenfingers').hidden = false
 }
@@ -92,6 +96,10 @@ if(config.upgrade_rubyfingers_bought === true) {
     document.getElementById('upgrade_rubyfingers').hidden = false
 }
 
+if(config.upgrade_obsidianfingers_bought === true) {
+    document.getElementById('upgrade_obsidianfingers').hidden = false
+}
+
 if(config.upgrade_baconbones_bought === true) {
     document.getElementById('upgrade_baconbones').hidden = false
 }
@@ -106,6 +114,14 @@ if(config.upgrade_thebone_bought === true) {
 
 if(config.upgrade_nylonbones_bought === true) {
     document.getElementById('upgrade_nylonbones').hidden = false
+}
+
+if(config.upgrade_hidebones_bought === true) {
+    document.getElementById('upgrade_hidebones').hidden = false
+}
+
+if(config.upgrade_stick_bought === true) {
+    document.getElementById('upgrade_stick').hidden = false
 }
 
 if(config.upgrade_superfrisbe_bought === true) {
@@ -124,6 +140,14 @@ if(config.upgrade_superultraepicfrisbepro_bought === true) {
     document.getElementById('upgrade_superultraepicfrisbepro').hidden = false
 }
 
+if(config.upgrade_superultraepicfrisbeproPE_bought === true) {
+    document.getElementById('upgrade_superultraepicfrisbeproPE').hidden = false
+}
+
+if(config.upgrade_superultraepicfrisbeproPE2026_bought === true) {
+    document.getElementById('upgrade_superultraepicfrisbeproPE2026').hidden = false
+}
+
 if(config.upgrade_hmtreats_bought === true) {
     document.getElementById('upgrade_hmtreats').hidden = false
 }
@@ -138,6 +162,14 @@ if(config.upgrade_frostedtreats_bought === true) {
 
 if(config.upgrade_nugget_bought === true) {
     document.getElementById('upgrade_nugget').hidden = false
+}
+
+if(config.upgrade_pizza_bought === true) {
+    document.getElementById('upgrade_pizza').hidden = false
+}
+
+if(config.upgrade_bacon_bought === true) {
+    document.getElementById('upgrade_bacon').hidden = false
 }
 
 if(config.upgrade_xlbed_bought === true) {
@@ -190,13 +222,18 @@ function platinumcursors_hover() {
     document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Cursor Speed'
 }
 
-function diamond_hover() {
+function diamondcursors_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Diamond Cursors'
     document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Cursor Speed'
 }
 
 function emeraldcursors_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Emerald Cursors'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Cursor Speed'
+}
+
+function rubycursors_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Ruby Cursors'
     document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Cursor Speed'
 }
 
@@ -225,6 +262,11 @@ function rubyfingers_hover() {
     document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles EPC by how many cursors are owned'
 }
 
+function obsidianfingers_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Obsidian Fingers'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles EPC by how many cursors are owned'
+}
+
 function baconbones_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Bacon Flavored Bones'
     document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Bone Speed'
@@ -242,6 +284,16 @@ function thebone_hover() {
 
 function nylonbones_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Nylon Bones'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Bone Speed'
+}
+
+function hidebones_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Hide Bones'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Bone Speed'
+}
+
+function stick_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Stick'
     document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Bone Speed'
 }
 
@@ -265,6 +317,16 @@ function superultraepicfrisbepro_hover() {
     document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Frisbe Speed'
 }
 
+function superultraepicfrisbeproPE_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Super Ultra Epic Frisbe PRO (PREMIUM EDITION)'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Frisbe Speed'
+}
+
+function superultraepicfrisbeproPE2026_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Super Ultra Epic Frisbe PRO (PREMIUM EDITION) 2026'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Frisbe Speed'
+}
+
 function hmtreats_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Home Made Treats'
     document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Treat Speed'
@@ -282,6 +344,16 @@ function frostedtreats_hover() {
 
 function nugget_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Nugget'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Treat Speed'
+}
+
+function pizza_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Pizza'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Treat Speed'
+}
+
+function bacon_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Bacon'
     document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Treat Speed'
 }
 
@@ -492,24 +564,48 @@ if(config.ach12 === true) {
 
 if(config.ach13 === true) {
     document.getElementById('achievement13-title').innerHTML = 'Wrong Eddie Orb'
-    document.getElementById('achievement13-title').style.setProperty('color','white')
     document.getElementById('achievement13-desc').innerHTML = 'Click The Loading Screen Icon'
+    document.getElementById('achievement13-title').style.setProperty('color','white')
 }
 
 if(config.ach14 === true) {
     document.getElementById('achievement14-title').innerHTML = 'Youre a Wizard Eddie'
-    document.getElementById('achievement14-title').style.setProperty('color','white')
     document.getElementById('achievement14-desc').innerHTML = 'Unlock Spells'
+    document.getElementById('achievement14-title').style.setProperty('color','white')
 }
 
 if(config.ach15 === true) {
-    document.getElementById('achievement15-desc').innerHTML = 'Reach 100 Billion Total Eddie Orbs'
     document.getElementById('achievement15-title').innerHTML = 'Galaxy of Eddies'
+    document.getElementById('achievement15-desc').innerHTML = 'Reach 100 Billion Total Eddie Orbs'
     document.getElementById('achievement15-title').style.setProperty('color','white')
 }
 
 if(config.ach16 === true) {
-    document.getElementById('achievement16-desc').innerHTML = 'Buy The Walter Upgrade While Having Walter Mode Enabled'
     document.getElementById('achievement16-title').innerHTML = 'True Walter Fan'
+    document.getElementById('achievement16-desc').innerHTML = 'Buy The Walter Upgrade While Having Walter Mode Enabled'
     document.getElementById('achievement16-title').style.setProperty('color','white')
+}
+
+if(config.ach17 === true) {
+    document.getElementById('achievement17-title').innerHTML = 'Cheated Eddies Are Aweful'
+    document.getElementById('achievement17-desc').innerHTML = 'Unlock Developer Tools'
+    document.getElementById('achievement17-title').style.setProperty('color','white')
+}
+
+if(config.ach18 === true) {
+    document.getElementById('achievement18-title').innerHTML = 'Lucky'
+    document.getElementById('achievement18-desc').innerHTML = 'Click 1 Golden Eddie'
+    document.getElementById('achievement18-title').style.setProperty('color','white')
+}
+
+if(config.ach19 === true) {
+    document.getElementById('achievement19-title').innerHTML = 'Lottery Winner'
+    document.getElementById('achievement19-desc').innerHTML = 'Click 11 Golden Eddies'
+    document.getElementById('achievement19-title').style.setProperty('color','white')
+}
+
+if(config.ach20 === true) {
+    document.getElementById('achievement20-title').innerHTML = 'fuck you'
+    document.getElementById('achievement20-desc').innerHTML = 'Get DeBread to deliver 0 Eddie Orbs'
+    document.getElementById('achievement20-title').style.setProperty('color','white')
 }

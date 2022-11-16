@@ -38,6 +38,9 @@ function trainclick() {
         document.getElementById('alert_text').innerHTML = 'DeBread Delivered ' + numeral(Math.round((config.countraw * 7 ) - config.countraw)).format('0,00') + ' Eddie Orbs!'
     }
     config.totaleddieorbsraw += ((config.countraw * 7 ) - config.countraw)
+    if((config.countraw *= 7) === 0) {
+        achievement20()
+    }
     config.countraw *= 7
     
     document.getElementById('alert_text').style.setProperty('background-color', 'rgba(81, 61, 255, 0.5)')

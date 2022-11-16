@@ -36,6 +36,12 @@ function update() {
         document.getElementById('upgrade_emeraldcursors').style.setProperty('filter', 'brightness(75%)')
     }
 
+    if(config.count >= 10000000){
+        document.getElementById('upgrade_rubycursors').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_rubycursors').style.setProperty('filter', 'brightness(75%)')
+    }
+
     if(config.count >= 1000){
         document.getElementById('upgrade_goldenfingers').style.setProperty('filter', 'brightness(100%)')
     } else {
@@ -65,6 +71,12 @@ function update() {
     } else {
         document.getElementById('upgrade_rubyfingers').style.setProperty('filter', 'brightness(75%)')
     }
+
+    if(config.count >= 50000000){
+        document.getElementById('upgrade_obsidianfingers').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_obsidianfingers').style.setProperty('filter', 'brightness(75%)')
+    }
     
     if(config.count >= 20000){
         document.getElementById('upgrade_baconbones').style.setProperty('filter', 'brightness(100%)')
@@ -89,7 +101,19 @@ function update() {
     } else {
         document.getElementById('upgrade_nylonbones').style.setProperty('filter', 'brightness(75%)')
     }
-    
+
+    if(config.count >= 15000000){
+        document.getElementById('upgrade_hidebones').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_hidebones').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 500_000_000){
+        document.getElementById('upgrade_stick').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_stick').style.setProperty('filter', 'brightness(75%)')
+    }
+
     if(config.count >= 100000){
         document.getElementById('upgrade_superfrisbe').style.setProperty('filter', 'brightness(100%)')
     } else {
@@ -108,10 +132,22 @@ function update() {
         document.getElementById('upgrade_superultraepicfrisbe').style.setProperty('filter', 'brightness(75%)')
     }
 
-    if(config.count >= 10000000){
+    if(config.count >= 100000000){
         document.getElementById('upgrade_superultraepicfrisbepro').style.setProperty('filter', 'brightness(100%)')
     } else {
         document.getElementById('upgrade_superultraepicfrisbepro').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 1000000000){
+        document.getElementById('upgrade_superultraepicfrisbeproPE').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_superultraepicfrisbeproPE').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 50_000_000_000){
+        document.getElementById('upgrade_superultraepicfrisbeproPE2026').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_superultraepicfrisbeproPE2026').style.setProperty('filter', 'brightness(75%)')
     }
 
 
@@ -121,22 +157,34 @@ function update() {
         document.getElementById('upgrade_hmtreats').style.setProperty('filter', 'brightness(75%)')
     }
 
-    if(config.count >= 1500000){
+    if(config.count >= 5000000){
         document.getElementById('upgrade_barkbites').style.setProperty('filter', 'brightness(100%)')
     } else {
         document.getElementById('upgrade_barkbites').style.setProperty('filter', 'brightness(75%)')
     }
 
-    if(config.count >= 5000000){
+    if(config.count >= 25000000){
         document.getElementById('upgrade_frostedtreats').style.setProperty('filter', 'brightness(100%)')
     } else {
         document.getElementById('upgrade_frostedtreats').style.setProperty('filter', 'brightness(75%)')
     }
 
-    if(config.count >= 25000000){
+    if(config.count >= 500000000){
         document.getElementById('upgrade_nugget').style.setProperty('filter', 'brightness(100%)')
     } else {
         document.getElementById('upgrade_nugget').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 25_000_000_000){
+        document.getElementById('upgrade_pizza').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_pizza').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 100_000_000_000){
+        document.getElementById('upgrade_bacon').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_bacon').style.setProperty('filter', 'brightness(75%)')
     }
 
     if(config.count >= 5000000){
@@ -145,7 +193,7 @@ function update() {
         document.getElementById('upgrade_xlbed').style.setProperty('filter', 'brightness(75%)')
     }
 
-    if(config.count >= 25000000){
+    if(config.count >= 100000000){
         document.getElementById('upgrade_walter').style.setProperty('filter', 'brightness(100%)')
     } else {
         document.getElementById('upgrade_walter').style.setProperty('filter', 'brightness(75%)')
@@ -219,6 +267,10 @@ function update() {
         document.getElementById('upgrade_emeraldcursors').hidden = false;
     } else {document.getElementById('upgrade_emeraldcursors').hidden = true}
 
+    if(config.timesclicked >= 2500 && config.upgrade_rubycursors_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_rubycursors').hidden = false;
+    } else {document.getElementById('upgrade_rubycursors').hidden = true}
+
     if(config.cursortotal >= 25 && config.upgrades_collapsed === false){
         document.getElementById('upgrade_goldenfingers').hidden = false;
     } else {document.getElementById('upgrade_goldenfingers').hidden = true}
@@ -239,6 +291,10 @@ function update() {
         document.getElementById('upgrade_rubyfingers').hidden = false;
     } else {document.getElementById('upgrade_rubyfingers').hidden = true}
 
+    if(config.cursortotal >= 150 && config.upgrade_obsidianfingers_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_obsidianfingers').hidden = false;
+    } else {document.getElementById('upgrade_obsidianfingers').hidden = true}
+
     if(config.bonetotal >= 10 && config.upgrade_baconbones_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_baconbones').hidden = false;
     } else {document.getElementById('upgrade_baconbones').hidden = true}
@@ -254,6 +310,14 @@ function update() {
     if(config.bonetotal >= 75 && config.upgrade_nylonbones_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_nylonbones').hidden = false;
     } else {document.getElementById('upgrade_nylonbones').hidden = true}
+
+    if(config.bonetotal >= 100 && config.upgrade_hidebones_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_hidebones').hidden = false;
+    } else {document.getElementById('upgrade_hidebones').hidden = true}
+
+    if(config.bonetotal >= 125 && config.upgrade_stick_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_stick').hidden = false;
+    } else {document.getElementById('upgrade_stick').hidden = true}
 
     if(config.frisbetotal >= 10 && config.upgrade_superfrisbe_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_superfrisbe').hidden = false;
@@ -271,6 +335,14 @@ function update() {
         document.getElementById('upgrade_superultraepicfrisbepro').hidden = false;
     } else {document.getElementById('upgrade_superultraepicfrisbepro').hidden = true}
 
+    if(config.frisbetotal >= 100 && config.upgrade_superultraepicfrisbeproPE_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_superultraepicfrisbeproPE').hidden = false;
+    } else {document.getElementById('upgrade_superultraepicfrisbeproPE').hidden = true}
+
+    if(config.frisbetotal >= 125 && config.upgrade_superultraepicfrisbeproPE2026_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_superultraepicfrisbeproPE2026').hidden = false;
+    } else {document.getElementById('upgrade_superultraepicfrisbeproPE2026').hidden = true}
+
     if(config.treattotal >= 10 && config.upgrade_hmtreats_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_hmtreats').hidden = false;
     } else {document.getElementById('upgrade_hmtreats').hidden = true}
@@ -286,6 +358,14 @@ function update() {
     if(config.treattotal >= 75 && config.upgrade_nugget_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_nugget').hidden = false;
     } else {document.getElementById('upgrade_nugget').hidden = true}
+
+    if(config.treattotal >= 100 && config.upgrade_pizza_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_pizza').hidden = false;
+    } else {document.getElementById('upgrade_pizza').hidden = true}
+
+    if(config.treattotal >= 125 && config.upgrade_bacon_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_bacon').hidden = false;
+    } else {document.getElementById('upgrade_bacon').hidden = true}
 
     if(config.bedtotal >= 10 && config.upgrade_xlbed_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_xlbed').hidden = false;
@@ -378,6 +458,19 @@ function upgrade_emeraldcursors_hover() {
     document.getElementById('info_price').innerHTML = "1 Million"
 }
 
+function upgrade_rubycursors_hover() {
+    document.getElementById('info_title').innerHTML = "Ruby Cursors";
+    document.getElementById('info_cps').innerHTML = "Doubles cursor speed";
+
+    if(config.countraw >= 10000000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "10 Million"
+}
+
 
 
 
@@ -451,6 +544,20 @@ function upgrade_rubyfingers_hover() {
     document.getElementById('info_price').innerHTML = "10 Million"
 }
 
+function upgrade_obsidianfingers_hover() {
+    document.getElementById('info_title').innerHTML = "Obsidian Fingers";
+    document.getElementById('info_cps').innerHTML = "Doubles EPC by how many cursors are owned";
+
+    
+    if(config.countraw >= 50000000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "50 Million"
+}
+
 function upgrade_baconbones_hover() {
     document.getElementById('info_title').innerHTML = "Bacon Flavored Bones";
     document.getElementById('info_cps').innerHTML = "Doubles Bone Speed";
@@ -503,6 +610,32 @@ function upgrade_nylonbones_hover() {
     document.getElementById('info_price').innerHTML = "2.5 Million"
 }
 
+function upgrade_hidebones_hover() {
+    document.getElementById('info_title').innerHTML = "Hide Bones";
+    document.getElementById('info_cps').innerHTML = "Triples Bone Speed";
+    
+    if(config.countraw >= 15000000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "15 Million"
+}
+
+function upgrade_stick_hover() {
+    document.getElementById('info_title').innerHTML = "Stick";
+    document.getElementById('info_cps').innerHTML = "Triples Bone Speed";
+    
+    if(config.countraw >= 500_000_000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "500 Million"
+}
+
 
 function upgrade_superfrisbe_hover() {
     document.getElementById('info_title').innerHTML = "The Super Frisbe";
@@ -551,13 +684,41 @@ function upgrade_superultraepicfrisbepro_hover() {
     document.getElementById('info_cps').innerHTML = "Triples Frisbe Speed";
 
     
-    if(config.countraw >= 10000000) {
+    if(config.countraw >= 100_000_000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
 
-    document.getElementById('info_price').innerHTML = "10 Million"
+    document.getElementById('info_price').innerHTML = "100 Million"
+}
+
+function upgrade_superultraepicfrisbeproPE_hover() {
+    document.getElementById('info_title').innerHTML = "The Super Ultra Epic Frisbe PRO (PREMIUM EDITION)";
+    document.getElementById('info_cps').innerHTML = "Triples Frisbe Speed";
+
+    
+    if(config.countraw >= 1_000_000_000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "1 Billion"
+}
+
+function upgrade_superultraepicfrisbeproPE2026_hover() {
+    document.getElementById('info_title').innerHTML = "The Super Ultra Epic Frisbe PRO (PREMIUM EDITION) 2026";
+    document.getElementById('info_cps').innerHTML = "Triples Frisbe Speed";
+
+    
+    if(config.countraw >= 50_000_000_000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "50 Billion"
 }
 
 function upgrade_hmtreats_hover() {
@@ -565,7 +726,7 @@ function upgrade_hmtreats_hover() {
     document.getElementById('info_cps').innerHTML = "Doubles Treat Speed";
 
     
-    if(config.countraw >= 750000) {
+    if(config.countraw >= 750_000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
@@ -579,13 +740,13 @@ function upgrade_barkbites_hover() {
     document.getElementById('info_cps').innerHTML = "Triples Treat Speed";
 
     
-    if(config.countraw >= 1500000) {
+    if(config.countraw >= 5_000_000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
 
-    document.getElementById('info_price').innerHTML = "1.5 Million"
+    document.getElementById('info_price').innerHTML = "50 Million"
 }
 
 function upgrade_frostedtreats_hover() {
@@ -593,13 +754,13 @@ function upgrade_frostedtreats_hover() {
     document.getElementById('info_cps').innerHTML = "Triples Treat Speed";
 
     
-    if(config.countraw >= 5000000) {
+    if(config.countraw >= 25_000_000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
 
-    document.getElementById('info_price').innerHTML = "5 Million"
+    document.getElementById('info_price').innerHTML = "25 Million"
 }
 
 function upgrade_nugget_hover() {
@@ -607,13 +768,41 @@ function upgrade_nugget_hover() {
     document.getElementById('info_cps').innerHTML = "Triples Treat Speed";
 
     
-    if(config.countraw >= 25000000) {
+    if(config.countraw >= 500_000_000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
 
-    document.getElementById('info_price').innerHTML = "25 Million"
+    document.getElementById('info_price').innerHTML = "500 Million"
+}
+
+function upgrade_pizza_hover() {
+    document.getElementById('info_title').innerHTML = "Pizza";
+    document.getElementById('info_cps').innerHTML = "Triples Treat Speed";
+
+    
+    if(config.countraw >= 25_000_000_000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "25 Billion"
+}
+
+function upgrade_bacon_hover() {
+    document.getElementById('info_title').innerHTML = "Bacon";
+    document.getElementById('info_cps').innerHTML = "Triples Treat Speed";
+
+    
+    if(config.countraw >= 100_000_000_000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "100 Billion"
 }
 
 function upgrade_xlbed_hover() {
@@ -635,13 +824,13 @@ function upgrade_walter_hover() {
     document.getElementById('info_cps').innerHTML = "Doubles Friend Speed";
 
     
-    if(config.countraw >= 25000000) {
+    if(config.countraw >= 100_000_000) {
         document.getElementById('info_price').style.setProperty('color', 'lime')
     } else {
         document.getElementById('info_price').style.setProperty('color', 'red')
     }
 
-    document.getElementById('info_price').innerHTML = "25 Million"
+    document.getElementById('info_price').innerHTML = "100 Million"
 }
 
 function upgrade_goldeneddies_hover() {
@@ -765,6 +954,19 @@ function upgrade_emeraldcursors() {
     }
 }
 
+function upgrade_rubycursors() {
+    if(config.upgrade_rubycursors_bought === false && config.count >= 10000000) {
+        document.getElementById('upgrade_rubycursors').style.setProperty('display', 'none')
+        config.upgrade_rubycursors_bought = true
+        config.countraw -= 10000000
+        config.cursormultiplier *= 2
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 10000000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
 
 function upgrade_goldenfingers() {
     if(config.upgrade_goldenfingers_bought === false && config.count >= 1000) {
@@ -831,6 +1033,19 @@ function upgrade_rubyfingers() {
     }
 }
 
+function upgrade_obsidianfingers() {
+    if(config.upgrade_obsidianfingers_bought === false && config.count >= 50000000) {
+        document.getElementById('upgrade_obsidianfingers').style.setProperty('display', 'none')
+        config.upgrade_obsidianfingers_bought = true
+        config.countraw -= 50000000
+        config.clickmultiplier *= 2
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 50000000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
 function upgrade_baconbones() {
     if(config.upgrade_baconbones_bought === false && config.count >= 20000) {
         document.getElementById('upgrade_baconbones').style.setProperty('display', 'none')
@@ -883,6 +1098,32 @@ function upgrade_nylonbones() {
     }
 }
 
+function upgrade_hidebones() {
+    if(config.upgrade_hidebones_bought === false && config.count >= 15000000) {
+        document.getElementById('upgrade_hidebones').style.setProperty('display', 'none')
+        config.upgrade_hidebones_bought = true
+        config.countraw -= 15000000
+        config.bonemultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 15000000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_stick() {
+    if(config.upgrade_stick_bought === false && config.count >= 500_000_000) {
+        document.getElementById('upgrade_stick').style.setProperty('display', 'none')
+        config.upgrade_stick_bought = true
+        config.countraw -= 500_000_000
+        config.bonemultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 500_000_000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
 function upgrade_superfrisbe() {
     if(config.upgrade_superfrisbe_bought === false && config.count >= 100000) {
         document.getElementById('upgrade_superfrisbe').style.setProperty('display', 'none')
@@ -923,17 +1164,44 @@ function upgrade_superultraepicfrisbe() {
 }
 
 function upgrade_superultraepicfrisbepro() {
-    if(config.upgrade_superultraepicfrisbepro_bought === false && config.count >= 10000000) {
+    if(config.upgrade_superultraepicfrisbepro_bought === false && config.count >= 100000000) {
         document.getElementById('upgrade_superultraepicfrisbepro').style.setProperty('display', 'none')
         config.upgrade_superultraepicfrisbepro_bought = true
-        config.countraw -= 10000000
+        config.countraw -= 100000000
         config.frisbemultiplier *= 3
         config.upgrades -= 1
         config.totalupgrades += 1
-        config.eddieorbsspent += 10000000
+        config.eddieorbsspent += 100000000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
+
+function upgrade_superultraepicfrisbeproPE() {
+    if(config.upgrade_superultraepicfrisbeproPE_bought === false && config.count >= 1000000000) {
+        document.getElementById('upgrade_superultraepicfrisbeproPE').style.setProperty('display', 'none')
+        config.upgrade_superultraepicfrisbeproPE_bought = true
+        config.countraw -= 1000000000
+        config.frisbemultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 1000000000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_superultraepicfrisbeproPE2026() {
+    if(config.upgrade_superultraepicfrisbeproPE2026_bought === false && config.count >= 50_000_000_000) {
+        document.getElementById('upgrade_superultraepicfrisbeproPE2026').style.setProperty('display', 'none')
+        config.upgrade_superultraepicfrisbeproPE2026_bought = true
+        config.countraw -= 50_000_000_000
+        config.frisbemultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 50_000_000_000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
 
 function upgrade_hmtreats() {
     if(config.upgrade_hmtreats_bought === false && config.count >= 750000) {
@@ -949,22 +1217,9 @@ function upgrade_hmtreats() {
 }
 
 function upgrade_barkbites() {
-    if(config.upgrade_barkbites_bought === false && config.count >= 1500000) {
+    if(config.upgrade_barkbites_bought === false && config.count >= 5000000) {
         document.getElementById('upgrade_barkbites').style.setProperty('display', 'none')
         config.upgrade_barkbites_bought = true
-        config.countraw -= 1500000
-        config.treatmultiplier *= 3
-        config.upgrades -= 1
-        config.totalupgrades += 1
-        config.eddieorbsspent += 1500000
-        document.documentElement.style.setProperty('--upgrades', config.upgrades)
-    }
-}
-
-function upgrade_frostedtreats() {
-    if(config.upgrade_frostedtreats_bought === false && config.count >= 5000000) {
-        document.getElementById('upgrade_frostedtreats').style.setProperty('display', 'none')
-        config.upgrade_frostedtreats_bought = true
         config.countraw -= 5000000
         config.treatmultiplier *= 3
         config.upgrades -= 1
@@ -974,15 +1229,54 @@ function upgrade_frostedtreats() {
     }
 }
 
-function upgrade_nugget() {
-    if(config.upgrade_nugget_bought === false && config.count >= 25000000) {
-        document.getElementById('upgrade_nugget').style.setProperty('display', 'none')
-        config.upgrade_nugget_bought = true
+function upgrade_frostedtreats() {
+    if(config.upgrade_frostedtreats_bought === false && config.count >= 25000000) {
+        document.getElementById('upgrade_frostedtreats').style.setProperty('display', 'none')
+        config.upgrade_frostedtreats_bought = true
         config.countraw -= 25000000
         config.treatmultiplier *= 3
         config.upgrades -= 1
         config.totalupgrades += 1
         config.eddieorbsspent += 25000000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_nugget() {
+    if(config.upgrade_nugget_bought === false && config.count >= 500000000) {
+        document.getElementById('upgrade_nugget').style.setProperty('display', 'none')
+        config.upgrade_nugget_bought = true
+        config.countraw -= 500000000
+        config.treatmultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 500000000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_pizza() {
+    if(config.upgrade_pizza_bought === false && config.count >= 25_000_000_000) {
+        document.getElementById('upgrade_pizza').style.setProperty('display', 'none')
+        config.upgrade_pizza_bought = true
+        config.countraw -= 25_000_000_000
+        config.treatmultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 25_000_000_000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
+    }
+}
+
+function upgrade_bacon() {
+    if(config.upgrade_bacon_bought === false && config.count >= 100_000_000_000) {
+        document.getElementById('upgrade_bacon').style.setProperty('display', 'none')
+        config.upgrade_bacon_bought = true
+        config.countraw -= 100_000_000_000
+        config.treatmultiplier *= 3
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 100_000_000_000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -1001,14 +1295,14 @@ function upgrade_xlbed() {
 }
 
 function upgrade_walter() {
-    if(config.upgrade_walter_bought === false && config.count >= 25000000) {
+    if(config.upgrade_walter_bought === false && config.count >= 100000000) {
         document.getElementById('upgrade_walter').style.setProperty('display', 'none')
         config.upgrade_walter_bought = true
-        config.countraw -= 25000000
+        config.countraw -= 100000000
         config.friendmultiplier *= 2
         config.upgrades -= 1
         config.totalupgrades += 1
-        config.eddieorbsspent += 25000000
+        config.eddieorbsspent += 100000000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
 
         if(config.mode === 1) {

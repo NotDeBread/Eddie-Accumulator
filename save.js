@@ -62,27 +62,35 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     upgrade_platinumcursors_bought: false,
     upgrade_diamondcursors_bought: false,
     upgrade_emeraldcursors_bought: false,
+    upgrade_rubycursors_bought: false,
     
     upgrade_goldenfingers_bought: false,
     upgrade_platinumfingers_bought: false,
     upgrade_diamondfingers_bought: false,
     upgrade_emeraldfingers_bought: false,
     upgrade_rubyfingers_bought: false,
+    upgrade_obsidianfingers_bought: false,
     
     upgrade_baconbones_bought: false,
     upgrade_meatbones_bought: false,
     upgrade_thebone_bought: false,
     upgrade_nylonbones_bought: false,
+    upgrade_hidebones_bought: false,
+    upgrade_stick_bought: false,
     
     upgrade_superfrisbe_bought: false,
     upgrade_superepicfrisbe_bought: false,
     upgrade_superultraepicfrisbe_bought: false,
     upgrade_superultraepicfrisbepro_bought: false,
+    upgrade_superultraepicfrisbeproPE_bought: false,
+    upgrade_superultraepicfrisbeproPE2026_bought: false,
     
     upgrade_hmtreats_bought: false,
     upgrade_barkbites_bought: false,
     upgrade_frostedtreats_bought: false,
     upgrade_nugget_bought: false,
+    upgrade_pizza_bought: false,
+    upgrade_bacon_bought: false,
     
     upgrade_xlbed_bought: false,
 
@@ -128,6 +136,10 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     ach14: false,
     ach15: false,
     ach16: false,
+    ach17: false,
+    ach18: false,
+    ach19: false,
+    ach20: false,
 
     ach4_check: false,
     ach5_check: false,
@@ -148,4 +160,5 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     walter: false,
 
     mode: 0,
+    updateviewed: false,
 }
