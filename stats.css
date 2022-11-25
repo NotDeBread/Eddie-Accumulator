@@ -7,6 +7,18 @@
   --blackTP2: rgba(0, 0, 0, 75%);
   --rankprogress: 0%;
   --content-width: 25vw;
+
+  --rank-d: #de6a6a;
+  --rank-dplus: #ed9d92;
+  --rank-c: #ff9e59;
+  --rank-cplus: #ffc759;
+  --rank-b: #ffec59;
+  --rank-bplus: #f2ff48;
+  --rank-a: #7aff59;
+  --rank-aplus: #7aff87;
+  --rank-s: #7dc7ff;
+  --rank-splus: #7df2ff;
+  --rank-ss: #7db3ff;
 }
 
 @font-face {
@@ -302,6 +314,34 @@ span {
   border-radius: 5px;
   width: 100%;
   height: 10px;
+}
+
+.sphere-all {
+  background-color: var(--darkbg);
+  text-align: center;
+  padding: 5px;
+}
+
+.sphere-container {
+  background-color: var(--darkerbg);
+  padding: 5px;
+  display: flex;
+  gap: 10px;
+  width: var(--content-width);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sphere {
+  padding: 10px;
+  width: 25%;
+}
+
+.sphere-title {
+  font-size: 1.5em;
+  font-weight: 600;
 }
 
 .achievements {

@@ -3,8 +3,6 @@ console.log('Loading Script...')
 
 const favicon = document.getElementById("favicon");
 
-var cps = 0
-
 var goldeneddie_random = 0
 
 config.goldeneddiemultiplier = 1
@@ -15,6 +13,32 @@ setInterval(clickspersecond, 25)
 setInterval(rankupdate, 1)
 setInterval(rankupdate_img, 500)
 setInterval(update, 1)
+
+var pulse = function() {
+    var e = document.createElement('span');
+    e.setAttribute('class','click'),
+    e.innerHTML = (config.cpc * config.cpcmultiplier) * config.golden_cpcmultiplier
+    document.body.appendChild(e),
+    e.style.top = event.pageY + 'px',
+    e.style.left = event.pageX + 'px',
+
+    setTimeout(function() {
+        document.body.removeChild(e)
+    }, 1000)
+
+}
+
+function eddieenter() {
+    if(config.showcpc === true) {
+        document.addEventListener('click', pulse)
+    }
+}
+
+function eddieleave() {
+    if(config.showcpc === true) {
+        document.removeEventListener('click', pulse)
+    }
+}
 
 function eddieclick() {
     config.countraw += (config.cpc * config.cpcmultiplier) * config.golden_cpcmultiplier
@@ -152,11 +176,11 @@ function clickspersecond() {
 
 function update() {
     
-    if(cps >= 1000000) {
-        document.getElementById('cps').innerHTML = numeral(cps).format('0.000a')
-    } else {document.getElementById('cps').innerHTML = numeral(cps).format('0,00')}
+    if(config.cps >= 1000000) {
+        document.getElementById('cps').innerHTML = numeral(config.cps).format('0.000a')
+    } else {document.getElementById('cps').innerHTML = numeral(config.cps).format('0,00')}
 
-    cps = ((config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + (config.frisbecps * config.frisbemultiplier) + (config.treatcps * config.treatmultiplier) + (config.bedcps * config.bedmultiplier) + (config.friendcps * config.friendmultiplier)) * config.goldeneddiemultiplier
+    config.cps = ((config.cursorcps * config.cursormultiplier) + (config.bonecps * config.bonemultiplier) + (config.frisbecps * config.frisbemultiplier) + (config.treatcps * config.treatmultiplier) + (config.bedcps * config.bedmultiplier) + (config.friendcps * config.friendmultiplier)) * config.goldeneddiemultiplier
 
     config.count = config.countraw
     config.totaleddieorbs = Math.round(config.totaleddieorbs)
@@ -213,7 +237,7 @@ function update() {
         document.getElementById('cps').style.setProperty('color', 'white')
     }
 
-    if(config.golden_cpcmultiplier === 1) {
+    if(config.golden_cpcmultiplier === 1 && config.blitzactive === false) {
         document.getElementById('cpc').style.setProperty('color', 'white')
     }
 
@@ -335,29 +359,29 @@ if(config.devtoolsunlocked === true) {
 
 function rankupdate() {
     if(config.totaleddieorbs <= 1000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(132, 86, 75)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-dplus)')
     } else if(config.totaleddieorbs <= 10000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(242, 118, 107)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-c)')
     } else if(config.totaleddieorbs <= 100000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(191, 143, 96)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-cplus)')
     } else if(config.totaleddieorbs <= 1000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(208, 158, 79)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-b)')
     } else if(config.totaleddieorbs <= 10000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(248, 219, 113)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-bplus)')
     } else if(config.totaleddieorbs <= 100000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(250, 246, 109)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-a)')
     } else if(config.totaleddieorbs <= 1000000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(153, 229, 80)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-aplus)')
     } else if(config.totaleddieorbs <= 10000000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(73, 236, 102)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-s)')
     } else if(config.totaleddieorbs <= 100000000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(73, 236, 102)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-splus)')
     } else if(config.totaleddieorbs <= 1000000000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(73, 236, 102)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-ss)')
     }
 
     if(config.totaleddieorbs < 1000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(132, 86, 75)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-d)')
 
         if(1000 - config.totaleddieorbs >= 1000000) {
             document.getElementById('rank_count').innerHTML = numeral(1000 - config.totaleddieorbs).format('0.000a')
@@ -366,7 +390,7 @@ function rankupdate() {
         document.getElementById('rank_progress').style.setProperty('width', (config.totaleddieorbs / 1000) * 100 + '%')
     
     } else if(config.totaleddieorbs < 10000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(242, 118, 107)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-dplus)')
 
         if(10000 - config.totaleddieorbs >= 1000000) {
             document.getElementById('rank_count').innerHTML = numeral(10000 - config.totaleddieorbs).format('0.000a')
@@ -375,7 +399,7 @@ function rankupdate() {
         document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 1000) / (10000 - 1000)) * 100 + '%')
     
     } else if(config.totaleddieorbs < 100000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(191, 143, 96)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-c)')
 
         if(100000 - config.totaleddieorbs >= 1000000) {
             document.getElementById('rank_count').innerHTML = numeral(100000 - config.totaleddieorbs).format('0.000a')
@@ -384,7 +408,7 @@ function rankupdate() {
         document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 10000) / (100000 - 10000)) * 100 + '%')
     
     } else if(config.totaleddieorbs < 1000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(208, 158, 79)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-cplus)')
 
         if(1000000 - config.totaleddieorbs >= 1000000) {
             document.getElementById('rank_count').innerHTML = numeral(1000000 - config.totaleddieorbs).format('0.000a')
@@ -393,7 +417,7 @@ function rankupdate() {
         document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 100000) / (1000000 - 100000)) * 100 + '%')
 
     } else if(config.totaleddieorbs < 10000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(248, 219, 113)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-b)')
 
         if(10000000 - config.totaleddieorbs >= 1000000) {
             document.getElementById('rank_count').innerHTML = numeral(10000000 - config.totaleddieorbs).format('0.000a')
@@ -402,7 +426,7 @@ function rankupdate() {
         document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 1000000) / (10000000 - 1000000)) * 100 + '%')
 
     } else if(config.totaleddieorbs < 100000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(250, 246, 109)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-bplus)')
 
         if(100000000 - config.totaleddieorbs >= 1000000) {
             document.getElementById('rank_count').innerHTML = numeral(100000000 - config.totaleddieorbs).format('0.000a')
@@ -411,7 +435,7 @@ function rankupdate() {
         document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 10000000) / (100000000 - 10000000)) * 100 + '%')
 
     } else if(config.totaleddieorbs < 1000000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(153, 229, 80)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-a)')
 
         if(1000000000 - config.totaleddieorbs >= 1000000) {
             document.getElementById('rank_count').innerHTML = numeral(1000000000 - config.totaleddieorbs).format('0.000a')
@@ -420,7 +444,7 @@ function rankupdate() {
         document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 100000000) / (1000000000 - 100000000)) * 100 + '%')
 
     } else if(config.totaleddieorbs < 10000000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(73, 236, 102)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-aplus)')
 
         if(10000000000 - config.totaleddieorbs >= 1000000) {
             document.getElementById('rank_count').innerHTML = numeral(10000000000 - config.totaleddieorbs).format('0.000a')
@@ -429,7 +453,7 @@ function rankupdate() {
         document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 1000000000) / (10000000000 - 1000000000)) * 100 + '%')
 
     } else if(config.totaleddieorbs < 100000000000) {
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(91, 110, 225)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-s)')
 
         if(100000000000 - config.totaleddieorbs >= 1000000) {
             document.getElementById('rank_count').innerHTML = numeral(100000000000 - config.totaleddieorbs).format('0.000a')
@@ -437,9 +461,17 @@ function rankupdate() {
 
         document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 10000000000) / (100000000000 - 10000000000)) * 100 + '%')
 
+    } else if(config.totaleddieorbs < 1000000000000) {
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-splus)')
+        if(1000000000000 - config.totaleddieorbs >= 1000000) {
+            document.getElementById('rank_count').innerHTML = numeral(1000000000000 - config.totaleddieorbs).format('0.000a')
+        } else {document.getElementById('rank_count').innerHTML = numeral(1000000000000 - config.totaleddieorbs).format('0,00')}
+
+        document.getElementById('rank_progress').style.setProperty('width', ((config.totaleddieorbs - 100000000000) / (1000000000000 - 100000000000)) * 100 + '%')
+
     } else {
         document.getElementById('rank_text').innerHTML = 'Maximum Rank!'
-        document.getElementById('rank_progress').style.setProperty('background-color','rgb(82, 78, 238)')
+        document.getElementById('rank_progress').style.setProperty('background-color','var(--rank-ss)')
         document.getElementById('rank_progress').style.setProperty('width', '100%')
     }
 }
@@ -473,7 +505,10 @@ function rankupdate_img() {
     } else if(config.totaleddieorbs < 100000000000) {
         document.getElementById('rank').src = 'images/ranks/rank-s.png'
 
-    } else {
+    } else if(config.totaleddieorbs < 1000000000000) {
         document.getElementById('rank').src = 'images/ranks/rank-splus.png'
+
+    } else {
+        document.getElementById('rank').src = 'images/ranks/rank-ss.png'
     }
 }

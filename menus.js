@@ -28,6 +28,10 @@ function settingsopen() {
     if(config.shortnumbers === true) {
         document.getElementById('cb_3').src = 'images/icons/checkbox2.png'
     } else {document.getElementById('cb_3').src = 'images/icons/checkbox1.png'}
+
+    if(config.showcpc === true) {
+        document.getElementById('cb_4').src = 'images/icons/checkbox2.png'
+    } else {document.getElementById('cb_4').src = 'images/icons/checkbox1.png'}
 }
 
 function settingsclose() {
@@ -94,6 +98,20 @@ function setting3() {
     }
 }
 
+function setting4() {
+    if(document.getElementById('cb_4').src = 'images/icons/checkbox1.png' && config.showcpc === false) {
+
+        document.getElementById('cb_4').src = 'images/icons/checkbox2.png'
+        config.showcpc = true
+
+    } else {
+
+        document.getElementById('cb_4').src = 'images/icons/checkbox1.png'
+        config.showcpc = false
+
+    }
+}
+
 function eddie() {
     document.getElementById('mode').innerText = 'Eddie'
     document.getElementById('eddie').src = 'images/spheres/EddieSphere.gif'
@@ -136,6 +154,13 @@ function sabastion() {
     document.getElementById('topper_title').innerText = 'Sabastion Accumulator'
 }
 
+function lola() {
+    document.getElementById('mode').innerText = 'Lola'
+    document.getElementById('eddie').src = 'images/spheres/LolaSphere.gif'
+    document.getElementById('webtitle').innerText = 'Lola Accumulator'
+    document.getElementById('topper_title').innerText = 'Lola Accumulator'
+}
+
 
 if (config.mode === 0){
     eddie()
@@ -161,8 +186,12 @@ if(config.mode === 5) {
     sabastion()
 }
 
+if(config.mode === 6) {
+    lola()
+}
+
 function modenext() {
-    if(config.mode === 5) {
+    if(config.mode === 6) {
         config.mode = 0
     } else {config.mode ++}
 
@@ -188,12 +217,15 @@ function modenext() {
     if(config.mode === 5) {
         sabastion()
     }
+    if(config.mode === 6) {
+        lola()
+    }
     silentsave()
 }
 
 function modeback() {
     if(config.mode === 0) {
-        config.mode = 5
+        config.mode = 6
     } else {config.mode --}
 
     if (config.mode === 0){
@@ -218,6 +250,10 @@ function modeback() {
 
     if(config.mode === 5) {
         sabastion()
+    }
+
+    if(config.mode === 6) {
+        lola()
     }
     silentsave()
 }

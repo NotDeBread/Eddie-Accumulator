@@ -10,6 +10,7 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     
     count: 0,
     countraw: 0,
+    cps: 0,
     cpc: 1,
     cpcmultiplier: 1,
 
@@ -19,6 +20,8 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     eddieorbsspent: 0,
     goldeneddiesclicked: 0,
     goldeneddiesspawned: 0,
+
+    trainsclicked: 0,
 
     goldeneddies_unlocked: false,
 
@@ -95,6 +98,7 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     upgrade_xlbed_bought: false,
 
     upgrade_walter_bought: false,
+    upgrade_lola_bought: false,
     
     upgrade_goldeneddies_bought: false,
     upgrade_shimmeringeddies_bought: false,
@@ -115,6 +119,8 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     totalflasks: 0,
     flasksused: 0,
     flask_increase: 1,
+
+    blitzactive: false,
     
     upgrades: 0,
     
@@ -157,7 +163,7 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     autosave: true,
     monospacefont: false,
     shortnumbers: true,
-    walter: false,
+    showcpc: true,
 
     mode: 0,
     updateviewed: false,

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <a class="backbutton" href="index.html">
+    <a class="backbutton" href="/">
         <p>Back</p>
     </a>
     <div class="all-container">
@@ -67,6 +67,15 @@
                         </div>
                         <div class="stat-container">
                             <div class="stat">
+                                <span class="stats-name">Trains Clicked: </span>
+                                <span class="stats-text" id="stat_trainsclicked">0</span><br>
+                            </div>
+                            <div class="stat-img-container">
+                                <img src="images/stats/train.png" class="stat-img">
+                            </div>
+                        </div>
+                        <div class="stat-container">
+                            <div class="stat">
                                 <span class="stats-name">Spells Used: </span>
                                 <span class="stats-text" id="stat_spells">0</span><br>
                             </div>
@@ -116,7 +125,7 @@
                 </div>
 
                 <div class="eddie-orbs">
-                    <span class="eddie-orbs-label">Current Eddie Orbs:</span><br>
+                    <span class="eddie-orbs-label">Current Eddie Orbs</span><br>
                     <div class="eddie-orbs-count">
                         <span id="eddieorbs">-</span>
                     </div>
@@ -244,6 +253,9 @@
                         <img class="upgrade" src="images/upgrades/walter.png" id="upgrade_walter"
                             onmouseenter="walter_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
 
+                        <img class="upgrade" src="images/upgrades/lola.png" id="upgrade_lola"
+                            onmouseenter="lola_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
+
                         <img class="upgrade" src="images/upgrades/goldeneddies.png" id="upgrade_goldeneddies"
                             onmouseenter="goldeneddies_hover(); upgradett_enter()" onmouseleave="upgradett_leave()" hidden>
 
@@ -276,6 +288,16 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="sphere-all">
+                    <span class="sphere-title" style="font-size: 2em; font-weight: 600;">Current Sphere</span>
+                    <div class="sphere-container">
+                        <img class="sphere" src="images/spheres/EddieSphere.gif" id="sphere">
+                    </div>
+                    <div class="sphere-container" style="margin-top: 5px;">
+                        <span class="sphere-title" id="spheretitle">-</span>
                     </div>
                 </div>
 
@@ -373,6 +395,15 @@
     </section>
     </section>
     </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDN957ERFR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PDN957ERFR');
+    </script>
 
     <script src="node_modules/numeral/numeral.js"></script>
     <script src="save.js"></script>

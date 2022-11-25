@@ -157,7 +157,7 @@ function update() {
         document.getElementById('upgrade_hmtreats').style.setProperty('filter', 'brightness(75%)')
     }
 
-    if(config.count >= 5000000){
+    if(config.count >= 50000000){
         document.getElementById('upgrade_barkbites').style.setProperty('filter', 'brightness(100%)')
     } else {
         document.getElementById('upgrade_barkbites').style.setProperty('filter', 'brightness(75%)')
@@ -197,6 +197,12 @@ function update() {
         document.getElementById('upgrade_walter').style.setProperty('filter', 'brightness(100%)')
     } else {
         document.getElementById('upgrade_walter').style.setProperty('filter', 'brightness(75%)')
+    }
+
+    if(config.count >= 1_000_000_000){
+        document.getElementById('upgrade_lola').style.setProperty('filter', 'brightness(100%)')
+    } else {
+        document.getElementById('upgrade_lola').style.setProperty('filter', 'brightness(75%)')
     }
 
     if(config.count >= 75000){
@@ -374,6 +380,10 @@ function update() {
     if(config.friendtotal >= 10 && config.upgrade_walter_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_walter').hidden = false;
     } else {document.getElementById('upgrade_walter').hidden = true}
+
+    if(config.friendtotal >= 25 && config.upgrade_lola_bought === false && config.upgrades_collapsed === false){
+        document.getElementById('upgrade_lola').hidden = false;
+    } else {document.getElementById('upgrade_lola').hidden = true}
 
     if(config.totaleddieorbsraw >= 100000 && config.upgrade_goldeneddies_bought === false && config.upgrades_collapsed === false){
         document.getElementById('upgrade_goldeneddies').hidden = false;
@@ -833,6 +843,20 @@ function upgrade_walter_hover() {
     document.getElementById('info_price').innerHTML = "100 Million"
 }
 
+function upgrade_lola_hover() {
+    document.getElementById('info_title').innerHTML = "Lola";
+    document.getElementById('info_cps').innerHTML = "Triples Friend Speed";
+
+    
+    if(config.countraw >= 1_000_000_000) {
+        document.getElementById('info_price').style.setProperty('color', 'lime')
+    } else {
+        document.getElementById('info_price').style.setProperty('color', 'red')
+    }
+
+    document.getElementById('info_price').innerHTML = "1 Billion"
+}
+
 function upgrade_goldeneddies_hover() {
     document.getElementById('info_title').innerHTML = "Golden Eddies";
     document.getElementById('info_cps').innerHTML = "Unlocks Golden Eddies";
@@ -1217,14 +1241,14 @@ function upgrade_hmtreats() {
 }
 
 function upgrade_barkbites() {
-    if(config.upgrade_barkbites_bought === false && config.count >= 5000000) {
+    if(config.upgrade_barkbites_bought === false && config.count >= 50000000) {
         document.getElementById('upgrade_barkbites').style.setProperty('display', 'none')
         config.upgrade_barkbites_bought = true
-        config.countraw -= 5000000
+        config.countraw -= 50000000
         config.treatmultiplier *= 3
         config.upgrades -= 1
         config.totalupgrades += 1
-        config.eddieorbsspent += 5000000
+        config.eddieorbsspent += 50000000
         document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
@@ -1308,6 +1332,19 @@ function upgrade_walter() {
         if(config.mode === 1) {
             achievement16()
         }
+    }
+}
+
+function upgrade_lola() {
+    if(config.upgrade_lola_bought === false && config.count >= 1_000_000_000) {
+        document.getElementById('upgrade_lola').style.setProperty('display', 'none')
+        config.upgrade_lola_bought = true
+        config.countraw -= 1_000_000_000
+        config.friendmultiplier *= 2
+        config.upgrades -= 1
+        config.totalupgrades += 1
+        config.eddieorbsspent += 1_000_000_000
+        document.documentElement.style.setProperty('--upgrades', config.upgrades)
     }
 }
 

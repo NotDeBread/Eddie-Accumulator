@@ -36,6 +36,11 @@
                             <span class="setting-text">Short Numbers</span>
                         </div>
                         <span class="setting-desc">Formats the counter and building prices so that they display Millions, Billions ect.</span>
+                        <div class="setting">
+                            <img src="images/icons/checkbox1.png" class="setting-checkbox" id="cb_4" onclick="setting4()">
+                            <span class="setting-text">Show CPC on Click</span>
+                        </div>
+                        <span class="setting-desc">Shows CPC everytime you click the Eddie Orb</span><i style="color: grey;"> (Improves Performance)</i>
                     </div>
                     <div class="settings-bottom">
                         <span class="mode-title">Mode</span>
@@ -84,9 +89,9 @@
                 <div class="update-header">
                     <div>
                         <span class="update-pretitle">WHATS NEW:</span><br>
-                        <span class="update-title">BETA v0.17</span>
+                        <span class="update-title">BETA v0.18</span>
                     </div>
-                    <span style="color: grey;">November 14th, 2022</span>
+                    <span style="color: grey;">November 25th, 2022</span>
                 </div>
 
                 <div class="update-body">
@@ -98,51 +103,36 @@
 
                     <br>
 
-                    <p style="font-weight: 700;">-New Upgrades</p>
-                    <p class="changelog-extention">● Ruby Fingers</p>
-                    <p class="changelog-extention-2">○ Costs 10 Million Eddie Orbs</p>
-                    <p class="changelog-extention-2">○ Doubles Cursor Speed</p>
-                    <p class="changelog-extention">● Obsidian Fingers</p>
-                    <p class="changelog-extention-2">○ Costs 50 Million Eddie Orbs</p>
-                    <p class="changelog-extention-2">○ Doubles EPC by how many cursors are owned</p>
-                    <p class="changelog-extention">● Hide Bones</p>
-                    <p class="changelog-extention-2">○ Costs 15 Million Eddie Orbs</p>
-                    <p class="changelog-extention-2">○ Triples Bone Speed</p>
-                    <p class="changelog-extention">● Stick</p>
-                    <p class="changelog-extention-2">○ Costs 500 Million Eddie Orbs</p>
-                    <p class="changelog-extention-2">○ Triples Bone Speed</p>
-                    <p class="changelog-extention">● Super Ultra Epic Frisbe PRO (PREMIUM EDITION)</p>
+                    <p>-New Upgrade</p>
+                    <p class="changelog-extention">● Lola</p>
                     <p class="changelog-extention-2">○ Costs 1 Billion Eddie Orbs</p>
-                    <p class="changelog-extention-2">○ Triples Frisbe Speed</p>
-                    <p class="changelog-extention">● Pizza</p>
-                    <p class="changelog-extention-2">○ Costs 25 Billion Eddie Orbs</p>
-                    <p class="changelog-extention-2">○ Triples Frisbe Speed</p><br>
-                    <p class="changelog-extention">● Bacon</p>
-                    <p class="changelog-extention-2">○ Costs 100 Billion Eddie Orbs</p>
-                    <p class="changelog-extention-2">○ Triples Frisbe Speed</p><br>
-                    <p style="font-weight: 700;">-New Upgrade Prices</p>
-                    <p class="changelog-extention">● Super Ultra Epic Frisbe PRO</p>
-                    <p class="changelog-extention-2">○ 10 Million --> 100 Million</p>
-                    <p class="changelog-extention">● Bark Bites</p>
-                    <p class="changelog-extention-2">○ 1.5 Million --> 5 Million</p>
-                    <p class="changelog-extention">● Frosted Treats</p>
-                    <p class="changelog-extention-2">○ 5 Million --> 25 Million</p>
-                    <p class="changelog-extention">● Nugget</p>
-                    <p class="changelog-extention-2">○ 25 Million --> 500 Million</p>
-                    <p class="changelog-extention">● Walter</p>
-                    <p class="changelog-extention-2">○ 25 Million --> 100 Million</p><br>
-                    <p style="font-weight: 700;">-2 New Achievements</p>
-                    <p style="font-weight: 700;">-2 New Secret Achievements</p>
+                    <p class="changelog-extention-2">○ Triples Friend Speed</p>
+                    <p>-New Spells</p>
+                    <p class="changelog-extention">● Time Skip</p>
+                    <p class="changelog-extention-2">○ Make 10 minutes worth of your EPS instantly</p>
+                    <p class="changelog-extention-2">○ Costs 30 Flasks</p>
+                    <!-- <p class="changelog-extention">● Blitz</p>
+                    <p class="changelog-extention-2">○ EPC equals one half of your current EPS for 10 seconds</p>
+                    <p class="changelog-extention-2">○ Costs 50 Flasks</p>
+                    <p class="changelog-extention-2">○ From UnlivingSkunk#9305 on Discord</p> -->
+                    <p>-Redone rank textures</p>
+                    <p>-New Mode</p>
+                    <p class="changelog-extention">● Lola</p>
+                    <p>-New Rank</p>
+                    <p class="changelog-extention">● SS</p>
+                    <p>-New Statistic</p>
+                    <p class="changelog-extention">● Trains Clicked</p>
 
                     <div class="update-divider" style="margin-top: 25px;">
                         <span style="color: var(--update2);">BUGFIXES & IMPROVEMENTS</span>
                         <div style="background-color: var(--update2);"></div>
                     </div>
                     <br>
-                    <p>-Fixed item EpS not formatting once bought</p>
-                    <p>-Fixed Diamond Cursors not displaying info in the stats page</p>
-                    <p>-More organized Developer Tools panel</p>
-                    <p>-More organized changelogs</p>
+
+                    <p>-Fixed Eddie Bop</p>
+                    <p>-Spells now appear greyscale if they cannot be bought</p>
+                    <p>-CPC is now shown every time you click the orb</p>
+
                     <br><br>
                 </div>
 
@@ -165,7 +155,7 @@
             <div class="topper-divider">|</div>
 
             <a onclick="save()" style="float: right;" href="changelog.html">Changelog</a>
-            <p class="version" style="float: right; padding-right: 10px;">BETA v0.17</p>
+            <p class="version" style="float: right; padding-right: 10px;">BETA v0.18</p>
             <a style="float: right; margin-right: 10px;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
         </div>
 
@@ -190,8 +180,8 @@
             </div>
 
             <div class="noti">
-                <span class="noti-title">BETA v0.16 Released!</span><br>
-                <span class="noti-desc">BETA v0.16 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+                <span class="noti-title">BETA v0.17 Released!</span><br>
+                <span class="noti-desc">BETA v0.17 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
             </div>
 
             <div class="noti">
@@ -307,7 +297,7 @@
         <!--Stats-->
 
         <div class="stats">
-            <a href="stats.html">
+            <a href="stats.html" onclick="save()">
                 <img src="images/icons/stats.png" class="stats-img" onmouseenter="labelenter(); labelstats()"
                     onmouseleave="labelleave()" onclick="save()">
             </a>
@@ -319,7 +309,7 @@
             <div class="devtools-header">
                 <img src="images/icons/tool.png" id="devtools_img" class="devtools-img" onclick="devtools()"
                     onmouseenter="labelenter(); labeldevtools()" onmouseleave="labelleave()">
-                <p class="devtools-text" id="devtools_header">DevTools</p>
+                <p class="devtools-text" id="devtools_header">Developer Tools</p>
             </div>
             <div id="devtools_content" class="devtools-container">
                 <div>
@@ -435,7 +425,7 @@
                     <span title="Eddies Per Click">EPC:</span> <span id="cpc">!</span>
                     <span id="warning" style="color: red;"></span>
                 </div>
-                <img src="images/EddieSphere.gif" class="eddie" id="eddie" onclick="eddieclick()">
+                <img src="images/EddieSphere.gif" class="eddie" id="eddie" onclick="eddieclick()" onmouseenter="eddieenter()" onmouseleave="eddieleave()">
             </section>
 
             <section class="right">
@@ -451,8 +441,6 @@
                     </div>
                     <div class="upgrades" id="upgrades">
                         <div class="no-upgrades" id="no_upgrades"><i>No available upgrades! Keep playing to find more.</i></div>
-
-                        <!--19 Total-->
 
                         <img class="upgrade" src="images/upgrades/silvercursors.png" id="upgrade_silvercursors"
                             onmouseenter="upgrade_silvercursors_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
@@ -585,6 +573,10 @@
                             onmouseenter="upgrade_walter_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_walter()" hidden>
 
+                        <img class="upgrade" src="images/upgrades/lola.png" id="upgrade_lola"
+                            onmouseenter="upgrade_lola_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_lola()" hidden>
+
                         <img class="upgrade" src="images/upgrades/goldeneddies.png" id="upgrade_goldeneddies"
                             onmouseenter="upgrade_goldeneddies_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_goldeneddies()" hidden>
@@ -619,6 +611,13 @@
                         <div class="spell-container">
                             <img src="images/spells/goldenspell.png" class="spell" onmouseenter="spell_enter(); spell_golden_hover()"
                                 onmouseleave="spell_leave()" onclick="spell_golden()" id="spell_golden">
+
+                            <img src="images/spells/timeskip.png" class="spell" onmouseenter="spell_enter(); spell_timeskip_hover()"
+                                onmouseleave="spell_leave()" onclick="spell_timeskip()" id="spell_timeskip">
+
+                            <!-- <img src="images/spells/blitz.png" class="spell" onmouseenter="spell_enter(); spell_blitz_hover()"
+                                onmouseleave="spell_leave()" onclick="spell_blitz()" id="spell_blitz"> -->
+
                             <a href="https://forms.gle/d8mkVjVY1X8HjjcB7" target="_blank" style="height: 50px;"> <img src="images/spells/add.png" class="spell"
                                     onmouseenter="spell_enter(); spell_add_hover()" onmouseleave="spell_leave()"></a>
                         </div>
@@ -734,6 +733,18 @@
         <div class="rank-progress" id="rank_progress"></div>
 
     </section>
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDN957ERFR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PDN957ERFR');
+    </script>
+
 
     <script src="node_modules/numeral/numeral.js"></script>
     <script src="save.js"></script>

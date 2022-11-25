@@ -41,7 +41,7 @@ function goldeneddie_randomize() {
 }
 
 function goldeneddierandom() {
-    if(config.goldeneddie_random === 7) {
+    if(config.goldeneddie_random === 7 && config.blitzactive === false) {
         console.log('Golden Eddie Spawned!')
         config.goldeneddiesspawned += 1
         goldeneddie()

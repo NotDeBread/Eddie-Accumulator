@@ -281,6 +281,9 @@ function buyfriend() {
         if(config.friendtotal === 10) {
             config.upgrades += 1
         }
+        if(config.friendtotal === 25) {
+            config.upgrades += 1
+        }
     }
 }
 
