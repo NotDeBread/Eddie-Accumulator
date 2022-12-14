@@ -323,7 +323,7 @@ function devtools() {
         if(!devtoolsopen) {
             document.getElementById('devtools_img').src = "images/icons/back.png"
             document.getElementById('devtools').style.setProperty('width', '200px')
-            document.getElementById('devtools').style.setProperty('height', '400px')
+            document.getElementById('devtools').style.setProperty('height', '450px')
             document.getElementById('devtools').style.setProperty('background-color', 'var(--darkerbg)')
             document.getElementById('devtools_content').style.setProperty('opacity', '1')
             document.getElementById('devtools_header').style.setProperty('color', 'rgba(255, 255, 255, 255)')
@@ -456,5 +456,5 @@ function noti_open() {
 }
 
 function noti_close() {
-    document.getElementById('notis').style.setProperty('right', '-25%')
+    document.getElementById('notis').style.setProperty('right', '-25vw')
 }

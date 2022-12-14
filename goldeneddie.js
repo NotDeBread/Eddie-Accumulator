@@ -41,7 +41,7 @@ function goldeneddie_randomize() {
 }
 
 function goldeneddierandom() {
-    if(config.goldeneddie_random === 7 && config.blitzactive === false) {
+    if(config.goldeneddie_random === 7) {
         console.log('Golden Eddie Spawned!')
         config.goldeneddiesspawned += 1
         goldeneddie()
@@ -49,17 +49,35 @@ function goldeneddierandom() {
 }
 
 function goldeneddie() {
-    document.getElementById('goldeneddie').style.setProperty('left', `calc(100% * ${Math.random()}`)
-    document.getElementById('goldeneddie').style.setProperty('top', `calc(100% * ${Math.random()}`)
-    document.getElementById('goldeneddie').style.setProperty('transform', 'scale(100%)')
-    if(config.spells_unlocked)
-    goldeneddie_type = Math.round(Math.random() * 3)
+    var ge = document.createElement('img');
+    ge.setAttribute('class','goldeneddie');
+    ge.setAttribute('src','images/goldeneddie.png');
+
+    document.getElementById('goldeneddiecontainer').appendChild(ge),
+
+    ge.style.setProperty('left', `calc(100% * ${Math.random()}`)
+    ge.style.setProperty('top', `calc(100% * ${Math.random()}`)
+    
+    ge.onclick = function () {
+        document.getElementById('goldeneddiecontainer').removeChild(ge)
+        if(config.spells_unlocked === true) {
+            goldeneddie_type = Math.round(Math.random() * 3)
+        } else {
+            goldeneddie_type = Math.round(Math.random() * 2)
+        }
+
+        goldeneddie_click()
+    }
 
     setTimeout(() => {
-        document.getElementById('goldeneddie').style.setProperty('transform', 'scale(0%)')
+        ge.style.setProperty('transform','scale(100%)')
+    }, 1);
+
+    setTimeout(() => {
+        ge.style.setProperty('transform','scale(0%)')
 
         setTimeout(() => {
-            document.getElementById('goldeneddie').hidden = false
+            document.getElementById('goldeneddiecontainer').removeChild(ge)
         }, 2000);
     }, 5000);
 }
@@ -102,10 +120,10 @@ function goldeneddie_click() {
 
 
     } else if(goldeneddie_type === 2) {
-    document.getElementById('alert_text').innerHTML = 'EPC x3 for 30 seconds!'
+    document.getElementById('alert_text').innerHTML = 'EPC x4 for 30 seconds!'
     document.getElementById('alert_text').style.setProperty('width', '300px')
     document.getElementById('cpc').style.setProperty('color', 'yellow')
-    config.golden_cpcmultiplier *= 3
+    config.golden_cpcmultiplier *= 4
 
     document.getElementById('goldeneddie_counter').classList.remove('goldeneddie-counter-ani')
     document.getElementById('goldeneddie_counter').classList.add('goldeneddie-counter-ani')
@@ -115,7 +133,7 @@ function goldeneddie_click() {
     }, 30000);
     
     setTimeout(() => {
-        config.golden_cpcmultiplier /= 3
+        config.golden_cpcmultiplier /= 4
     }, 30000);
 
     } else if(goldeneddie_type === 3) {
@@ -143,5 +161,8 @@ function goldeneddie_click() {
     }
     if(config.goldeneddiesclicked === 11) {
         achievement19()
+    }
+    if(config.goldeneddiesclicked === 111) {
+        achievement21()
     }
 }

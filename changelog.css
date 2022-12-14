@@ -3,8 +3,12 @@
   --darkbg: rgb(24, 22, 36);
   --darkerbg: rgb(18, 17, 27);
   --darkestbg: rgb(11, 11, 17);
+  --blackTP: rgba(0, 0, 0, 50%);
+  --blackTP2: rgba(0, 0, 0, 75%);
   --update1: rgb(82, 255, 110);
   --update2: rgb(255, 192, 82);
+  --update3: rgb(82, 192, 255);
+  --bouncy: cubic-bezier(0, 2, 0.8, 1);
 }
 
 @font-face {
@@ -41,27 +45,49 @@ body {
 
 .backbutton {
   text-align: center;
-  position: absolute;
-  padding: 5px;
-  background-color: var(--darkerbg);
-  width: 50px;
-  left: 5px;
+  position: sticky;
+  background-color: var(--blackTP2);
+  width: 100px;
+  height: 30px;
+  left: 0;
   top: 5px;
   cursor: pointer;
   text-decoration: none;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  z-index: 5;
+  transition: width var(--bouncy) 0.25s, letter-spacing var(--bouncy) 0.25s;
+}
+
+.backbutton:after {
+  content: " ";
+  width: 0px;
+  height: 0px;
+  border-top: 30px solid var(--blackTP2);
+  border-left: 0px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  right: -10px;
+  top: 0px;
 }
 
 .backbutton:hover {
-  transform: scale(105%);
+  width: 125px;
+  letter-spacing: 3px;
 }
 
 .backbutton:active {
-  transform: scale(95%);
+  width: 140px;
+  letter-spacing: 0px;
 }
 
 .title-text {
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 20px;
   text-align: center;
   font-size: 3em;
   width: 550px;

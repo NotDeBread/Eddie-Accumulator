@@ -200,6 +200,10 @@ if(config.upgrade_xlbed_bought === true) {
     document.getElementById('upgrade_xlbed').hidden = false
 }
 
+if(config.upgrade_pillow_bought === true) {
+    document.getElementById('upgrade_pillow').hidden = false
+}
+
 if(config.upgrade_walter_bought === true) {
     document.getElementById('upgrade_walter').hidden = false
 }
@@ -222,6 +226,10 @@ if(config.upgrade_emptybottle_bought === true) {
 
 if(config.upgrade_biggerflasks_bought === true) {
     document.getElementById('upgrade_biggerflasks').hidden = false
+}
+
+if(config.upgrade_reinforcedflasks_bought === true) {
+    document.getElementById('upgrade_reinforcedflasks').hidden = false
 }
 
 
@@ -267,7 +275,7 @@ function rubycursors_hover() {
 
 function goldenfingers_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Golden Fingers'
-    document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles EPC by how many cursors are owned'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Changes EPC by how many cursors are owned'
 }
 
 function platinumfingers_hover() {
@@ -277,22 +285,22 @@ function platinumfingers_hover() {
 
 function diamondfingers_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Diamond Fingers'
-    document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles EPC by how many cursors are owned'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples EPC by how many cursors are owned'
 }
 
 function emeraldfingers_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Emerald Fingers'
-    document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles EPC by how many cursors are owned'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples EPC by how many cursors are owned'
 }
 
 function rubyfingers_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Ruby Fingers'
-    document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles EPC by how many cursors are owned'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples EPC by how many cursors are owned'
 }
 
 function obsidianfingers_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Obsidian Fingers'
-    document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles EPC by how many cursors are owned'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Quadruples EPC by how many cursors are owned'
 }
 
 function baconbones_hover() {
@@ -391,6 +399,11 @@ function xlbed_hover() {
     document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Bed Speed'
 }
 
+function pillow_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Pillow'
+    document.getElementById('upgrade_tt_desc').innerHTML = 'Triples Bed Speed'
+}
+
 function walter_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Walter'
     document.getElementById('upgrade_tt_desc').innerHTML = 'Doubles Friend Speed'
@@ -418,6 +431,11 @@ function emptybottle_hover() {
 
 function biggerflasks_hover() {
     document.getElementById('upgrade_tt_title').innerHTML = 'Bigger Flasks'
+    document.getElementById('upgrade_tt_desc').innerHTML = '+1 Flask every 30 seconds'
+}
+
+function reinforcedflasks_hover() {
+    document.getElementById('upgrade_tt_title').innerHTML = 'Reinforced Flasks'
     document.getElementById('upgrade_tt_desc').innerHTML = '+1 Flask every 30 seconds'
 }
 
@@ -651,4 +669,10 @@ if(config.ach20 === true) {
     document.getElementById('achievement20-title').innerHTML = 'fuck you'
     document.getElementById('achievement20-desc').innerHTML = 'Get DeBread to deliver 0 Eddie Orbs'
     document.getElementById('achievement20-title').style.setProperty('color','white')
+}
+
+if(config.ach21 === true) {
+    document.getElementById('achievement21-title').innerHTML = '[BIG SHOT]'
+    document.getElementById('achievement21-desc').innerHTML = 'Click 111 Golden Eddies'
+    document.getElementById('achievement21-title').style.setProperty('color','white')
 }

@@ -4,6 +4,7 @@ console.log('Loading Script...')
 const favicon = document.getElementById("favicon");
 
 var goldeneddie_random = 0
+var freeze = false
 
 config.goldeneddiemultiplier = 1
 config.golden_cpcmultiplier = 1
@@ -16,8 +17,16 @@ setInterval(update, 1)
 
 var pulse = function() {
     var e = document.createElement('span');
-    e.setAttribute('class','click'),
-    e.innerHTML = (config.cpc * config.cpcmultiplier) * config.golden_cpcmultiplier
+    e.setAttribute('class','click');
+    if((config.cpc * config.cpcmultiplier) * config.golden_cpcmultiplier >= 1000000 && config.shortnumbers === true) {
+        e.innerHTML = numeral((config.cpc * config.cpcmultiplier) * config.golden_cpcmultiplier).format('0.000a')
+    } else {
+        e.innerHTML = numeral((config.cpc * config.cpcmultiplier) * config.golden_cpcmultiplier).format('0,00')
+    }
+    if(config.golden_cpcmultiplier > 1) {
+        e.style.setProperty('transform','scale(150%) translateX(-30%) translateY(-50%)')
+        e.style.setProperty('color','yellow')
+    }
     document.body.appendChild(e),
     e.style.top = event.pageY + 'px',
     e.style.left = event.pageX + 'px',
@@ -94,81 +103,84 @@ function eddieclick() {
 }
 
 function clickspersecond() {
-    config.countraw += (config.cursorcps * config.cursormultiplier ) / 40 * config.goldeneddiemultiplier
-    config.countraw += (config.bonecps * config.bonemultiplier) / 40 * config.goldeneddiemultiplier
-    config.countraw += (config.frisbecps * config.frisbemultiplier) / 40 * config.goldeneddiemultiplier
-    config.countraw += (config.treatcps * config.treatmultiplier) / 40 * config.goldeneddiemultiplier
-    config.countraw += (config.bedcps * config.bedmultiplier) / 40 * config.goldeneddiemultiplier
-    config.countraw += (config.friendcps * config.friendmultiplier) / 40 * config.goldeneddiemultiplier
-    config.totaleddieorbsraw += (config.cursorcps * config.cursormultiplier ) / 40 * config.goldeneddiemultiplier
-    config.totaleddieorbsraw += (config.bonecps * config.bonemultiplier) / 40 * config.goldeneddiemultiplier
-    config.totaleddieorbsraw += (config.frisbecps * config.frisbemultiplier) / 40 * config.goldeneddiemultiplier
-    config.totaleddieorbsraw += (config.treatcps * config.treatmultiplier) / 40 * config.goldeneddiemultiplier
-    config.totaleddieorbsraw += (config.bedcps * config.bedmultiplier) / 40 * config.goldeneddiemultiplier
-    config.totaleddieorbsraw += (config.friendcps * config.friendmultiplier) / 40 * config.goldeneddiemultiplier
-    config.count = config.countraw
 
-    counterformat()
-    counterupdate()
-
-    if (config.countraw >= config.cursorprice) {
-        document.getElementById('cursorimg').style.setProperty('filter', 'brightness(100%)')
-        document.getElementById('cursorprice').style.setProperty('color', 'lime')
-    } else {
-        document.getElementById('cursorimg').style.setProperty('filter', 'brightness(75%)')
-        document.getElementById('cursorprice').style.setProperty('color', 'red')
-    }
-
-    if (config.count >= config.boneprice) {
-        document.getElementById('boneimg').style.setProperty('filter', 'brightness(100%)')
-        document.getElementById('boneprice').style.setProperty('color', 'lime')
-    } else {
-        document.getElementById('boneimg').style.setProperty('filter', 'brightness(75%)')
-        document.getElementById('boneprice').style.setProperty('color', 'red')
-    }
-
+    if(freeze === false) {
+        config.countraw += (config.cursorcps * config.cursormultiplier ) / 40 * config.goldeneddiemultiplier
+        config.countraw += (config.bonecps * config.bonemultiplier) / 40 * config.goldeneddiemultiplier
+        config.countraw += (config.frisbecps * config.frisbemultiplier) / 40 * config.goldeneddiemultiplier
+        config.countraw += (config.treatcps * config.treatmultiplier) / 40 * config.goldeneddiemultiplier
+        config.countraw += (config.bedcps * config.bedmultiplier) / 40 * config.goldeneddiemultiplier
+        config.countraw += (config.friendcps * config.friendmultiplier) / 40 * config.goldeneddiemultiplier
+        config.totaleddieorbsraw += (config.cursorcps * config.cursormultiplier ) / 40 * config.goldeneddiemultiplier
+        config.totaleddieorbsraw += (config.bonecps * config.bonemultiplier) / 40 * config.goldeneddiemultiplier
+        config.totaleddieorbsraw += (config.frisbecps * config.frisbemultiplier) / 40 * config.goldeneddiemultiplier
+        config.totaleddieorbsraw += (config.treatcps * config.treatmultiplier) / 40 * config.goldeneddiemultiplier
+        config.totaleddieorbsraw += (config.bedcps * config.bedmultiplier) / 40 * config.goldeneddiemultiplier
+        config.totaleddieorbsraw += (config.friendcps * config.friendmultiplier) / 40 * config.goldeneddiemultiplier
+        config.count = config.countraw
+    
+        counterformat()
+        counterupdate()
+    
+        if (config.countraw >= config.cursorprice) {
+            document.getElementById('cursorimg').style.setProperty('filter', 'brightness(100%)')
+            document.getElementById('cursorprice').style.setProperty('color', 'lime')
+        } else {
+            document.getElementById('cursorimg').style.setProperty('filter', 'brightness(75%)')
+            document.getElementById('cursorprice').style.setProperty('color', 'red')
+        }
+    
         if (config.count >= config.boneprice) {
-        document.getElementById('boneimg').style.setProperty('filter', 'brightness(100%)')
-        document.getElementById('boneprice').style.setProperty('color', 'lime')
-    } else {
-        document.getElementById('boneimg').style.setProperty('filter', 'brightness(75%)')
-        document.getElementById('boneprice').style.setProperty('color', 'red')
-    }
-
-    if (config.count >= config.frisbeprice) {
-        document.getElementById('frisbeimg').style.setProperty('filter', 'brightness(100%)')
-        document.getElementById('frisbeprice').style.setProperty('color', 'lime')
-    } else {
-        document.getElementById('frisbeimg').style.setProperty('filter', 'brightness(75%)')
-        document.getElementById('frisbeprice').style.setProperty('color', 'red')
-    }
-
-    if (config.count >= config.treatprice) {
-        document.getElementById('treatimg').style.setProperty('filter', 'brightness(100%)')
-        document.getElementById('treatprice').style.setProperty('color', 'lime')
-    } else {
-        document.getElementById('treatimg').style.setProperty('filter', 'brightness(75%)')
-        document.getElementById('treatprice').style.setProperty('color', 'red')
-    }
-
-    if (config.count >= config.bedprice) {
-        document.getElementById('bedimg').style.setProperty('filter', 'brightness(100%)')
-        document.getElementById('bedprice').style.setProperty('color', 'lime')
-    } else {
-        document.getElementById('bedimg').style.setProperty('filter', 'brightness(75%)')
-        document.getElementById('bedprice').style.setProperty('color', 'red')
-    }
-
-    if (config.count >= config.friendprice) {
-        document.getElementById('friendimg').style.setProperty('filter', 'brightness(100%)')
-        document.getElementById('friendprice').style.setProperty('color', 'lime')
-    } else {
-        document.getElementById('friendimg').style.setProperty('filter', 'brightness(75%)')
-        document.getElementById('friendprice').style.setProperty('color', 'red')
-    }
-
-    if(config.countraw < 0) {
-        config.countraw = 0
+            document.getElementById('boneimg').style.setProperty('filter', 'brightness(100%)')
+            document.getElementById('boneprice').style.setProperty('color', 'lime')
+        } else {
+            document.getElementById('boneimg').style.setProperty('filter', 'brightness(75%)')
+            document.getElementById('boneprice').style.setProperty('color', 'red')
+        }
+    
+            if (config.count >= config.boneprice) {
+            document.getElementById('boneimg').style.setProperty('filter', 'brightness(100%)')
+            document.getElementById('boneprice').style.setProperty('color', 'lime')
+        } else {
+            document.getElementById('boneimg').style.setProperty('filter', 'brightness(75%)')
+            document.getElementById('boneprice').style.setProperty('color', 'red')
+        }
+    
+        if (config.count >= config.frisbeprice) {
+            document.getElementById('frisbeimg').style.setProperty('filter', 'brightness(100%)')
+            document.getElementById('frisbeprice').style.setProperty('color', 'lime')
+        } else {
+            document.getElementById('frisbeimg').style.setProperty('filter', 'brightness(75%)')
+            document.getElementById('frisbeprice').style.setProperty('color', 'red')
+        }
+    
+        if (config.count >= config.treatprice) {
+            document.getElementById('treatimg').style.setProperty('filter', 'brightness(100%)')
+            document.getElementById('treatprice').style.setProperty('color', 'lime')
+        } else {
+            document.getElementById('treatimg').style.setProperty('filter', 'brightness(75%)')
+            document.getElementById('treatprice').style.setProperty('color', 'red')
+        }
+    
+        if (config.count >= config.bedprice) {
+            document.getElementById('bedimg').style.setProperty('filter', 'brightness(100%)')
+            document.getElementById('bedprice').style.setProperty('color', 'lime')
+        } else {
+            document.getElementById('bedimg').style.setProperty('filter', 'brightness(75%)')
+            document.getElementById('bedprice').style.setProperty('color', 'red')
+        }
+    
+        if (config.count >= config.friendprice) {
+            document.getElementById('friendimg').style.setProperty('filter', 'brightness(100%)')
+            document.getElementById('friendprice').style.setProperty('color', 'lime')
+        } else {
+            document.getElementById('friendimg').style.setProperty('filter', 'brightness(75%)')
+            document.getElementById('friendprice').style.setProperty('color', 'red')
+        }
+    
+        if(config.countraw < 0) {
+            config.countraw = 0
+        }
     }
 }
 
@@ -195,7 +207,7 @@ function update() {
         document.getElementById('no_upgrades').hidden = false
     }
 
-    if(config.totalupgrades === 36) {
+    if(config.totalupgrades === 39) {
         document.getElementById('no_upgrades').innerHTML = "All upgrades found!"
     }
 
@@ -228,9 +240,14 @@ function update() {
         config.emptybottle_check = !config.emptybottle_check
     }
 
-    if(config.totaleddieorbs >= 1000000 && config.biggerflasks_check === false) {
+    if(config.totaleddieorbs >= 1000000 && config.biggerflasks_check === false && config.upgrade_emptybottle_bought === true) {
         config.upgrades += 1
         config.biggerflasks_check = !config.biggerflasks_check
+    }
+
+    if(config.totaleddieorbs >= 1000000 && config.reinforcedflasks_check === false && config.upgrade_biggerflasks_bought === true) {
+        config.upgrades += 1
+        config.reinforcedflasks_check = !config.reinforcedflasks_check
     }
 
     if(config.goldeneddiemultiplier === 1) {
@@ -284,6 +301,14 @@ function update() {
 
     if(config.spells_unlocked === true) {
         document.getElementById('spells').hidden = false
+    }
+
+    if(config.count >= 1000000000) {
+        document.getElementById('sphereglow').style.setProperty('opacity','1')
+    } else if(config.count >= 1000000) {
+        document.getElementById('sphereglow').style.setProperty('opacity','0.75')
+    } else {
+        document.getElementById('sphereglow').style.setProperty('opacity','0')
     }
 
     document.getElementById('spell_bar_overlay').style.setProperty('width', (config.flasks / config.flasks_max) * 100 + '%')

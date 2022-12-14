@@ -242,6 +242,18 @@ function achievement20() {
     }, 5000);
 }
 
+function achievement21() {
+    document.getElementById('ach_title').innerHTML = '[BIG SHOT]'
+    document.getElementById('ach_desc').innerHTML = 'Click 111 Golden Eddies'
+    document.getElementById('achievement').style.setProperty('left', '10px')
+    config.totalachievements += 1
+    config.ach21 = true
+
+    setTimeout(() => {
+        document.getElementById('achievement').style.setProperty('left', '-350px')  
+    }, 5000);
+}
+
 function achievementclose() {
     document.getElementById('achievement').style.setProperty('left', '-350px')
 }

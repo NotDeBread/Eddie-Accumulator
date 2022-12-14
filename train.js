@@ -37,12 +37,12 @@ function trainclick() {
     } else {
         document.getElementById('alert_text').innerHTML = 'DeBread Delivered ' + numeral(Math.round((config.countraw * 7 ) - config.countraw)).format('0,00') + ' Eddie Orbs!'
     }
-    if((config.countraw *= 7) === 0) {
+    if((config.countraw * 7) === 0) {
         achievement20()
     }
     
-    config.totaleddieorbsraw += ((config.countraw * 7 ) - config.countraw)
     config.countraw *= 7
+    config.totaleddieorbsraw += ((config.countraw * 7 ) - config.countraw)
 
     config.trainsclicked += 1
     

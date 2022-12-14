@@ -250,6 +250,9 @@ function buybed() {
         if(config.bedtotal === 10) {
             config.upgrades += 1
         }
+        if(config.bedtotal === 25) {
+            config.upgrades += 1
+        }
     }
 }
 

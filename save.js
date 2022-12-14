@@ -96,6 +96,7 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     upgrade_bacon_bought: false,
     
     upgrade_xlbed_bought: false,
+    upgrade_pillow_bought: false,
 
     upgrade_walter_bought: false,
     upgrade_lola_bought: false,
@@ -105,11 +106,13 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     
     upgrade_emptybottle_bought: false,
     upgrade_biggerflasks_bought: false,
+    upgrade_reinforcedflasks_bought: false,
     
     
     goldeneddies_check: false,
     emptybottle_check: false,
     biggerflasks_check: false,
+    reinforcedflasks_check: false,
     
     goldeneddiemultiplier: 1,
     golden_cpcmultiplier: 1,
@@ -146,6 +149,7 @@ const config = JSON.parse(localStorage.getItem('save')) ?? {
     ach18: false,
     ach19: false,
     ach20: false,
+    ach21: false,
 
     ach4_check: false,
     ach5_check: false,

@@ -20,7 +20,8 @@ function dev_golden() {
     document.getElementById('goldeneddie_chance').innerHTML = goldeneddie_random
     document.getElementById('goldeneddie_chance').style.setProperty('color', 'lime')
     goldeneddie_type = Math.round(Math.random() * 3)
-    goldeneddie_click()
+    config.goldeneddiesspawned ++
+    goldeneddie()
 }
 
 function dev_x10cpc() {

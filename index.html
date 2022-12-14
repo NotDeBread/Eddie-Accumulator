@@ -12,6 +12,8 @@
 
 <body>
 
+    <!--SETTINGS-->
+
     <section class="settings-container-container" id="settings">
         <div class="settings-container" id="settings_container">
             <div id="settings_content" class="settings-content">
@@ -40,7 +42,8 @@
                             <img src="images/icons/checkbox1.png" class="setting-checkbox" id="cb_4" onclick="setting4()">
                             <span class="setting-text">Show CPC on Click</span>
                         </div>
-                        <span class="setting-desc">Shows CPC everytime you click the Eddie Orb</span><i style="color: grey;"> (Improves Performance)</i>
+                        <span class="setting-desc">Shows CPC everytime you click the Eddie Orb</span><i style="color: grey;"> (Turning off may improve
+                            performance)</i>
                     </div>
                     <div class="settings-bottom">
                         <span class="mode-title">Mode</span>
@@ -63,9 +66,11 @@
         </div>
     </section>
 
-
+    <!--GAME-->
 
     <section class="game" id="game">
+
+        <!--LOADING SCREEN-->
 
         <div class="loader-wrapper" id="loader">
             <img src="images/loading.webp" class="loader" id="loader_img" onclick="achievement13()"></img>
@@ -82,16 +87,16 @@
             </div>
         </div>
 
-
+        <!--UPDATE NOTIFICATION-->
 
         <div class="update-container" id="updatecontainer" hidden>
             <section class="update" id="updatenew" hidden>
                 <div class="update-header">
                     <div>
                         <span class="update-pretitle">WHATS NEW:</span><br>
-                        <span class="update-title">BETA v0.18</span>
+                        <span class="update-title">BETA v0.19</span>
                     </div>
-                    <span style="color: grey;">November 25th, 2022</span>
+                    <span style="color: grey;">December 13th, 2022</span>
                 </div>
 
                 <div class="update-body">
@@ -100,38 +105,55 @@
                         <span style="color: var(--update1);">ADDITIONS</span>
                         <div style="background-color: var(--update1);"></div>
                     </div>
-
                     <br>
 
-                    <p>-New Upgrade</p>
-                    <p class="changelog-extention">● Lola</p>
-                    <p class="changelog-extention-2">○ Costs 1 Billion Eddie Orbs</p>
+                    <p>-New Upgrades</p>
+                    <p class="changelog-extention">● Pillow</p>
+                    <p class="changelog-extention-2">○ Costs 50 Million Eddie Orbs</p>
                     <p class="changelog-extention-2">○ Triples Friend Speed</p>
-                    <p>-New Spells</p>
-                    <p class="changelog-extention">● Time Skip</p>
-                    <p class="changelog-extention-2">○ Make 10 minutes worth of your EPS instantly</p>
-                    <p class="changelog-extention-2">○ Costs 30 Flasks</p>
-                    <!-- <p class="changelog-extention">● Blitz</p>
-                    <p class="changelog-extention-2">○ EPC equals one half of your current EPS for 10 seconds</p>
-                    <p class="changelog-extention-2">○ Costs 50 Flasks</p>
-                    <p class="changelog-extention-2">○ From UnlivingSkunk#9305 on Discord</p> -->
-                    <p>-Redone rank textures</p>
-                    <p>-New Mode</p>
-                    <p class="changelog-extention">● Lola</p>
-                    <p>-New Rank</p>
-                    <p class="changelog-extention">● SS</p>
-                    <p>-New Statistic</p>
-                    <p class="changelog-extention">● Trains Clicked</p>
+                    <p class="changelog-extention">● Reinforced Flasks</p>
+                    <p class="changelog-extention-2">○ Costs 50 Million Eddie Orbs</p>
+                    <p class="changelog-extention-2">○ +1 Flask every 30 seconds</p><br>
+                    <p>-Buffed Upgrades</p>
+                    <p class="changelog-extention">● Diamond Fingers</p>
+                    <p class="changelog-extention-2">○ Doubles EPC by how many cursors are owned --> Triples EPC by how many cursors are owned</p>
+                    <p class="changelog-extention">● Emerald Fingers</p>
+                    <p class="changelog-extention-2">○ Doubles EPC by how many cursors are owned --> Triples EPC by how many cursors are owned</p>
+                    <p class="changelog-extention">● Ruby Fingers</p>
+                    <p class="changelog-extention-2">○ Doubles EPC by how many cursors are owned --> Triples EPC by how many cursors are owned</p>
+                    <p class="changelog-extention">● Obsidian Fingers</p>
+                    <p class="changelog-extention-2">○ Doubles EPC by how many cursors are owned --> Quadruples EPC by how many cursors are owned</p><br>
+                    <p>-Buffed Golden Eddie</p>
+                    <p class="changelog-extention">● EPC x3 for 30 Seconds --> EPC x4 for 30 Seconds</p><br>
+                    <p>-More formatted numbers</p>
+                    <p class="changelog-extention">● Unvigintillion</p>
+                    <p class="changelog-extention">● Duovigintillion</p>
+                    <p class="changelog-extention">● Trevigintillion</p>
+                    <p class="changelog-extention">● Quattuorvigintillion</p>
+                    <p class="changelog-extention">● Quinvigintillion</p>
+                    <p class="changelog-extention">● Sexvigintillion</p>
+                    <p class="changelog-extention">● Septenvigintillion</p>
+                    <p class="changelog-extention">● Octovigintillion</p>
+                    <p class="changelog-extention">● Novemvigintillion</p>
+                    <p class="changelog-extention">● Trigintillion</p>
 
                     <div class="update-divider" style="margin-top: 25px;">
                         <span style="color: var(--update2);">BUGFIXES & IMPROVEMENTS</span>
                         <div style="background-color: var(--update2);"></div>
-                    </div>
-                    <br>
+                    </div><br>
 
-                    <p>-Fixed Eddie Bop</p>
-                    <p>-Spells now appear greyscale if they cannot be bought</p>
-                    <p>-CPC is now shown every time you click the orb</p>
+                    <p>-Multiple Golden Eddies can be on the screen at once instead of just one</p>
+                    <p>-Fixed train giving you 49x Eddie Orbs instead of 7x</p>
+                    <p>-CPC on click is now shown yellow when a Golden Eddie effect is active</p>
+                    <p>-The Eddie Orb now glows when you are above 1 Million Eddie Orbs and even more at 1 Billion Eddie Orbs</p>
+                    <p>-Better back buttons on external pages</p>
+
+                    <div class="update-divider" style="margin-top: 25px;">
+                        <span style="color: var(--update3);">TECHNICAL STUFF</span>
+                        <div style="background-color: var(--update3);"></div>
+                    </div><br>
+
+                    <p>-Improved index.html's comments for better viewing</p>
 
                     <br><br>
                 </div>
@@ -144,7 +166,7 @@
             </section>
         </div>
 
-
+        <!--TOPPER-->
 
         <div class="topper">
             <p style="display: inline;" id="topper_title">Eddie Accumulator</p>
@@ -155,28 +177,36 @@
             <div class="topper-divider">|</div>
 
             <a onclick="save()" style="float: right;" href="changelog.html">Changelog</a>
-            <p class="version" style="float: right; padding-right: 10px;">BETA v0.18</p>
+            <p class="version" style="float: right; padding-right: 10px;">BETA v0.19</p>
             <a style="float: right; margin-right: 10px;" href="https://forms.gle/2KgT8xn1K7fqpXfj6" target="_blank">Request a feature</a>
         </div>
 
         <div class="goldeneddie-counter" id="goldeneddie_counter"></div>
 
         <div class="goldeneddie-container-container">
-            <div class="goldeneddie-container">
+            <div class="goldeneddie-container" id="goldeneddiecontainer">
                 <img class="goldeneddie" id="goldeneddie" src="images/goldeneddie.png" onclick="goldeneddie_click()">
             </div>
         </div>
 
-        <!----------LEFT BUTTONS---------->
-
-        <!--Not Left Buttons-->
-
         <img src="images/icons/bell.png" class="noti-icon" onclick="noti_open()">
+
+        <!--ANNOUNCEMENTS-->
 
         <section class="notis" id="notis">
             <div class="notis-header">
                 <img src="images/icons/collapse.png" class="notis-img" onclick="noti_close()">
                 <p class="notis-title">Announcements</p>
+            </div>
+
+            <div class="noti">
+                <span class="noti-title">BETA v0.19 Released!</span><br>
+                <span class="noti-desc">BETA v0.19 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
+            </div>
+
+            <div class="noti">
+                <span class="noti-title">BETA v0.18 Released!</span><br>
+                <span class="noti-desc">BETA v0.18 has been realeased! Learn more <a href="changelog.html" style="color: cornflowerblue;">Here.</a></span>
             </div>
 
             <div class="noti">
@@ -263,13 +293,13 @@
             </div>
         </section>
 
-        <!--Settings-->
+        <!--SETTINGS ICON-->
 
         <img src="images/icons/settings.png" class="settings-img" id="settings_img" onclick="settingsopen()"
             onmouseenter="labelenter(); labelsettings()" onmouseleave="labelleave()">
         <div class="label-left" id="label_left"></div>
 
-        <!--Credits-->
+        <!--CREDITS MENU-->
 
 
         <div class="credits" id="credits">
@@ -294,7 +324,7 @@
             </div>
         </div>
 
-        <!--Stats-->
+        <!--STATS MENU-->
 
         <div class="stats">
             <a href="stats.html" onclick="save()">
@@ -303,7 +333,7 @@
             </a>
         </div>
 
-        <!--Devtools-->
+        <!--DEVELOPER TOOLS PANEL-->
 
         <div class="devtools" id="devtools" hidden>
             <div class="devtools-header">
@@ -349,14 +379,12 @@
                     </div>
                     <div class="devtools-element-container">
                         <span style="font-weight: 600; padding: 5px; font-size: 1.25em;">Other</span>
-                        <section class="devtools-grid2">
-                            <div class="devbutton" onclick="dev_golden()">
-                                <p>Golden Eddie</p>
-                            </div>
-                            <div class="devbutton" onclick="train()">
-                                <p>Train</p>
-                            </div>
-                        </section>
+                        <div class="devbutton" onclick="dev_golden()">
+                            <p>Spawn Golden Eddie</p>
+                        </div>
+                        <div class="devbutton" onclick="train()" style="margin-top: 5px;">
+                            <p>Train</p>
+                        </div>
                     </div>
                     <div class="devtools-element-container">
                         <span style="font-weight: 600; padding: 5px; font-size: 1.25em;">Items</span>
@@ -395,7 +423,7 @@
             <p class="alert-text" id="alert_text">Saved!</p>
         </div>
 
-        <!--Achievements-->
+        <!--ACHIEVEMENTS-->
 
         <div class="achievement" id="achievement" onclick="achievementclose()">
             <div>
@@ -414,19 +442,30 @@
         </div>
 
 
-        <!-------------------------------------------------------------------------------->
+        <!----------------------MAIN GAME---------------------->
 
 
         <section class="all" onclick="bodyclick()">
+
+            <!--LEFT SIDE-->
+
             <section class="left">
                 <div class="counters">
-                    <span class="counter" id="count">Update Required. Please delete save.</span><br>
+                    <span class="counter" id="count">Fatal Error. Please report.</span><br>
                     <span title="Eddies Per Second">EPS:</span> <span id="cps" class="cps">!</span><br>
                     <span title="Eddies Per Click">EPC:</span> <span id="cpc">!</span>
                     <span id="warning" style="color: red;"></span>
                 </div>
-                <img src="images/EddieSphere.gif" class="eddie" id="eddie" onclick="eddieclick()" onmouseenter="eddieenter()" onmouseleave="eddieleave()">
+                <div class="sphere-container">
+                    <img src="images/EddieSphere.gif" class="eddie" id="eddie" onclick="eddieclick()" onmouseenter="eddieenter()"
+                        onmouseleave="eddieleave()">
+                    <img src="images/spheres/SphereGlow.png" class="sphereglow" id="sphereglow">
+                    <div>
+                    </div>
+                </div>
             </section>
+
+            <!--RIGHT SIDE-->
 
             <section class="right">
                 <div class="upgrades-all">
@@ -439,6 +478,9 @@
                         <span style="width: 100%; padding-left: 25px;">Upgrades<span id="upgrade_countall"> - </span><span id="upgrade_count">0</span></span>
                         <img src="images/icons/collapse.png" class="upgrades-header-img" id="upgrade_collapse_img">
                     </div>
+
+                    <!--UPGRADES-->
+
                     <div class="upgrades" id="upgrades">
                         <div class="no-upgrades" id="no_upgrades"><i>No available upgrades! Keep playing to find more.</i></div>
 
@@ -565,6 +607,10 @@
                             onmouseenter="upgrade_xlbed_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_xlbed()" hidden>
 
+                        <img class="upgrade" src="images/upgrades/pillow.png" id="upgrade_pillow"
+                            onmouseenter="upgrade_pillow_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_pillow()" hidden>
+
                         <img class="upgrade" src="images/upgrades/walter.png" id="upgrade_walter"
                             onmouseenter="upgrade_walter_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_walter()" hidden>
@@ -592,8 +638,14 @@
                         <img class="upgrade" src="images/upgrades/biggerflasks.png" id="upgrade_biggerflasks"
                             onmouseenter="upgrade_biggerflasks_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
                             onclick="upgrade_biggerflasks()" hidden>
+
+                        <img class="upgrade" src="images/upgrades/reinforcedflasks.png" id="upgrade_reinforcedflasks"
+                            onmouseenter="upgrade_reinforcedflasks_hover(); upgradetooltip_enter()" onmouseleave="upgradetooltip_leave()"
+                            onclick="upgrade_reinforcedflasks()" hidden>
                     </div>
                 </div>
+
+                <!--SPELLS-->
 
                 <div class="spells-all" id="spells" hidden>
                     <div class="spells-header" onclick="spells_collapse()">
@@ -631,6 +683,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!--ITEMS-->
 
                 <div class="items-all">
                     <div class="item-tooltip" id="item-tooltip">
@@ -707,7 +761,7 @@
                             </div>
                         </div>
 
-                        <!--Friend-->
+                        <!--FRIEND-->
 
                         <div class="item" onclick="buyfriend()" id="friendimg" onmouseenter="item_tt_enter(); friend_tt()" onmouseleave="item_tt_leave()">
                             <img src="images/buildings/friend.png" class="item-image">
@@ -723,10 +777,13 @@
                 </div>
             </section>
 
+            <!--TRAIN-->
 
             <img src="images/train.gif" class="train" id="train" onclick="trainclick()">
 
         </section>
+
+        <!--RANK + RANK BAR-->
 
         <img src="images/ranks/rank-none.png" id="rank" class="rank">
         <span class="rank-text" id="rank_text"><span id="rank_count"></span> Eddie Orbs Till Next Rank</span>
@@ -734,17 +791,7 @@
 
     </section>
 
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDN957ERFR"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-PDN957ERFR');
-    </script>
-
+    <!--SCRIPTS-->
 
     <script src="node_modules/numeral/numeral.js"></script>
     <script src="save.js"></script>
